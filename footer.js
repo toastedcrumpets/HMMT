@@ -8,7 +8,7 @@ else
 document.getElementsByTagName( 'head' )[0].appendChild( link );
 
 head.load("../reveal.js/js/reveal.js", function() {
-    Reveal.initialize({
+    var revealopts = {
 	//This width and height allows printing to pdf at A4 and is slightly widescreen to give the best all round size
 	width:1280,height:900,margin:0.1, minScale:0.2, maxScale:1.5,
 	slideNumber: 'c / t',
@@ -28,9 +28,7 @@ head.load("../reveal.js/js/reveal.js", function() {
 	    { src: '../reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
 	    // MathJax
 	    { src: '../reveal.js/plugin/math/math.js', async: false},
-	    { src: '../reveal.js-plugins/audio-slideshow/slideshow-recorder.js', condition: function( ) { return !!document.body.classList; } },
-	    { src: '../reveal.js-plugins/audio-slideshow/audio-slideshow.js', condition: function( ) { return !!document.body.classList; } },
-	    { src: '../reveal.js-plugins/chalkboard/chalkboard.js'},		 
+	    { src: '../reveal.js-plugins/chalkboard/chalkboard.js'},
 	    { src: '../reveal.js-plugins/menu/menu.js'},
 	],
 	keyboard: {
@@ -60,13 +58,25 @@ head.load("../reveal.js/js/reveal.js", function() {
 		{ name: 'Moon', theme: '../reveal.js/css/theme/moon.css' },
 		{ name: 'Solarized', theme: '../reveal.js/css/theme/solarized.css' } ],
 	    custom: [
-		//{ title: 'Plugins', icon: '<i class="fa fa-external-link"></i>', src: 'toc.html' },
+		{ title: 'Lectures', icon: '<i class="fa fa-external-link"></i>', src: 'toc.html' },
 	    ]
 	},
 	chalkboard: { // font-awesome.min.css must be available
-	    src: "chalkboard/chalkboard.json",
+	    //src: "chalkboard/chalkboard.json",
 	    toggleChalkboardButton: { left: "80px" },
 	    toggleNotesButton: { left: "130px" },
-	},	     
-    });
+	},
+    };
+
+    if (!(typeof(audiofiles) === 'undefined')) {
+	revealopts.dependencies = revealopts.dependencies.concat([
+            { src: '../reveal.js-plugins/audio-slideshow/slideshow-recorder.js', condition: function( ) { return !!document.body.classList; } },
+	    { src: '../reveal.js-plugins/audio-slideshow/audio-slideshow.js', condition: function( ) { return !!document.body.classList; } },
+	]);
+	revealopts.audio = {
+	    prefix: audiofiles,
+	};
+    }
+	
+    Reveal.initialize(revealopts);
 })

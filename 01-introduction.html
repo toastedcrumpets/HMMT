@@ -9,6 +9,9 @@
 	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
 	<script src="../reveal.js/lib/js/head.min.js" data-headjs-load="header.js"></script>
+	<script>
+	 var audiofiles = '01-introduction-audio/';
+	</script>
     </head>
     <body>
 	<div class="reveal">
@@ -152,21 +155,107 @@
 		</section>
 		<section>
 		    <section>
-			<h2>Introduction to transport phenomena</h2>
+			<h2>Introduction</h2>
 		    </section>
 		    <section>
 			<ul>
-			    <li> <b>Q:</b> So why <b>Heat</b>, <b> Mass</b>, and
-				<b> Momentum</b>?
-			    </li>
 			    <li>
-				<b> A:</b> They are the <b>conserved
-				    quantities</b> of a system.<br/>They
-				do not rapidly change or fluctuate, but
-				instead slowly <b>flow</b> or <b> diffuse</b> from
-				regions of high concentration to low
-				concentration.
+				Engineering is the translation of the
+				real world into mathematics.</li>
+			    <li>
+				This has to be done to gain certainty
+				about design, anything else is
+				guesswork.</li>
+			    <li class="fragment">
+				We do this informally all the time:
+				<ul>
+				    <li>
+					<b>Q:</b> How long will it take to drive to
+					Edinburgh which is 128 miles away?					
+				    </li>
+				    <li class="fragment"><b>A:</b> Assuming
+				    we drive at $60~\text{MPH}$, it
+				    will take
+				    $S/V=128/60\approx2~\text{h}$.</li>
+				</ul>
 			    </li>
+			    <li class="fragment">
+				The essence of good engineering is
+				choosing the right approximations,
+				making sure you overdesign and not
+				underdesign (i.e., don't choose
+				$70~\text{MPH}$).</li>
+			    <li class="fragment">
+				Design is never-ending, you can always
+				improve it (i.e., account for
+				traffic, weather, etc.)</li>
+			    <li class="fragment">
+				You will need experience to help you
+				decide what are acceptable
+				approximations.</li>
+			    <li class="fragment">
+				Many models/approximations are
+				differential, not algebraic like above, this course gives you experience in solving these types of systems.
+			    </li>
+			</ul>
+		    </section>
+		    <section>
+			<ul>
+			    <li><b>Q:</b> A skydiver has lept from a
+			    plane, what is their terminal velocity and
+			    how do they approach it?</li>
+			    <li class="fragment">
+				Assume from experience that drag
+				forces are of the form
+				$F^{drag}=k\,v^2$ where $k$ is a
+				drag coefficient.
+			    </li>
+			    <li class="fragment">
+				We already know from experience that Newton's law applies,
+				\begin{align*}
+				F = m\,a = m\frac{{\rm d} v}{{\rm d} t} = F^{gravity}+F^{drag}\\
+				\frac{1}{g+\frac{k}{m}\,v^2}\frac{{\rm d} v}{{\rm d} t} = 1\\
+				v = \sqrt{g\,m\,k^{-1}}\tanh\left(t\sqrt{g\,k\,m^{-1}}\right)=\sqrt{g\,m\,k^{-1}}\frac{1-e^{-2\,t\sqrt{g\,k\,m^{-1}}}}{1+e^{-2\,t\sqrt{g\,k\,m^{-1}}}}
+				\end{align*}
+			    </li>
+			    <li class="fragment">
+				Differential equations are required
+				here (and in most engineering
+				problems) and they will test your math
+				knowledge!</li>
+			    <li class="fragment">
+				In this course, the problems are
+				selected to test only a limited (but
+				non-trivial) range of mathematics. You
+				will need to practice the covered
+				maths, and future courses will expand
+				on this!</li>
+			</ul>
+		    </section>
+		    <section>
+			<ul>
+			    <li>
+				A large part of this course will be
+				setting up the differential equations
+				(i.e., where did Newton's law come
+				from?).</li>
+			    <li class="fragment">
+				There are too many systems out there
+				to cover this in general, so why <b>Heat</b>, <b> Mass</b>, and
+				<b> Momentum</b> in particular?</li>
+			    <ul>
+				<li>
+				    They have very similar properties,
+				    they all <b>flow</b> and <b>conduct</b>/<b>diffuse</b>.
+				</li>
+				<li>
+				    This is because they are the <b>conserved
+				    quantities</b> of a system.<br/>They
+				    do not rapidly change or fluctuate
+				    but move from regions of high
+				    concentration to low
+				    concentration.</li>
+			    </ul>
 			</ul>
 		    </section>
 		    <section>
