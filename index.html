@@ -17,6 +17,7 @@
 		    <section>
 			<div class="backbox">
 			    <h2>Heat, Mass, and Momentum Transfer</h2>
+			    <h3>Use the menu <a href="#" onclick="RevealMenu.toggle(); return false;"><i class="fa fa-bars"></i></a> and click on Lectures <i class="fa fa-external-link"></i></h3>
 			</div>
 			<p>
 			    Marcus N. Bannerman<br/>
@@ -27,14 +28,12 @@
 				Your browser does not support SVG
 			    </object>
 			</div>
-			<a class="hide-on-pdf" style="float:right;cursor:pointer;" onclick="document.location.search = insertParam('print-pdf');" style="cursor:pointer;" id="PrintButton">
-			    Printable format <span style="font-family:FontAwesome; font-style: normal;" class="fa fa-print"></span>
-			</a>
 		    </section>
 		</section>
-		<div data-include="01-introduction.html">
 	    </div>
-	</div>
-	<script src="footer.js"></script>
+	    <div class="slide-menu-button" style="left:170px;cursor:pointer;">
+		<a class="hide-on-pdf" onclick="document.location = '?print-pdf';" id="PrintButton"><i class="fa fa-print"></i></a>	    
+	    </div>
+	    <script src="footer.js"></script>
     </body>
 </html>

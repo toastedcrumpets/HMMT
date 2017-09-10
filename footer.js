@@ -7,6 +7,8 @@ else
     link.href = '../reveal.js/css/print/paper.css';
 document.getElementsByTagName( 'head' )[0].appendChild( link );
 
+
+
 head.load("../reveal.js/js/reveal.js", function() {
     var revealopts = {
 	//This width and height allows printing to pdf at A4 and is slightly widescreen to give the best all round size
@@ -79,4 +81,10 @@ head.load("../reveal.js/js/reveal.js", function() {
     }
 	
     Reveal.initialize(revealopts);
+
+
+    if (window.location.search.match( /print-pdf/gi ))
+	window.print();
 })
+
+
