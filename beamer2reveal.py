@@ -28,13 +28,15 @@ class Tex2Reveal(object):
         code = code.replace('``', u"\u201C")
         code = code.replace("''", u"\u201D")
 
-        #Fix my silly use of \bf
+        #Fix my use of \bf and \em, switches go hard on texsoup
         code = code.replace("{\\bf", "\\textbf{")
+        code = code.replace("{\\em", "\\textit{")
+        #Also the use of \bm which is not supported by mathjax
+        code = code.replace("\\bm{", "\\boldsymbol{")
         
         #Collapse whitespace
         code = re.sub(r'\n\s*\n', '\n\n', code, flags=re.M)
 
-        print("RAWCODE:\n", code)
         self.soup = TexSoup(code)
         
         #Parse any standalone commands
@@ -216,6 +218,13 @@ class Tex2Reveal(object):
         self.pop('b')
         return True
     
+    def _handle_textit(self, node, starred=False, fragment=False):
+        self.push('i')
+        for item in node.contents:
+            self._walk(item)
+        self.pop('i')
+        return True
+
     def _handle_section(self, node, starred=False, fragment=False):
         self.current_tag=self.current_section=self.soup.new_tag("section")
         self.current_section['data-menu-title'] = ''.join(node.contents)
@@ -242,23 +251,58 @@ class Tex2Reveal(object):
             self._walk(item)
         self.pop('div')
         return True
-        
+
+    def _handle_only(self, node, starred=False, fragment=False):
+        container = self.push('div')
+        if fragment:
+            container['class'] = "fragment"
+        for item in node.contents:
+            self._walk(item)
+        self.pop('div')
+        return True
+
+    def _handle_figure(self, node, starred=False, fragment=False):
+        container = self.push('figure')
+        if fragment:
+            container['class'] = "fragment"
+        for item in node.contents:
+            self._walk(item)
+        self.pop('figure')
+        return True
+
+    def _handle_caption(self, node, starred=False, fragment=False):
+        container = self.push('figcaption')
+        if fragment:
+            container['class'] = "fragment"
+        for item in node.contents:
+            self._walk(item)
+        self.pop('figcaption')
+        return True        
+
+    def _handle_ignore(self, node, starred=False, fragment=False):
+        return False
+
+    _handle_hfill = _handle_ignore
+    _handle_vfill = _handle_ignore
+    
     def _handle_includegraphics(self, node, starred=False, fragment=False):
         filename = str(list(node.args)[-1])[1:-1].replace("figures/", '')
 
-        #print("\n\n!!! Handling includegraphics!")
-        print(filename)
-        print(repr(list(node.args)))
-        print(repr(list(node.contents)))
-        print(self.tex_dir)
+        #print(repr(list(node.args)))
         path=os.path.join(self.tex_dir, 'figures/vector/'+filename+'.svg')
         if os.path.isfile(path):
-            #print("SVG found"+path)
+            tag = self.soup.new_tag('object')
+            tag['type'] = "image/svg+xml"
+            tag['data'] = str(path)
+            tag['width'] = "80%"
+            self.current_tag.append(tag)
             return True
         
         path=os.path.join(self.tex_dir, 'figures/bitmap/'+filename+'.jpg')
         if os.path.isfile(path):
-            #print("jpg found"+path)
+            tag = self.soup.new_tag('img')
+            tag['src'] = str(path)
+            self.current_tag.append(tag)
             return True
 
         print("Could not find file "+filename)
