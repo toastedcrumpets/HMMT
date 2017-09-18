@@ -66,7 +66,7 @@ class Tex2Reveal(object):
                 name = node.name
 
                 #Check for <1-> decorators and remove them
-                print('name',name)
+                #print('name',name)
                 fragment = False
                 fragment_search = re.search('<[0-9]+-?[0-9]*>', name)
                 if fragment_search != None:
