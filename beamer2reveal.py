@@ -28,7 +28,8 @@ class Tex2Reveal(object):
         code = code.replace('--', u"\u2013")
         code = code.replace('``', u"\u201C")
         code = code.replace("''", u"\u201D")
-
+        code = code.replace("\\ldots", u"\u2026")
+        
         #Fix my use of \bf and \em, switches go hard on texsoup
         code = code.replace("{\\bf", "\\textbf{")
         code = code.replace("{\\em", "\\textit{")
@@ -36,12 +37,14 @@ class Tex2Reveal(object):
         
         #Also the use of \bm which is not supported by mathjax
         code = code.replace("\\bm{", "\\boldsymbol{")
-
         code = code.replace("\\&", "\\ampersand")
 
+        #There's some common stuff that TexSoup has problems with
+        code = code.replace("\\right|}", "\\right| }")
+        code = code.replace("\\hfill(", "\\hfill (")
+        
         #Collapse whitespace
         code = re.sub(r'\n\s*\n', '\n\n', code, flags=re.M)
-
         self.soup = TexSoup(code)
         
         #Parse any standalone commands
@@ -63,6 +66,7 @@ class Tex2Reveal(object):
                 name = node.name
 
                 #Check for <1-> decorators and remove them
+                print('name',name)
                 fragment = False
                 fragment_search = re.search('<[0-9]+-?[0-9]*>', name)
                 if fragment_search != None:
@@ -233,6 +237,7 @@ class Tex2Reveal(object):
             'textit':['i',{}],
             'underline':['u',{}],
             'only':['div',{}],
+            'uncover':['div',{}],
             'center':['div',{}],
             'figure':['figure', {}],
             'caption':['figcaption', {}],
@@ -255,6 +260,7 @@ class Tex2Reveal(object):
     _handle_textit = _handle_wrapper
     _handle_underline = _handle_wrapper
     _handle_only = _handle_wrapper
+    _handle_uncover = _handle_wrapper
     _handle_figure = _handle_wrapper
     _handle_caption = _handle_wrapper
     _handle_center = _handle_wrapper
