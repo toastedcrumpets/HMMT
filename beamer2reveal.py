@@ -36,7 +36,9 @@ class Tex2Reveal(object):
         
         #Also the use of \bm which is not supported by mathjax
         code = code.replace("\\bm{", "\\boldsymbol{")
-        
+
+        code = code.replace("\\&", "\\ampersand")
+
         #Collapse whitespace
         code = re.sub(r'\n\s*\n', '\n\n', code, flags=re.M)
 
@@ -103,25 +105,7 @@ class Tex2Reveal(object):
     </head>
     <body>
 	<div class="reveal">
-	    <div class="slides">
-		<section>
-		    <section>
-			<div class="backbox">
-			    <h2>Heat, Mass, and Momentum Transfer</h2>
-			    <h3>Use the menu <a href="#" onclick="RevealMenu.toggle(); return false;"><i class="fa fa-bars"></i></a> and use the Lectures <i class="fa fa-external-link"></i> select menu.</h3>
-			</div>
-			<p>
-			    Marcus N. Bannerman<br/>
-			    <a href="mailto:m.campbellbannerman@abdn.ac.uk">m.campbellbannerman@abdn.ac.uk</a><br/>
-			</p>
-			<div style="width:10em;">
-			    <object type="image/svg+xml" data="img/UoALarge.svg" width="100%" height="100%">
-				Your browser does not support SVG
-			    </object>
-			</div>
-		    </section>
-		</section>
-	    </div>
+	    <div class="slides"></div>
 	    <div class="slide-menu-button" style="left:170px;cursor:pointer;">
 		<a class="hide-on-pdf" onclick="document.location = '?print-pdf';" id="PrintButton"><i class="fa fa-print"></i></a>	    
 	    </div>
@@ -137,6 +121,7 @@ class Tex2Reveal(object):
         self.current_section = None
         self._in_equation = False
         self.subsection_title = None
+        self.table_mode = False
 
     def push(self, tagname):
         tag = self.soup.new_tag(tagname)
@@ -144,12 +129,16 @@ class Tex2Reveal(object):
         self.current_tag=tag
         return tag
 
+    def find_parent(self, tagname):
+        tag = self.current_tag 
+        while tag.name != tagname:
+            tag = tag.parent
+        return tag
+
     def pop(self, tagname):
-        while self.current_tag.name != tagname:
-            self.current_tag = self.current_tag.parent
-        self.current_tag = self.current_tag.parent
+        self.current_tag = self.find_parent(tagname).parent
         return self.current_tag
-        
+    
     def _handle_frame(self, node, starred=False, fragment=False):
         if self.current_section == None:
             self.current_section = self.soup.new_tag("section")
@@ -169,7 +158,25 @@ class Tex2Reveal(object):
         if '$' in data:
             self._in_equation = not self._in_equation
 
-        self.current_tag.append(data)
+        if self.table_mode:
+            lines=data.split('\\\\')
+            for i,line in enumerate(lines):
+                if i:
+                    self.pop('tr')
+                    self.push('tr')
+                    self.push('td')
+                cells=line.split('&')
+                for j,line in enumerate(cells):
+                    if j:
+                        self.pop('td')
+                        self.push('td')
+                    self.current_tag.append(line.strip())
+        else:
+            lines=data.split('\\\\')
+            for i,line in enumerate(lines):
+                if i:
+                    self.current_tag.append(self.soup.new_tag("br"))
+                self.current_tag.append(line)
         
     def _handle_equation(self, node, starred=False, fragment=False):
         self.current_tag.append('\\begin{align'+('*' if starred else '')+'}\n')
@@ -312,9 +319,9 @@ class Tex2Reveal(object):
 
     _handle_hfill = _handle_ignore
     _handle_vfill = _handle_ignore
-    _handle_hline = _handle_ignore
     _handle_titlepage = _handle_ignore
     _handle_logoimage = _handle_ignore
+    _handle_tableofcontents = _handle_ignore
     
     def _handle_includegraphics(self, node, starred=False, fragment=False):
         filename = str(list(node.args)[-1])[1:-1].replace("figures/", '')
@@ -352,6 +359,42 @@ class Tex2Reveal(object):
         print("Could not find file "+filename)        
         return True
 
+    def _handle_tabular(self, node, starred=False, fragment=False):
+        table = self.push('table')
+        table['style'] = 'border-collapse:collapse;'
+        self.push('tr')
+        self.push('td')
+        self.table_mode = True
+        for item in node.contents:
+            self._walk(item)
+        self.table_mode = False
+        self.pop('table')
+        return True
+
+    def _handle_hline(self, node, starred=False, fragment=False):
+        tr = self.find_parent('tr')
+        
+        if tr.has_attr('style'):
+            tr['style'] = 'border-top:thick solid black;'
+        else:
+            tr['style'] = 'border-top:thin solid black;'
+        return False #Parse the remaining elements
+
+    def _handle_multicolumn(self, node, starred=False, fragment=False):
+        td = self.current_tag
+        if td.name != "td":
+            raise Exception("Unexpected multicolumn in "+td.name+" tag")
+        args = list(node.args)
+        td['colspan'] = str(args[0])[1:-1]
+        td['style'] = "text-align:center;"
+        if len(args)>2:
+            self._walk(str(args[2])[1:-1])
+        return True
+    
+    def _handle_ampersand(self, node, starred=False, fragment=False):
+        self.current_tag.append("&")
+        return False
+    
     def _handle_unknown(self, node, starred=False, fragment=False):
         print("No handler for ", node.name + ('*' if starred else ''))
         print(repr(list(node.contents)))
