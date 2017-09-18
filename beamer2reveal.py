@@ -289,7 +289,7 @@ class Tex2Reveal(object):
         
     def _handle_column(self, node, starred=False, fragment=False):
         container = self.push('div')
-        container['style'] = "flex: 0 0 100% * "+str(list(node.args)[0])[1:-1].replace("\\linewidth", "1").replace("\\textwidth", "1")+";"
+        container['style'] = "flex: 1 1 100% * "+str(list(node.args)[0])[1:-1].replace("\\linewidth", "1").replace("\\textwidth", "1")+";"
 
         for item in node.contents:
             self._walk(item)
@@ -322,17 +322,30 @@ class Tex2Reveal(object):
         #print(repr(list(node.args)))
         path=os.path.join(self.tex_dir, 'figures/vector/'+filename+'.svg')
         if os.path.isfile(path):
+            import xml.etree.ElementTree as ET
+            tree = ET.parse(path)
+            root = tree.getroot()
+            width=root.attrib['width']
+            height=root.attrib['height']
+            #del root.attrib['width']
+            #del root.attrib['height']
+            root.attrib['viewBox'] = '0 0 '+str(width)+' '+str(height)
+            root.attrib['preserveAspectRatio']="xMidYMid meet"
+            tree.write('img/'+filename+'.svg')
+            
             tag = self.soup.new_tag('object')
             tag['type'] = "image/svg+xml"
-            tag['data'] = str(path)
+            tag['data'] = 'img/'+filename+'.svg'
             tag['width'] = "80%"
             self.current_tag.append(tag)
             return True
         
         path=os.path.join(self.tex_dir, 'figures/bitmap/'+filename+'.jpg')
         if os.path.isfile(path):
+            import shutil
             tag = self.soup.new_tag('img')
-            tag['src'] = str(path)
+            shutil.copy(path, 'img/'+filename+'.jpg')
+            tag['src'] = 'img/'+filename+'.jpg'
             self.current_tag.append(tag)
             return True
 
