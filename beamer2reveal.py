@@ -1,13 +1,19 @@
 #!/usr/bin/python3
 
 import re
+import os
 from bs4 import BeautifulSoup
 from TexSoup import TexSoup, TexNode
 
 class Tex2Reveal(object):
-    def __init__(self, code):
+    def __init__(self, filepath):
         self.info = {}
         self._handle_document(None) #All variable initialisation is done on \begin{document}
+
+        with open(filepath, 'r') as f:
+            code = f.read()
+
+        self.tex_dir = os.path.dirname(filepath)
         
         #Remove comments
         code = re.sub('(?<!\\\\)%.*$', '', code, flags=re.M)
@@ -64,10 +70,52 @@ class Tex2Reveal(object):
                 self._handle_str(node)
 
     def _handle_document(self, node, starred=False, fragment=False):
+        template = """
+<!doctype html>
+<html lang="en">
+    <head>
+	<meta charset="utf-8">
+	<title>Heat, Mass, and Momentum Transfer</title>
+	<meta name="description" content="Heat Mass and Momentum Transfer notes">
+	<meta name="author" content="Marcus Bannerman <m.bannerman@gmail.com">
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+	<script src="../reveal.js/lib/js/head.min.js" data-headjs-load="header.js"></script>
+    </head>
+    <body>
+	<div class="reveal">
+	    <div class="slides">
+		<section>
+		    <section>
+			<div class="backbox">
+			    <h2>Heat, Mass, and Momentum Transfer</h2>
+			    <h3>Use the menu <a href="#" onclick="RevealMenu.toggle(); return false;"><i class="fa fa-bars"></i></a> and use the Lectures <i class="fa fa-external-link"></i> select menu.</h3>
+			</div>
+			<p>
+			    Marcus N. Bannerman<br/>
+			    <a href="mailto:m.campbellbannerman@abdn.ac.uk">m.campbellbannerman@abdn.ac.uk</a><br/>
+			</p>
+			<div style="width:10em;">
+			    <object type="image/svg+xml" data="img/UoALarge.svg" width="100%" height="100%">
+				Your browser does not support SVG
+			    </object>
+			</div>
+		    </section>
+		</section>
+	    </div>
+	    <div class="slide-menu-button" style="left:170px;cursor:pointer;">
+		<a class="hide-on-pdf" onclick="document.location = '?print-pdf';" id="PrintButton"><i class="fa fa-print"></i></a>	    
+	    </div>
+	    <script src="footer.js"></script>
+	</div>
+    </body>
+</html>
+"""
         self.current_tag = None
         self.current_slide = None
-        self.soup = BeautifulSoup('<div class="slides"></div>', "lxml")
-        self.slides = self.soup.div
+        self.soup = BeautifulSoup(template, "lxml")
+        self.slides = self.soup.div.div
         self.current_section = None
         self._in_equation = False
         self.subsection_title = None
@@ -155,15 +203,6 @@ class Tex2Reveal(object):
         self.subsection_title = ''.join(node.contents)
         return True
     
-    def _handle_unknown(self, node, starred=False, fragment=False):
-        print("No handler for ", node.name + ('*' if starred else ''))
-        print(repr(list(node.contents)))
-        if self.current_slide != None:
-            self.current_tag.append('\\%s ' % node.name)
-        else:
-            print("Outside of frame!")
-
-
     def _handle_columns(self, node, starred=False, fragment=False):
         container = self.soup.new_tag("div")
         container['style'] = "display:flex;align-items:center;"     
@@ -176,24 +215,49 @@ class Tex2Reveal(object):
         
     def _handle_column(self, node, starred=False, fragment=False):
         container = self.soup.new_tag("div")
-        container['style'] = "display:flex;align-items:center;"        
+        container['style'] = "flex: 0 0 100% * "+str(list(node.args)[0])[1:-1].replace("\\linewidth", "1").replace("\\textwidth", "1")+";"
         self.current_tag.append(container)
 
-        print("!!!",repr(list(node.args))) 
-        print("###",repr(list(node.contents)))
-        exit()
-        
         for item in node.contents:
             self.current_tag=container
             self._walk(item)
+        self.current_tag=container.parent
+
         return False
         
-def readfile(path):
-    with open(path, 'r') as f:
-        return f.read()
+    def _handle_includegraphics(self, node, starred=False, fragment=False):
+        filename = str(list(node.args)[-1])[1:-1].replace("figures/", '')
 
+        print("\n\n!!! Handling includegraphics!")
+        print(filename)
+        print(repr(list(node.args)))
+        print(repr(list(node.contents)))
+        print(self.tex_dir)
+        path=os.path.join(self.tex_dir, 'figures/vector/'+filename+'.svg')
+        print("svg trying "+path)
+        if os.path.isfile(path):
+            print("SVG found"+path)
+            return True
+        
+        path=os.path.join(self.tex_dir, 'figures/bitmap/'+filename+'.jpg')
+        print("jpg trying "+path)
+        if os.path.isfile(path):
+            print("jpg found"+path)
+
+        print("Could not find file "+filename)
+        
+        return True
+
+    def _handle_unknown(self, node, starred=False, fragment=False):
+        print("No handler for ", node.name + ('*' if starred else ''))
+        print(repr(list(node.contents)))
+        if self.current_slide != None:
+            pass
+            #self.current_tag.append('\\%s ' % node.name)
+        else:
+            print("Outside of frame!")
 
 import sys
 
-soup = Tex2Reveal(readfile(sys.argv[1]))
-print(soup.slides.prettify())
+soup = Tex2Reveal(sys.argv[1])
+print(soup.soup.prettify())
