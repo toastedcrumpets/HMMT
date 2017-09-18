@@ -17,6 +17,7 @@ class Tex2Reveal(object):
         
         #Remove comments
         code = re.sub('(?<!\\\\)%.*$', '', code, flags=re.M)
+
         #Remove inline display math shortcuts
         code = code.replace(r'\[', r'\begin{equation*}')
         code = code.replace(r'\]', r'\end{equation*}')
@@ -31,6 +32,8 @@ class Tex2Reveal(object):
         #Fix my use of \bf and \em, switches go hard on texsoup
         code = code.replace("{\\bf", "\\textbf{")
         code = code.replace("{\\em", "\\textit{")
+        code = code.replace("{\\scriptsize", "\\scriptsize{")
+        
         #Also the use of \bm which is not supported by mathjax
         code = code.replace("\\bm{", "\\boldsymbol{")
         
@@ -197,7 +200,7 @@ class Tex2Reveal(object):
 
     _handle_itemize = _handle_lists
     _handle_enumerate = _handle_lists
-    
+
     def _handle_item(self, node, starred=False, fragment=False):
         if self.current_tag.name == 'li':
             self.pop('li')
@@ -211,20 +214,61 @@ class Tex2Reveal(object):
         #ended. Trust that \end{itemize} will close the li in the end.
         return True
     
-    def _handle_textbf(self, node, starred=False, fragment=False):
-        self.push('b')
+
+    def _handle_wrapper(self, node, starred=False, fragment=False):
+        name = node.name
+        if fragment:
+            fragment_search = re.search('<[0-9]+-?[0-9]*>', name)
+            name = name[:fragment_search.start()]
+            
+        tagtype = {
+            'textbf':['b',{}],
+            'textit':['i',{}],
+            'underline':['u',{}],
+            'only':['div',{}],
+            'center':['div',{}],
+            'figure':['figure', {}],
+            'caption':['figcaption', {}],
+        }[name]
+        container = self.push(tagtype[0])
+
+        if fragment:
+            container['class'] = "fragment"
+        if "class" in tagtype[1]:
+            container['class'] = tagtype[1]["class"] + (" fragment" if fragment else "")
+        
         for item in node.contents:
             self._walk(item)
-        self.pop('b')
+            
+        self.pop(tagtype[0])
+        
         return True
-    
-    def _handle_textit(self, node, starred=False, fragment=False):
-        self.push('i')
-        for item in node.contents:
-            self._walk(item)
-        self.pop('i')
+        
+    _handle_textbf = _handle_wrapper
+    _handle_textit = _handle_wrapper
+    _handle_underline = _handle_wrapper
+    _handle_only = _handle_wrapper
+    _handle_figure = _handle_wrapper
+    _handle_caption = _handle_wrapper
+    _handle_center = _handle_wrapper
+
+    def _handle_href(self, node, starred=False, fragment=False):
+        a = self.push('a')
+        args = list(node.args)
+        a['src'] = args[0]
+        self._walk(args[1])
+        self.pop('a')
         return True
 
+    def _handle_textcolor(self, node, starred=False, fragment=False):
+        span = self.push('span')
+        args = list(node.args)
+        span['style'] = "color:"+args[0]
+        self._walk(args[1])
+        self.pop('span')
+        return True
+        
+    
     def _handle_section(self, node, starred=False, fragment=False):
         self.current_tag=self.current_section=self.soup.new_tag("section")
         self.current_section['data-menu-title'] = ''.join(node.contents)
@@ -251,39 +295,26 @@ class Tex2Reveal(object):
             self._walk(item)
         self.pop('div')
         return True
-
-    def _handle_only(self, node, starred=False, fragment=False):
+            
+    def _handle_scriptsize(self, node, starred=False, fragment=False):
         container = self.push('div')
         if fragment:
             container['class'] = "fragment"
+        container['style'] = "font-size:0.7em;"
         for item in node.contents:
             self._walk(item)
         self.pop('div')
         return True
-
-    def _handle_figure(self, node, starred=False, fragment=False):
-        container = self.push('figure')
-        if fragment:
-            container['class'] = "fragment"
-        for item in node.contents:
-            self._walk(item)
-        self.pop('figure')
-        return True
-
-    def _handle_caption(self, node, starred=False, fragment=False):
-        container = self.push('figcaption')
-        if fragment:
-            container['class'] = "fragment"
-        for item in node.contents:
-            self._walk(item)
-        self.pop('figcaption')
-        return True        
-
+        
+    
     def _handle_ignore(self, node, starred=False, fragment=False):
         return False
 
     _handle_hfill = _handle_ignore
     _handle_vfill = _handle_ignore
+    _handle_hline = _handle_ignore
+    _handle_titlepage = _handle_ignore
+    _handle_logoimage = _handle_ignore
     
     def _handle_includegraphics(self, node, starred=False, fragment=False):
         filename = str(list(node.args)[-1])[1:-1].replace("figures/", '')
@@ -305,8 +336,7 @@ class Tex2Reveal(object):
             self.current_tag.append(tag)
             return True
 
-        print("Could not find file "+filename)
-        
+        print("Could not find file "+filename)        
         return True
 
     def _handle_unknown(self, node, starred=False, fragment=False):
@@ -317,7 +347,7 @@ class Tex2Reveal(object):
             #self.current_tag.append('\\%s ' % node.name)
         else:
             print("Outside of frame!")
-
+            
 import sys
 
 soup = Tex2Reveal(sys.argv[1])
