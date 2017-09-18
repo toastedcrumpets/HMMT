@@ -20,8 +20,21 @@ class Tex2Reveal(object):
         #Remove inline display math shortcuts
         code = code.replace(r'\[', r'\begin{equation*}')
         code = code.replace(r'\]', r'\end{equation*}')
+
+        #Handle other special characters
+        code = code.replace('~', u"\u00A0")
+        code = code.replace('---', u"\u2014")
+        code = code.replace('--', u"\u2013")
+        code = code.replace('``', u"\u201C")
+        code = code.replace("''", u"\u201D")
+
+        #Fix my silly use of \bf
+        code = code.replace("{\\bf", "\\textbf{")
+        
         #Collapse whitespace
         code = re.sub(r'\n\s*\n', '\n\n', code, flags=re.M)
+
+        print("RAWCODE:\n", code)
         self.soup = TexSoup(code)
         
         #Parse any standalone commands
@@ -120,6 +133,18 @@ class Tex2Reveal(object):
         self._in_equation = False
         self.subsection_title = None
 
+    def push(self, tagname):
+        tag = self.soup.new_tag(tagname)
+        self.current_tag.append(tag)
+        self.current_tag=tag
+        return tag
+
+    def pop(self, tagname):
+        while self.current_tag.name != tagname:
+            self.current_tag = self.current_tag.parent
+        self.current_tag = self.current_tag.parent
+        return self.current_tag
+        
     def _handle_frame(self, node, starred=False, fragment=False):
         if self.current_section == None:
             self.current_section = self.soup.new_tag("section")
@@ -138,12 +163,13 @@ class Tex2Reveal(object):
         data = str(node)
         if '$' in data:
             self._in_equation = not self._in_equation
+
         self.current_tag.append(data)
         
     def _handle_equation(self, node, starred=False, fragment=False):
-        self.current_tag.append('\begin{align'+('*' if starred else '')+'}\n')
+        self.current_tag.append('\\begin{align'+('*' if starred else '')+'}\n')
         self.current_tag.append(''.join(str(x) for x in node.contents))
-        self.current_tag.append('\end{align'+('*' if starred else '')+'}\n')
+        self.current_tag.append('\\end{align'+('*' if starred else '')+'}\n')
         return True
     
     _handle_align = _handle_equation
@@ -156,45 +182,42 @@ class Tex2Reveal(object):
 
     def _handle_lists(self, node, starred=False, fragment=False):
         if node.name == 'itemize':
-            container=self.soup.new_tag("ul")
+            container = self.push("ul")
         elif node.name == 'enumerate':
-            container=self.soup.new_tag("ol")
-        self.current_tag.append(container)
-        self.current_tag=container
+            container = self.push("ol")
+            
         for item in node.contents:
             self._walk(item)
-            self.current_tag = container
-        self.current_tag=container.parent
+        #Can't pop here, due to the open ended nature of \list
+        #commands. Just manually reset.
+        self.current_tag = container.parent
         return True #Skip children
 
     _handle_itemize = _handle_lists
     _handle_enumerate = _handle_lists
     
     def _handle_item(self, node, starred=False, fragment=False):
-        li=self.soup.new_tag("li")
+        if self.current_tag.name == 'li':
+            self.pop('li')
+
+        li = self.push('li')
         if fragment:
-            li['class'] = "fragment"
-
-        self.current_tag.append(li)
-        self.current_tag=li
-        return False
-
-    def _handle_bf(self, node, starred=False, fragment=False):
-        container=self.soup.new_tag("b")
-        self.current_tag.append(container)
-        self.current_tag=container
+            li['class'] = "fragment"        
         for item in node.contents:
             self._walk(item)
-            self.current_tag=container
-        self.current_tag=container.parent
+        #We don't reset to the parent container here, as \item is open
+        #ended. Trust that \end{itemize} will close the li in the end.
         return True
     
     def _handle_textbf(self, node, starred=False, fragment=False):
-        self.current_tag.append(node.string)
+        self.push('b')
+        for item in node.contents:
+            self._walk(item)
+        self.pop('b')
         return True
     
     def _handle_section(self, node, starred=False, fragment=False):
-        self.current_tag=self.current_section = self.soup.new_tag("section")
+        self.current_tag=self.current_section=self.soup.new_tag("section")
         self.current_section['data-menu-title'] = ''.join(node.contents)
         self.slides.append(self.current_section)
         return True
@@ -204,45 +227,39 @@ class Tex2Reveal(object):
         return True
     
     def _handle_columns(self, node, starred=False, fragment=False):
-        container = self.soup.new_tag("div")
-        container['style'] = "display:flex;align-items:center;"     
-        self.current_tag.append(container)
-
+        container = self.push('div')
+        container['style'] = "display:flex;align-items:center;"
         for item in node.contents:
-            self.current_tag=container
             self._walk(item)
-        return False
+        self.pop('div')
+        return True
         
     def _handle_column(self, node, starred=False, fragment=False):
-        container = self.soup.new_tag("div")
+        container = self.push('div')
         container['style'] = "flex: 0 0 100% * "+str(list(node.args)[0])[1:-1].replace("\\linewidth", "1").replace("\\textwidth", "1")+";"
-        self.current_tag.append(container)
 
         for item in node.contents:
-            self.current_tag=container
             self._walk(item)
-        self.current_tag=container.parent
-
-        return False
+        self.pop('div')
+        return True
         
     def _handle_includegraphics(self, node, starred=False, fragment=False):
         filename = str(list(node.args)[-1])[1:-1].replace("figures/", '')
 
-        print("\n\n!!! Handling includegraphics!")
+        #print("\n\n!!! Handling includegraphics!")
         print(filename)
         print(repr(list(node.args)))
         print(repr(list(node.contents)))
         print(self.tex_dir)
         path=os.path.join(self.tex_dir, 'figures/vector/'+filename+'.svg')
-        print("svg trying "+path)
         if os.path.isfile(path):
-            print("SVG found"+path)
+            #print("SVG found"+path)
             return True
         
         path=os.path.join(self.tex_dir, 'figures/bitmap/'+filename+'.jpg')
-        print("jpg trying "+path)
         if os.path.isfile(path):
-            print("jpg found"+path)
+            #print("jpg found"+path)
+            return True
 
         print("Could not find file "+filename)
         
@@ -260,4 +277,5 @@ class Tex2Reveal(object):
 import sys
 
 soup = Tex2Reveal(sys.argv[1])
-print(soup.soup.prettify())
+
+open('out.html', 'wb').write(soup.soup.encode(formatter='html'))
