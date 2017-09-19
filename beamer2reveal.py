@@ -77,8 +77,10 @@ class Tex2Reveal(object):
                 fragment = False
                 fragment_search = re.search('<[0-9]+-?[0-9]*>', name)
                 if fragment_search != None:
+                    dec = name[fragment_search.start():fragment_search.end()]
                     name = name[:fragment_search.start()]
-                    fragment = True
+                    if dec != "<1->" and dec != "<->":
+                        fragment = True
 
                 #Check if the function name is starred
                 starred = False
@@ -251,7 +253,7 @@ class Tex2Reveal(object):
             'underline':['u',{}],
             'only':['div',{}],
             'uncover':['div',{}],
-            'center':['div',{}],
+            'center':['div',{"class":'center'}],
             'figure':['figure', {}],
             'caption':['figcaption', {}],
         }[name]
@@ -369,7 +371,7 @@ class Tex2Reveal(object):
 
         old_loc = self.current_tag
         self.current_tag = footnote
-        for item in node.contents:
+        for item in node.args:
             self._walk(item)        
         self.current_tag = old_loc
         self.footnote_counter += 1
@@ -387,7 +389,6 @@ class Tex2Reveal(object):
     _handle_tableofcontents = _handle_ignore
     
     def _handle_includegraphics(self, node, starred=False, fragment=False):
-        print((node))
         filename = str(list(node.args)[-1])[1:-1].replace("figures/", '')
 
         match = re.search("width=([0-9\\.]*)",list(node.args)[0].value)
