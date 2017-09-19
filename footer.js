@@ -21,7 +21,7 @@ head.load("../reveal.js/js/reveal.js", function() {
 	controls:false,
 	math: {
 	    mathjax: '../MathJax/MathJax.js', 
-	    config: 'TeX-AMS-MML_HTMLorMML'
+	    config: 'TeX-AMS_HTML-full'
 	},
 	dependencies: [
 	    // Cross-browser shim that fully implements classList - https://github.com/eligrey/classList.js/
@@ -29,7 +29,7 @@ head.load("../reveal.js/js/reveal.js", function() {
 	    // Syntax highlight for <code> elements
 	    { src: '../reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
 	    // MathJax
-	    { src: '../reveal.js/plugin/math/math.js', async: false},
+	    { src: '../reveal.js/plugin/math/math.js', async: true},
 	    { src: '../reveal.js-plugins/chalkboard/chalkboard.js'},
 	    { src: '../reveal.js-plugins/menu/menu.js'},
 	],

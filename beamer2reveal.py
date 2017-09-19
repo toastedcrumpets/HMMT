@@ -3,7 +3,7 @@
 import re
 import os
 from bs4 import BeautifulSoup
-from TexSoup import TexSoup, TexNode, read
+from TexSoup import TexSoup, TexNode, TexCmd, TexEnv
 
 class Tex2Reveal(object):
     def __init__(self, filepath):
@@ -120,7 +120,10 @@ class Tex2Reveal(object):
 	    <div class="slide-menu-button" style="left:170px;cursor:pointer;">
 		<a class="hide-on-pdf" onclick="document.location = '?print-pdf';" id="PrintButton"><i class="fa fa-print"></i></a>	    
 	    </div>
-	    <script src="footer.js"></script>
+        <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ TeX: { extensions: ["cancel.js"] }});
+        </script>
+	<script src="footer.js"></script>
 	</div>
     </body>
 </html>
@@ -330,8 +333,9 @@ class Tex2Reveal(object):
         return True
 
     def _handle_reserveandshow(self, node, starred=False, fragment=False):
-        newnode = read('\includegraphics['+str(list(node.args)[2])[1:-1]+"]{"+str(list(node.args)[3])[1:-1]+"}")
-        self._handle_includegraphics(node, starred, fragment=True)
+        args = list(node.args)
+        newnode = TexCmd('includegraphics', args=[args[2], args[3]])
+        self._handle_includegraphics(newnode, starred, fragment=True)
         return True
     
     def _handle_newline(self, node, starred=False, fragment=False):
@@ -383,7 +387,16 @@ class Tex2Reveal(object):
     _handle_tableofcontents = _handle_ignore
     
     def _handle_includegraphics(self, node, starred=False, fragment=False):
+        print((node))
         filename = str(list(node.args)[-1])[1:-1].replace("figures/", '')
+
+        match = re.search("width=([0-9\\.]*)",list(node.args)[0].value)
+        linewidth=None
+        if match != None:
+            linewidth = match.group(1)
+            if linewidth == "":
+                linewidth = "1"
+            linewidth=int(float(linewidth)*100)
 
         #print(repr(list(node.args)))
         path=os.path.join(self.tex_dir, 'figures/vector/'+filename+'.svg')
@@ -398,23 +411,29 @@ class Tex2Reveal(object):
             root.attrib['viewBox'] = '0 0 '+str(width)+' '+str(height)
             root.attrib['preserveAspectRatio']="xMidYMid meet"
             tree.write('img/'+filename+'.svg')
+
             
             tag = self.soup.new_tag('object')
             tag['type'] = "image/svg+xml"
             tag['data'] = 'img/'+filename+'.svg'
-            tag['width'] = "80%"
-            self.current_tag.append(tag)
-            return True
-        
-        path=os.path.join(self.tex_dir, 'figures/bitmap/'+filename+'.jpg')
-        if os.path.isfile(path):
-            import shutil
-            tag = self.soup.new_tag('img')
-            shutil.copy(path, 'img/'+filename+'.jpg')
-            tag['src'] = 'img/'+filename+'.jpg'
+            if width != None:
+                tag['width'] = str(linewidth)+"%"
+
             self.current_tag.append(tag)
             return True
 
+        for ext in ['jpg', 'png']:
+            path=os.path.join(self.tex_dir, 'figures/bitmap/'+filename+'.'+ext)
+            if os.path.isfile(path):
+                import shutil
+                tag = self.soup.new_tag('img')
+                shutil.copy(path, 'img/'+filename+'.'+ext)
+                tag['src'] = 'img/'+filename+'.'+ext
+                if linewidth != None:
+                    tag['style'] = "width:"+str(linewidth)+"%;"
+                self.current_tag.append(tag)
+                return True
+        
         print("Could not find file "+filename)        
         return True
     
