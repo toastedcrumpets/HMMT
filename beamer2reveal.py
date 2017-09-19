@@ -3,7 +3,7 @@
 import re
 import os
 from bs4 import BeautifulSoup
-from TexSoup import TexSoup, TexNode
+from TexSoup import TexSoup, TexNode, read
 
 class Tex2Reveal(object):
     def __init__(self, filepath):
@@ -64,9 +64,16 @@ class Tex2Reveal(object):
                 self._handle_str(node)
             else:
                 name = node.name
+                if name == "":
+                    return;
+                
+                #print('\n\nname',type(node))
+                #print('contents',repr(list(node.contents)))
+                #print('args',repr(list(node.args)))
+                #print('extra',repr(node.extra))
+                #print('children',repr(list(node.children)))
 
                 #Check for <1-> decorators and remove them
-                #print('name',name)
                 fragment = False
                 fragment_search = re.search('<[0-9]+-?[0-9]*>', name)
                 if fragment_search != None:
@@ -74,7 +81,7 @@ class Tex2Reveal(object):
                     fragment = True
 
                 #Check if the function name is starred
-                starred = False                
+                starred = False
                 if name[-1] == '*':
                     name = name[:-1]
                     starred=True
@@ -126,6 +133,7 @@ class Tex2Reveal(object):
         self._in_equation = False
         self.subsection_title = None
         self.table_mode = False
+        self.footnote_counter = 1
 
     def push(self, tagname):
         tag = self.soup.new_tag(tagname)
@@ -153,6 +161,8 @@ class Tex2Reveal(object):
             self.current_slide['data-menu-title'] = self.subsection_title
             self.subsection_title = None
         self.current_section.append(self.current_slide)
+
+        self.footnote_counter = 1
         return False
                 
     # _handle methods return True if the children are to be skipped.
@@ -318,8 +328,51 @@ class Tex2Reveal(object):
             self._walk(item)
         self.pop('div')
         return True
-        
+
+    def _handle_reserveandshow(self, node, starred=False, fragment=False):
+        newnode = read('\includegraphics['+str(list(node.args)[2])[1:-1]+"]{"+str(list(node.args)[3])[1:-1]+"}")
+        self._handle_includegraphics(node, starred, fragment=True)
+        return True
     
+    def _handle_newline(self, node, starred=False, fragment=False):
+        self.current_tag.append(self.soup.new_tag('br'))
+        return False
+
+    def _handle_footnote(self, node, starred=False, fragment=False):
+        #Add the annotation in place
+        span = self.push("span")
+        span['class'] = "footnote"
+        span.string = str(self.footnote_counter)
+        self.pop("span")
+
+        #Check for (and add if needed) the footnote container div
+        container = list(self.current_slide.find_all('div', class_='footnote-container'))
+        if container:
+            container = container[0]
+        else:
+            container = self.soup.new_tag('div')
+            container['class'] = 'footnote-container'
+            self.current_slide.append(container)
+
+        #Add a div to the outer slide page for the actual footnote
+        footnote = self.soup.new_tag('div')
+        footnote['class'] = 'footnote'
+        container.append(footnote)
+        span = self.soup.new_tag('span')
+        span['class'] = "footnote"
+        span.string = str(self.footnote_counter)
+        footnote.append(span)
+
+        old_loc = self.current_tag
+        self.current_tag = footnote
+        for item in node.contents:
+            self._walk(item)        
+        self.current_tag = old_loc
+        self.footnote_counter += 1
+        
+        self.current_tag.append(span)
+        return False
+
     def _handle_ignore(self, node, starred=False, fragment=False):
         return False
 
@@ -364,7 +417,7 @@ class Tex2Reveal(object):
 
         print("Could not find file "+filename)        
         return True
-
+    
     def _handle_tabular(self, node, starred=False, fragment=False):
         table = self.push('table')
         table['style'] = 'border-collapse:collapse;'
@@ -414,4 +467,4 @@ import sys
 
 soup = Tex2Reveal(sys.argv[1])
 
-open('out.html', 'wb').write(soup.soup.encode(formatter='html'))
+open(os.path.basename(sys.argv[1])+'.html', 'wb').write(soup.soup.encode(formatter='html'))
