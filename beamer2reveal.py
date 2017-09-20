@@ -3,7 +3,7 @@
 import re
 import os
 from bs4 import BeautifulSoup
-from TexSoup import TexSoup, TexNode, TexCmd, TexEnv
+from TexSoup import TexSoup, TexNode, TexCmd, TexEnv, OArg, RArg
 
 class Tex2Reveal(object):
     def __init__(self, filepath):
@@ -48,7 +48,7 @@ class Tex2Reveal(object):
         self.soup = TexSoup(code)
         
         #Parse any standalone commands
-        nodes = ('title', 'author', 'institute', 'date', 'logo')
+        nodes = ('title', 'subtitle', 'author', 'institute', 'date', 'logo')
         for node in nodes:
             for elem in self.soup.find_all(node):
                 data = list(elem.contents)
@@ -60,44 +60,41 @@ class Tex2Reveal(object):
 
     def _walk(self, node):
         if isinstance(node, TexNode):
-            if self._in_equation:
-                self._handle_str(node)
+            name = node.name
+            if name == "":
+                return;
+            
+            #print('\n\nname',type(node))
+            #print('contents',repr(list(node.contents)))
+            #print('args',repr(list(node.args)))
+            #print('extra',repr(node.extra))
+            #print('children',repr(list(node.children)))
+
+            #Check for <1-> decorators and remove them
+            fragment = False
+            fragment_search = re.search('<[0-9]+-?[0-9]*>', name)
+            if fragment_search != None:
+                dec = name[fragment_search.start():fragment_search.end()]
+                name = name[:fragment_search.start()]
+                if dec != "<1->" and dec != "<->":
+                    fragment = True
+
+            #Check if the function name is starred
+            starred = False
+            if name[-1] == '*':
+                name = name[:-1]
+                starred=True
+            
+            method_name = '_handle_%s' % name
+            method = getattr(self, method_name, None)
+            skip_children = False
+            if method:
+                skip_children = method(node, starred=starred, fragment=fragment)
             else:
-                name = node.name
-                if name == "":
-                    return;
-                
-                #print('\n\nname',type(node))
-                #print('contents',repr(list(node.contents)))
-                #print('args',repr(list(node.args)))
-                #print('extra',repr(node.extra))
-                #print('children',repr(list(node.children)))
-
-                #Check for <1-> decorators and remove them
-                fragment = False
-                fragment_search = re.search('<[0-9]+-?[0-9]*>', name)
-                if fragment_search != None:
-                    dec = name[fragment_search.start():fragment_search.end()]
-                    name = name[:fragment_search.start()]
-                    if dec != "<1->" and dec != "<->":
-                        fragment = True
-
-                #Check if the function name is starred
-                starred = False
-                if name[-1] == '*':
-                    name = name[:-1]
-                    starred=True
-                
-                method_name = '_handle_%s' % name
-                method = getattr(self, method_name, None)
-                skip_children = False
-                if method:
-                    skip_children = method(node, starred=starred, fragment=fragment)
-                else:
-                    self._handle_unknown(node, starred=starred, fragment=fragment)
-                if not skip_children:
-                    for element in node.contents:
-                        self._walk(element)
+                self._handle_unknown(node, starred=starred, fragment=fragment)
+            if not skip_children:
+                for element in node.contents:
+                    self._walk(element)
         elif isinstance(node, str):
             if self.current_slide is not None:
                 self._handle_str(node)
@@ -135,7 +132,6 @@ class Tex2Reveal(object):
         self.soup = BeautifulSoup(template, "lxml")
         self.slides = self.soup.div.div
         self.current_section = None
-        self._in_equation = False
         self.subsection_title = None
         self.table_mode = False
         self.footnote_counter = 1
@@ -174,9 +170,6 @@ class Tex2Reveal(object):
     
     def _handle_str(self, node):
         data = str(node)
-        if '$' in data:
-            self._in_equation = not self._in_equation
-
         if self.table_mode:
             lines=data.split('\\\\')
             for i,line in enumerate(lines):
@@ -211,6 +204,12 @@ class Tex2Reveal(object):
         tag.string = ''.join(node.contents)
         return True #Skip children
 
+    def _handle_titlepage(self, node, starred=False, fragment=False):
+        title = self.push('h2')
+        self.current_tag.string = self.info['subtitle'][0]
+        self.pop('h2')
+        return True
+    
     def _handle_lists(self, node, starred=False, fragment=False):
         if node.name == 'itemize':
             container = self.push("ul")
@@ -317,7 +316,11 @@ class Tex2Reveal(object):
         
     def _handle_column(self, node, starred=False, fragment=False):
         container = self.push('div')
-        container['style'] = "flex: 1 1 100% * "+str(list(node.args)[0])[1:-1].replace("\\linewidth", "1").replace("\\textwidth", "1")+";"
+
+        args = list(node.args)
+        widtharg = args[0] if isinstance(args[0], RArg) else args[1]
+        
+        container['style'] = "flex: 1 1 calc(100% * "+str(widtharg)[1:-1].replace("\\linewidth", "1").replace("\\textwidth", "1")+");"
 
         for item in node.contents:
             self._walk(item)
@@ -384,7 +387,8 @@ class Tex2Reveal(object):
 
     _handle_hfill = _handle_ignore
     _handle_vfill = _handle_ignore
-    _handle_titlepage = _handle_ignore
+    _handle_vspace = _handle_ignore
+    _handle_hspace = _handle_ignore
     _handle_logoimage = _handle_ignore
     _handle_tableofcontents = _handle_ignore
     
