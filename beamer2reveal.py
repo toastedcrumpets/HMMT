@@ -29,6 +29,8 @@ class Tex2Reveal(object):
         code = code.replace('``', u"\u201C")
         code = code.replace("''", u"\u201D")
         code = code.replace("\\ldots", u"\u2026")
+        code = code.replace("\\,", u"\u202F")#Replace the half space with a
+                                        #simple comma
         
         #Fix my use of \bf and \em, switches go hard on texsoup
         code = code.replace("{\\bf", "\\textbf{")
@@ -383,7 +385,7 @@ class Tex2Reveal(object):
         return False
 
     def _handle_ignore(self, node, starred=False, fragment=False):
-        return False
+        return True
 
     _handle_hfill = _handle_ignore
     _handle_vfill = _handle_ignore
@@ -480,6 +482,7 @@ class Tex2Reveal(object):
     
     def _handle_unknown(self, node, starred=False, fragment=False):
         print("No handler for ", node.name + ('*' if starred else ''))
+        print("\t", repr(node.parent))
         print(repr(list(node.contents)))
         if self.current_slide != None:
             pass
@@ -491,4 +494,4 @@ import sys
 
 soup = Tex2Reveal(sys.argv[1])
 
-open(os.path.basename(sys.argv[1])+'.html', 'wb').write(soup.soup.encode(formatter='html'))
+open(os.path.basename(sys.argv[1])+'.html', 'w').write(soup.soup.prettify())
