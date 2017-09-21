@@ -32,6 +32,9 @@ class Tex2Reveal(object):
         code = code.replace('``', u"\u201C")
         code = code.replace("''", u"\u201D")
         code = code.replace("\\ldots", u"\u2026")
+        code = code.replace("\\pounds", "£")
+        #Replace \% provided its not \\%
+        code = re.sub("(?<=[^\\\\])\\\\%", "%", code, flags=re.M)
         code = code.replace("\\,", u"\u202F")#Replace the half space with a
                                         #simple comma
         
@@ -261,6 +264,7 @@ class Tex2Reveal(object):
             'center':['div',{"class":'center'}],
             'figure':['figure', {}],
             'caption':['figcaption', {}],
+            'block':['div',{"class":'mathblock'}],
         }[name]
         container = self.push(tagtype[0])
 
@@ -284,6 +288,7 @@ class Tex2Reveal(object):
     _handle_figure = _handle_wrapper
     _handle_caption = _handle_wrapper
     _handle_center = _handle_wrapper
+    _handle_block = _handle_wrapper
 
     def _handle_href(self, node, starred=False, fragment=False):
         a = self.push('a')
@@ -333,7 +338,18 @@ class Tex2Reveal(object):
             self._walk(item)
         self.pop('div')
         return True
-            
+
+    def _handle_parbox(self, node, starred=False, fragment=False):
+        container = self.push('div')
+        args = list(node.args)
+        widtharg = args[0]
+        container['style'] = "display:inline-block;width:calc(100% * "+str(widtharg)[1:-1].replace("\\linewidth", "1").replace("\\textwidth", "1")+");"
+
+        for item in args[1]:
+            self._walk(item)
+        self.pop('div')
+        return True
+    
     def _handle_scriptsize(self, node, starred=False, fragment=False):
         container = self.push('div')
         if fragment:
@@ -396,7 +412,8 @@ class Tex2Reveal(object):
     _handle_vfill = _handle_ignore
     _handle_vspace = _handle_ignore
     _handle_hspace = _handle_ignore
-    _handle_logoimage = _handle_ignore
+    _handle_linewidth = _handle_ignore
+    _handle_textwidth = _handle_ignore
 
     def _handle_tableofcontents(self, node, starred=False, fragment=False):
         div = self.push('div')
