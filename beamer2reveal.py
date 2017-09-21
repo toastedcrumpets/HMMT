@@ -18,9 +18,12 @@ class Tex2Reveal(object):
         #Remove comments
         code = re.sub('(?<!\\\\)%.*$', '', code, flags=re.M)
 
-        #Remove inline display math shortcuts
-        code = code.replace(r'\[', r'\begin{equation*}')
-        code = code.replace(r'\]', r'\end{equation*}')
+        #Add $ to the math environments
+        for env in ['align', 'equation']:
+            code = code.replace(r'\begin{'+env+'}', r'\begin{'+env+'}$')
+            code = code.replace(r'\end{'+env+'}', r'$\end{'+env+'}')
+            code = code.replace(r'\begin{'+env+'*}', r'\begin{'+env+'*}$')
+            code = code.replace(r'\end{'+env+'*}', r'$\end{'+env+'*}')
 
         #Handle other special characters
         code = code.replace('~', u"\u00A0")
@@ -194,7 +197,8 @@ class Tex2Reveal(object):
         
     def _handle_equation(self, node, starred=False, fragment=False):
         self.current_tag.append('\\begin{align'+('*' if starred else '')+'}\n')
-        self.current_tag.append(''.join(str(x) for x in node.contents))
+        #We need to trim the $ added to make sure TexSoup leaves commands in there alone
+        self.current_tag.append(''.join(str(x) for x in node.contents)[1:-1])
         self.current_tag.append('\\end{align'+('*' if starred else '')+'}\n')
         return True
     
@@ -300,12 +304,13 @@ class Tex2Reveal(object):
     
     def _handle_section(self, node, starred=False, fragment=False):
         self.current_tag=self.current_section=self.soup.new_tag("section")
-        self.current_section['data-menu-title'] = ''.join(node.contents)
+        self.subsection_title = ''.join(node.contents)
         self.slides.append(self.current_section)
         return True
 
     def _handle_subsection(self, node, starred=False, fragment=False):
-        self.subsection_title = ''.join(node.contents)
+        if self.subsection_title == None:
+            self.subsection_title = ''.join(node.contents)
         return True
     
     def _handle_columns(self, node, starred=False, fragment=False):
@@ -392,7 +397,13 @@ class Tex2Reveal(object):
     _handle_vspace = _handle_ignore
     _handle_hspace = _handle_ignore
     _handle_logoimage = _handle_ignore
-    _handle_tableofcontents = _handle_ignore
+
+    def _handle_tableofcontents(self, node, starred=False, fragment=False):
+        div = self.push('div')
+        div['class'] = 'tableofcontents'
+        self.pop('div')
+        return True
+
     
     def _handle_includegraphics(self, node, starred=False, fragment=False):
         filename = str(list(node.args)[-1])[1:-1].replace("figures/", '')
@@ -494,4 +505,4 @@ import sys
 
 soup = Tex2Reveal(sys.argv[1])
 
-open(os.path.basename(sys.argv[1])+'.html', 'w').write(soup.soup.prettify())
+open(os.path.basename(sys.argv[1]).replace('.tex', '.html'), 'w').write(soup.soup.prettify())

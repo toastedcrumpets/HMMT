@@ -7,15 +7,13 @@ else
     link.href = '../reveal.js/css/print/paper.css';
 document.getElementsByTagName( 'head' )[0].appendChild( link );
 
-
-
 head.load("../reveal.js/js/reveal.js", function() {
     var revealopts = {
 	//This width and height allows printing to pdf at A4 and is slightly widescreen to give the best all round size
 	width:1280,height:900,margin:0.1, minScale:0.2, maxScale:1.5,
 	slideNumber: 'c / t',
 	history: true,
-	transition: 'slide',
+	transition: 'fade',
 	backgroundTransition: 'fade',
 	pdfMaxPagesPerSlide: 1,
 	controls:false,
@@ -44,21 +42,11 @@ head.load("../reveal.js/js/reveal.js", function() {
 	    84: function() { Recorder.fetchTTS(); } 	// press 't' to fetch TTS audio files		 
 	},
 	menu: {
-	    titleSelector:'h2, h3, h4, h5, h6',
+	    titleSelector:'',
 	    markers: true,
 	    hideMissingTitles: true,
-	    themes: [
-		{ name: 'Black', theme: '../reveal.js/css/theme/black.css' },
-		{ name: 'White', theme: '../reveal.js/css/theme/white.css' },
-		{ name: 'League', theme: '../reveal.js/css/theme/league.css' },
-		{ name: 'Sky', theme: '../reveal.js/css/theme/sky.css' },
-		{ name: 'Beige', theme: '../reveal.js/css/theme/beige.css' },
-		{ name: 'Simple', theme: '../reveal.js/css/theme/simple.css' },
-		{ name: 'Serif', theme: '../reveal.js/css/theme/serif.css' },
-		{ name: 'Blood', theme: '../reveal.js/css/theme/blood.css' },
-		{ name: 'Night', theme: '../reveal.js/css/theme/night.css' },
-		{ name: 'Moon', theme: '../reveal.js/css/theme/moon.css' },
-		{ name: 'Solarized', theme: '../reveal.js/css/theme/solarized.css' } ],
+	    themes: false,
+	    transitions: false,
 	    custom: [
 		{ title: 'Lectures', icon: '<i class="fa fa-external-link"></i>', src: 'toc.html' },
 	    ]
@@ -88,4 +76,8 @@ head.load("../reveal.js/js/reveal.js", function() {
 	window.print();
 })
 
-
+//var toc = $('.tableofcontents');
+//if (toc.length) {
+//    toc = toc[0];
+//    $('div section')
+//}
