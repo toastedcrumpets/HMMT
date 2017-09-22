@@ -10,7 +10,7 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 head.load("../reveal.js/js/reveal.js", function() {
     var revealopts = {
 	//This width and height allows printing to pdf at A4 and is slightly widescreen to give the best all round size
-	width:1280,height:900,margin:0.1, minScale:0.2, maxScale:1.5,
+	width:1920,height:1080,margin:0.1, minScale:0.2, maxScale:1.5,
 	slideNumber: 'c / t',
 	history: true,
 	transition: 'fade',

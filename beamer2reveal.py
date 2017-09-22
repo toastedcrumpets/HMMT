@@ -45,7 +45,7 @@ class Tex2Reveal(object):
         
         #Also the use of \bm which is not supported by mathjax
         code = code.replace("\\bm{", "\\boldsymbol{")
-        code = code.replace("\\&", "\\ampersand")
+        code = code.replace("\\&", "&")
 
         #There's some common stuff that TexSoup has problems with
         code = code.replace("\\right|}", "\\right| }")
@@ -66,6 +66,15 @@ class Tex2Reveal(object):
         #Walk the document creating the tree
         self._walk(self.soup.find('document'))
 
+    def parseForFragment(self, name):
+        fragment_search = re.search('<[0-9]+-?[0-9]*(\|handout:[0-9]*)?>', name)
+        if fragment_search != None:
+            dec = name[fragment_search.start():fragment_search.end()]
+            name = name[:fragment_search.start()]
+            if dec != "<1->" and dec != "<->":
+                return name, dec
+        return name, ''
+        
     def _walk(self, node):
         if isinstance(node, TexNode):
             name = node.name
@@ -79,14 +88,9 @@ class Tex2Reveal(object):
             #print('children',repr(list(node.children)))
 
             #Check for <1-> decorators and remove them
-            fragment = False
-            fragment_search = re.search('<[0-9]+-?[0-9]*>', name)
-            if fragment_search != None:
-                dec = name[fragment_search.start():fragment_search.end()]
-                name = name[:fragment_search.start()]
-                if dec != "<1->" and dec != "<->":
-                    fragment = True
-
+            name, fragment = self.parseForFragment(name)
+            fragment = (fragment != '')
+                
             #Check if the function name is starred
             starred = False
             if name[-1] == '*':
@@ -252,8 +256,7 @@ class Tex2Reveal(object):
     def _handle_wrapper(self, node, starred=False, fragment=False):
         name = node.name
         if fragment:
-            fragment_search = re.search('<[0-9]+-?[0-9]*>', name)
-            name = name[:fragment_search.start()]
+            name, fragment = self.parseForFragment(name)
             
         tagtype = {
             'textbf':['b',{}],
