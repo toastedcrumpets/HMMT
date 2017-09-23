@@ -44,6 +44,7 @@ class Tex2Reveal(object):
         code = code.replace("{\\scriptsize", "\\scriptsize{")
         
         #Also the use of \bm which is not supported by mathjax
+        code = code.replace("{\\bm ", "\\boldsymbol{")
         code = code.replace("\\bm{", "\\boldsymbol{")
         code = code.replace("\\&", "&")
 
@@ -417,12 +418,25 @@ class Tex2Reveal(object):
     _handle_hspace = _handle_ignore
     _handle_linewidth = _handle_ignore
     _handle_textwidth = _handle_ignore
+    _handle_vphantom = _handle_ignore
 
     def _handle_tableofcontents(self, node, starred=False, fragment=False):
         div = self.push('div')
         div['class'] = 'tableofcontents'
         self.pop('div')
         return True
+
+    def _handle_footnotemark(self, node, starred=False, fragment=False):
+        args = list(node.args)
+        if len(args) > 0 and isinstance(args[0], OArg):
+            tag = self.push('sup')
+            tag.append(str(args[0]))
+            self.pop('sup')
+        else:
+            tag = self.push('sup')
+            tag.append(str(self.footnote_counter))
+            self.pop('sup')
+            self.footnote_counter += 1
 
     
     def _handle_includegraphics(self, node, starred=False, fragment=False):
