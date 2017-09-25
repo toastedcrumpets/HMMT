@@ -24,13 +24,6 @@
       <div class="center">
       </div>
      </section>
-     <section>
-      <h3>
-       Slides Outline
-      </h3>
-      <div class="tableofcontents">
-      </div>
-     </section>
     </section>
     <section>
      <section data-menu-title="Review">
@@ -43,7 +36,7 @@
       \text{(Continuity equation)}
         \end{align*}
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="1">
         We also derived the Cauchy momentum equation:
         \begin{align*}
         \rho\frac{\partial\boldsymbol{v}}{\partial t} &amp;= -\rho \boldsymbol{v}\cdot
@@ -51,18 +44,18 @@
       \text{(Cauchy momentum equation)}
         \end{align*}
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="2">
         We now have all of the mathematical tools needed to study
-        <b>
+        <b class="">
          laminar flow
         </b>
         problems in
-        <b>
+        <b class="">
          rectangular coordinates
         </b>
         .
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="3">
         Today, we will look at applying these equations to simple
     flow problems.
        </li>
@@ -76,28 +69,28 @@
         As an example application of the equations we have
     derived, we will look at gravity driven flow of a falling film of
     water down an infinite plate.
-        <figure>
+        <figure class="">
          <div class="center">
           <object data="img/film-flow-1.svg" type="image/svg+xml" width="50%">
           </object>
          </div>
         </figure>
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="1">
         Although this problem at first sounds abstract, the
     properties of falling films are crucial in many engineering
     applicatons.
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="2">
         For example, the performance of
-        <b>
+        <b class="">
          condensers
         </b>
         (covered
     later in the course) is controlled by the thickness and velocity
     of the layer of fluid on their surface.
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="3">
         If you're a formulation engineer, you may want to ensure
     paint supports a certain thickness of film before it starts to
     run. For this, you will need to know the stress as a function of
@@ -106,7 +99,7 @@
       </ul>
      </section>
      <section data-menu-title="Placement of the Coordinate System">
-      <figure>
+      <figure class="">
        <div class="center">
         <object data="img/film-flow-1.svg" type="image/svg+xml" width="50%">
         </object>
@@ -120,12 +113,12 @@
     we should perfom to ensure we have the simplest mathematical
     description possible.
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="1">
         First, we should try to determine the natural coordinates
     system for the problem and identify any points, axis or planes of
     symmetry.
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="2">
         In this problem, rectangular ($x$
         ,
         $y$
@@ -155,29 +148,29 @@
        <li>
         We should then place the coordinates at a convenient
     location
-        <b>
+        <b class="">
          and
         </b>
         orientation in the system.
-        <figure>
+        <figure class="">
          <div class="center">
           <object data="img/film-flow-3.svg" type="image/svg+xml" width="60%">
           </object>
          </div>
         </figure>
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="1">
         The coordinates should be aligned with any symmetries in
     the system.
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="2">
         Here, the $x$
         and
         $z$
         axis are placed in the plane of the
     bottom boundary.
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="3">
         This was done as the problem is symmetric in $z$
         (it's a
     2D problem) and the flow may be symmetric in
@@ -187,7 +180,7 @@
       </ul>
      </section>
      <section data-menu-title="Variables">
-      <figure>
+      <figure class="">
        <div class="center">
         <object data="img/film-flow-4.svg" type="image/svg+xml" width="70%">
         </object>
@@ -200,7 +193,7 @@
         The next task is to identify all of the variables of the
     system.
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="1">
         The variables already identified are the flow velocity
     $\boldsymbol{v}$
         , gravity
@@ -211,7 +204,7 @@
         $\rho$
         .
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="2">
         We only need to add the thickness of the film $Y$
         and
     inclination of the plane
@@ -221,7 +214,7 @@
       </ul>
      </section>
      <section data-menu-title="Boundary Conditions">
-      <figure>
+      <figure class="">
        <div class="center">
         <object data="img/film-flow-6.svg" type="image/svg+xml" width="70%">
         </object>
@@ -232,17 +225,17 @@
         The next task is to identify some boundary conditions (BC)
     of these variables.
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="1">
         There are many mathematical categories of boundary
     conditions, but the two simplest are:
         <ul>
-         <div class="fragment">
-          <li class="fragment">
-           <b>
+         <div class="fragment " data-fragment-index="2">
+          <li class="fragment" data-fragment-index="3">
+           <b class="">
             Dirichlet
            </b>
            or
-           <b>
+           <b class="">
             first-type
            </b>
            BC:
@@ -255,13 +248,13 @@
         some value is held fixed.
           </li>
          </div>
-         <div class="fragment">
+         <div class="fragment " data-fragment-index="4">
           <li>
-           <b>
+           <b class="">
             Neumann
            </b>
            or
-           <b>
+           <b class="">
             second-type
            </b>
            BC: This is a
@@ -279,7 +272,7 @@
       </ul>
      </section>
      <section>
-      <figure>
+      <figure class="">
        <div class="center">
         <object data="img/film-flow-6.svg" type="image/svg+xml" width="70%">
         </object>
@@ -291,10 +284,10 @@
     boundary conditions which fit into either or both of these two
     mathematical classifications.
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="1">
         The bottom boundary condition for this system is known as
     the
-        <b>
+        <b class="">
          no-slip boundary condition
         </b>
         . The fluid cannot slip on the
@@ -304,9 +297,9 @@
         \boldsymbol{v}=\boldsymbol{0} &amp; &amp; \text{for $y=0$}
         \end{align*}
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="2">
         This is a
-        <b>
+        <b class="">
          Dirichlet
         </b>
         or first-type boundary condition
@@ -315,7 +308,7 @@
       </ul>
      </section>
      <section>
-      <figure>
+      <figure class="">
        <div class="center">
         <object data="img/film-flow-6.svg" type="image/svg+xml" width="70%">
         </object>
@@ -324,7 +317,7 @@
       <ul>
        <li>
         There is another boundary condition type, known as the
-        <b>
+        <b class="">
          slip/symmetry
         </b>
         condition. This states that there is no stress
@@ -333,27 +326,27 @@
         \tau_{ij} &amp;= 0
         \end{align*}
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="1">
         Again, this is a
-        <b>
+        <b class="">
          Dirichlet
         </b>
         or first-type boundary
     condition, but in the stress.
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="2">
         In many fluids, the stress is proportional to the
     velocity gradient, so this is a
-        <b>
+        <b class="">
          Neumann
         </b>
         or second-type
     boundary condition in the velocity.
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="3">
         Please keep in mind for the future that it is called the
     symmetry condition as typically
-        <b>
+        <b class="">
          there is no transport across
       a plane of symmetry
         </b>
@@ -363,7 +356,7 @@
       </ul>
      </section>
      <section>
-      <figure>
+      <figure class="">
        <div class="center">
         <object data="img/film-flow-6.svg" type="image/svg+xml" width="70%">
         </object>
@@ -375,7 +368,7 @@
     difficult to specify as the fluid velocity is not constrained by a
     boundary or wall.
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="1">
         If we were being completely precise, we would have to
     equate the stresses of the Air and Water phases at this point
     (each force has an equal and opposite reactionary force).
@@ -383,7 +376,7 @@
         \tau_{xy,water}(Y) = \tau_{xy,air}(Y)
         \end{align*}
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="2">
         But the viscosity of air at STP is $\mu_{air}=0.018$
         centipoise and
     that of water is
@@ -392,7 +385,7 @@
         $\mu_{water}/\mu_{air}=56$
         .
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="3">
         This means that only a small amount of stress is exerted
     by the air as it is not very viscous and we can assume that the
     actual stress is negligible:
@@ -403,7 +396,7 @@
       </ul>
      </section>
      <section>
-      <figure>
+      <figure class="">
        <div class="center">
         <object data="img/film-flow-6.svg" type="image/svg+xml" width="70%">
         </object>
@@ -412,11 +405,11 @@
       <ul>
        <li>
         As we discussed previously, this boundary condition is a
-        <b>
+        <b class="">
          Dirichlet
         </b>
         or first-type boundary condition in the
-        <b>
+        <b class="">
          stress
         </b>
         as we specify the value of the stress at the boundary.
@@ -424,7 +417,7 @@
         \tau_{xy,water}(Y) = 0
         \end{align*}
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="1">
         However, we're interested in the velocity $\boldsymbol{v}$
         and (as
     water is a Newtonian fluid) they are related by
@@ -433,27 +426,27 @@
       \therefore\quad \frac{\partial v_x(Y)}{\partial y} &amp;= 0
         \end{align*}
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="2">
         It is now obvious that a
-        <b>
+        <b class="">
          Dirichlet
         </b>
         boundary
     condition in the stress is a
-        <b>
+        <b class="">
          Neumann
         </b>
         or second-type boundary
     condition in the velocity!
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="3">
         We cannot constrain the velocity at the top surface but we
     can constrain its derivative.
        </li>
       </ul>
      </section>
      <section data-menu-title="Balance Equations">
-      <figure>
+      <figure class="">
        <div class="center">
         <object data="img/film-flow-6.svg" type="image/svg+xml" width="70%">
         </object>
@@ -470,7 +463,7 @@
     appropriate coordinate system, all of the relevant variables
     defined, and sufficient boundary conditions.
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="1">
         We now need to examine the balance equations, starting
     with the continuity equation.
         \begin{align*}
@@ -492,20 +485,20 @@
       \rho \boldsymbol{v} = 0
         \end{align*}
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="1">
         Water is quite incompressible, so we can assume the
     density is constant. Dividing by the density yields:
         \begin{align*}
         \nabla \cdot \boldsymbol{v} &amp;= 0
         \end{align*}
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="2">
         We will also assume the flow is laminar so there is no
     flow in the y-direction due to turbulence. There is also no flow
     in the z-direction as the flow is 2D (symmetric in the z
     component).
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="3">
         Expanding the equation and cancelling the derivatives of
     constants gives:
         \begin{align*}
@@ -525,19 +518,19 @@
         This statement simply means that the velocity profile will
     not vary in the x direction (along the plate)!
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="1">
         This is an important result as it means that we only need
     to solve the problem at one location and the solution is valid for
     the length of the plate.
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="2">
         We will also use this result to simplify the Cauchy
     momentum equation…
        </li>
       </ul>
      </section>
      <section>
-      <figure>
+      <figure class="">
        <div class="center">
         <object data="img/film-flow-6.svg" type="image/svg+xml" width="70%">
         </object>
@@ -555,7 +548,7 @@
     the boundary conditions, equations and variables are defined). But
     we need one more equation to complete it.
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="1">
         Let's look at the Cauchy momentum balance for the system:
         \begin{align*}
         \rho\frac{\partial\boldsymbol{v}}{\partial t} &amp;= -\rho \boldsymbol{v}\cdot
@@ -579,7 +572,7 @@
          \end{align*}
         </div>
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="1">
         We can immediately cancel the time derivative as the
     system is at steady state:
         \begin{align*}
@@ -608,12 +601,12 @@
         $\nabla$
         .
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="1">
         First, whenever a variable (e.g., velocity) doesn't change
     as you travel in a certain direction, the derivative in that
     direction is zero.
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="2">
         In this problem, nothing changes in the $z$
         -direction,
     therefore any term with a
@@ -648,11 +641,11 @@
         $i$
         direction.
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="1">
         If there are no changes in the flow velocity, we have no
     stress!
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="2">
         For example, we know that $\tau_{xz}$
         is zero as
         $v_z=0$
@@ -665,7 +658,7 @@
         $z$
         -direction).
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="3">
         In fact, we know that the only non-zero velocity is $v_x$
         ,
     and it only changes in the
@@ -690,7 +683,7 @@
     $\nabla_y v_x$
         .
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="1">
         However, when $j=y$
         and
         $i=x$
@@ -702,7 +695,7 @@
         $v_y=0$
         !
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="2">
         We can then cancel the first term completely, for all directions:
         \begin{align*}
         \rho\cancelto{0}{v_j\nabla_j v_i} = -\nabla_j\tau_{ji} - \nabla_i p + \rho g_i
@@ -736,7 +729,7 @@
         $\nabla_y\tau_{yz} = 0$
         .
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="1">
         The only remaining equations are $i=x$
         and
         $i=y$
@@ -746,7 +739,7 @@
       -\nabla_j \tau_{jy} &amp;= \nabla_y  p - \rho g_y
         \end{align*}
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="2">
         As the system is open to the air, we will assume that the
     pressure does not vary in the $x$
         (along the plate) or
@@ -755,7 +748,7 @@
         $y$
         -direction (hydrostatic head).
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="3">
         Only the $\tau_{xy}$
         or
         $\tau_{yx}$
@@ -796,18 +789,18 @@
         $g_y=-g\sin\theta_{plane}$
         .
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="1">
         This is a result of our flow being laminar, incompressible
     and at steady state.
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="2">
         We have already solved for the pressure and now we will
     solve for the velocity profile.
        </li>
       </ul>
      </section>
      <section data-menu-title="Viscous Stress">
-      <figure>
+      <figure class="">
        <div class="center">
         <object data="img/film-flow-6.svg" type="image/svg+xml" width="60%">
         </object>
@@ -830,7 +823,7 @@
         \tau_{yx} = \rho g_x y + C_1
         \end{align*}
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="1">
         The integration constant is found using the boundary
     condition $\tau_{xy}(Y)=0$
         , therefore
@@ -843,7 +836,7 @@
       </ul>
      </section>
      <section>
-      <figure>
+      <figure class="">
        <div class="center">
         <object data="img/film-flow-6.svg" type="image/svg+xml" width="60%">
         </object>
@@ -857,7 +850,7 @@
         Although the stress is useful, we require information on
     the flow velocity.
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="1">
         The stress is linked to the velocity through a viscous
     model. Water is a Newtonian fluid, and we have the following 3D
     definition of Newton's law of viscosity:
@@ -867,7 +860,7 @@
       \delta_{ij} \mu^B \nabla\cdot\boldsymbol{v}
         \end{align*}
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="2">
         We're interested in $\tau_{yx}$
         , and as
         $v_x$
@@ -894,7 +887,7 @@
       v_x(y) &amp;=  \mu^{-1} \rho g_x\left(Y y - \frac{y^2}{2}\right) + C_2
         \end{align*}
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="1">
         From the no-slip condition we have $v_x(0) = 0$
         , which
     means
@@ -909,7 +902,7 @@
     </section>
     <section>
      <section data-menu-title="Flow properties">
-      <figure>
+      <figure class="">
        <div class="center">
         <object data="img/film-flow-6.svg" type="image/svg+xml" width="60%">
         </object>
@@ -926,7 +919,7 @@
         We have found the pressure, stress and flow velocity
     profile of a film falling down a plate.
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="1">
         However there are several other properties of the flow
     which are interesting to us as engineers.
        </li>
@@ -944,7 +937,7 @@
         \dot{V}_x = \iint v_x  {\rm d}y  {\rm d}z
         \end{align*}
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="1">
         In the trivial case of a constant flow rate this becomes
     the familiar expression:
         \begin{align*}
@@ -956,7 +949,7 @@
         $yz$
         -plane.
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="2">
         In the case of our falling film we have:
         \begin{align*}
         \dot{V}_x &amp;= \int_0^Z\int_0^Y v_x  {\rm d}y  {\rm d}z\\
@@ -980,7 +973,7 @@
       \dot{V}_x&amp;=\frac{\rho g_x Y^3 Z}{3 \mu}
         \end{align*}
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="1">
         The volumetric flow rate is a key design variable when
     looking at flow in pipelines, heat exchangers/condensers/boilers
     or other hydrodynamic processes.
@@ -999,7 +992,7 @@
         \left\langle v_x\right\rangle = \frac{\dot{V}_x}{A_{yz}}
         \end{align*}
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="1">
         In our falling film example it is given by:
         \begin{align*}
         \left\langle v_x\right\rangle = \frac{\dot{V}_x}{Y Z} =
@@ -1016,22 +1009,22 @@
         Understand where to place your coordinate system, and the
     importance of symmetry.
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="1">
         Know the difference between
-        <b>
+        <b class="">
          Dirichlet
         </b>
         and
-        <b>
+        <b class="">
          Neumann
         </b>
         boundary conditions.
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="2">
         Solve the problem of a gravity driven falling film using
     the continuity equation and Navier-Stokes equation.
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="3">
         We managed to calculate:
         <ul>
          <li>
@@ -1045,17 +1038,17 @@
          </li>
         </ul>
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="4">
         We used the results to calculate several important flow
     parameters:
         <ul>
-         <li class="fragment">
+         <li class="fragment" data-fragment-index="5">
           The volumetric flow rate:
           \begin{align*}
           \dot{V}_x &amp;= \iint v_x  {\rm d}A_{yz}
           \end{align*}
          </li>
-         <li class="fragment">
+         <li class="fragment" data-fragment-index="6">
           The average flow velocity:
           \begin{align*}
           \left\langle v_x\right\rangle = \frac{\dot{V}_x}{A}

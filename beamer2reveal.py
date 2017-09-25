@@ -156,6 +156,7 @@ class Tex2Reveal(object):
         self.subsection_title = None
         self.table_mode = False
         self.footnote_counter = 1
+        self.fragment_counter = 1
 
     def push(self, tagname):
         tag = self.soup.new_tag(tagname)
@@ -185,6 +186,7 @@ class Tex2Reveal(object):
         self.current_section.append(self.current_slide)
 
         self.footnote_counter = 1
+        self.fragment_counter = 1
         return False
                 
     # _handle methods return True if the children are to be skipped.
@@ -256,7 +258,9 @@ class Tex2Reveal(object):
 
         li = self.push('li')
         if fragment:
-            li['class'] = "fragment"        
+            li['class'] = "fragment"
+            li['data-fragment-index'] = self.fragment_counter
+            self.fragment_counter += 1
         for item in node.contents:
             self._walk(item)
         #We don't reset to the parent container here, as \item is open
@@ -283,10 +287,14 @@ class Tex2Reveal(object):
         }[name]
         container = self.push(tagtype[0])
 
+        container['class'] = ""
         if fragment:
-            container['class'] = "fragment"
+            container['class'] = "fragment "
+            container['data-fragment-index'] = self.fragment_counter
+            self.fragment_counter += 1
+
         if "class" in tagtype[1]:
-            container['class'] = tagtype[1]["class"] + (" fragment" if fragment else "")
+            container['class'] =  container['class'] + tagtype[1]["class"]
         
         for item in node.contents:
             self._walk(item)
@@ -384,6 +392,8 @@ class Tex2Reveal(object):
         container = self.push('div')
         if fragment:
             container['class'] = "fragment"
+            container['data-fragment-index'] = self.fragment_counter
+            self.fragment_counter += 1
         container['style'] = "font-size:0.7em;"
         for item in node.contents:
             self._walk(item)
@@ -421,26 +431,36 @@ class Tex2Reveal(object):
         container = self._get_footnote_container()
         #Add a div to the outer slide page for the actual footnote
         footnote = self.soup.new_tag('div')
-        footnote.append(self._footnotemark(counter))
         container.append(footnote)
+        footnote.append(self._footnotemark(counter))
         return footnote
-        
         
     def _handle_footnote(self, node, starred=False, fragment=False):
         #Add the mark
-        self.current_tag.append(self._footnotemark(self.footnote_counter))
+        footnotemark = self._footnotemark(self.footnote_counter)
+        self.current_tag.append(footnotemark)
+        
+        
         #Create a container
         footnote = self._footnotetext(self.footnote_counter)
 
+        fragment_parent = footnotemark.find_parent(attrs={'data-fragment-index':True})
+        if fragment_parent != None:
+            if 'class' in footnote:
+                footnote['class'] = footnote['class'] + ' fragment'
+            else:
+                footnote['class'] = 'fragment'
+            footnote['data-fragment-index'] = fragment_parent['data-fragment-index']
+            
         self.footnote_counter += 1
 
         #Preserve the current position
         old_loc = self.current_tag
         self.current_tag = footnote
-        for item in node.args:
+        for item in node.contents:
             self._walk(item)
         self.current_tag = old_loc
-        return False
+        return True
 
     def _handle_footnotetext(self, node, starred=False, fragment=False):
         #Preserve the current position
@@ -483,9 +503,11 @@ class Tex2Reveal(object):
         return True
     
     def _handle_tableofcontents(self, node, starred=False, fragment=False):
-        div = self.push('div')
-        div['class'] = 'tableofcontents'
-        self.pop('div')
+        self.current_slide.extract()
+        self.current_slide = None
+        if not self.current_section.text.strip():
+            self.current_section.extract()
+            self.current_section = None
         return True
     
     def _handle_includegraphics(self, node, starred=False, fragment=False):

@@ -24,13 +24,6 @@
       <div class="center">
       </div>
      </section>
-     <section>
-      <h3>
-       Slides Outline
-      </h3>
-      <div class="tableofcontents">
-      </div>
-     </section>
     </section>
     <section>
      <section data-menu-title="Review">
@@ -44,35 +37,35 @@
       \sigma_{energy}
         \end{align*}
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="1">
         We defined the Laplace operator $\nabla^2$
         , and
-        <b>
+        <b class="">
          noted
       its special definitions in different coordinate systems
         </b>
         !
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="2">
         We also defined Fourier's law of conduction
         \begin{align*}
         \boldsymbol{q} = -k \nabla T
         \end{align*}
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="3">
         And
-        <b>
+        <b class="">
          noted it's definitions in different coordinate
       systems
         </b>
         :
-        <figure>
-         <figcaption>
+        <figure class="">
+         <figcaption class="">
           Fourier's Law in all coordinate systems
          </figcaption>
         </figure>
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="4">
         We will now take a look at using these equations in a
     manner similar to the Cauchy momentum equation.
        </li>
@@ -91,15 +84,15 @@
       \sigma_{energy}
         \end{align*}
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="1">
         When we derived the momentum equation, we factored and
     cancelled a term involving the continuity equation.
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="2">
         In getting to the above energy equation, we also factored
     out the continuity equation.
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="3">
         But we can also factor out the momentum equation from the
     energy equation.
        </li>
@@ -114,7 +107,7 @@
       - \nabla_j \tau_{ji} - \nabla_i p + \rho g_i
         \end{align*}
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="1">
         Multiply it by $v_i$
         (this is equivalent to dotting
         $\boldsymbol{v}\cdot{}$
@@ -128,7 +121,7 @@
       v_i \nabla_i p + \rho v_i g_i
         \end{align*}
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="2">
         Next we insert the definition of the energy
     $e=\frac{1}{2}v^2 + e_{pot.}(\boldsymbol{r}) + U$
         into the energy balance,
@@ -156,7 +149,7 @@
        <li>
         This is as far as we can go while remaining exact.
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="1">
         But, if we are in a liquid or solid, we can state that the
     internal energy has little or no pressure dependence
         \begin{align*}
@@ -164,7 +157,7 @@
             U}{\partial p}\right)_T {\rm d} P}
         \end{align*}
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="2">
         And we have another form of the energy balance
         \begin{align*}
         \rho C_p\frac{\partial T}{\partial t} =&amp; -\rho C_p  v_j  \nabla_j T -
@@ -172,7 +165,7 @@
       +\sigma_{energy}
         \end{align*}
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="3">
         This form easily reduces to the heat equation for
     solids/stationary liquids ($\boldsymbol{v}=\boldsymbol{0}$
         ).
@@ -188,11 +181,11 @@
      <section data-menu-title="Example: Conduction in an Electrically Heated Wire">
       <div style="display:flex;align-items:center;">
        <div style="flex: 1 1 calc(100% * 0.41);">
-        <figure>
+        <figure class="">
          <div class="center">
           <img src="img/Pylon_ds.jpg"/>
          </div>
-         <figcaption>
+         <figcaption class="">
           An electricity pylon.
          </figcaption>
         </figure>
@@ -203,12 +196,12 @@
           Let's take a look at the dissipation of heat in a wire
         on an electricity pylon.
          </li>
-         <li class="fragment">
+         <li class="fragment" data-fragment-index="1">
           The transmission of an electric current is an
         irreversible process, and some electrical energy is converted
         into heat.
          </li>
-         <li class="fragment">
+         <li class="fragment" data-fragment-index="2">
           Joule determined that the amount of heat energy
         produced per unit volume is given by
           \begin{align*}
@@ -221,7 +214,7 @@
           is the electrical
         conductivity of the transmission material.
          </li>
-         <li class="fragment">
+         <li class="fragment" data-fragment-index="3">
           We will use this as an expression for the rate of heat
         generation in a wire (we do not track electrical energy in our
         energy balance equation, just heat, so this term is a heat
@@ -245,7 +238,7 @@
         for Cartesian
     coordinates)
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="1">
         We note that wires are usually made out of solid material
     (aluminium), so we can state that $\boldsymbol{v}=0$
         , and cancel all terms
@@ -254,7 +247,7 @@
         \rho C_p\frac{\partial T}{\partial t} =&amp; - \nabla\cdot\boldsymbol{q} +\frac{I^2}{k_e}
         \end{align*}
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="2">
         Assuming the system is at steady state (no severe weather
     changes or sudden surges in electricity demand), we have
         \begin{align*}
@@ -266,7 +259,7 @@
      <section>
       <div style="display:flex;align-items:center;">
        <div style="flex: 1 1 calc(100% * 0.41);">
-        <figure>
+        <figure class="">
          <div class="center">
           <object data="img/solid_cyl_coords.svg" type="image/svg+xml" width="100%">
           </object>
@@ -284,7 +277,7 @@
         Assuming our wires are cylinders, we should use
     cylindrical coordinates.
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="1">
         Our expression becomes
         \begin{align*}
         \nabla\cdot\boldsymbol{q}=\frac{1}{r}\frac{\partial}{\partial r}\left(r 
@@ -292,7 +285,7 @@
     \theta}+ \frac{\partial q_z}{\partial z}= \frac{I^2}{k_e}
         \end{align*}
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="2">
         To simplify this problem, we assume that the wire is
     cooled evenly by the wind so that there is no variance in external
     temperature with the angle $\theta$
@@ -300,7 +293,7 @@
         $z$
         .
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="3">
         This makes the problem symmetric in $z$
         and
         $\theta$
@@ -311,7 +304,7 @@
      <section>
       <div style="display:flex;align-items:center;">
        <div style="flex: 1 1 calc(100% * 0.41);">
-        <figure>
+        <figure class="">
          <div class="center">
           <object data="img/solid_cyl_coords.svg" type="image/svg+xml" width="100%">
           </object>
@@ -330,16 +323,16 @@
        <li>
         Whenever there is symmetry, there is no transport.
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="1">
         This is because there are no gradients or flow across a
     symmetry as the values of all functions are equal either side of
     the symmetry.
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="2">
         All transport is driven by gradients (convective, Newton's
     Law, Fourier's Law, and Fick's First Law).
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="3">
         Our problem is rotationally symmetric in $\theta$
         and has
     translational invariance/symmetry in
@@ -357,7 +350,7 @@
      <section data-menu-title="Solving for the Heat Flux">
       <div style="display:flex;align-items:center;">
        <div style="flex: 1 1 calc(100% * 0.41);">
-        <figure>
+        <figure class="">
          <div class="center">
           <object data="img/solid_cyl_coords.svg" type="image/svg+xml" width="100%">
           </object>
@@ -377,7 +370,7 @@
         q_r=\frac{I^2}{k_e}\left(\frac{r}{2} + \frac{C}{r}\right)
         \end{align*}
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="1">
         Hopefully you have a feeling of deja vu as you note that
     in the centre of the wire where $r=0$
         , the heat flux cannot reach
@@ -385,7 +378,7 @@
         $C=0$
         .
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="2">
         We could also note that at $r=0$
         we are on an axis of
     symmetry and so
@@ -394,7 +387,7 @@
         $C=0$
         .
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="3">
         Our final expression for the heat flux is then:
         \begin{align*}
         q_r=\frac{I^2}{2 k_e}r
@@ -405,7 +398,7 @@
      <section data-menu-title="Temperature Profile">
       <div style="display:flex;align-items:center;">
        <div style="flex: 1 1 calc(100% * 0.41);">
-        <figure>
+        <figure class="">
          <div class="center">
           <object data="img/solid_cyl_coords.svg" type="image/svg+xml" width="100%">
           </object>
@@ -421,13 +414,13 @@
       <ul>
        <li>
         Now let's use the definition of Fourier's law in 3D
-        <figure>
-         <figcaption>
+        <figure class="">
+         <figcaption class="">
           Fourier's Law in all coordinate systems
          </figcaption>
         </figure>
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="1">
         Selecting the correct definition, we have
         \begin{align*}
         \frac{\partial T}{\partial r} = -\frac{I^2}{2 k_e k}r
@@ -438,7 +431,7 @@
      <section>
       <div style="display:flex;align-items:center;">
        <div style="flex: 1 1 calc(100% * 0.41);">
-        <figure>
+        <figure class="">
          <div class="center">
           <object data="img/solid_cyl_coords.svg" type="image/svg+xml" width="100%">
           </object>
@@ -462,7 +455,7 @@
         T &amp;= \frac{I^2}{4 k_e k}\left(C-r^2\right)
         \end{align*}
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="1">
         For now, we will use the simple boundary condition that
     the exterior of the wire ($r=R$
         ) is held at a fixed temperature
@@ -479,7 +472,7 @@
      <section data-menu-title="Total Heat Flux">
       <div style="display:flex;align-items:center;">
        <div style="flex: 1 1 calc(100% * 0.41);">
-        <figure>
+        <figure class="">
          <div class="center">
           <object data="img/solid_cyl_coords.svg" type="image/svg+xml" width="100%">
           </object>
@@ -499,7 +492,7 @@
     surface of the wire $Q_r|_{wall}$
         .
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="1">
         Setting $r=R$
         in the equation for the heat flux
         $q_r$
@@ -509,7 +502,7 @@
         Q_r|_{wall} = \frac{\pi R^2 L I^2}{k_e}
         \end{align*}
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="2">
         This could also be immediately derived by noting that at
     steady state, all heat generated in the wire must flow out.
        </li>
@@ -518,7 +511,7 @@
      <section data-menu-title="Similarity To Momentum Transport">
       <div style="display:flex;align-items:center;">
        <div style="flex: 1 1 calc(100% * 0.41);">
-        <figure>
+        <figure class="">
          <div class="center">
           <object data="img/solid_cyl_coords.svg" type="image/svg+xml" width="100%">
           </object>
@@ -543,16 +536,16 @@
       \tau_{rz}|_{wall} &amp;= \Delta p \pi R^2
         \end{align*}
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="1">
         We have found an
-        <b>
+        <b class="">
          analogous
         </b>
         process for flow profiles
     in heat transfer! This is the power of combined Momentum, Heat,
     and Mass transfer studies.
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="2">
         With a bit of thought you should be able to immediately
     write down the expression for electrical heating in a tubular
     conductor (think flow in an annulus).
@@ -564,21 +557,21 @@
      <section data-menu-title="Example: Spherical Nuclear Fuel">
       <div style="display:flex;align-items:center;">
        <div style="flex: 1 1 calc(100% * 0.51);">
-        <figure>
+        <figure class="">
          <div class="center">
           <img src="img/Pebble_bed_reactor_scheme.jpg"/>
          </div>
-         <figcaption>
+         <figcaption class="">
           An Italian diagram of a pebble bed nuclear reactor.
          </figcaption>
         </figure>
        </div>
        <div style="flex: 1 1 calc(100% * 0.51);">
-        <figure>
+        <figure class="">
          <div class="center">
           <img src="img/GraphitePebble.jpg" style="width:90%;"/>
          </div>
-         <figcaption>
+         <figcaption class="">
           A single Graphite pebble.
          </figcaption>
         </figure>
@@ -586,9 +579,9 @@
          <li>
           Let's take another look at a heat transfer problem.
          </li>
-         <li class="fragment">
+         <li class="fragment" data-fragment-index="1">
           There is an unusual design of nuclear reactor called a
-          <b>
+          <b class="">
            pebble bed reactor
           </b>
           .
@@ -600,12 +593,12 @@
      <section>
       <div style="display:flex;align-items:center;">
        <div style="flex: 1 1 calc(100% * 0.51);">
-        <figure>
+        <figure class="">
          <div class="center">
           <object data="img/pebble_diag.svg" type="image/svg+xml" width="80%">
           </object>
          </div>
-         <figcaption>
+         <figcaption class="">
           Diagram of a graphite pebble
          </figcaption>
         </figure>
@@ -620,12 +613,12 @@
           $R^{(C)}$
           .
          </li>
-         <li class="fragment">
+         <li class="fragment" data-fragment-index="1">
           Due to the nature of nuclear fission, the rate of heat
         generation is not uniform within the sphere, it depends on
         temperature and the production of neutrons within the sphere.
          </li>
-         <li class="fragment">
+         <li class="fragment" data-fragment-index="2">
           As a first approximation, it is assumed that the
         generation rate is given by
           \begin{align*}
@@ -646,7 +639,7 @@
       p \nabla\cdot\boldsymbol{v} +\sigma_{energy}
         \end{align*}
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="1">
         Again, the system is solid so we can state that
     $\boldsymbol{v}=0$
         .
@@ -655,14 +648,14 @@
       +\sigma_{energy}
         \end{align*}
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="2">
         Assuming that the nuclear reactor is at steady state, we
     have
         \begin{align*}
         \nabla\cdot\boldsymbol{q} =\sigma_{energy}
         \end{align*}
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="3">
         Choosing spherical coordinates, we assume due to symmetry
     that only the radial flux is important ($q_\theta=q_\phi=0$
         ), and
@@ -680,12 +673,12 @@
      <section>
       <div style="display:flex;align-items:center;">
        <div style="flex: 1 1 calc(100% * 0.51);">
-        <figure>
+        <figure class="">
          <div class="center">
           <object data="img/pebble_diag.svg" type="image/svg+xml" width="30%">
           </object>
          </div>
-         <figcaption>
+         <figcaption class="">
           Diagram of a graphite pebble
          </figcaption>
         </figure>
@@ -706,7 +699,7 @@
     r}\left(r^2  q_r^{(F)}\right) &amp;= \sigma_0 \left(1+b\left(\frac{r}{R^{(F)}}\right)^2\right)
         \end{align*}
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="1">
         And one for the aluminium cladding (where there is no heat
     production):
         \begin{align*}
@@ -719,12 +712,12 @@
      <section>
       <div style="display:flex;align-items:center;">
        <div style="flex: 1 1 calc(100% * 0.51);">
-        <figure>
+        <figure class="">
          <div class="center">
           <object data="img/pebble_diag.svg" type="image/svg+xml" width="30%">
           </object>
          </div>
-         <figcaption>
+         <figcaption class="">
           Diagram of a graphite pebble
          </figcaption>
         </figure>
@@ -755,12 +748,12 @@
      <section data-menu-title="Heat Flux">
       <div style="display:flex;align-items:center;">
        <div style="flex: 1 1 calc(100% * 0.51);">
-        <figure>
+        <figure class="">
          <div class="center">
           <object data="img/pebble_diag.svg" type="image/svg+xml" width="30%">
           </object>
          </div>
-         <figcaption>
+         <figcaption class="">
           Diagram of a graphite pebble
          </figcaption>
         </figure>
@@ -780,7 +773,7 @@
       q^{(C)}_r &amp;= \frac{C_1^{(C)}}{r^2}
         \end{align*}
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="1">
         At $r=0$
         we know that the flux in the fissionable material
     must be finite so
@@ -793,12 +786,12 @@
      <section>
       <div style="display:flex;align-items:center;">
        <div style="flex: 1 1 calc(100% * 0.51);">
-        <figure>
+        <figure class="">
          <div class="center">
           <object data="img/pebble_diag.svg" type="image/svg+xml" width="30%">
           </object>
          </div>
-         <figcaption>
+         <figcaption class="">
           Diagram of a graphite pebble
          </figcaption>
         </figure>
@@ -827,12 +820,12 @@
      <section data-menu-title="Temperature Profile">
       <div style="display:flex;align-items:center;">
        <div style="flex: 1 1 calc(100% * 0.51);">
-        <figure>
+        <figure class="">
          <div class="center">
           <object data="img/pebble_diag.svg" type="image/svg+xml" width="30%">
           </object>
          </div>
-         <figcaption>
+         <figcaption class="">
           Diagram of a graphite pebble
          </figcaption>
         </figure>
@@ -848,13 +841,13 @@
        <li>
         Again, we must check the definition of Fourier's law in
     Spherical coordinates.
-        <figure>
-         <figcaption>
+        <figure class="">
+         <figcaption class="">
           Fourier's Law in all coordinate systems
          </figcaption>
         </figure>
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="1">
         We can then rewrite our problems in terms of the
     temperature profile.
        </li>
@@ -863,12 +856,12 @@
      <section>
       <div style="display:flex;align-items:center;">
        <div style="flex: 1 1 calc(100% * 0.51);">
-        <figure>
+        <figure class="">
          <div class="center">
           <object data="img/pebble_diag.svg" type="image/svg+xml" width="30%">
           </object>
          </div>
-         <figcaption>
+         <figcaption class="">
           Diagram of a graphite pebble
          </figcaption>
         </figure>
@@ -885,14 +878,14 @@
         Again assuming constant thermal conductivity we can
     integrate these expressions.
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="1">
         We then need boundary conditions for the constants, the
     first is that the temperatures are equal at the bonded interface
         \begin{align*}
         T^{(F)} &amp;= T^{(C)} &amp; \text{for} \quad r=R^{(F)}
         \end{align*}
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="2">
         We will also assume the surface temperature of the
     particle is known
         \begin{align*}
@@ -914,7 +907,7 @@
       \left.+\frac{1}{k^{(C)}}\left(1+\frac{3 b}{5}\right)\left(1-\frac{R^{(F)}}{R^{(C)}}\right)\right\}
         \end{multline*}
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="1">
         For the cladding we have
         \begin{align*}
         T^{(C)} -T_0 =
@@ -923,11 +916,11 @@
       \left(\frac{R^{(F)}}{r}-\frac{R^{(F)}}{R^{(C)}}\right)
         \end{align*}
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="2">
         We can see the temperature increases towards the centre of
     each particle.
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="3">
         Its vital that the temperature of the fissionable material
     is monitored as a design parameter!
        </li>
@@ -945,7 +938,7 @@
       +\sigma_{energy}
         \end{align*}
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="1">
         A simpler heat balance equation is derived using the
     assumption that the internal energy has only a weak pressure
     dependence:
@@ -955,30 +948,30 @@
       p \nabla_i v_i +\sigma_{energy}
         \end{align*}
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="2">
         We have solved our first conduction problem for heat
     transfer in an electrically heated wire and found it is analogous
     to velocity profiles in a pipe.
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="3">
         We solved for the temperature profile in a nuclear fuel
     pellet (our first spherical coordinate problem).
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="4">
         This all required being careful with terms involving
     $\nabla$
         terms.
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="5">
         But our boundary conditions for the systems were
     unsatisfactory, all systems had
-        <b>
+        <b class="">
          fixed temperatures
         </b>
         at the
     surface but this is not realistic…
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="6">
         … we need to set other boundary conditions on heat
     transfer problems.
        </li>

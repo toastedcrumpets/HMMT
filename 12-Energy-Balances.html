@@ -24,13 +24,6 @@
       <div class="center">
       </div>
      </section>
-     <section>
-      <h3>
-       Slides Outline
-      </h3>
-      <div class="tableofcontents">
-      </div>
-     </section>
     </section>
     <section>
      <section data-menu-title="Review">
@@ -42,7 +35,7 @@
         \frac{\partial \rho}{\partial t} &amp;=- \nabla\cdot \rho \boldsymbol{v}
         \end{align*}
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="1">
         The continuity equation currently leads to some relatively
     trivial results ($IN=OUT$
         ) for one-dimensional fluid systems, so
@@ -52,20 +45,20 @@
       \nabla\boldsymbol{v} - \nabla\cdot\boldsymbol{\tau} - \nabla p + \rho \boldsymbol{g}
         \end{align*}
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="2">
         Using these two equations, we have studied a range of
     simplified and complex problems in fluid flow of incompressible
     Newtonian fluids. We will later extend to multi-phase and
     non-Newtonian fluids.
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="3">
         We have shown how to attack many fluid flow/momentum
     transport problem from a solid basis, accounting for all
     assumptions along the way.
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="4">
         Can we extend what we've studied to other
-        <i>
+        <i class="">
          “transport”
         </i>
         problems?
@@ -77,11 +70,11 @@
      <section data-menu-title="Heat Exchangers">
       <div style="display:flex;align-items:center;">
        <div style="flex: 1 1 calc(100% * 0.51);">
-        <figure>
+        <figure class="">
          <div class="center">
           <img src="img/Alaska_Pipeline.jpg" style="width:100%;"/>
          </div>
-         <figcaption>
+         <figcaption class="">
           The start of the Trans-Alaska pipeline.
          </figcaption>
         </figure>
@@ -93,16 +86,16 @@
         transport allows us to derive design equations for hydraulic
         systems.
          </li>
-         <li class="fragment">
+         <li class="fragment" data-fragment-index="1">
           But
-          <b>
+          <b class="">
            hydraulic design
           </b>
           is only one half of many
         Chemical/Petroleum processes…
          </li>
-         <li class="fragment">
-          <b>
+         <li class="fragment" data-fragment-index="2">
+          <b class="">
            thermal design
           </b>
           is an essential part of all
@@ -120,15 +113,15 @@
           Often, heat transfer is integral to the treatment of
         process fluids.
          </li>
-         <li class="fragment">
+         <li class="fragment" data-fragment-index="1">
           For example, the pasteurisation process for milk
         requires the milk to be rapidly heated to $71.7^\circ$
           to kill
         any bacteria, then rapidly cooled to prevent the milk burning.
          </li>
-         <li class="fragment">
+         <li class="fragment" data-fragment-index="2">
           Even in 2011,
-          <i>
+          <i class="">
            “Raw milk is
           responsible for nearly three times more hospitalizations
           than any other foodborne disease outbreak, making it one of
@@ -142,11 +135,11 @@
         </ul>
        </div>
        <div style="flex: 1 1 calc(100% * 0.51);">
-        <figure>
+        <figure class="">
          <div class="center">
           <img src="img/pasteurisation.jpg" style="width:100%;"/>
          </div>
-         <figcaption>
+         <figcaption class="">
           A 1914 photograph of the pasteurisation process.
          </figcaption>
         </figure>
@@ -172,18 +165,18 @@
           A huge number of processes include heat transfer as an
         integral part of a larger process.
          </li>
-         <li class="fragment">
+         <li class="fragment" data-fragment-index="1">
           Distillation columns are a great example (see EG3502
         Separation processes 1 and  EG4530 Separation processes 2).
          </li>
         </ul>
        </div>
        <div style="flex: 1 1 calc(100% * 0.41);">
-        <figure>
+        <figure class="">
          <div class="center">
           <img src="img/saltend.jpg" style="width:100%;"/>
          </div>
-         <figcaption>
+         <figcaption class="">
           Distillation columns at Saltend chemical works
           © Andy Beecroft 2009
          </figcaption>
@@ -198,21 +191,21 @@
          <li>
           The input of heat into the heat exchanger at the base
         (the
-          <b>
+          <b class="">
            re-boiler
           </b>
           ) partially boils the fluid and produces a
         vapour.
          </li>
-         <li class="fragment">
+         <li class="fragment" data-fragment-index="1">
           The removal of heat in the heat exchanger at the top
         (the
-          <b>
+          <b class="">
            condenser
           </b>
           ) produces a liquid stream.
          </li>
-         <li class="fragment">
+         <li class="fragment" data-fragment-index="2">
           The contacting counter-current flow of these liquid
         and vapour streams through the column cause it to separate a
         mixture into it's component fluids.
@@ -220,12 +213,12 @@
         </ul>
        </div>
        <div style="flex: 1 1 calc(100% * 0.41);">
-        <figure>
+        <figure class="">
          <div class="center">
           <object data="img/fractionation_column_01.svg" type="image/svg+xml" width="None%">
           </object>
          </div>
-         <figcaption>
+         <figcaption class="">
           Distillation column.
          </figcaption>
         </figure>
@@ -241,48 +234,48 @@
         distillation, often heat exchangers appear as isolated
         unit-process to cool or heat a stream.
          </li>
-         <li class="fragment">
+         <li class="fragment" data-fragment-index="1">
           A very common
-          <b>
+          <b class="">
            flow configuration
           </b>
           of a heat
         exchanger is the
-          <b>
+          <b class="">
            shell-and-tube exchanger
           </b>
           .
          </li>
-         <li class="fragment">
+         <li class="fragment" data-fragment-index="2">
           In such systems, one process fluid
-          <b>
+          <b class="">
            passes
           </b>
           through the
-          <b>
+          <b class="">
            shell-side
           </b>
           of an exchanger, flowing around a
-          <b>
+          <b class="">
            tube-bundle
           </b>
           .
          </li>
-         <li class="fragment">
+         <li class="fragment" data-fragment-index="3">
           In the
-          <b>
+          <b class="">
            tube-side
           </b>
           another fluid
-          <b>
+          <b class="">
            passes
           </b>
           , and
         heat is exchanged through the walls of the tubes.
          </li>
-         <li class="fragment">
+         <li class="fragment" data-fragment-index="4">
           Another common configuration exists in
-          <b>
+          <b class="">
            plate
           heat-exchangers
           </b>
@@ -291,11 +284,11 @@
         </ul>
        </div>
        <div style="flex: 1 1 calc(100% * 0.41);">
-        <figure>
+        <figure class="">
          <div class="center">
           <img src="img/shell-tube.jpg" style="width:100%;"/>
          </div>
-         <figcaption>
+         <figcaption class="">
           The tube bundle from a shell-and-tube heat exchanger.
          </figcaption>
         </figure>
@@ -305,21 +298,21 @@
      <section>
       <div style="display:flex;align-items:center;">
        <div style="flex: 1 1 calc(100% * 0.51);">
-        <figure>
+        <figure class="">
          <div class="center">
           <img src="img/plateHX.jpg" style="width:100%;"/>
          </div>
-         <figcaption>
+         <figcaption class="">
           An installed plate heat exchanger.
          </figcaption>
         </figure>
        </div>
        <div style="flex: 1 1 calc(100% * 0.51);">
-        <figure>
+        <figure class="">
          <div class="center">
           <img src="img/plate.jpg" style="width:100%;"/>
          </div>
-         <figcaption>
+         <figcaption class="">
           A single plate from a plate heat exchanger.
          </figcaption>
         </figure>
@@ -330,23 +323,23 @@
       <ul>
        <li>
         The
-        <b>
+        <b class="">
          flow
         </b>
         of the fluids on either side of the heat
     exchanger is crucial to the efficiency of the heat exchanger, thus
     the momentum balance equation will still be required.
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="1">
         However, the key function of a heat-exchanger is the
-        <b>
+        <b class="">
          transport of energy
         </b>
         .
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="2">
         We will need another
-        <b>
+        <b class="">
          differential balance equation
         </b>
         to describe the transport of energy!
@@ -366,7 +359,7 @@
         e = …
         \end{align*}
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="1">
         We need to find expressions for all of the types of energy
     that can be stored per unit mass of fluid…
        </li>
@@ -379,19 +372,19 @@
       <ul>
        <li>
         A straightforward source of energy is the
-        <b>
+        <b class="">
          kinetic
       energy
         </b>
         of the substance.
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="1">
         The kinetic energy per unit mass is given by
         \begin{align*}
         \frac{1}{2}\boldsymbol{v}\cdot\boldsymbol{v} = \frac{1}{2}v^2
         \end{align*}
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="2">
         This is just the vector and per-unit-mass form of the
     standard expression, $m v^2/2$
         , for the kinetic energy.
@@ -405,29 +398,29 @@
       <ul>
        <li>
         Another simple energy store is the
-        <b>
+        <b class="">
          potential energy
         </b>
         ,
         $e_{pot.}(\boldsymbol{r})$
         .
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="1">
         One typical example of potential energy is the
     gravitational potential
         \begin{align*}
         e^{g}_{pot.}(\boldsymbol{r}) = - \boldsymbol{g}\cdot\boldsymbol{r}
         \end{align*}
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="2">
         This is just the vector and per-unit-mass expression for
     the standard expression, $\rho g H$
         .
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="3">
         Other examples of potential energies are magnetic fields,
     but we do not consider
-        <b>
+        <b class="">
          magnetohydrodynamics
         </b>
         in this course.
@@ -442,23 +435,23 @@
        <li>
         From thermodynamics, we know that everything (including
     fluids) have an the
-        <b>
+        <b class="">
          internal energy
         </b>
         $U$
         (also in units of
     energy per unit mass).
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="1">
         This is related to the temperature of the fluid and is the
     amount of energy that is not directly observable (we must use a
     thermometer to measure it).
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="2">
         The energy is stored in the degrees of freedom of the
     atoms (translation, rotation, vibration).
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="3">
         It also includes chemical energies, if reactions are
     included. We don't treat these here, as the hydrodynamics becomes
     significantly more complex.
@@ -474,13 +467,13 @@
         e = \frac{1}{2}v^2 + e_{pot.}(\boldsymbol{r}) + U
         \end{align*}
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="1">
         The concentration of energy (energy per unit volume) is given by
         \begin{align*}
         c_{energy} = \rho e
         \end{align*}
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="2">
         Let's take a look at our general balance equation.
        </li>
       </ul>
@@ -496,12 +489,12 @@
         , and
     relabeled it for the energy.
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="1">
         We already have a definition of the concentration of
     energy, $c_{energy} = \rho e$
         …
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="2">
         … If we want to completely define a general balance equation
     for the energy, we need to find expressions for the energy flux
     $\boldsymbol{J}_{energy}$
@@ -509,17 +502,17 @@
         $\sigma_{energy}$
         .
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="3">
         The first law of thermodynamics states that energy is not
     created or destroyed, so at first it looks like $\sigma_{energy} =
     0$
         .
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="4">
         But it is not always that simple, we might have a nuclear
     reaction producing heat or heat energy inputted electrically.
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="5">
         We will assume that we might have $\sigma_{energy}\neq0$
         ,
     until we make any further approximations.
@@ -537,14 +530,14 @@
     $\boldsymbol{J}_{energy}$
         .
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="1">
         Here we can identify two fluxes which have direct
     analogues to the momentum fluxes, the
-        <b>
+        <b class="">
          convective
         </b>
         and
-        <b>
+        <b class="">
          diffusive
         </b>
         fluxes of energy.
@@ -566,11 +559,11 @@
       \boldsymbol{J}_{energy}^{conv.} &amp;= (\rho e)\boldsymbol{v}
         \end{align*}
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="1">
         We can then immediately write down the convective flux of
     energy
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="2">
         This is the transport of energy due to the movement of
     the fluid (energy per unit area per second).
        </li>
@@ -588,11 +581,11 @@
         \boldsymbol{J}_{mom.}^{diff.} = -\boldsymbol{\tau}
         \end{align*}
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="1">
         This is the transport of momentum due to viscous forces in
     the fluid.
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="2">
         But what is the analogy of diffusive energy transport?
        </li>
       </ul>
@@ -604,7 +597,7 @@
       <ul>
        <li>
         The answer is
-        <b>
+        <b class="">
          thermal conduction
         </b>
         !
@@ -612,15 +605,15 @@
         \boldsymbol{J}_{energy}^{diff.} = -\boldsymbol{q}
         \end{align*}
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="1">
         $\boldsymbol{q}$
         is known as the
-        <b>
+        <b class="">
          heat flux
         </b>
         . Assuming the
     material is
-        <b>
+        <b class="">
          isotropic
         </b>
         (same in all directions), we have the
@@ -632,9 +625,9 @@
         $k$
         is the thermal conductivity.
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="2">
         This is
-        <b>
+        <b class="">
          Fourier's law
         </b>
         .
@@ -650,9 +643,9 @@
         We should take the time to note the similarity between our
     momentum and energy balance equations so far.
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="1">
         Both the momentum and energy balance have
-        <b>
+        <b class="">
          convective
       fluxes
         </b>
@@ -662,9 +655,9 @@
       \boldsymbol{J}_{energy}^{conv.} &amp;= (\rho e)\boldsymbol{v}
         \end{align*}
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="2">
         And both have
-        <b>
+        <b class="">
          diffusive fluxes
         </b>
         \begin{align*}
@@ -672,9 +665,9 @@
       -\boldsymbol{q}
         \end{align*}
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="3">
         They also both have
-        <b>
+        <b class="">
          constitutive relationships
         </b>
         to
@@ -702,27 +695,27 @@
         The major difference is that energy is a scalar quantity
     and momentum is a vector.
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="1">
         This means that the transport of energy is simpler than
     the Cauchy momentum equation, as we only have one equation to
     solve.
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="2">
         But we should expect similar solutions from the two
     equations.
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="3">
         In fact, in certain cases we expect
-        <b>
+        <b class="">
          exactly the same
       answers
         </b>
         . It turns out the solution of electrical heating of a
     wire is equivalent to flow in a pipe!
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="4">
         This is what makes the study of
-        <b>
+        <b class="">
          Transport Phenomena
         </b>
         so powerful, we can set and understand all transport on a common
@@ -736,17 +729,17 @@
         There is a final set of terms that we have neglected in
     our derivation so far.
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="1">
         These terms account for the
-        <b>
+        <b class="">
          work
         </b>
         performed by the
     fluid.
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="2">
         Work was originally defined in 1824 by Sadi Carnot in
-        <i>
+        <i class="">
          “Reflections on the Motive Power of Fire”
         </i>
         :
@@ -754,23 +747,23 @@
          We use here motive power (work) to express the useful effect
       that a motor is capable of producing… It
       has, as we know, as a measure,
-         <b>
+         <b class="">
           the product of the weight
         multiplied by the height to which it is raised.
          </b>
         </div>
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="3">
         A slightly more modern definition of work is that it is a
-        <i>
+        <i class="">
          force
         </i>
         multiplied by a distance.
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="4">
         The rate of work generation is then a force multiplied by
     a
-        <i>
+        <i class="">
          velocity
         </i>
         .
@@ -784,7 +777,7 @@
     and determine how fast the fluid is moving against them to
     determine the work performed.
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="1">
         A simple example of a work balance is given by the
     pressure.
         \begin{multline*}
@@ -794,7 +787,7 @@
       y \Delta z
         \end{multline*}
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="2">
         Dividing by the volume $\Delta x \Delta y \Delta z$
         and
     taking the limit
@@ -819,7 +812,7 @@
         There is one other set of forces in a fluid, and these are
     viscous forces.
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="1">
         For each element of the stress tensor $\boldsymbol{\tau}$
         (each
     element represents a stress force) we have a rate of work being performed.
@@ -830,7 +823,7 @@
         \tau_{xy}(x) v_y(x)\right) \Delta y  \Delta z
         \end{multline*}
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="2">
         Again, dividing by the volume $\Delta x \Delta y \Delta
     z$
         and taking the limit
@@ -857,11 +850,11 @@
       - \nabla_i q_i - \nabla_i(\tau_{ij} v_j) - \nabla_i(p v_i) + \sigma_{energy}
         \end{align*}
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="1">
         When we derived the momentum balance equation, we managed
     to factor out the continuity equation.
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="2">
         We can do this again here, using the product rule
         \begin{align*}
         e\frac{\partial \rho}{\partial t} + \rho\frac{\partial e}{\partial
@@ -876,11 +869,11 @@
       \sigma_{energy}
         \end{align*}
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="3">
         We now have the fundamental balance equation for heat
     transfer!
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="4">
         Apart from the work terms, the derivation is identical to
     the Cauchy momentum equation.
        </li>
@@ -900,12 +893,12 @@
     transport, this equation greatly simplifies for many interesting
     cases.
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="1">
         For example, lets consider heat conduction in a
     motionless-fluid or solid ($\boldsymbol{v}=0$
         ).
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="2">
         Ignoring gravity and any heat source, we have $e=U$
         , and
     the energy balance equation reduces to
@@ -913,7 +906,7 @@
         \rho \frac{\partial U}{\partial t} = -\nabla\cdot\boldsymbol{q}
         \end{align*}
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="3">
         Assuming the internal energy is only weakly dependent on
     the pressure, and a constant heat capacity, we can use the
     thermodynamic relation ${\rm d}U = C_v {\rm d}T$
@@ -934,14 +927,14 @@
         This is an important equation called the heat equation and
     it lets you study many unsteady-state heat transfer problems.
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="1">
         In the case of steady state heat conduction, the above
     equation reduces to
         \begin{align*}
         \nabla^2 T = 0
         \end{align*}
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="2">
         This is a Laplace equation for steady state heat
     conduction, which you should have encountered in EG3XXX
     Engineering Analysis and Methods.
@@ -968,7 +961,7 @@
       \frac{\partial^2 s}{\partial z^2}
         \end{align*}
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="1">
         But in cylindrical coordinate systems we have
         \begin{align*}
         \nabla s &amp;= \left[\frac{\partial s}{\partial r}, 
@@ -981,7 +974,7 @@
       \frac{\partial^2 s}{\partial z^2}
         \end{align*}
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="2">
         Note that index notation fails us here. $\nabla$
         in
     cylindrical coordinates is
@@ -1000,7 +993,7 @@
      <section>
       <div style="display:flex;align-items:center;">
        <div style="flex: 1 1 calc(100% * 0.41);">
-        <figure>
+        <figure class="">
          <div class="center">
           <object data="img/cylindrical_coords.svg" type="image/svg+xml" width="None%">
           </object>
@@ -1017,7 +1010,7 @@
           $\theta$
           .
          </li>
-         <li class="fragment">
+         <li class="fragment" data-fragment-index="1">
           See Appendix A.7 of “Transport Phenomena,” for full
         details, but the idea is that each vector can be written as
         the sum of its components along its “basis” vectors:
@@ -1031,7 +1024,7 @@
        </div>
       </div>
       <ul>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="2">
         If we then look at the application of $\nabla$
         on a
     vector, we have:
@@ -1045,7 +1038,7 @@
         \hat{\boldsymbol{e}}_z \boldsymbol{v}_z\right)
         \end{align*}
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="3">
         The unexpected terms arise as the cross terms, such as
     $\nabla_\theta\cdot\hat{\boldsymbol{e}}_r$
         are not zero, as the direction
@@ -1054,7 +1047,7 @@
         $\theta$
         .
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="4">
         Rather than follow through these derivatives carefully, we
     will use look-up tables.
        </li>
@@ -1071,8 +1064,8 @@
        <li>
         We also have look up tables for the constitutive
     relationships for convenience. For example, here is Fourier's law:
-        <figure>
-         <figcaption>
+        <figure class="">
+         <figcaption class="">
           Fourier's Law in all coordinate systems
          </figcaption>
         </figure>
@@ -1081,24 +1074,24 @@
      </section>
      <section>
       Here are the look-up tables for the stress:
-      <figure>
-       <figcaption>
+      <figure class="">
+       <figcaption class="">
         Newton's law for the stress in rectangular coordinates.
        </figcaption>
       </figure>
      </section>
      <section>
       Here are the look-up tables for the stress:
-      <figure>
-       <figcaption>
+      <figure class="">
+       <figcaption class="">
         Newton's law for the stress in cylindrical coordinates.
        </figcaption>
       </figure>
      </section>
      <section>
       Here are the look-up tables for the stress:
-      <figure>
-       <figcaption>
+      <figure class="">
+       <figcaption class="">
         Newton's law for the stress in spherical coordinates.
        </figcaption>
       </figure>
@@ -1118,7 +1111,7 @@
          </li>
         </ul>
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="1">
         We have derived a general balance equation for heat
     transport, including terms for the viscous and pressure work.
         \begin{align*}
@@ -1127,19 +1120,19 @@
       \sigma_{energy}
         \end{align*}
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="2">
         This equation reduces to the heat equation if there is no
     flow, gravity is negligible and there is no heat source.
         \begin{align*}
         \rho C_v \frac{\partial T}{\partial t} = k \nabla^2 T
         \end{align*}
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="3">
         The action of $\nabla$
         in curvelinear coordinates has been
     reviewed.
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="4">
         The Laplace operator $\nabla^2$
         has been defined.
        </li>

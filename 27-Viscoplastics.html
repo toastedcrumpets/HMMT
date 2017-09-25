@@ -24,13 +24,6 @@
       <div class="center">
       </div>
      </section>
-     <section>
-      <h3>
-       Slides Outline
-      </h3>
-      <div class="tableofcontents">
-      </div>
-     </section>
     </section>
     <section>
      <section data-menu-title="Pressure Loss ">
@@ -39,34 +32,34 @@
         Before we consider viscoplastic materials, we must make a
     general observation.
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="1">
         If we have a steady-state flow, moving through a closed
     channel, we must have a driving pressure gradient $\Delta P$
         .
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="2">
         This pressure gradient is the force which is keeping the
     fluid in motion.
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="3">
         If the flow is not accelerating, this driving force must
     be opposed by an equal and opposite drag force.
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="4">
         This opposing force is imparted on the flow through the
     boundaries.
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="5">
         The fluid next to the wall cannot slip against the fixed
     boundaries and this causes
-        <b>
+        <b class="">
          viscous stresses
         </b>
         to appear.
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="6">
         This is a general statement that
-        <b>
+        <b class="">
          the force from the
       pressure gradient is equal to the viscous stresses on the
       boundaries
@@ -89,7 +82,7 @@
         is the cross sectional area of the flow and we
     have assumed this is the same at both ends of the channel.
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="1">
         The viscous forces at the boundaries are equal to the area
     of the boundaries multiplied by the stress at the boundary/wall.
         \begin{align*}
@@ -105,7 +98,7 @@
         $P_w$
         is the wetted perimeter.
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="2">
         Balancing the forces gives us
         \begin{align*}
         F_{viscous} + F_{pressure} &amp;= \tau_{boundary} L P_w - \Delta P A_{flow}  = 0\\
@@ -124,12 +117,12 @@
     flow-configuration, viscous behaviour or velocity profile of the
     fluid.
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="1">
         We can use this as a starting point to derive empirical
     relationships for fluids where we can't fit a function to their
     viscous behaviour.
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="2">
         It is also very useful when calculating at what pressure a
     viscoplastic fluid will start to flow.
        </li>
@@ -140,7 +133,7 @@
      <section data-menu-title="Viscoplastic Fluids">
       <div style="display:flex;align-items:center;">
        <div style="flex: 1 1 calc(100% * 0.51);">
-        <figure>
+        <figure class="">
          <div class="center">
           <object data="img/BinghamPlastics.svg" type="image/svg+xml" width="100%">
           </object>
@@ -151,26 +144,26 @@
         <ul>
          <li>
           There are many substances which are
-          <b>
+          <b class="">
            viscoplastic
           </b>
           .
          </li>
-         <li class="fragment">
+         <li class="fragment" data-fragment-index="1">
           These are substances which are fluid above a certain
         yield stress $\tau_0$
           but are solid below the critical stress.
          </li>
-         <li class="fragment">
+         <li class="fragment" data-fragment-index="2">
           A simple example is mayonnaise, but these fluids occur
         everywhere.
          </li>
-         <li class="fragment">
+         <li class="fragment" data-fragment-index="3">
           An example relevant for Aberdeen is drilling mud used
         offshore for clearing cuttings from a new well/maintaining
         pressure or gelled oil flows (see the paper from last week).
          </li>
-         <li class="fragment">
+         <li class="fragment" data-fragment-index="4">
           They have a common characteristic of appearing as a
         “frozen flow.”
          </li>
@@ -181,7 +174,7 @@
      <section>
       <div style="display:flex;align-items:center;">
        <div style="flex: 1 1 calc(100% * 0.41);">
-        <figure>
+        <figure class="">
          <div class="center">
           <img src="img/jelly.jpg" style="width:100%;"/>
          </div>
@@ -191,34 +184,34 @@
         <ul>
          <li>
           Many viscoplastic flows are also
-          <b>
+          <b class="">
            thixotropic
           </b>
           , or
-          <b>
+          <b class="">
            time dependant
           </b>
           .
          </li>
-         <li class="fragment">
+         <li class="fragment" data-fragment-index="1">
           The viscosity of the flow is a function of the current
         and previous shear-rates.
          </li>
-         <li class="fragment">
+         <li class="fragment" data-fragment-index="2">
           An example of this is jelly, it sets (increases in
         viscosity) if you don't shear it and breaks up if you do shear
         it.
          </li>
-         <li class="fragment">
+         <li class="fragment" data-fragment-index="3">
           This time dependant behaviour presents a real
         challenge in modelling and is difficult to capture.
          </li>
-         <li class="fragment">
+         <li class="fragment" data-fragment-index="4">
           But, luckily, it usually doesn't play a part in
         industrially relevant problems as flow calculations are only a
         problem in long pipes or flows.
          </li>
-         <li class="fragment">
+         <li class="fragment" data-fragment-index="5">
           Here we can usually assume the conditions along the
         pipe are constant and any short-time dependence is gone.
          </li>
@@ -229,7 +222,7 @@
      <section>
       <div style="display:flex;align-items:center;">
        <div style="flex: 1 1 calc(100% * 0.51);">
-        <figure>
+        <figure class="">
          <div class="center">
           <object data="img/binghammodel.svg" type="image/svg+xml" width="100%">
           </object>
@@ -243,16 +236,16 @@
         However, the simplest viscous model to use is the
         Bingham-Plastic.
          </li>
-         <li class="fragment">
+         <li class="fragment" data-fragment-index="1">
           This model states that the fluid doesn't flow until a
         critical yield stress $\tau_0$
           is reached.
          </li>
-         <li class="fragment">
+         <li class="fragment" data-fragment-index="2">
           Once this yield stress is reached, the fluid then
         flows as a Newtonian fluid.
          </li>
-         <li class="fragment">
+         <li class="fragment" data-fragment-index="3">
           Mathematically this is expressed as
           \begin{align*}
           \frac{\partial v_x}{\partial y} = \begin{cases}
@@ -270,7 +263,7 @@
      <section>
       <div style="display:flex;align-items:center;">
        <div style="flex: 1 1 calc(100% * 0.51);">
-        <figure>
+        <figure class="">
          <div class="center">
           <object data="img/binghammodel2.svg" type="image/svg+xml" width="100%">
           </object>
@@ -291,15 +284,15 @@
           This model is not very realistic as the transition from
         solid to fluid is too sharp.
          </li>
-         <li class="fragment">
+         <li class="fragment" data-fragment-index="1">
           The instant change to Newtonian flow is not seen in
         real systems.
          </li>
-         <li class="fragment">
+         <li class="fragment" data-fragment-index="2">
           A shear-thinning Power-Law behaviour, once the yield
         stress is reached, is much more realistic (dotted).
          </li>
-         <li class="fragment">
+         <li class="fragment" data-fragment-index="3">
           However, this model will present us with all of the
         mathematical challenges we need to worry about. All other
         models will be worked out in a similar fashion.
@@ -314,14 +307,14 @@
       <div style="display:flex;align-items:center;">
        <div style="flex: 1 1 calc(100% * 0.51);">
         <ul>
-         <div class="fragment">
+         <div class="fragment " data-fragment-index="1">
           <li>
            Let's take a simple example such as the flow of a
           Bingham plastic in a pipe…
           </li>
          </div>
-         <div class="fragment">
-          <li class="fragment">
+         <div class="fragment " data-fragment-index="2">
+          <li class="fragment" data-fragment-index="3">
            Immediately, we can use the expression we derived
           earlier for the viscous stress at the wall in terms of the
           pressure drop.
@@ -329,34 +322,34 @@
            \tau_{boundary} = \frac{\Delta p A_{flow}}{L P_w}
            \end{align*}
           </li>
-          <li class="fragment">
+          <li class="fragment" data-fragment-index="4">
            For a pipe, the wetted perimeter is given by the pipe
           circumference $P_w=2\pi R$
            and the flow area is
            $A_{flow}=\pi R^2$
            .
           </li>
-          <li class="fragment">
+          <li class="fragment" data-fragment-index="5">
            The stress on the boundary is then given by
            \begin{align*}
            \tau_{boundary} = \frac{\Delta p R}{2 L}
            \end{align*}
           </li>
          </div>
-         <div class="fragment">
-          <li class="fragment">
+         <div class="fragment " data-fragment-index="6">
+          <li class="fragment" data-fragment-index="7">
            The stresses at the boundaries are the maximum
           stresses in the system!
            \begin{align*}
            \tau_{boundary} = \frac{\Delta p R}{2 L}
            \end{align*}
           </li>
-          <li class="fragment">
+          <li class="fragment" data-fragment-index="8">
            If these stresses are less than the yield stress
           $\tau_{boundary} \leq \tau_0$
            , the fluid will not flow!
           </li>
-          <li class="fragment">
+          <li class="fragment" data-fragment-index="9">
            We can also rearrange this to calculate a critical
           “yield” pressure drop $\Delta p_0$
            .
@@ -365,8 +358,8 @@
            \end{align*}
           </li>
          </div>
-         <div class="fragment">
-          <li class="fragment">
+         <div class="fragment " data-fragment-index="10">
+          <li class="fragment" data-fragment-index="11">
            We note that, as always, the stress profile is
           always the same for a given flow geometry. Even if the
           flowing fluid might be part solid.
@@ -374,7 +367,7 @@
            \tau_{rz} = \left(\frac{\Delta p}{L}-\rho g_z\right)\frac{r}{2}
            \end{align*}
           </li>
-          <li class="fragment">
+          <li class="fragment" data-fragment-index="12">
            We also note that at $r=R$
            , and in the absence of
           gravity, this is the same expression that we derived for the
@@ -384,19 +377,19 @@
            \end{align*}
           </li>
          </div>
-         <div class="fragment">
-          <li class="fragment">
+         <div class="fragment " data-fragment-index="13">
+          <li class="fragment" data-fragment-index="14">
            Let's assume that the wall stresses are above the
           critical stress, $\tau_{boundary}&gt;\tau_0$
            and therefore
            $\Delta p&gt;\Delta p_0$
            .
           </li>
-          <li class="fragment">
+          <li class="fragment" data-fragment-index="15">
            The flow will be part-fluid and part-solid,
           depending on the shear stress.
           </li>
-          <li class="fragment">
+          <li class="fragment" data-fragment-index="16">
            The first thing we need to do is identify where the
           shear stress $\tau_{rz}$
            in the system drops below the yield
@@ -405,7 +398,7 @@
            \tau_{rz} = \frac{\Delta p}{L}\frac{r}{2}
            \end{align*}
           </li>
-          <li class="fragment">
+          <li class="fragment" data-fragment-index="17">
            When $\tau_{rz}=\tau_0$
            , the fluid becomes a solid.
           </li>
@@ -413,7 +406,7 @@
         </ul>
        </div>
        <div style="flex: 1 1 calc(100% * 0.51);">
-        <figure>
+        <figure class="">
          <div class="center">
           <object data="img/bingham_pipe_flow.svg" type="image/svg+xml" width="None%">
           </object>
@@ -434,13 +427,13 @@
           r_0 = \frac{2 \tau_0 L}{\Delta p}
           \end{align*}
          </li>
-         <li class="fragment">
+         <li class="fragment" data-fragment-index="1">
           We can now divide our problem into two parts.
           <ul>
-           <li class="fragment">
+           <li class="fragment" data-fragment-index="2">
             A fluid region with a velocity profile.
            </li>
-           <li class="fragment">
+           <li class="fragment" data-fragment-index="3">
             A solid region with a constant velocity $v_{z,0}$
             .
            </li>
@@ -449,7 +442,7 @@
         </ul>
        </div>
        <div style="flex: 1 1 calc(100% * 0.51);">
-        <figure>
+        <figure class="">
          <div class="center">
           <object data="img/bingham_pipe_flow2.svg" type="image/svg+xml" width="None%">
           </object>
@@ -465,7 +458,7 @@
          <li>
           Starting with the fluid region.
          </li>
-         <li class="fragment">
+         <li class="fragment" data-fragment-index="1">
           In a Bingham plastic, the stress-strain relation is
           \begin{align*}
           \frac{\partial v_z}{\partial r} = \begin{cases}
@@ -475,11 +468,11 @@
           \end{cases}
           \end{align*}
          </li>
-         <li class="fragment">
+         <li class="fragment" data-fragment-index="2">
           In the fluid region of the flow, $\tau_{rz}&gt;\tau_0$
           and we only need the first definition.
          </li>
-         <li class="fragment">
+         <li class="fragment" data-fragment-index="3">
           And our stress profile is given by
           \begin{align*}
           \tau_{rz} = \frac{\Delta p}{L}\frac{r}{2}
@@ -488,7 +481,7 @@
         </ul>
        </div>
        <div style="flex: 1 1 calc(100% * 0.41);">
-        <figure>
+        <figure class="">
          <div class="center">
           <object data="img/bingham_pipe_flow2.svg" type="image/svg+xml" width="None%">
           </object>
@@ -507,13 +500,13 @@
         \frac{\Delta p r}{2 L}\right)
         \end{align*}
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="1">
         Integrating, we have
         \begin{align*}
         v_z &amp;= \mu^{-1}\left(\tau_0 r - \frac{\Delta p r^2}{4 L}\right) + C
         \end{align*}
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="2">
         We know that at $r=R$
         , the no slip condition states
         $v_z=0$
@@ -532,10 +525,10 @@
           Now we have the flow profile, we want to work out the
         volumetric flow rate.
          </li>
-         <li class="fragment">
+         <li class="fragment" data-fragment-index="1">
           First, we need the velocity of the solid plug.
          </li>
-         <li class="fragment">
+         <li class="fragment" data-fragment-index="2">
           Using the no-slip condition, we have $v_z=v_{z,0}$
           at
           $r=r_0$
@@ -544,7 +537,7 @@
           r_0 = \frac{2 \tau_0 L}{\Delta p}
           \end{align*}
          </li>
-         <li class="fragment">
+         <li class="fragment" data-fragment-index="3">
           Substituting this into the velocity profile we have
         (after a lot of algebra)
           \begin{align*}
@@ -557,7 +550,7 @@
         </ul>
        </div>
        <div style="flex: 1 1 calc(100% * 0.41);">
-        <figure>
+        <figure class="">
          <div class="center">
           <object data="img/bingham_pipe_flow2.svg" type="image/svg+xml" width="None%">
           </object>
@@ -578,13 +571,13 @@
           &amp;= \frac{\Delta p \pi R^2}{8 \mu L}\left(2 X^2 - 4  X^3 + 2 X^4\right)
           \end{align*}
          </li>
-         <li class="fragment">
+         <li class="fragment" data-fragment-index="1">
           We need to find the volumetric flow rate in the fluid.
          </li>
         </ul>
        </div>
        <div style="flex: 1 1 calc(100% * 0.41);">
-        <figure>
+        <figure class="">
          <div class="center">
           <object data="img/bingham_pipe_flow2.svg" type="image/svg+xml" width="None%">
           </object>
@@ -604,14 +597,14 @@
           \dot{V}_{liquid} &amp;= \int_{r_0}^R \int_0^{2 \pi}v_z r {\rm d}\theta {\rm d}r
           \end{align*}
          </li>
-         <li class="fragment">
+         <li class="fragment" data-fragment-index="1">
           After more working out we get the volumetric flow-rate
         to be:
          </li>
         </ul>
        </div>
        <div style="flex: 1 1 calc(100% * 0.41);">
-        <figure>
+        <figure class="">
          <div class="center">
           <object data="img/bingham_pipe_flow2.svg" type="image/svg+xml" width="None%">
           </object>
@@ -619,7 +612,7 @@
         </figure>
        </div>
       </div>
-      <div class="fragment">
+      <div class="fragment " data-fragment-index="2">
        \begin{align*}
        \dot{V}_{liquid} &amp;= \frac{\Delta
         p \pi R^4}{8 \mu L}\left(1-\frac{4}{3}X - 2 X^2+4 X^3 -
@@ -631,7 +624,7 @@
       <div style="display:flex;align-items:center;">
        <div style="flex: 1 1 calc(100% * 0.61);">
         <ul>
-         <div class="fragment">
+         <div class="fragment " data-fragment-index="1">
           <li>
            The total flow rate is given by the sum of the fluid
         and solid flows
@@ -642,28 +635,28 @@
            where
            $X=\frac{2 \tau_0 L}{\Delta p  R}$
           </li>
-          <li class="fragment">
+          <li class="fragment" data-fragment-index="2">
            This is another famous equation, known as Buckingham's
         equation.
           </li>
-          <li class="fragment">
+          <li class="fragment" data-fragment-index="3">
            Here we have hit a problem. This is a fourth order
         equation in the pressure drop.
           </li>
-          <li class="fragment">
+          <li class="fragment" data-fragment-index="4">
            If we wanted to rearrange this equation to generate a
         friction factor (needed in the next set of slides to
         generalise the Reynold's number), we would need to find the
         solution to a quartic.
           </li>
          </div>
-         <div class="fragment">
-          <li class="fragment">
+         <div class="fragment " data-fragment-index="5">
+          <li class="fragment" data-fragment-index="6">
            Luckily for you, there is only a stable quadratic
           formula and cubic formula, so quartics are out of our grasp
           for now.
           </li>
-          <li class="fragment">
+          <li class="fragment" data-fragment-index="7">
            However, there are many approximate solutions
           available in the literature.
           </li>
@@ -671,7 +664,7 @@
         </ul>
        </div>
        <div style="flex: 1 1 calc(100% * 0.41);">
-        <figure>
+        <figure class="">
          <div class="center">
           <object data="img/bingham_pipe_flow2.svg" type="image/svg+xml" width="None%">
           </object>
@@ -683,7 +676,7 @@
     </section>
     <section>
      <section data-menu-title="Flow Profiles">
-      <figure>
+      <figure class="">
        <div class="center">
         <object data="img/flow-profiles.svg" type="image/svg+xml" width="80%">
         </object>
@@ -707,34 +700,34 @@
         \tau_{boundary} = \frac{\Delta p A_{flow}}{L P_w}
         \end{align*}
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="1">
         We have found that Bingham plastics have a yield stress,
     and using the boundary stress values we can also calculate a
     minimum pressure for the fluid to flow by setting
     $\tau_{boundary}=\tau_0$
         .
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="2">
         We have calculated the volumetric flow profile of a
     Bingham plastic fluid in a pipe and learnt the following important
     concepts
         <ul>
-         <li class="fragment">
+         <li class="fragment" data-fragment-index="3">
           Using the stress profile we can identify the size of the
       solid core which is surrounded by a liquid annulus.
          </li>
-         <li class="fragment">
+         <li class="fragment" data-fragment-index="4">
           We can use the no-slip boundary condition to determine
       the velocities across a phase boundary!
          </li>
-         <li class="fragment">
+         <li class="fragment" data-fragment-index="5">
           We can calculate the volumetric flow rate of a
       multi-phase system by summing up the flowrates of the two
       separate flows.
          </li>
         </ul>
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="6">
         We can sketch the flow profiles for a range of
     non-Newtonian flow types.
        </li>

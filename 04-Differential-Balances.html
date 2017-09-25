@@ -24,13 +24,6 @@
       <div class="center">
       </div>
      </section>
-     <section>
-      <h3>
-       Slides Outline
-      </h3>
-      <div class="tableofcontents">
-      </div>
-     </section>
     </section>
     <section>
      <section data-menu-title="The Fundamental Chemical Engineering Equation">
@@ -40,7 +33,7 @@
     derive the tools of Transport Phenomena (AKA Heat, Mass, and
     Momentum Transfer).
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="1">
         The first mathematical tool in the toolbox of Transport
     Phenomena is actually the most important equation of Chemical
     Engineering…
@@ -49,27 +42,27 @@
      </section>
      <section data-menu-title="The Equation">
       The fundamental equation of chemical engineering is arguably the
-      <b>
+      <b class="">
        balance equation
       </b>
       :
       \begin{align*}
       \textrm{INPUT}-\textrm{OUTPUT}+\textrm{GENERATION}=\textrm{ACCUMULATION}
       \end{align*}
-      <div class="fragment">
+      <div class="fragment " data-fragment-index="1">
        This equation can be used to study the dynamics of any
     “slow”/low-fluctuation quantity, such as
        <ul>
-        <li class="fragment">
+        <li class="fragment" data-fragment-index="2">
          Mass/Concentration.
         </li>
-        <li class="fragment">
+        <li class="fragment" data-fragment-index="3">
          Momentum.
         </li>
-        <li class="fragment">
+        <li class="fragment" data-fragment-index="4">
          Energy/Heat.
         </li>
-        <li class="fragment">
+        <li class="fragment" data-fragment-index="5">
          Money/Investment.
         </li>
        </ul>
@@ -85,7 +78,7 @@
     balance equation to understand the flow of material and energy
     through process equipment and entire plants.
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="1">
         As energy and mass are conserved, a balance can be used to
     find out on a flow sheet where the mass and energy of a process
     plant actually are.
@@ -93,14 +86,14 @@
          <img src="img/plantbalance.png" style="width:50%;"/>
         </div>
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="2">
         It is also particularly useful when looking at a single
-        <i>
+        <i class="">
          unit operation
         </i>
         as a black-box.
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="3">
         For example, let us take a look at a heater…
        </li>
       </ul>
@@ -116,9 +109,9 @@
     \overbrace{Q + \dot{m} C_p T_{in}}^{\text{INPUT}} - \overbrace{\dot{m} C_p T_{out}}^{\text{OUTPUT}}&amp;= 0
       \end{align*}
       <ul>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="1">
         This allows a rough estimate of the heat exchanger
-        <b>
+        <b class="">
          duty
         </b>
         ,
@@ -128,16 +121,12 @@
         <sup class="footnotemark">
          1
         </sup>
-        The proper energy
-      balance is
-        $Q = \dot{m}\int_{T_{in}}^{T_{out}} Cp(T) {\rm
-        d}T$
         ).
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="2">
         But what if we want to perform a detailed design and
     design inside the
-        <i>
+        <i class="">
          unit operation
         </i>
         ? What about differences in
@@ -145,15 +134,19 @@
        </li>
       </ul>
       <div class="footnote-container">
-       <div>
+       <div class="fragment" data-fragment-index="1">
         <sup class="footnotemark">
          1
         </sup>
+        The proper energy
+      balance is
+        $Q = \dot{m}\int_{T_{in}}^{T_{out}} Cp(T) {\rm
+        d}T$
        </div>
       </div>
      </section>
      <section>
-      <figure>
+      <figure class="">
        <div class="center">
         <object data="img/LMTD.svg" type="image/svg+xml" width="100%">
         </object>
@@ -164,7 +157,7 @@
         Heat exchangers which exchange heat between two fluids can
     be run in co-current or counter-current configurations.
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="1">
         In this case we can use the Log Mean Temperature
     Difference (LMTD) combined with the balance equations for each
     stream individually.
@@ -173,11 +166,11 @@
       LMTD &amp;= \left(\Delta T_A - \Delta T_B\right)/\ln\left(\Delta T_A/\Delta T_B\right)
         \end{align*}
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="2">
         These design equations allow us to estimate the heat
     transfer area of the exchanger.
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="3">
         But how did we derive this expression and what are its
     limitations? Can we find more general expressions for more complex
     systems?
@@ -190,60 +183,60 @@
       <ul>
        <li>
         We wish to describe the transport of some property, be it
-        <b>
+        <b class="">
          mass
         </b>
         ,
-        <b>
+        <b class="">
          momentum
         </b>
         and/or
-        <b>
+        <b class="">
          energy
         </b>
         .
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="1">
         We want to
-        <b>
+        <b class="">
          model
         </b>
         these transport processes at the
     smallest resolution possible, so that we can calculate
     temperatures, pressures, etc.
-        <i>
+        <i class="">
          within a unit process
         </i>
         .
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="2">
         The solution is to create a
-        <b>
+        <b class="">
          differential balance
         </b>
         !
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="3">
         This is a balance of some property (mass, energy,
     momentum) over a
-        <b>
+        <b class="">
          vanishingly small volume
         </b>
         of the system,
     known as a
-        <b>
+        <b class="">
          control volume
         </b>
         .
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="4">
         Just as the balance equation works for larger volumes, it
     also works for vanishing volumes.
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="5">
         The resulting balance equations will describe the
     transport
-        <b>
+        <b class="">
          at every point in the system
         </b>
         , not just the overall
@@ -257,20 +250,17 @@
         We create differential balances just as we create normal
     balances.
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="1">
         For example, you have a bank account which earns interest
     at a
-        <b>
+        <b class="">
          continuous
         </b>
         <sup class="footnotemark">
          1
         </sup>
-        Real compounding interest is
-      typically calculated on a daily basis, so it is not continuous
-      but it will appear continuous after a large number of days.
         and
-        <b>
+        <b class="">
          compounding rate
         </b>
         $I$
@@ -279,7 +269,7 @@
         $B(t)$
         .
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="2">
         Performing a balance over a small interval of time,
     $\Delta t$
         , we have.
@@ -298,10 +288,13 @@
        </li>
       </ul>
       <div class="footnote-container">
-       <div>
+       <div class="fragment" data-fragment-index="1">
         <sup class="footnotemark">
          1
         </sup>
+        Real compounding interest is
+      typically calculated on a daily basis, so it is not continuous
+      but it will appear continuous after a large number of days.
        </div>
       </div>
      </section>
@@ -317,14 +310,14 @@
         \frac{{\rm d}B(t)}{{\rm d}t} &amp;= I B
         \end{align*}
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="1">
         Integrating, we have
         \begin{align*}
         \int \frac{1}{B} {\rm d}B(t) &amp;= I  \int   {\rm d}t\\
       B &amp;= C_2 \exp(I t) \quad \text{(where $C_2=\exp(C_1) $)}
         \end{align*}
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="2">
         Assuming that your account starts at £$100$
         , solving
     for
@@ -333,7 +326,7 @@
         $C_2=$
         £100.
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="3">
         If your account has an annual interest rate of 10% APR,
     Solving for $B(t=1$
         yr
@@ -347,7 +340,7 @@
         B &amp;= 100 \exp(\ln(1.1) t)
         \end{align*}
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="4">
         "Compound interest is the eighth wonder of the world. He
     who understands it, earns it ... he who doesn't ... pays it." -
     Anon.
@@ -359,30 +352,30 @@
        <li>
         To create engineering balances, we'll need to use the
     input and output (
-        <b>
+        <b class="">
          fluxes
         </b>
         ) as well as the
     generation/accumulation terms.
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="1">
         To keep this general, we will look at an example of a
     differential balance for an arbitrary property, $B$
         , in one
     dimension.
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="2">
         $B$
         may be the energy, mass or momentum in the system.
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="3">
         The one-dimensional system may be along the axis of a
     pipe.
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="4">
         We can define $J_B(x)$
         to be the
-        <b>
+        <b class="">
          flux
         </b>
         of
@@ -395,7 +388,7 @@
         , in
     the system.
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="5">
         We also can define that at any point, $x$
         , in the system,
         $B$
@@ -406,7 +399,7 @@
         per
     unit volume.
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="6">
         Now we take a small volume of the system, around the point
     $x$
         and perform a balance…
@@ -414,13 +407,13 @@
       </ul>
      </section>
      <section>
-      <figure>
+      <figure class="">
        <div class="center">
         <object data="img/1D_balance.svg" type="image/svg+xml" width="60%">
         </object>
        </div>
       </figure>
-      <div class="fragment">
+      <div class="fragment " data-fragment-index="1">
        <div class="mathblock">
         \begin{align*}
         \textrm{INPUT}-\textrm{OUTPUT}+\textrm{GENERATION}&amp;=\textrm{ACCUMULATION}\\
@@ -429,7 +422,7 @@
         \end{align*}
        </div>
       </div>
-      <div class="fragment">
+      <div class="fragment " data-fragment-index="2">
        <div style="display:inline-block;width:calc(100% * 0.551);">
         $A$
         : Cross sectional area of the volume.
@@ -478,10 +471,10 @@
         <br/>
         $\sigma_B(x) = \sigma_B(x,t),\quad c_B(t)=c_B(x,t),\quad J_B(x)=J_B(x,t)$
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="1">
         Dividing both sides by $A \Delta x \Delta t$
         (
-        <b>
+        <b class="">
          the
     control volume and time
         </b>
@@ -490,7 +483,7 @@
         -\frac{J_B(x+\Delta x)-J_B(x)}{\Delta x}+\sigma_B(x) &amp;= \frac{c_B(t+\Delta t) - c_B(t)}{\Delta t}
         \end{align*}
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="2">
         Taking the limit as $\Delta x\to 0$
         and
         $\Delta t\to 0$
@@ -512,11 +505,11 @@
     equation describes how the concentration of some property $B$
         varies in time and space.
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="1">
         This is a general equation for any 1D problem and retains
     all of the properties of the standard balance equation.
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="2">
         For example, if there is no accumulation (steady state)
     and no generation (e.g., for the fluid mass in a pipe) we have
         \begin{align*}
@@ -525,7 +518,7 @@
       \frac{\partial J_B(x,t)}{\partial x} &amp;= 0 &amp;\therefore{J_B = \text{constant}}
         \end{align*}
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="3">
         This is simply a statement that the flow rate of B must
     remain constant ($\textrm{IN}=\textrm{OUT}$
         ).
@@ -535,12 +528,12 @@
      <section data-menu-title="Three-Dimensional Systems">
       We wish to extend our previous derivation to three dimensions.
   First, we must extend our differential volume to three dimensions:
-      <figure>
+      <figure class="">
        <div class="center">
         <object data="img/3D_balance.svg" type="image/svg+xml" width="60%">
         </object>
        </div>
-       <figcaption>
+       <figcaption class="">
         $J_{B,z}$
         fluxes omitted for clarity
        </figcaption>
@@ -556,7 +549,7 @@
     &amp;+ \Delta t \Delta x \Delta y  J_{B,z}(x,y,z,t) - \Delta t \Delta x  \Delta y  J_{B,z}(x,y,z+\Delta z,t)\\%
     &amp;+ \sigma_B  \Delta x  \Delta y  \Delta z \Delta t
       \end{align*}
-      <div class="fragment">
+      <div class="fragment " data-fragment-index="1">
        Dividing by the control volume (
        $\Delta V=\Delta x 
     \Delta y  \Delta z$
@@ -564,7 +557,7 @@
        $\Delta t$
        ) we have:
       </div>
-      <div class="fragment">
+      <div class="fragment " data-fragment-index="2">
        \begin{align*}
        \frac{c_B(t+\Delta t) - c_B(t)}{\Delta t} = 
       &amp;-\left[\frac{J_{B,x}(x+\Delta x,y,z,t)-J_{B,x}(x,y,z,t)}{\Delta
@@ -576,7 +569,7 @@
       &amp;+\sigma_B
        \end{align*}
       </div>
-      <div class="fragment">
+      <div class="fragment " data-fragment-index="3">
        We only need to take the limit as the control volume
     and time interval shrinks to zero and we will have our differential equation…
       </div>
@@ -599,11 +592,11 @@
         J_{B,z}(x,y,z,t)}{\partial z} + \sigma_B
         \end{align*}
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="1">
         This is our 3D general balance equation, but its not in a
     convenient notation.
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="2">
         We can apply our revised knowledge of vectors to express
     it more cleanly…
        </li>
@@ -619,12 +612,12 @@
       <div class="mathblock">
        $\nabla$
        (Greek:
-       <i>
+       <i class="">
         nabla
        </i>
        ) is known as the gradient or del
     operator, defined in
-       <b>
+       <b class="">
         rectangular coordinates
        </b>
        as

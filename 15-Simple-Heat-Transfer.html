@@ -24,13 +24,6 @@
       <div class="center">
       </div>
      </section>
-     <section>
-      <h3>
-       Slides Outline
-      </h3>
-      <div class="tableofcontents">
-      </div>
-     </section>
     </section>
     <section>
      <section data-menu-title="Review">
@@ -42,16 +35,16 @@
        \nabla_j T - \nabla_i q_i - \tau_{ji} \nabla_j v_i -
       p \nabla_i v_i +\sigma_{energy}
         \end{align*}
-        <b>
+        <b class="">
          Remember!
         </b>
         This form assumes there is no pressure dependence
     of the internal energy.
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="1">
         For solids, we have $\boldsymbol{v}=0$
         and it reduces to the
-        <b>
+        <b class="">
          heat equation
         </b>
         .
@@ -60,31 +53,31 @@
       +\sigma_{energy}
         \end{align*}
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="2">
         We have solved the heat equation for
-        <b>
+        <b class="">
          electrical heat
       generation in a wire
         </b>
         and found the solution was identical to
     the solution of the
-        <b>
+        <b class="">
          momentum equation for flow in a pipe
         </b>
         !
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="3">
         We also solved the heat equation for
-        <b>
+        <b class="">
          heat flow in a
       spherical nuclear fuel pellet
         </b>
         .
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="4">
         But, the complexity of heat transfer arises from the
     boundary conditions.
-        <b>
+        <b class="">
          Constant temperature BC's
         </b>
         are not
@@ -100,16 +93,16 @@
        <li>
         Lets consider an infinite flat plate which is hot on one
     side and cool on the other.
-        <figure>
+        <figure class="">
          <div class="center">
           <object data="img/heat_flux1.svg" type="image/svg+xml" width="80%">
           </object>
          </div>
         </figure>
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="1">
         We know from previous work that the total heat flux
-        <b>
+        <b class="">
          through
         </b>
         the plate is given by
@@ -120,9 +113,9 @@
         $U = k/X$
         for conduction problems.
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="2">
         But
-        <b>
+        <b class="">
          why?
         </b>
         How did we get this equation?
@@ -138,16 +131,16 @@
         <br/>
         %
     For example,
-        <b>
+        <b class="">
          Bernoulli's equation
         </b>
         and the
-        <b>
+        <b class="">
          Hagen-Poiseuille equation
         </b>
         .
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="1">
         So we should be able to get the heat flux expression for
     solids:
         \begin{align*}
@@ -162,7 +155,7 @@
       </ul>
      </section>
      <section data-menu-title="Conduction in a Plate">
-      <figure>
+      <figure class="">
        <div class="center">
         <object data="img/heat_flux1.svg" type="image/svg+xml" width="80%">
         </object>
@@ -177,7 +170,7 @@
       +\cancelto{0}{\sigma_{energy}}
         \end{align*}
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="1">
         We select a rectangular coordinate system and expand the
     dot-product/sum. As the system is symmetric (infinite plate) we
     know there are no fluxes in the $y$
@@ -192,7 +185,7 @@
       </ul>
      </section>
      <section>
-      <figure>
+      <figure class="">
        <div class="center">
         <object data="img/heat_flux1.svg" type="image/svg+xml" width="80%">
         </object>
@@ -207,7 +200,7 @@
     flow problems we've studied, it's a statement that what comes in,
     must go out.
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="1">
         We know that $\nabla_x=\frac{\partial }{\partial x}$
         , so
     we have
@@ -231,7 +224,7 @@
         q_x = - k \frac{\partial T}{\partial x}
         \end{align*}
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="1">
         We know that at $x=0$
         the temperature is
         $T=T_{in}$
@@ -243,7 +236,7 @@
         $T=T_{out}$
         .
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="2">
         Remembering that $q_x$
         is constant, we can perform a
     integral using these limits.
@@ -266,7 +259,7 @@
         q_x &amp;= \frac{k}{X} \left(T_{in}-T_{out}\right)
         \end{align*}
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="1">
         But we wanted to derive the expression
         \begin{align*}
         Q=U A \Delta T
@@ -275,7 +268,7 @@
         $U=k/X$
         .
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="2">
         There is a difference between $q_x$
         , which is the flux per
     unit area, and
@@ -300,7 +293,7 @@
         \dot{V}_x=\int v_x {\rm d}y {\rm d}z
         \end{align*}
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="1">
         … So the total heat flux $Q$
         is equal to the integral
     of the heat flux
@@ -328,7 +321,7 @@
         Q_x=\iint q_x {\rm d}y {\rm d}z
         \end{align*}
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="1">
         As $q_x$
         is constant, the integral just becomes equal to
       the area
@@ -338,11 +331,11 @@
       &amp;= U  A  \Delta T
         \end{align*}
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="2">
         Again, these balance equations are shown to be the general
     equations behind all of these transport equations.
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="3">
         The equations for heat flux in solids are usually quite
     simple, so we will often use the simpler, integrated equations for
     the heat flux. E.g.
@@ -361,19 +354,19 @@
        <li>
         What about for a pipe?
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="1">
         Using the same arguments, the heat equation becomes
         \begin{align*}
         \nabla_r q_r = \frac{1}{r} \frac{\partial  r q_r}{\partial r} = 0
         \end{align*}
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="2">
         Integrating this equation, we have
         \begin{align*}
         q_r = \frac{C}{r}
         \end{align*}
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="3">
         Our heat flux $q_r$
         is not constant any more, but we know
     from a heat balance that
@@ -394,13 +387,13 @@
     of the pipe (the diameter is a function of $r$
         ).
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="1">
         We can solve for the constant using Fourier's law, we have
         \begin{align*}
         q_r = \frac{C}{r} = -k \frac{\partial T}{\partial r}
         \end{align*}
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="2">
         Integrating and using the limits that at $r=R_{inner}$
         ,
     the temperature is
@@ -430,14 +423,14 @@
         q_r = \frac{k}{r \ln\left(\frac{R_{outer}}{R_{inner}}\right)} (T_{inner} - T_{outer})
         \end{align*}
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="1">
         Again, the total heat flux $Q$
         is given by the integral
     over the cross sectional area (
         $r {\rm d}\theta {\rm d}z$
         ).
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="2">
         As the heat flux is independent of $\theta$
         and
         $z$
@@ -468,7 +461,7 @@
         This is approach includes a “Log-Mean diameter” in the
     calculation of the heat transfer resistance.
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="1">
         After these two examples, generating an expression for $Q$
         for spherical shells should be straightforward.
        </li>
@@ -486,43 +479,43 @@
         All of these equations should be familiar to you, they
     are the equations for the heat flux through a plate and a pipe.
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="1">
         Using these integrated forms of the energy balance, we can
     rapidly solve heat transfer problems, such as the effect of
     insulation on pipes.
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="2">
         In essence they link
-        <b>
+        <b class="">
          heat transfer resistance
         </b>
         ,
         $\left(U A\right)^{-1}$
         , heat flux,
-        <b>
+        <b class="">
          $Q$
         </b>
         , and temperature
     differences,
-        <b>
+        <b class="">
          $\Delta T$
         </b>
         .
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="3">
         However, driving temperature differences are not known
     individually over heat-transfer “layers”. For example, in a
     study of heat transfer through the walls of a house, the exterior
     and interior air temperature might be known, but the temperature
     of each side of the wall is not known..
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="4">
         We need a method to combine multiple
-        <b>
+        <b class="">
          layers
         </b>
         or
-        <b>
+        <b class="">
          modes
         </b>
         of heat transport (e.g., convection with the wall,
@@ -544,7 +537,7 @@
         R = 1 / U A
         \end{align*}
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="1">
         This is because we can combine thermal resistances like
     electrical resistances in electronics.
         \begin{align*}
@@ -552,7 +545,7 @@
       &amp;= 1/U_1 A_1 + 1/U_2 A_2 + …
         \end{align*}
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="2">
         To demonstrate this, consdier heat transfer through a
     layered wall.
        </li>
@@ -571,14 +564,14 @@
         Q &amp;= \frac{k_1 A}{X_1}(T_2 - T_1) = \frac{k_2 A}{X_2}(T_3 - T_2)
         \end{align*}
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="1">
         Rearranging to eliminate $T_2$
         , we obtain:
         \begin{align*}
         Q &amp;= \frac{1}{\frac{X_1}{A k_1} + \frac{X_2}{A k_2}}(T_3 - T_1)
         \end{align*}
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="2">
         Here you can see the addition of resistances to calculate
     heat flux.
         \begin{align*}
@@ -619,12 +612,12 @@
       &amp;\approx 0.38\times A  W / {}^\circ C
         \end{align*}
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="1">
         This isn't a bad estimate for a filled cavity wall, which
     is around $U=0.6 W /m^2 {}^\circ C$
         .
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="2">
         On a hot day in Aberdeen we have $T_o=10^\circ$
         C and
         $T_i=20^\circ$
@@ -647,12 +640,12 @@
        <li>
         But this analysis is missing an important form of heat
     transfer,
-        <b>
+        <b class="">
          convective
         </b>
         heat transfer.
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="1">
         This is a difficult form of heat transfer to study. In
     theory, we must solve both the continuity equation, the momentum
     balance and the heat balance equation simultaneously:
@@ -679,33 +672,33 @@
        <li>
         This is a difficult task (not impossible).
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="1">
         Newton (a great engineer) was the first to make the
     definition
         \begin{align*}
         q_{convection}= h A \left(T_{air}-T_{surface}\right)
         \end{align*}
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="2">
         This is
-        <i>
+        <i class="">
          Newton's law of cooling
         </i>
         ; however, it is more
     of a
-        <b>
+        <b class="">
          definition of the heat transfer coefficient
         </b>
         ,
         $h$
         , than
     an actual
-        <i>
+        <i class="">
          law
         </i>
         .
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="3">
         The heat transfer coefficient $h$
         is in reality a complex
     function of the temperature difference, the flow properties and
@@ -726,7 +719,7 @@
     relationship between the heat transfer coefficient $h$
         and the
     properties of the flow using
-        <b>
+        <b class="">
          dimensional analysis
         </b>
         \begin{align*}
@@ -740,11 +733,11 @@
         and
         $b$
         are
-        <b>
+        <b class="">
          theoretically
         </b>
         or
-        <b>
+        <b class="">
          experimentally
         </b>
         derived
@@ -756,7 +749,7 @@
       <ul>
        <li>
         This means that for
-        <b>
+        <b class="">
          forced convection
         </b>
         (where you
@@ -764,13 +757,13 @@
     heat transfer coefficient,
         $h$
         , in the literature
-        <i>
+        <i class="">
          without
       having to directly solve all of the balance equations
         </i>
         .
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="1">
         For example, for fully-developed turbulent flows in pipes
     with a Prandtl number in the range of 0.6 to 100, a popular
     expression by Dittus and Beolter is
@@ -784,12 +777,12 @@
         for cooling of
     the fluid.
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="2">
         There are huge numbers of these relationships which you
     can look up in standard texts (e.g. Perry's or C&amp;R vol 6),
     depending on the flow geometry, the viscosity behaviour etc.
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="3">
         We won't try to derive any of these relationships, but it
     is important to note that the error in the calculated convective
     heat transfer coefficient may be as much as $\pm 25%$
@@ -806,7 +799,7 @@
        <li>
         There is still some difficulty with using Newton's law of cooling.
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="1">
         As convective heat transfer may be the limiting heat
     transfer resistance ($h_i\approx h_o \ll k_{insulation}\ll
     k_{plaster}\ll k_{brick}$
@@ -815,14 +808,14 @@
         may be bigger
     than all the other terms combined!
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="2">
         This is true for forced convection
-        <b>
+        <b class="">
          in
         </b>
         pipes, the
     situation is worse for more complex situations, such as the
-        <b>
+        <b class="">
          flow over a bank of pipes in a heat exchanger
         </b>
         !
@@ -866,7 +859,7 @@
         U_{total} = 0.35 \text{W}/\text{m}^2
         \end{align*}
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="1">
         Again, on a normal day in Aberdeen we have $T_o=10^\circ$
         C
     and
@@ -877,13 +870,13 @@
         ${}^2$
         (8% less than without convection).
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="2">
         Including convection on the wall in this case only
     resulted in a 8% change in the heat transfer rate.
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="3">
         This doesn't fit with the statement that
-        <i>
+        <i class="">
          often the
       convective heat transfer coefficient
          $h$
@@ -904,16 +897,16 @@
         This is because the wall has insulation to limit the
     conduction of heat.
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="1">
         If the insulation layer did not limit the heat transfer,
     it would be ineffective.
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="2">
         In other systems, such as a heat exchanger, we will want
     to minimise the thermal resistance as much as possible (by using
     metal walls).
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="3">
         In systems where heat exchange is to be maximised between
     two fluids, $h$
         will indeed be the limiting factor.
@@ -929,21 +922,21 @@
        <li>
         There is one difficulty with the example above.
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="1">
         On a still day, there is no significant flow of air over
     the walls of a house.
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="2">
         In the case of no flow, where do we get the convective
     heat transfer coefficients $h_i$
         and
         $h_o$
         from?
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="3">
         These coefficients cannot be determined from the current
     definition of the Nusselt number for
-        <b>
+        <b class="">
          forced convection
         </b>
         \begin{align*}
@@ -955,18 +948,18 @@
         $\text{Re}=0$
         .
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="4">
         However, the heat of the wall will cause
-        <b>
+        <b class="">
          natural
       convection
         </b>
         to occur and the fluid will flow due to the density
     changes.
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="5">
         We must consider
-        <b>
+        <b class="">
          natural convection
         </b>
         and radiative
@@ -987,7 +980,7 @@
       (T_{in} - T_{out})
         \end{align*}
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="1">
         We revised the general heat flux equation, and that
     resistances may be summed.
         \begin{align*}
@@ -995,9 +988,9 @@
       R_{total} &amp;= R_1 + R_2 + … = 1/U_1 A_1 + 1/U_2 A_2 + …
         \end{align*}
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="2">
         We covered
-        <b>
+        <b class="">
          conduction
         </b>
         and derived the conductive
@@ -1008,9 +1001,9 @@
       \frac{\ln\left(R_{outer}/R_{inner}\right)}{2 \pi L k}
         \end{align*}
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="3">
         We covered
-        <b>
+        <b class="">
          forced convection
         </b>
         , and revised that we
@@ -1020,9 +1013,9 @@
         h&amp;=\frac{k \text{Nu}}{L} &amp; \text{Nu} &amp;\approx C \text{Re}^m \text{Pr}^n
         \end{align*}
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="4">
         But this expression is only valid for
-        <b>
+        <b class="">
          forced
         </b>
         convection, we need to understand natural convection for many heat
