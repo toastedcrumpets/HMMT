@@ -1,0 +1,1026 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <title>
+   Heat, Mass, and Momentum Transfer
+  </title>
+  <meta content="Heat Mass and Momentum Transfer notes" name="description"/>
+  <meta content="Marcus Bannerman &lt;m.bannerman@gmail.com" name="author"/>
+  <meta content="yes" name="apple-mobile-web-app-capable"/>
+  <meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"/>
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui" name="viewport"/>
+  <script data-headjs-load="header.js" src="../reveal.js/lib/js/head.min.js">
+  </script>
+ </head>
+ <body>
+  <div class="reveal">
+   <div class="slides">
+    <section>
+     <section>
+      <h2>
+       Lecture 02: Vector and Index Notation
+      </h2>
+      <div class="center">
+      </div>
+     </section>
+     <section>
+      <h3>
+       Slides Outline
+      </h3>
+      <div class="tableofcontents">
+      </div>
+     </section>
+    </section>
+    <section>
+     <section data-menu-title="Required Knowledge for EG3030">
+      <h3>
+       Motivation
+      </h3>
+      <div style="display:flex;align-items:center;">
+       <div style="flex: 1 1 calc(100% * 0.61);">
+        <ul>
+         <li>
+          All Engineering tasks start out as a fully
+        three-dimensional problem.
+         </li>
+         <li class="fragment">
+          Often we try to simplify the problem by neglecting
+        some component of the system, or exploiting a symmetry.
+         </li>
+         <li class="fragment">
+          For example, for the flow of a fluid between two
+        plates (top-right), we ignore the direction into the plane.
+         </li>
+         <li class="fragment">
+          And for problems with an axis of symmetry, such as
+        annular flow (bottom-right) we can ignore the rotational
+        component ($\theta$
+          ).
+         </li>
+        </ul>
+       </div>
+       <div style="flex: 1 1 calc(100% * 0.41);">
+        <figure>
+         <div class="center">
+          <object data="img/examples.svg" type="image/svg+xml" width="100%">
+          </object>
+         </div>
+        </figure>
+       </div>
+      </div>
+     </section>
+     <section>
+      <h3>
+       Motivation
+      </h3>
+      <div style="display:flex;align-items:center;">
+       <div style="flex: 1 1 calc(100% * 0.61);">
+        <ul>
+         <li>
+          However, there are many problems which are fully
+        three-dimensional and need to be treated using a general
+        approach.
+         </li>
+         <li class="fragment">
+          We will learn this general approach by practising
+        applying it on these simple systems that do reduce to one or
+        two dimensions.
+         </li>
+         <li class="fragment">
+          But if we want to apply these techniques, we need to
+        be fluent in the language/notation of three dimensional problems.
+         </li>
+         <li class="fragment">
+          The natural mathematical language for describing three
+        dimensional problems is that of
+          <b>
+           Matrices
+          </b>
+          and
+          <b>
+           Vectors
+          </b>
+          .
+         </li>
+        </ul>
+       </div>
+       <div style="flex: 1 1 calc(100% * 0.41);">
+        <figure>
+         <div class="center">
+          <object data="img/examples.svg" type="image/svg+xml" width="100%">
+          </object>
+         </div>
+        </figure>
+       </div>
+      </div>
+     </section>
+    </section>
+    <section>
+     <section data-menu-title="Vector Notation">
+      <h3>
+       Representations
+      </h3>
+      <div style="display:flex;align-items:center;">
+       <div style="flex: 1 1 calc(100% * 0.71);">
+        <ul>
+         <li>
+          You should be familiar by now with vector notation.
+         </li>
+         <li class="fragment">
+          A
+          <i>
+           position vector
+          </i>
+          ,
+          $\boldsymbol{r}$
+          , is the
+          <b>
+           direction
+          </b>
+          and
+          <b>
+           distance
+          </b>
+          to a point,
+          <i>
+           relative to some origin
+          </i>
+          .
+         </li>
+         <li class="fragment">
+          A
+          <i>
+           velocity vector
+          </i>
+          ,
+          $\boldsymbol{v}$
+          , is the
+          <b>
+           direction
+          </b>
+          and
+          <b>
+           speed
+          </b>
+          an object is travelling.
+         </li>
+         <li class="fragment">
+          The common definition of all vectors is that it is an
+        encoding of a
+          <b>
+           direction
+          </b>
+          and a
+          <b>
+           magnitude
+          </b>
+          !
+         </li>
+         <li class="fragment">
+          You also need an
+          <b>
+           origin
+          </b>
+          for position or velocity
+        vectors to make sense.
+         </li>
+         <li class="fragment">
+          <b>
+           Q:
+          </b>
+          How fast are you moving sitting in your seat?
+         </li>
+         <li class="fragment">
+          <b>
+           A:
+          </b>
+          <div class="fragment">
+           0 mph relative to the seat, 1000 mph
+          relative to the centre of the earth, 67 000 mph relative to
+          the sun, 490 000 mph relative to our galaxy centre,
+           $10^9$
+           mph relative to the cosmic background radiation
+          </div>
+         </li>
+        </ul>
+       </div>
+       <div style="flex: 1 1 calc(100% * 0.31);">
+        <figure>
+         <div class="center">
+          <object data="img/vectors1.svg" type="image/svg+xml" width="100%">
+          </object>
+         </div>
+        </figure>
+       </div>
+      </div>
+     </section>
+     <section>
+      <h3>
+       Representations: Rectangular
+      </h3>
+      <div style="display:flex;align-items:center;">
+       <div style="flex: 1 1 calc(100% * 0.61);">
+        <ul>
+         <li>
+          There are many ways you can write what a vector
+        actually is…
+         </li>
+         <li class="fragment">
+          For a position vector, we can write coordinates:
+          \begin{align*}
+          \boldsymbol{r} = \left[x,y,z\right]
+          \end{align*}
+         </li>
+         <li class="fragment">
+          This is the most trivial
+          <b>
+           Cartesian
+          </b>
+          or
+          <b>
+           rectangular
+          </b>
+          coordinate representation, but we could pick
+        any number of other coordinate systems.
+         </li>
+         <li class="fragment">
+          For example, on a sphere like the earth, we might use
+        latitude, longitude, and altitude.
+         </li>
+         <li class="fragment">
+          We don't usually use lat/lon/alt in engineering
+        problems as they're a bit archaic, but we do use radians and
+        meters.
+         </li>
+        </ul>
+       </div>
+       <div style="flex: 1 1 calc(100% * 0.41);">
+        <figure>
+         <div class="center">
+          <object data="img/Latitude_and_Longitude_of_the_Earth.svg" type="image/svg+xml" width="None%">
+          </object>
+         </div>
+        </figure>
+       </div>
+      </div>
+     </section>
+     <section>
+      <h3>
+       Representations: Spherical
+      </h3>
+      <div style="display:flex;align-items:center;">
+       <div style="flex: 1 1 calc(100% * 0.61);">
+        <ul>
+         <li>
+          This angular coordinate system is called
+          <b>
+           spherical
+          </b>
+          or
+          <b>
+           polar
+          </b>
+          coordinates and is useful for
+        systems where there is a
+          <b>
+           point symmetry
+          </b>
+          .
+          \begin{align*}
+          \boldsymbol{r} = \left[r,\theta,\phi\right]
+          \end{align*}
+         </li>
+         <li class="fragment">
+          For example, this coordinate system is useful for
+        understanding a burning spherical(ish) piece of coal, or a
+        spherical(ish) solid falling in a liquid.
+         </li>
+         <li class="fragment">
+          More about symmetry later in the course, but there is
+        one more coordinate system to introduce…
+         </li>
+        </ul>
+       </div>
+       <div style="flex: 1 1 calc(100% * 0.41);">
+        <figure>
+         <div class="center">
+          <object data="img/spherical_coords.svg" type="image/svg+xml" width="100%">
+          </object>
+         </div>
+        </figure>
+       </div>
+      </div>
+     </section>
+     <section>
+      <h3>
+       Representations: Cylindrical
+      </h3>
+      <div style="display:flex;align-items:center;">
+       <div style="flex: 1 1 calc(100% * 0.61);">
+        <ul>
+         <li>
+          In cylindrical coordinates, we have a rotation
+        $\theta$
+          about the axis
+          $\boldsymbol{z}$
+          :
+          \begin{align*}
+          \boldsymbol{r} &amp;= \left[r, \theta, z\right]
+          \end{align*}
+         </li>
+         <li class="fragment">
+          This coordinate representation is the most useful for
+        systems where we have a rotational symmetry, such as a pipe.
+         </li>
+         <li class="fragment">
+          But regardless of the
+          <b>
+           representation
+          </b>
+          we use
+        (Cartesian, cylindrical, spherical/polar), the same
+        information of
+          <b>
+           direction
+          </b>
+          and
+          <b>
+           magnitude
+          </b>
+          is always
+        encoded.
+         </li>
+         <li class="fragment">
+          One last term to introduce, spherical and cylindrical
+        coordinates can be collectively grouped together as
+          <b>
+           curvelinear coordinate systems
+          </b>
+          .
+         </li>
+        </ul>
+       </div>
+       <div style="flex: 1 1 calc(100% * 0.41);">
+        <figure>
+         <div class="center">
+          <object data="img/cylindrical_coords.svg" type="image/svg+xml" width="100%">
+          </object>
+         </div>
+        </figure>
+       </div>
+      </div>
+     </section>
+     <section>
+      <h3>
+       Representations: Cylindrical
+      </h3>
+      <div style="display:flex;align-items:center;">
+       <div style="flex: 1 1 calc(100% * 0.61);">
+        <ul>
+         <li>
+          Please note that if we write
+          \begin{align}
+          \boldsymbol{r}=\left[r_r,  r_\theta, r_z\right]
+          \end{align}
+          that
+          $r_\theta\neq\theta$
+          ! It is instead the distance of the
+        vector
+          $\boldsymbol{r}$
+          projected along the unit vector
+          $\hat{\boldsymbol{\theta}}$
+          , illustrated in the diagram.
+         </li>
+         <li class="fragment">
+          This is an important distinction which we don't have
+        time to go in to, but may be helpful in future years.
+         </li>
+         <li class="fragment">
+          We'll derive everything in rectangular coordinates and
+        demonstrate how to generalise to other coordinate systems
+        later.
+         </li>
+        </ul>
+       </div>
+       <div style="flex: 1 1 calc(100% * 0.41);">
+        <figure>
+         <div class="center">
+          <object data="img/cylindrical_coords.svg" type="image/svg+xml" width="100%">
+          </object>
+         </div>
+        </figure>
+       </div>
+      </div>
+     </section>
+     <section data-menu-title="Operations">
+      <h3>
+       Operations
+      </h3>
+      <div style="display:flex;align-items:center;">
+       <div style="flex: 1 1 calc(100% * 0.61);">
+        <ul>
+         <li>
+          So far, we've covered what vectors are and their
+        representations.
+         </li>
+         <li class="fragment">
+          Now we need to define some operations or mathematics
+        for them.
+         </li>
+         <li class="fragment">
+          We will first define the magnitude operator,
+        $\left|\boldsymbol{x}\right|$
+          .
+         </li>
+         <li class="fragment">
+          Here we will see that the magnitude operator has
+        different definitions in different coordinate systems (like
+        many other operations)!
+         </li>
+        </ul>
+       </div>
+       <div style="flex: 1 1 calc(100% * 0.41);">
+        <figure>
+         <div class="center">
+          <object data="img/spherical_coords.svg" type="image/svg+xml" width="100%">
+          </object>
+         </div>
+        </figure>
+       </div>
+      </div>
+     </section>
+     <section>
+      <h3>
+       Magnitude
+      </h3>
+      <ul>
+       <li>
+        We write the magnitude (or length) of a vector,
+    $\boldsymbol{r}$
+        , as
+        $\left|\boldsymbol{r}\right|$
+        .
+       </li>
+       <li class="fragment">
+        How we actually calculate it depends on the coordinate
+    system used.
+       </li>
+       <li class="fragment">
+        For example, in a
+        <b>
+         rectangular coordinate system
+        </b>
+        ,
+    we use a 3D version of Pythagoras' theorem:
+        \begin{align*}
+        \boldsymbol{r} &amp;= \left[x,y,z\right] &amp;
+      \left|\boldsymbol{r}\right| &amp;= \sqrt{x^2+y^2+z^2}
+        \end{align*}
+       </li>
+       <li class="fragment">
+        In a
+        <b>
+         cylindrical coordinate system
+        </b>
+        , we have the
+    following coordinates and length:
+        \begin{align*}
+        \boldsymbol{r} &amp;= \left[r, \theta, z\right] &amp; \left|\boldsymbol{r}\right| &amp;= \sqrt{r^2 + z^2}
+        \end{align*}
+       </li>
+       <li class="fragment">
+        In a
+        <b>
+         spherical coordinate system
+        </b>
+        , we have:
+        \begin{align*}
+        \boldsymbol{r} &amp;= \left[r, \theta, \phi\right] &amp; \left|\boldsymbol{r}\right| &amp;= r
+        \end{align*}
+       </li>
+       <li class="fragment">
+        The key thing to note is that many vector/matrix
+    operations change if you try to do them in different coordinate
+    systems!
+       </li>
+       <li class="fragment">
+        Typically, we learn how to do the operations in
+    rectangular coordinates, and then learn how to generalise from
+    there.
+       </li>
+      </ul>
+     </section>
+     <section>
+      <h3>
+       Unit Vectors
+      </h3>
+      <div style="display:flex;align-items:center;">
+       <div style="flex: 1 1 calc(100% * 0.61);">
+        <ul>
+         <li>
+          Once we know the magnitude of a vector, we can
+        generate a vector in the same direction, but with a unit length:
+          \begin{align*}
+          \hat{\boldsymbol{r}} = \frac{\boldsymbol{r}}{\left|\boldsymbol{r}\right| }
+          \end{align*}
+         </li>
+         <li class="fragment">
+          $\hat{\boldsymbol{r}}$
+          is a unit vector (a vector of length 1)
+        pointing in the same direction as
+          $\boldsymbol{r}$
+          .
+         </li>
+         <li class="fragment">
+          Unit vectors are really handy when you only want to
+        encode direction (ignoring magnitude).
+         </li>
+         <li class="fragment">
+          I've used them on the diagram on the right to indicate
+        the directions the vector $\boldsymbol{r}$
+          would move in each of the
+        coordinates (both Cartesian and cylindrical).
+         </li>
+        </ul>
+       </div>
+       <div style="flex: 1 1 calc(100% * 0.41);">
+        <figure>
+         <div class="center">
+          <object data="img/cylindrical_coords.svg" type="image/svg+xml" width="100%">
+          </object>
+         </div>
+        </figure>
+       </div>
+      </div>
+     </section>
+     <section>
+      <h3>
+       Other Operations
+      </h3>
+      <ul>
+       <li>
+        We'll only define the other operations in Cartesian
+    coordinates for the time being.
+       </li>
+       <li class="fragment">
+        Vector addition/subtraction is straightforward:
+        \begin{align*}
+        \boldsymbol{a}\pm\boldsymbol{b}=\left[ \begin{matrix} a_x \\ a_y \\
+      a_z \end{matrix}\right] \pm \left[ \begin{matrix} b_x \\ b_y \\
+      b_z \end{matrix}\right] = \left[ \begin{matrix} a_x \pm b_x \\ a_y \pm b_y \\
+      a_z \pm b_z \end{matrix}\right]
+        \end{align*}
+       </li>
+       <li class="fragment">
+        The dot (or scalar) product is also well known:
+        \begin{align*}
+        \boldsymbol{a}\cdot\boldsymbol{b}=\left[ \begin{matrix} a_x \\ a_y \\
+      a_z \end{matrix}\right] \cdot \left[ \begin{matrix} b_x \\ b_y \\
+      b_z \end{matrix}\right] =  a_x b_x + a_y b_y +a_z b_z
+        \end{align*}
+       </li>
+      </ul>
+     </section>
+     <section>
+      <h3>
+       Other Operations
+      </h3>
+      <ul>
+       <li>
+        The final operation is the dyadic product, which creates a
+    matrix out of two vectors:
+        \begin{align*}
+        \boldsymbol{a}\boldsymbol{b} = \left[\begin{matrix}
+          a_x b_x, &amp; a_x b_y, &amp; a_x b_z\\ a_y b_x, &amp; a_y b_y, &amp; a_y b_z\\ a_z b_x, &amp; a_z b_y, &amp; a_z b_z\\
+        \end{matrix}
+      \right]
+        \end{align*}
+       </li>
+       <li class="fragment">
+        These are enough vector notation basics to get us started,
+    but you may have noticed that the notation is quite clumsy.
+       </li>
+       <li class="fragment">
+        It takes quite a lot of work to write out what the result
+    of a single dyadic operation is, imagine if we actually tried to
+    do some maths with it!
+       </li>
+       <li class="fragment">
+        We would like a more compact notation to work in, one
+    which lets us write everything above in just a couple of symbols.
+       </li>
+       <li class="fragment">
+        The best notation would be more clear than vector
+    notation, but still only use a few symbols, letting you easily
+    work out complicated statements.
+       </li>
+      </ul>
+     </section>
+     <section data-menu-title="Index Notation">
+      <h3>
+       Index Notation
+      </h3>
+      <ul>
+       <li>
+        It turns out that one of Einstein's lesser known
+    achievements was that he invented a very convenient notation for
+    vectors, called
+        <i>
+         index notation
+        </i>
+        .
+       </li>
+       <li class="fragment">
+        His idea was this: you often perform dot products and it
+    is quite convenient to write it using a summation operator:
+        \begin{align*}
+        \boldsymbol{a}\cdot\boldsymbol{b} &amp;=  a_x b_x + a_y b_y +a_z b_z\\
+      &amp;=\sum_{i=x,y,z} a_i b_i
+        \end{align*}
+       </li>
+       <li class="fragment">
+        But the true genius of Einstein was revealed when he
+    realised he wouldn't even need to write the sum symbol, $\sum_{}$
+        !
+       </li>
+       <li class="fragment">
+        He realised that every time there is a sum, there is a
+        <b>
+         repeated index
+        </b>
+        (the
+        $i$
+        appears twice in the expression).
+       </li>
+       <li class="fragment">
+        So he said just forget to write the sum there if the index
+    is repeated!
+        \begin{align*}
+        a_i b_i\equiv\sum_{i=x,y,z} a_i b_i
+        \end{align*}
+       </li>
+      </ul>
+     </section>
+     <section>
+      <h3>
+       Index Notation
+      </h3>
+      <ul>
+       <li>
+        But this means whenever an index is not repeated, it is a
+    so-called
+        <b>
+         free index
+        </b>
+        , or index you can pick or choose.
+       </li>
+       <li class="fragment">
+        For example, what does a simple vector look like in index notation?
+        \begin{align*}
+        \boldsymbol{a} = a_i
+        \end{align*}
+       </li>
+       <li class="fragment">
+        The index $i$
+        is not repeated, so we know that it is a
+    vector.
+       </li>
+       <li class="fragment">
+        What about vector addition?
+        \begin{align*}
+        \boldsymbol{a}+\boldsymbol{b} = a_i + b_i
+        \end{align*}
+       </li>
+       <li class="fragment">
+        As the index $i$
+        is not repeated within a
+        <i>
+         single
+      term
+        </i>
+        of the expression, its a vector result and there is no
+    implicit sum.
+       </li>
+       <li class="fragment">
+        If we want the $x$
+        value of the (vector) result, we just
+    set the free index to
+        $i=x$
+        :
+        \begin{align*}
+        \left[\boldsymbol{a}+\boldsymbol{b}\right]_x = a_x + b_x
+        \end{align*}
+       </li>
+      </ul>
+     </section>
+     <section>
+      <h3>
+       Index Notation
+      </h3>
+      <ul>
+       <li>
+        A more complicated example: lets take the following expression:
+        \begin{align*}
+        \left(\boldsymbol{a}\cdot\boldsymbol{b}\right)\boldsymbol{c} = \sum_{i=x,y,z} a_i b_i \left[ \begin{matrix} c_x \\ c_y \\
+      c_z \end{matrix}\right]
+        \end{align*}
+       </li>
+       <li class="fragment">
+        We can drop the sum over $i$
+        as it is a repeated index,
+    but what to do about
+        $\boldsymbol{c}$
+        ? We just leave it as a new free index
+        $j$
+        :
+        \begin{align*}
+        \sum_{i=x,y,z} a_i b_i \left[ \begin{matrix} c_x \\ c_y \\
+      c_z \end{matrix}\right] \equiv a_i b_i c_j
+        \end{align*}
+       </li>
+       <li class="fragment">
+        As the $j$
+        index is free (only appears once in every
+    term), it means this result is a vector, and the components are
+    obtained by setting
+        $j=x,y,z$
+        !
+       </li>
+      </ul>
+     </section>
+     <section>
+      <h3>
+       Index Notation
+      </h3>
+      <ul>
+       <li>
+        You have to be careful that certain terms have the correct
+    free indices, for example:
+        \begin{align*}
+        \boldsymbol{a}+\boldsymbol{b}\neq a_i + b_j
+        \end{align*}
+       </li>
+       <li class="fragment">
+        But these mistakes are easy to spot, as each
+    multiplicative term in the expressions we work with should have
+        <i>
+         exactly one
+        </i>
+        of every free index.
+       </li>
+       <li class="fragment">
+        Technically, it doesn't matter which letter you use as the
+    free index either:
+        \begin{align*}
+        (\boldsymbol{a}\cdot\boldsymbol{b})\boldsymbol{c} &amp;= a_i b_i c_j\\
+      &amp;= a_j b_j c_i\\ 
+      &amp;= a_k b_k c_j\\
+      &amp;=…
+        \end{align*}
+       </li>
+      </ul>
+     </section>
+     <section>
+      <h3>
+       Index Notation
+      </h3>
+      To recap:
+      <ul>
+       <li>
+        An expression with no free indices is a scalar:
+        \begin{align*}
+        \boldsymbol{a}\cdot\boldsymbol{b} = a_i b_i
+        \end{align*}
+       </li>
+       <li class="fragment">
+        An expression with one free index per additive term is a vector:
+        \begin{align*}
+        \boldsymbol{a} + \boldsymbol{b}= a_i + b_i
+        \end{align*}
+       </li>
+       <li class="fragment">
+        An expression with two free indices is a matrix, e.g.
+        \begin{align*}
+        \boldsymbol{A} \equiv A_{ij} = \boldsymbol{a}\boldsymbol{b} = a_i b_j = \left[\begin{matrix}
+          a_x b_x, &amp; a_x b_y, &amp; a_x b_z\\ a_y b_x, &amp; a_y b_y, &amp; a_y b_z\\ a_z b_x, &amp; a_z b_y, &amp; a_z b_z\\
+        \end{matrix}
+      \right]
+        \end{align*}
+       </li>
+       <li class="fragment">
+        In general, an expression with $X$
+        free indices is an
+        $X$
+        -order tensor.
+       </li>
+      </ul>
+     </section>
+     <section data-menu-title="Cross Product">
+      <h3>
+       Index Notation
+      </h3>
+      <ul>
+       <li>
+        There is one common vector operation which is quite
+    awkward to describe in index notation.
+       </li>
+       <li class="fragment">
+        The cross product, denoted using $\boldsymbol{a}\times\boldsymbol{b}$
+        , is
+    an operation that is unique to 3D problems. It is defined as
+    follows:
+        \begin{align*}
+        \boldsymbol{a}\times\boldsymbol{b} = \left[\begin{matrix}
+          a_y b_z - a_z   b_y\\
+          a_z b_x - a_x   b_z\\
+          a_x b_y - a_y   b_x
+        \end{matrix}
+      \right] = \boldsymbol{\mathrm{\epsilon}}_{ijk} a_j b_k
+        \end{align*}
+       </li>
+       <li class="fragment">
+        The index notation representation relies on the use of the
+    Levi-Civita symbol ($\boldsymbol{\mathrm{\epsilon}}_{ijk}$
+        ), which is a
+    3rd-order tensor:
+        <div class="center">
+         <object data="img/Epsilontensor.svg" type="image/svg+xml" width="30%">
+         </object>
+        </div>
+       </li>
+       <li class="fragment">
+        Fortunately, we will not need to use this operation often
+    in this course (1 occurrence last year).
+       </li>
+      </ul>
+     </section>
+     <section data-menu-title="Del Operator">
+      <h3>
+       Index Notation
+      </h3>
+      <ul>
+       <li>
+        The last topic to discuss regarding vector notation is
+        <b>
+         vector calculus
+        </b>
+        .
+       </li>
+       <li class="fragment">
+        This is a rich topic, leading on to a discussion of
+    geometry, operators, and manifolds.
+       </li>
+       <li class="fragment">
+        However, we will only skim the surface and discuss the
+        <b>
+         del
+        </b>
+        (or vector differential) operator,
+        $\nabla$
+        .
+       </li>
+       <li class="fragment">
+        This is the vector equilivent of a derivative and is
+    defined in Cartesian coordinates as follows:
+        \begin{align*}
+        \nabla =\left[\frac{\partial}{\partial x},\frac{\partial}{\partial y},\frac{\partial}{\partial z}\right]
+        \end{align*}
+       </li>
+       <li class="fragment">
+        We can also define it in index notation, but first we have
+    to define the generic position vector:
+        \begin{align*}
+        \boldsymbol{r} =\left[x,y,z\right]
+        \end{align*}
+       </li>
+       <li class="fragment">
+        And then we can write the del operator in index
+    notation:
+        \begin{align*}
+        \nabla =\frac{\partial}{\partial r_i}
+        \end{align*}
+       </li>
+      </ul>
+     </section>
+     <section>
+      <h3>
+       Index Notation
+      </h3>
+      <ul>
+       <li>
+        To help us understand what the del operator is, we'll look
+    at the 1,2 and 3 dimensional versions.
+       </li>
+       <li class="fragment">
+        In 1D, if we have a function $f(x)$
+        , then
+        $\nabla
+    f=\frac{\partial f}{\partial x}$
+        , and it is the
+        <b>
+         slope
+        </b>
+        of the
+    function.
+       </li>
+       <li class="fragment">
+        In 2D, if we have a function $g(x,y)$
+        , then
+        $\nabla
+    g=\left[\frac{\partial g}{\partial x}, \frac{\partial g}{\partial
+        y}\right]$
+        . This is a vector which points in the direction of
+    the steepest increasing slope, with a magnitude equal to the slope
+    (arrows).
+        <div class="center">
+         <object data="img/contour.svg" type="image/svg+xml" width="50%">
+         </object>
+        </div>
+       </li>
+       <li class="fragment">
+        So if you're standing on a slope, and calculate the vector
+    $\nabla altitude$
+        , it is a bearing (2D direction) in the direction of uphill.
+       </li>
+      </ul>
+     </section>
+     <section>
+      <h3>
+       Index Notation
+      </h3>
+      <ul>
+       <li>
+        In 3D, the best analogy for the del operator is to think
+    of a bottle of perfume in a large room.
+       </li>
+       <li class="fragment">
+        After some time of the bottle being opened, there is a
+    concentration gradient of perfume in the air with the strongest
+    smell at the source/bottle.
+       </li>
+       <li class="fragment">
+        The vector $\nabla c(x,y,z)$
+        , where
+        $c$
+        is the
+    concentration (or smell) at your location in the room, will point
+    in the direction of the bottle of perfume.
+       </li>
+       <li class="fragment">
+        The magnitude, $\left|\nabla c(x,y,z)\right|$
+        will equal
+    to how quickly the scent increases in strength as you approach the
+    bottle.
+       </li>
+       <li class="fragment">
+        We will find the del operator very useful in the following
+    lectures as a way of simplifying our equations.
+       </li>
+      </ul>
+     </section>
+    </section>
+    <section>
+     <section data-menu-title="Learning Objectives">
+      <ul>
+       <li>
+        To understand the representations of vectors and that they
+    encode directions and magnitudes.
+       </li>
+       <li>
+        To be aware of Cartesian, cylindrical and spherical coordinate
+    systems.
+       </li>
+       <li>
+        To know that each vector operation is defined differently for
+    different coordinate systems.
+       </li>
+       <li>
+        To know the magnitude, dot, dyadic and cross products for
+    Cartesian systems.
+       </li>
+       <li>
+        To be able to work in Einstein's index notation!
+       </li>
+       <li>
+        To know the definition of the del operator in Cartesian
+    systems and its index notation form.
+       </li>
+      </ul>
+     </section>
+    </section>
+   </div>
+   <div class="slide-menu-button" style="left:170px;cursor:pointer;">
+    <a class="hide-on-pdf" id="PrintButton" onclick="document.location = '?print-pdf';">
+     <i class="fa fa-print">
+     </i>
+    </a>
+   </div>
+   <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({ TeX: { extensions: ["cancel.js"] }});
+   </script>
+   <script src="footer.js">
+   </script>
+  </div>
+ </body>
+</html>

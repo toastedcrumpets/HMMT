@@ -1,0 +1,1283 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <title>
+   Heat, Mass, and Momentum Transfer
+  </title>
+  <meta content="Heat Mass and Momentum Transfer notes" name="description"/>
+  <meta content="Marcus Bannerman &lt;m.bannerman@gmail.com" name="author"/>
+  <meta content="yes" name="apple-mobile-web-app-capable"/>
+  <meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"/>
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui" name="viewport"/>
+  <script data-headjs-load="header.js" src="../reveal.js/lib/js/head.min.js">
+  </script>
+ </head>
+ <body>
+  <div class="reveal">
+   <div class="slides">
+    <section>
+     <section>
+      <h2>
+       Generalised Reynolds Numbers
+      </h2>
+      <div class="center">
+      </div>
+     </section>
+     <section>
+      <h3>
+       Slides Outline
+      </h3>
+      <div class="tableofcontents">
+      </div>
+     </section>
+    </section>
+    <section>
+     <section data-menu-title="Review">
+      We have covered:
+      <ul>
+       <li>
+        The
+        <b>
+         vector
+        </b>
+        continuity equation and momentum balance
+    equation are the same in all coordinate systems
+        \begin{align*}
+        \frac{\partial \rho}{\partial t} &amp;=- \nabla\cdot \rho \boldsymbol{v} &amp;
+      \rho\frac{\partial \boldsymbol{v}}{\partial t} &amp;= -\rho \boldsymbol{v}\cdot\nabla \boldsymbol{v}
+      + \nabla\cdot\boldsymbol{\tau} - \nabla p + \rho \boldsymbol{g}
+        \end{align*}
+       </li>
+       <li class="fragment">
+        The definition of a vector and the gradient operator
+    change depending on the coordinate system.
+       </li>
+       <li class="fragment">
+        How to solve fluid flow problems for the velocity profile
+    in pipes/cylinders, plates, and falling films.
+       </li>
+       <li class="fragment">
+        The two simplest models for the non-Newtonian behaviour of
+    fluids are:
+        <ul>
+         <li class="fragment">
+          The Power-Law fluid model for shear-thinning and
+      shear-thickening flows.
+         </li>
+         <li class="fragment">
+          The Bingham plastic model for viscoplastic materials
+         </li>
+        </ul>
+       </li>
+       <li class="fragment">
+        How to derive a generalised
+        <u>
+         Hagen-Poiseuille
+      equation for pipes
+        </u>
+        with a non-Newtonian fluid, which relates
+    the pressure drop, pipe geometry and volumetric flow-rate.
+       </li>
+      </ul>
+      <ul>
+       <li class="fragment">
+        But as Engineers, we will need to be able to derive
+    general design equations for any geometry, viscous model, and to
+    calculate corrections for
+        <b>
+         turbulence
+        </b>
+        .
+       </li>
+      </ul>
+     </section>
+     <section data-menu-title="Our Derivations So Far">
+      <ul>
+       <li>
+        Our route to these general design equations is the same
+    that we took to derive the Hagen-Poiseuille equation.
+       </li>
+       <li class="fragment">
+        First, we simplify the balance equations to a point where
+    we can solve for the stress profile.
+        \begin{align*}
+        \rho\frac{\partial \boldsymbol{v}}{\partial t} &amp;= -\rho \boldsymbol{v}\cdot\nabla \boldsymbol{v}
+      + \nabla\cdot\boldsymbol{\tau} - \nabla p + \rho \boldsymbol{g}
+      &amp; &amp;\to&amp; \tau_{xy} &amp;= f(\Delta P, r, R,…)
+        \end{align*}
+       </li>
+       <li class="fragment">
+        During this step the geometry of the system comes into
+    play through the selection of the coordinate system.
+       </li>
+       <li class="fragment">
+        We then take the stress profile and use a viscous model
+    (Newtonian, Power-Law, Bingham plastic) to find an expression for
+    the velocity profile
+        \begin{align*}
+        \tau_{rz} &amp;= f(\Delta P, L, r, R,…) &amp; &amp;\to&amp; v_{z}&amp;=f(\Delta
+      P, L, r, R,…)
+        \end{align*}
+       </li>
+       <li class="fragment">
+        Again the geometry comes into play through the boundary
+    conditions (no-slip condition, moving boundaries, etc.).
+       </li>
+      </ul>
+     </section>
+     <section>
+      \begin{align*}
+      v_{z}&amp;=f(\Delta P, L, r, R,…)
+      \end{align*}
+      <ul>
+       <li>
+        The final step is to convert the velocity profile into a
+    volumetric flow-rate, by integrating the velocity over the flow
+    cross-section.
+        \begin{align*}
+        \dot{V} = \int v_z {\rm d}A = f(\Delta P, L, r, R,…)
+        \end{align*}
+       </li>
+       <li class="fragment">
+        We then have an expression relating the design variables
+    (flow-rate, flow geometry, pressure drop). The most famous example
+    is the Hagen-Poiseuille equation for
+        <b>
+         Newtonian
+        </b>
+        flow in pipes.
+        \begin{align*}
+        \dot{V}_z &amp;= \pi\left(\frac{-\Delta p}{L} +
+        \rho g_z\right)\frac{R^4}{8 \mu}
+        \end{align*}
+       </li>
+       <li class="fragment">
+        In the previous lectures, we used our knowledge of this
+    derivation to repeat it for non-Newtonian flows. We took the
+    stress profile in a pipe along with the Power-Law model and solved
+    them to yield a generalised Hagen-Poiseuille equation for
+        <b>
+         non-Newtonian
+        </b>
+        flow in pipes (Power Law fluids).
+        \begin{align*}
+        \dot{V}_z &amp;= 2 \pi R^2 v_z^{max} \left(\frac{1}{2} -
+        \frac{n}{3n+1}\right)
+        \end{align*}
+       </li>
+      </ul>
+     </section>
+     <section>
+      \begin{align*}
+      \dot{V}_z &amp;= 2 \pi R^2 v_z^{max} \left(\frac{1}{2} -
+      \frac{n}{3n+1}\right)
+      \end{align*}
+      <ul>
+       <li>
+        This derivation introduced another useful variable, the
+    maximum flow velocity, $v_z^{max}$
+        .
+       </li>
+       <li class="fragment">
+        This is an important property of the flow that (like the
+    volumetric flow-rate) we can derive from the velocity profile.
+       </li>
+       <li class="fragment">
+        All of our characterisation of the flow and design
+    equations come from our knowledge of the velocity profile.
+       </li>
+       <li class="fragment">
+        This is why it is important to be able to derive it, there
+    are too many types of flow-geometries and viscous-models to just
+    memorise all of the forms.
+       </li>
+       <li class="fragment">
+        We've already derived the details for five different
+    classes of flows, multiply this by the number of fluid models and
+    we're talking about a huge range of systems to cover!
+       </li>
+      </ul>
+     </section>
+     <section data-menu-title="Geometry Summary So Far">
+      <figure>
+       <table style="border-collapse:collapse;">
+        <tr>
+         <td>
+         </td>
+         <td>
+          Parallel Plates
+         </td>
+         <td>
+          Falling Film
+         </td>
+         <td>
+          Pipe
+         </td>
+        </tr>
+        <tr style="border-top:thick solid black;">
+         <td>
+         </td>
+         <td>
+          <object data="img/plate_flow.svg" type="image/svg+xml" width="26%">
+          </object>
+         </td>
+         <td>
+          <object data="img/film-flow.svg" type="image/svg+xml" width="26%">
+          </object>
+         </td>
+         <td>
+          <object data="img/pipe_flow.svg" type="image/svg+xml" width="26%">
+          </object>
+         </td>
+        </tr>
+        <tr style="border-top:thin solid black;">
+         <td>
+          $\tau$
+         </td>
+         <td>
+          $\frac{-\Delta p}{\mu  L}\left(y - \frac{H}{2}\right)$
+         </td>
+         <td>
+          $\rho g_x\left(Y - y\right)$
+         </td>
+         <td>
+          $\left(\frac{\Delta p}{L}-\rho g_z\right)\frac{r}{2}$
+         </td>
+        </tr>
+        <tr style="border-top:thin solid black;">
+         <td>
+          $v$
+         </td>
+         <td>
+          $\frac{-\Delta p}{2 \mu L}(y^2-H y)$
+         </td>
+         <td>
+          $\frac{\rho  g_x}{\mu}\left(Y y - \frac{y^2}{2}\right)$
+         </td>
+         <td>
+          $\left(\rho g_z-\frac{\Delta p}{L}\right)\frac{R^2-r^2}{4 \mu}$
+         </td>
+        </tr>
+       </table>
+       <figcaption>
+        The stress profiles and Newtonian velocity profiles for the geometries studied so far.
+       </figcaption>
+      </figure>
+     </section>
+     <section>
+      <figure>
+       <table style="border-collapse:collapse;">
+        <tr>
+         <td>
+         </td>
+         <td>
+          Pipe Falling Film
+         </td>
+         <td>
+          Annulus
+         </td>
+        </tr>
+        <tr style="border-top:thick solid black;">
+         <td>
+         </td>
+         <td>
+          <object data="img/pipe_film.svg" type="image/svg+xml" width="30%">
+          </object>
+         </td>
+         <td>
+          <object data="img/annular_flow.svg" type="image/svg+xml" width="30%">
+          </object>
+         </td>
+        </tr>
+        <tr style="border-top:thin solid black;">
+         <td>
+          $\tau$
+         </td>
+         <td>
+          $-\frac{\rho g_z}{2}\left(r-\frac{\lambda^2 R^2}{r}\right)$
+         </td>
+         <td>
+          $\frac{1}{2}\left(\frac{\Delta p}{L} -
+        \rho g_z\right)\left(r - \frac{\lambda^2  R_0^2}{r}\right)$
+         </td>
+        </tr>
+        <tr style="border-top:thin solid black;">
+         <td>
+          $v$
+         </td>
+         <td>
+          $\frac{\rho g R^2}{4 \mu}\left(1-\left(\frac{r}{R}\right)^2
+        -2 \lambda^2 \ln\left(\frac{r}{R}\right)\right)$
+         </td>
+         <td>
+          $\frac{R^2}{4 \mu}\left(\rho g_z-\frac{\Delta
+          p}{L}\right)\left(\frac{r^2}{R^2} - \frac{\kappa^2-1}{\ln\kappa}\ln
+        \left(\frac{r}{R}\right) -1\right)$
+         </td>
+        </tr>
+       </table>
+       <figcaption>
+        The stress profiles and Newtonian velocity profiles for the geometries studied so far.
+       </figcaption>
+      </figure>
+     </section>
+     <section>
+      <figure>
+       <table style="border-collapse:collapse;">
+        <tr>
+         <td>
+         </td>
+         <td>
+          Bingham Plastic Pipe Flow
+         </td>
+         <td>
+          Liquid-Liquid Channel Flow
+         </td>
+        </tr>
+        <tr style="border-top:thick solid black;">
+         <td>
+         </td>
+         <td>
+          <object data="img/bingham_pipe_flow.svg" type="image/svg+xml" width="40%">
+          </object>
+         </td>
+         <td>
+          <object data="img/liquid-liquid-flow.svg" type="image/svg+xml" width="40%">
+          </object>
+         </td>
+        </tr>
+        <tr style="border-top:thin solid black;">
+         <td>
+          $\tau$
+         </td>
+         <td>
+          $\frac{\Delta p}{L}\frac{r}{2}$
+         </td>
+         <td>
+          ?
+         </td>
+        </tr>
+        <tr style="border-top:thin solid black;">
+         <td>
+          $v$
+         </td>
+         <td>
+          $\frac{\Delta p R^2}{8 \mu L}\left(2 - 4  X + 2 X^2\right)$
+         </td>
+         <td>
+          ?
+         </td>
+        </tr>
+        <tr>
+         <td>
+         </td>
+         <td>
+          $X=\frac{2 \tau_0 L}{\Delta p  R}$
+         </td>
+         <td>
+         </td>
+        </tr>
+       </table>
+       <figcaption>
+        The stress profiles and Newtonian velocity profiles for the geometries studied so far.
+       </figcaption>
+      </figure>
+     </section>
+     <section>
+      <ul>
+       <li>
+        By learning the general method for setting up and solving
+    the continuity and balance equations, we can solve any set of
+    problems.
+       </li>
+       <li class="fragment">
+        But our treatment so far is limited to
+        <b>
+         laminar
+        </b>
+        flows.
+        <a src="{http://www.youtube.com/watch?v=p08_KlTKP50}">
+         {http://www.youtube.com/watch?v=p08_KlTKP50}
+        </a>
+       </li>
+       <li class="fragment">
+        These solutions are limited to low flow velocities, high
+    viscosities or small geometries. This can be seen through the
+    Reynolds number:
+        \begin{align*}
+        \text{Re} = \frac{\rho\left\langle v\right\rangle D}{\mu}
+        \end{align*}
+       </li>
+       <li class="fragment">
+        We'll now try to extend our new knowledge to turbulent
+    flows.
+       </li>
+      </ul>
+     </section>
+     <section>
+      <div style="display:flex;align-items:center;">
+       <div style="flex: 1 1 calc(100% * 0.41);">
+        <figure>
+         <div class="center">
+          <img src="img/turbulence.jpg" style="width:100%;"/>
+         </div>
+        </figure>
+       </div>
+       <div style="flex: 1 1 calc(100% * 0.61);">
+        <ul>
+         <li>
+          We must be able to identify when the flow transitions from
+        laminar flow to turbulent flow.
+         </li>
+         <li class="fragment">
+          Its easy to visually determine when a flow has become
+        turbulent (contrast the laminar flow at the front of the
+        submarine which quickly transitions to turbulent flow).
+         </li>
+         <li class="fragment">
+          But we must be able to calculate/predict if a designed
+        flow is turbulent or not.
+         </li>
+         <li class="fragment">
+          And we must be able to calculate a
+          <b>
+           pressure drop
+          </b>
+          for
+        the turbulent flow.
+         </li>
+         <li class="fragment">
+          First, we will revise what we should already know for
+        Newtonian fluids in pipes.
+         </li>
+        </ul>
+       </div>
+      </div>
+     </section>
+    </section>
+    <section>
+     <section data-menu-title="Newtonian Fluids">
+      <ul>
+       <li>
+        The Reynolds number is a dimensionless number used to
+    characterise flows.
+       </li>
+       <li class="fragment">
+        It is a ratio of the
+        <b>
+         inertial
+        </b>
+        and the
+        <b>
+         viscous
+        </b>
+        forces in the system.
+        \begin{align*}
+        \text{Re} = \frac{\text{inertial forces}}{\text{viscous forces}}
+        \end{align*}
+       </li>
+       <li class="fragment">
+        Viscous forces
+        <b>
+         dampen
+        </b>
+        eddies in the flow and move it
+    towards a laminar flow profile.
+       </li>
+       <li class="fragment">
+        Inertial forces arise from the
+        <b>
+         momentum of the flow
+        </b>
+        and must be damped by the viscous forces.
+       </li>
+       <li class="fragment">
+        If the viscous damping is not sufficient, even small
+    perturbations such as rough walls will cause the flow to become
+    turbulent.
+       </li>
+      </ul>
+     </section>
+     <section>
+      <ul>
+       <li>
+        For Newtonian flows in pipes, the definition of the
+    Reynolds number is
+        \begin{align*}
+        \text{Re} = \frac{\rho \left\langle v\right\rangle D}{\mu}
+        \end{align*}
+        where
+        $D$
+        is the diameter of the pipe and
+        $\left\langle
+      v\right\rangle$
+        is the average flow velocity.
+       </li>
+       <li class="fragment">
+        There are several problems with this simple definition of
+    the Reynolds number:
+        <ul>
+         <li class="fragment">
+          The pipe diameter $D$
+          is not useful when considering
+      flows in other geometries, such as falling films, annular flow,
+      and flow between two plates.
+         </li>
+         <li class="fragment">
+          The viscosity $\mu$
+          may have no meaning in non-Newtonian
+      flows such as those of Power-Law fluids.
+         </li>
+        </ul>
+       </li>
+       <li class="fragment">
+        For now, we will continue to revise our knowledge of
+    Newtonian flows in cylindrical geometries before considering these
+    problems.
+       </li>
+      </ul>
+     </section>
+     <section data-menu-title="Friction Factor">
+      \begin{align*}
+      \text{Re} = \frac{\rho \left\langle v\right\rangle D}{\mu}
+      \end{align*}
+      <ul>
+       <li>
+        For Newtonian pipe flows, we find that the fluid can
+    stably transition from laminar to turbulent flow above a Reynolds
+    number of $\text{Re}=2100$
+        .
+       </li>
+       <li class="fragment">
+        Above this Reynolds number, viscous forces are relatively
+    small compared to the inertia of the flow and our laminar design
+    equations such as the Hagen-Poiseuille equation are no-longer
+    valid.
+       </li>
+       <li class="fragment">
+        We then have to resort to empirical fits to determine
+    pressure drops. The
+        <b>
+         Fanning friction
+      factor
+        </b>
+        .
+       </li>
+       <li class="fragment">
+        The friction factor is defined as the ratio of the viscous
+    stress at the walls over the flow's kinetic energy.
+        \begin{align*}
+        C_f = -\frac{\tau_{viscous}^{boundary}}{E^{kinetic}}
+        \end{align*}
+       </li>
+       <li class="fragment">
+        This is similar to the inverse definition of the Reynolds
+    number…
+       </li>
+      </ul>
+     </section>
+     <section>
+      \begin{align*}
+      \text{Re} &amp;= \frac{\rho \left\langle v\right\rangle d}{\mu} &amp;
+    C_f &amp;= -\frac{\tau_{viscous}^{boundary}}{E^{kinetic}}
+      \end{align*}
+      <ul>
+       <li>
+        We already have an expression for the stress at the
+    boundaries, independent of the geometry of the flow:
+        \begin{align*}
+        \tau_{boundary} = \frac{\Delta p}{L}\frac{A_{flow}}{P_w}
+        \end{align*}
+       </li>
+       <li class="fragment">
+        The flow energy per unit volume is given by
+        \begin{align*}
+        E^{kinetic} = \frac{1}{2}\rho \left\langle v\right\rangle^2
+        \end{align*}
+       </li>
+       <li class="fragment">
+        Which gives us the following general expression for the
+    friction factor:
+        \begin{align*}
+        C_f &amp;= -\frac{\tau_{viscous}^{boundary}}{E^{kinetic}} =
+      -\frac{\Delta p}{L}\frac{2 A_{flow}}{\rho  \left\langle
+          v\right\rangle^2 P_w}
+        \end{align*}
+       </li>
+      </ul>
+     </section>
+     <section>
+      \begin{align*}
+      C_f &amp;= -\frac{\Delta p}{L}\frac{2 A_{flow}}{\rho  \left\langle
+        v\right\rangle^2 P_w}
+      \end{align*}
+      <ul>
+       <li>
+        For a pipe, we have a cross sectional area of
+    $A_{flow}=\pi R^2$
+        and a wetted perimeter of
+        $P_w=2 \pi R$
+        , so
+    the friction factor is then given by the ratio of these values
+        \begin{align*}
+        C_f &amp;= -\frac{\Delta p}{L}\frac{R}{\rho \left\langle v\right\rangle^2}
+        \end{align*}
+       </li>
+       <li class="fragment">
+        We can rearrange this to give us an expression for the
+    pressure drop, in terms of the pipe geometry and the friction
+    factor.
+        \begin{align*}
+        -\Delta p = \frac{C_f  L \rho \left\langle
+          v\right\rangle^2}{R}
+        \end{align*}
+       </li>
+       <li class="fragment">
+        This is an empirical design equation for pipes, called the
+    Darcy-Weisbach equation, that allows you to calculate the pressure
+    drop in a pipe if the empirical Fanning factor, $C_f$
+        , is known.
+       </li>
+      </ul>
+     </section>
+     <section>
+      \begin{align*}
+      -\Delta p = \frac{C_f  L \rho \left\langle v\right\rangle^2}{R}
+      \end{align*}
+      <ul>
+       <li>
+        But we've already come up with one equation for pressure
+    drop which is not empirical, the Hagen-Poiseuille equation.
+        \begin{align*}
+        \dot{V}_z &amp;= -\pi\frac{\Delta p}{L}\frac{R^4}{8 \mu}
+        \end{align*}
+       </li>
+       <li class="fragment">
+        We can put this in terms of the average flow velocity by
+    dividing by the cross sectional area of the flow ($A_{pipe}=\pi R^2$
+        )
+        \begin{align*}
+        \frac{\dot{V}_z}{A_{pipe}} &amp;= \left\langle v\right\rangle = -\frac{\Delta p}{L}\frac{R^2}{8 \mu}
+        \end{align*}
+       </li>
+       <li class="fragment">
+        Rearranging for the pressure drop we have
+        \begin{align*}
+        -\Delta p = \frac{8 L \mu\left\langle v\right\rangle}{R^2}
+        \end{align*}
+       </li>
+      </ul>
+     </section>
+     <section>
+      \begin{align*}
+      -\Delta p = \frac{8 L \mu\left\langle v\right\rangle}{R^2} = \frac{C_f  L \rho \left\langle v\right\rangle^2}{R}
+      \end{align*}
+      <ul>
+       <li>
+        If we equate the Hagen-Poiseuille equation and the
+    friction, we find for laminar flows that the friction factor is
+    given by
+        \begin{align*}
+        C_f = \frac{8 \mu}{\rho \left\langle v\right\rangle R} = \frac{16}{\text{Re}}
+        \end{align*}
+       </li>
+       <li class="fragment">
+        This is the well-known result that the Fanning friction
+    factor reduces to for laminar flow.
+       </li>
+       <li class="fragment">
+        But for turbulent flow, the friction factor can take on a
+    range of values depending on the roughness of the pipe and the
+    Reynolds number.
+       </li>
+       <li class="fragment">
+        We need experimental results here!
+       </li>
+      </ul>
+     </section>
+     <section data-menu-title="Moody Plot">
+      \begin{align*}
+      -\Delta p = \frac{C_f  L \rho \left\langle v\right\rangle^2}{R}
+      \end{align*}
+      <ul>
+       <li>
+        Step in Lewis Ferry Moody, a tireless hero of fluid flow,
+    who measured the Darcy-Weisbach friction factor for a huge number
+    of materials in 1944.
+       </li>
+       <li class="fragment">
+        Lewis Ferry Moody measured the Darcy-Weisbach friction
+    factor as a function of Reynolds number and
+        <b>
+         pipe roughness
+        </b>
+        and created the Moody chart.
+       </li>
+      </ul>
+      <div class="fragment">
+       <div class="mathblock">
+        Eengineers and scientists have managed to confuse matters by
+      using a
+        <b>
+         Darcy-Weisbach friction coefficient
+        </b>
+        which is 4
+      times the Fanning friction factor!
+        \begin{align*}
+        f = 4  C_f
+        \end{align*}
+        There are other definitions as well, but you can tell which one
+      you're looking at by checking the expression for laminar flow
+      and seeing if it is
+        $64/\text{Re}$
+        (Darcy-Weisbach), or
+        $16/\text{Re}$
+        (Fanning), or
+        $8/\text{Re}$
+        .
+       </div>
+      </div>
+     </section>
+     <section>
+      <figure>
+       <img src="img/Moody_diagram.jpg" style="width:100%;"/>
+       <figcaption>
+        The Moody diagram for the Darcy-Weisbach friction
+      coefficient.
+       </figcaption>
+      </figure>
+     </section>
+     <section data-menu-title="Summary">
+      <h3>
+       Summary
+      </h3>
+      <ul>
+       <li>
+        We can calculate a Reynolds number for Newtonian flows in
+    pipes.
+        \begin{align*}
+        \text{Re} = \frac{\rho \left\langle v\right\rangle D}{\mu}
+        \end{align*}
+       </li>
+       <li class="fragment">
+        Then we can determine if the flow is laminar
+    ($\text{Re}&lt;2100$
+        ) or turbulent (
+        $\text{Re}&gt;2100$
+        ).
+       </li>
+       <li class="fragment">
+        If it is laminar, we can use the Hagen-Poiseuille equation
+        \begin{align*}
+        -\Delta p = \frac{8 L \mu\left\langle v\right\rangle}{R^2}
+        \end{align*}
+       </li>
+       <li class="fragment">
+        If it is turbulent, we can calculate the pressure drop
+    using the Moody chart to look up the friction factor, and to use
+    it in the Darcy-Weisbach equation.
+        \begin{align*}
+        -\Delta p = \frac{C_f  L \rho \left\langle
+          v\right\rangle^2}{R}
+        \end{align*}
+       </li>
+      </ul>
+     </section>
+    </section>
+    <section>
+     <section data-menu-title="Generalised Reynolds Number">
+      \begin{align*}
+      \text{Re} = \frac{\rho \left\langle v\right\rangle D}{\mu}
+      \end{align*}
+      <ul>
+       <li>
+        The first generalisation we can easily perform is to
+    non-cylindrical geometries.
+       </li>
+       <li class="fragment">
+        The current definition of the Reynold's number is in terms
+    of the pipe diameter D.
+       </li>
+       <li class="fragment">
+        To use it in non-cylindrical geometries, we just need to
+    use the Hydraulic diameter
+        \begin{align*}
+        D_H=\frac{4 A_{flow}}{P_{wet}}
+        \end{align*}
+        where
+        $A_{flow}$
+        is the cross sectional area of the flow and
+        $P_{wet}$
+        is the wetted perimeter of the flow.
+       </li>
+       <li class="fragment">
+        The Reynolds number then becomes
+        \begin{align*}
+        \text{Re} = \frac{4 \rho \left\langle v\right\rangle A_{flow}}{\mu P_{wet}}
+        \end{align*}
+       </li>
+      </ul>
+     </section>
+     <section>
+      <div style="display:flex;align-items:center;">
+       <div style="flex: 1 1 calc(100% * 0.41);">
+        <figure>
+         <div class="center">
+          <object data="img/annular_flow_hydraulic.svg" type="image/svg+xml" width="100%">
+          </object>
+         </div>
+        </figure>
+       </div>
+       <div style="flex: 1 1 calc(100% * 0.61);">
+        \begin{align*}
+        \text{Re} = \frac{4 \rho \left\langle v\right\rangle A_{flow}}{\mu P_{wet}}
+        \end{align*}
+        <ul>
+         <li>
+          This shows the Reynolds number is a ratio of the total
+        inertial forces (momentum) over the total boundary stresses.
+         </li>
+        </ul>
+       </div>
+      </div>
+     </section>
+     <section>
+      <ul>
+       <li>
+        For Non-Newtonian flows, we need a redefinition of the
+    Reynolds number to determine if the flow is turbulent or not.
+       </li>
+       <li class="fragment">
+        The simplest definition is to just take the Reynolds
+    number, and use the apparent viscosity at the wall for the
+    viscosity term
+        \begin{align*}
+        \text{Re}_g = \frac{\rho \left\langle v\right\rangle
+        D}{\mu_{apparent}^{wall}}
+        \end{align*}
+        where
+        $\mu_{apparent}^{wall}= -\left.\tau_{rz}/ \frac{\partial v_z}{\partial r}\right|_{r=R}$
+       </li>
+       <li class="fragment">
+        The problem with this definition in that it's a bit
+    ad-hoc, there is no estimate of the laminar-turbulent transition
+    Reynolds number.
+       </li>
+       <li class="fragment">
+        The wall conditions could also be vastly different to the
+    rest of the flow and so this form is not really useful for
+    predicting pressure drop in turbulent flows.
+       </li>
+      </ul>
+     </section>
+     <section data-menu-title="Metzner-Reed Reynolds Number">
+      <ul>
+       <li>
+        Metzner and Reed generalised the Reynolds number
+    $\text{Re}_{MR}$
+        , by stating that the definition of the friction
+    factor for laminar flow stays the same.
+       </li>
+       <li class="fragment">
+        That is, for all flows we have by definition
+        \begin{align*}
+        C_f^{(laminar)} = \frac{16}{\text{Re}_{MR}}
+        \end{align*}
+       </li>
+       <li class="fragment">
+        We then get a definition of the Reynolds number via the
+    general expression for the friction factor:
+        \begin{align*}
+        C_f = \frac{16}{\text{Re}_{MR}} &amp;= -\frac{\Delta
+        p}{L}\frac{2 A_{flow}}{\rho  \left\langle
+          v\right\rangle^2 P_w}
+        \end{align*}
+       </li>
+       <li class="fragment">
+        Rearranging for the Reynolds number, we have
+        \begin{align*}
+        \text{Re}_{MR} = -\frac{8 \rho \left\langle
+          v\right\rangle^2 P_w L}{A_{flow} \Delta p}
+        \end{align*}
+       </li>
+      </ul>
+     </section>
+     <section>
+      \begin{align*}
+      \text{Re}_{MR} = -\frac{8 \rho \left\langle
+        v\right\rangle^2 P_w L}{A_{flow} \Delta p}
+      \end{align*}
+      <ul>
+       <li>
+        To define the Reynolds number for any type of viscous flow
+    in pipes we must:
+        <ul>
+         <li class="fragment">
+          Substitute our
+          <b>
+           laminar
+          </b>
+          expression for the
+          <b>
+           average flow velocity
+          </b>
+          in terms of the
+          <b>
+           pressure drop
+          </b>
+          .
+         </li>
+         <li class="fragment">
+          We get this expression from the velocity profile.
+         </li>
+         <li class="fragment">
+          And we obtain our velocity profile the same way we have
+      always done, from the balance equations.
+         </li>
+        </ul>
+       </li>
+      </ul>
+     </section>
+     <section>
+      \begin{align*}
+      \text{Re}_{MR} = -\frac{8 \rho \left\langle
+        v\right\rangle^2 P_w L}{A_{flow} \Delta p}
+      \end{align*}
+      <ul>
+       <li>
+        By using this definition, the laminar flow's all collapse
+    onto the same line on the Moody plot (we have found a similarity
+    between the flows).
+       </li>
+       <li class="fragment">
+        It has even been shown in experiments
+        <sup class="footnotemark">
+         1
+        </sup>
+        Dodge, D.
+        <i>
+         A.I.Ch.E.
+        </i>
+        ,
+        <b>
+         5
+        </b>
+        , 189–204, (1959)
+        that the
+    laminar-turbulent transition occurs in the same range of Reynolds
+    number for Power-Law fluids,
+        $\text{Re}_{MR}\approx2200$
+        increasing to
+        $\text{Re}_{MR}\approx3000$
+        for shear-thinning
+    fluids.
+       </li>
+       <li class="fragment">
+        However, we must resort to measured data to determine
+    pressure loss in the turbulent regime or if the viscous behaviour
+    is highly irregular.
+       </li>
+      </ul>
+      <div class="footnote-container">
+       <div>
+        <sup class="footnotemark">
+         1
+        </sup>
+       </div>
+      </div>
+     </section>
+    </section>
+    <section>
+     <section data-menu-title="Example: Non-Newtonian Flow in a pipe">
+      <div style="display:flex;align-items:center;">
+       <div style="flex: 1 1 calc(100% * 0.41);">
+        <figure>
+         <div class="center">
+          <object data="img/pipe_flow.svg" type="image/svg+xml" width="100%">
+          </object>
+         </div>
+        </figure>
+       </div>
+       <div style="flex: 1 1 calc(100% * 0.61);">
+        <ul>
+         <li>
+          For example, in the last lecture, we covered
+        non-Newtonian flows in pipes.
+         </li>
+         <li class="fragment">
+          We derived the velocity profile for a Power-Law fluid
+        as
+          \begin{align*}
+          v_z = v_z^{max}\left(1 - \left(\frac{r}{R}\right)^{\frac{n+1}{n}}\right)
+          \end{align*}
+          where
+          \begin{align*}
+          v_z^{max}=-\left(\frac{\Delta p}{2 k L}\right)^{\frac{1}{n}}\frac{n}{n+1}R^{\frac{n+1}{n}}
+          \end{align*}
+         </li>
+        </ul>
+       </div>
+      </div>
+     </section>
+     <section>
+      <div style="display:flex;align-items:center;">
+       <div style="flex: 1 1 calc(100% * 0.41);">
+        <figure>
+         <div class="center">
+          <object data="img/pipe_flow.svg" type="image/svg+xml" width="100%">
+          </object>
+         </div>
+        </figure>
+       </div>
+       <div style="flex: 1 1 calc(100% * 0.61);">
+        <ul>
+         <li>
+          We then integrated over the flow area to obtain the
+        volumetric flow rate
+          \begin{align*}
+          \dot{V}_z&amp;=\int_0^R\int_0^{2\pi}v_z r {\rm d}\theta {\rm d}r\\
+          \dot{V}_z&amp;=\pi R^2 v_z^{max} \frac{n+1}{3n+1}
+          \end{align*}
+         </li>
+         <li class="fragment">
+          The average flow velocity is given by
+          \begin{align*}
+          \left\langle v\right\rangle&amp;=\dot{V}_z/A\\
+          &amp;= v_z^{max}\frac{n+1}{3n+1}
+          \end{align*}
+         </li>
+        </ul>
+       </div>
+      </div>
+     </section>
+     <section>
+      <ul>
+       <li>
+        We can rearrange this equation to obtain the expression
+    for the pressure drop as a function of the average flow velocity.
+        \begin{align*}
+        \left\langle v\right\rangle &amp;= v_z^{max}\frac{n+1}{3n+1}\\
+      \left\langle v\right\rangle &amp;= -\left(\frac{\Delta
+          p}{2 k L}\right)^{\frac{1}{n}}R^{\frac{n+1}{n}}\frac{n}{3n+1}\\
+      -\Delta p &amp;= 2 k L R^{-(n+1)}\left\langle v\right\rangle^n \left(\frac{3n+1}{n}\right)^n
+        \end{align*}
+       </li>
+       <li class="fragment">
+        Substituting the expression for $\Delta p$
+        into the
+    general expression for the Reynolds number:
+        \begin{align*}
+        \text{Re}_{MR} = -\frac{8 \rho \left\langle
+          v\right\rangle^2 P_w L}{A_{flow} \Delta p}
+        \end{align*}
+       </li>
+       <li class="fragment">
+        Along with $P_w=2 \pi R$
+        and
+        $A_{flow}=\pi R^2$
+        for
+    pipe flow, we have:
+        \begin{align*}
+        \text{Re}_{MR} = \frac{8 \rho \left\langle
+          v\right\rangle^{2-n} R^n}{k}\left(\frac{n}{3n+1}\right)^n
+        \end{align*}
+       </li>
+      </ul>
+     </section>
+     <section>
+      \begin{align*}
+      \text{Re}_{MR} = \frac{8 \rho \left\langle
+        v\right\rangle^{2-n} R^n}{k}\left(\frac{n}{3n+1}\right)^n
+      \end{align*}
+      <ul>
+       <li>
+        This is the general definition of a Reynolds number for
+    pipe flow for any Power law fluid.
+       </li>
+       <li class="fragment">
+        We can confirm that we still have the result for Newtonian
+    fluids by setting $n=1$
+        and
+        $k=\mu$
+        , to yield
+        \begin{align*}
+        \text{Re}_{MR} = \frac{2 \rho \left\langle
+          v\right\rangle R}{\mu} = \frac{\rho \left\langle
+          v\right\rangle D}{\mu}
+        \end{align*}
+        which is the standard definition of the Reynolds number for
+    Newtonian pipe flow.
+       </li>
+      </ul>
+     </section>
+     <section>
+      <figure>
+       <div class="center">
+        <img src="img/MRFrictionFactor.png" style="width:70%;"/>
+       </div>
+      </figure>
+      <ul>
+       <li>
+        Metzner and Reed have created a Moody-style chart for
+    power-law fluids. However, this graph is not as widely applicable
+    as the famous Moody chart.
+       </li>
+       <li class="fragment">
+        In fact, C&amp;R have some strong advice on its use:
+        <ul>
+         <li>
+          <i>
+           …
+           the experimental results and extrapolated values
+        are separately designated.
+           <b>
+            Extrapolated values should
+          never be used
+           </b>
+           for non-Newtonian fluids; certainly not the
+        extrapolated
+           <b>
+            values for shear-thickening fluids which
+          should be ignored
+           </b>
+           …
+          </i>
+         </li>
+        </ul>
+       </li>
+      </ul>
+     </section>
+     <section>
+      <h3>
+       Summary
+      </h3>
+      \begin{align*}
+      \text{Re}_{MR} = -\frac{8 \rho \left\langle
+        v\right\rangle^2 P_w L}{A_{flow} \Delta p}
+      \end{align*}
+      <ul>
+       <li>
+        In summary, by defining $C_f=16/\text{Re}_{MR}$
+        , we can
+    generate the above general definition of the Reynolds number.
+       </li>
+       <li class="fragment">
+        To use it, we have to pick a stress model (Power Law etc.)
+    and then solve the Cauchy momentum equation for the pressure drop
+    in terms of the average velocity,
+    $\Delta{}p\left(\left\langle{}v\right\rangle\right)$
+        .
+       </li>
+       <li class="fragment">
+        Inserting this into the top equation, we generate the
+    general Reynolds number expression.
+       </li>
+       <li class="fragment">
+        This allows us to
+        <b>
+         guess
+        </b>
+        that the fluid will
+    transition to turbulent flow somewhere around
+        $\text{Re}\approx
+    2000$
+        , as we've collapsed all flows onto the same laminar friction
+    factor; However, we have no pressure drop predictions for
+    turbulent non-Newtonian flows.
+       </li>
+      </ul>
+     </section>
+    </section>
+    <section>
+     <section data-menu-title="Learning Objectives">
+      <ul>
+       <li>
+        We have revised the Reynolds number and friction factors
+    in Newtonian flows.
+        <ul>
+         <li class="fragment">
+          For $\text{Re}&lt;2100$
+          , the flow is laminar and we can use
+      our Hagen-Poiuselle equations.
+         </li>
+         <li class="fragment">
+          For $\text{Re}&gt;2100$
+          , the flow may be turbulent and we
+      should use friction factor plots, like the Moody chart.
+         </li>
+        </ul>
+       </li>
+       <li class="fragment">
+        We started to generalise the Reynolds number by redefining
+    it in terms of the Hydraulic diameter
+        \begin{align*}
+        D_H = \frac{4 A_{flow}}{P_{wet}}
+        \end{align*}
+       </li>
+       <li class="fragment">
+        We then fully generalised the Reynolds number using the
+    definition of the Metzner-Reed Reynolds number, as
+        \begin{align*}
+        \text{Re}_{MR} = \frac{16}{C_f^{(laminar)}} = -\frac{8 \rho
+        \left\langle v\right\rangle^2 P_w L}{A_{flow} \Delta p}
+        \end{align*}
+       </li>
+       <li class="fragment">
+        We demonstrated how to calculate a Reynolds number for
+    Power law fluids in pipes.
+       </li>
+      </ul>
+     </section>
+     <section>
+      <ul>
+       <li>
+        All of the fundamentals we have covered so far are also
+    covered in the first two chapters of “Transport Phenomenon,” by
+    Bird, Stewart and Lightfoot.
+       </li>
+       <li class="fragment">
+        The work on the Metzner and Reed Reynolds number is in
+    Coulson and Richardson, vol 1, in the chapter on Flow of Liquids
+    in pipes and open channels and in the referenced
+    paper
+        <sup class="footnotemark">
+         1
+        </sup>
+        Dodge, D.
+        <i>
+         A.I.Ch.E.
+        </i>
+        ,
+        <b>
+         5
+        </b>
+        , 189–204,
+      (1959)
+        .
+       </li>
+      </ul>
+      <div class="footnote-container">
+       <div>
+        <sup class="footnotemark">
+         1
+        </sup>
+       </div>
+      </div>
+     </section>
+    </section>
+   </div>
+   <div class="slide-menu-button" style="left:170px;cursor:pointer;">
+    <a class="hide-on-pdf" id="PrintButton" onclick="document.location = '?print-pdf';">
+     <i class="fa fa-print">
+     </i>
+    </a>
+   </div>
+   <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({ TeX: { extensions: ["cancel.js"] }});
+   </script>
+   <script src="footer.js">
+   </script>
+  </div>
+ </body>
+</html>

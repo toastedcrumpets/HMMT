@@ -1,0 +1,1002 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <title>
+   Heat, Mass, and Momentum Transfer
+  </title>
+  <meta content="Heat Mass and Momentum Transfer notes" name="description"/>
+  <meta content="Marcus Bannerman &lt;m.bannerman@gmail.com" name="author"/>
+  <meta content="yes" name="apple-mobile-web-app-capable"/>
+  <meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"/>
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui" name="viewport"/>
+  <script data-headjs-load="header.js" src="../reveal.js/lib/js/head.min.js">
+  </script>
+ </head>
+ <body>
+  <div class="reveal">
+   <div class="slides">
+    <section>
+     <section>
+      <h2>
+       Applications of Energy Balances
+      </h2>
+      <div class="center">
+      </div>
+     </section>
+     <section>
+      <h3>
+       Slides Outline
+      </h3>
+      <div class="tableofcontents">
+      </div>
+     </section>
+    </section>
+    <section>
+     <section data-menu-title="Review">
+      <ul>
+       <li>
+        In the previous lecture, we derived the general energy
+    balance equation.
+        \begin{align*}
+        \rho\frac{\partial e}{\partial t} &amp;= - \rho v_i \nabla_i e -
+      \nabla_i q_i - \nabla_i(\tau_{ij} v_j) - \nabla_i(p v_i) +
+      \sigma_{energy}
+        \end{align*}
+       </li>
+       <li class="fragment">
+        We defined the Laplace operator $\nabla^2$
+        , and
+        <b>
+         noted
+      its special definitions in different coordinate systems
+        </b>
+        !
+       </li>
+       <li class="fragment">
+        We also defined Fourier's law of conduction
+        \begin{align*}
+        \boldsymbol{q} = -k \nabla T
+        \end{align*}
+       </li>
+       <li class="fragment">
+        And
+        <b>
+         noted it's definitions in different coordinate
+      systems
+        </b>
+        :
+        <figure>
+         <figcaption>
+          Fourier's Law in all coordinate systems
+         </figcaption>
+        </figure>
+       </li>
+       <li class="fragment">
+        We will now take a look at using these equations in a
+    manner similar to the Cauchy momentum equation.
+       </li>
+      </ul>
+     </section>
+    </section>
+    <section>
+     <section data-menu-title="Simplifying the Energy Balance">
+      <ul>
+       <li>
+        Before we continue, we will simplify the energy balance
+    equation.
+        \begin{align*}
+        \rho\frac{\partial e}{\partial t} &amp;= - \rho v_i \nabla_i e -
+      \nabla_i q_i - \nabla_i(\tau_{ij} v_j) - \nabla_i(p v_i) +
+      \sigma_{energy}
+        \end{align*}
+       </li>
+       <li class="fragment">
+        When we derived the momentum equation, we factored and
+    cancelled a term involving the continuity equation.
+       </li>
+       <li class="fragment">
+        In getting to the above energy equation, we also factored
+    out the continuity equation.
+       </li>
+       <li class="fragment">
+        But we can also factor out the momentum equation from the
+    energy equation.
+       </li>
+      </ul>
+     </section>
+     <section>
+      <ul>
+       <li>
+        Take the momentum equation…
+        \begin{align*}
+        \rho\frac{\partial v_i}{\partial t} &amp;= -\rho v_j \nabla_j v_i
+      - \nabla_j \tau_{ji} - \nabla_i p + \rho g_i
+        \end{align*}
+       </li>
+       <li class="fragment">
+        Multiply it by $v_i$
+        (this is equivalent to dotting
+        $\boldsymbol{v}\cdot{}$
+        to all terms)
+        \begin{align*}
+        \rho v_i\frac{\partial v_i}{\partial t} &amp;=
+      -\rho v_j v_i \nabla_j v_i
+      - v_i \nabla_j \tau_{ji} - v_i \nabla_i p + \rho v_i g_i\\
+      \frac{1}{2}\rho\frac{\partial v_i v_i}{\partial t} &amp;=
+      -\rho v_j \nabla_j \frac{v_i v_i}{2} - v_i \nabla_j \tau_{ji} -
+      v_i \nabla_i p + \rho v_i g_i
+        \end{align*}
+       </li>
+       <li class="fragment">
+        Next we insert the definition of the energy
+    $e=\frac{1}{2}v^2 + e_{pot.}(\boldsymbol{r}) + U$
+        into the energy balance,
+    and subtract the above equation
+        \begin{align*}
+        \rho\frac{\partial e}{\partial t} &amp;= - \rho v_i \nabla_i e -
+      \nabla_i q_i - \nabla_i(\tau_{ij} v_j) - \nabla_i(p v_i) +
+      \sigma_{energy}
+      \\
+
+      \rho\frac{\partial U}{\partial t} =&amp; -\rho v_i  \nabla_i U -
+      \nabla_i q_i - \tau_{ji} \nabla_j v_i - p \nabla_i v_i
+      +\sigma_{energy}
+        \end{align*}
+       </li>
+      </ul>
+     </section>
+     <section>
+      \begin{align*}
+      \rho\frac{\partial U}{\partial t} =&amp; -\rho  v_j  \nabla_j U -
+    \nabla_i q_i - \tau_{ji} \nabla_j v_i - p \nabla_i v_i
+    +\sigma_{energy}
+      \end{align*}
+      <ul>
+       <li>
+        This is as far as we can go while remaining exact.
+       </li>
+       <li class="fragment">
+        But, if we are in a liquid or solid, we can state that the
+    internal energy has little or no pressure dependence
+        \begin{align*}
+        {\rm d}U = C_p  {\rm d}T + \cancelto{0}{\left(\frac{\partial
+            U}{\partial p}\right)_T {\rm d} P}
+        \end{align*}
+       </li>
+       <li class="fragment">
+        And we have another form of the energy balance
+        \begin{align*}
+        \rho C_p\frac{\partial T}{\partial t} =&amp; -\rho C_p  v_j  \nabla_j T -
+      \nabla_i q_i - \tau_{ji} \nabla_j v_i - p \nabla_i v_i
+      +\sigma_{energy}
+        \end{align*}
+       </li>
+       <li class="fragment">
+        This form easily reduces to the heat equation for
+    solids/stationary liquids ($\boldsymbol{v}=\boldsymbol{0}$
+        ).
+        \begin{align*}
+        \rho C_p\frac{\partial T}{\partial t} =&amp; - \nabla_i q_i
+      +\sigma_{energy}
+        \end{align*}
+       </li>
+      </ul>
+     </section>
+    </section>
+    <section>
+     <section data-menu-title="Example: Conduction in an Electrically Heated Wire">
+      <div style="display:flex;align-items:center;">
+       <div style="flex: 1 1 calc(100% * 0.41);">
+        <figure>
+         <div class="center">
+          <img src="img/Pylon_ds.jpg"/>
+         </div>
+         <figcaption>
+          An electricity pylon.
+         </figcaption>
+        </figure>
+       </div>
+       <div style="flex: 1 1 calc(100% * 0.61);">
+        <ul>
+         <li>
+          Let's take a look at the dissipation of heat in a wire
+        on an electricity pylon.
+         </li>
+         <li class="fragment">
+          The transmission of an electric current is an
+        irreversible process, and some electrical energy is converted
+        into heat.
+         </li>
+         <li class="fragment">
+          Joule determined that the amount of heat energy
+        produced per unit volume is given by
+          \begin{align*}
+          \sigma_{energy}^{current} = \frac{I^2}{k_e}
+          \end{align*}
+          where
+          $I$
+          is the current density and
+          $k_e$
+          is the electrical
+        conductivity of the transmission material.
+         </li>
+         <li class="fragment">
+          We will use this as an expression for the rate of heat
+        generation in a wire (we do not track electrical energy in our
+        energy balance equation, just heat, so this term is a heat
+        energy “generation” term).
+         </li>
+        </ul>
+       </div>
+      </div>
+     </section>
+     <section>
+      <ul>
+       <li>
+        Taking our general balance equation, we have
+        \begin{align*}
+        \rho C_p\frac{\partial T}{\partial t} =&amp; -\rho C_p  \boldsymbol{v}
+      \cdot\nabla T - \nabla\cdot\boldsymbol{q} - \boldsymbol{\tau}:\nabla\boldsymbol{v} -
+      p \nabla\cdot\boldsymbol{v} +\frac{I^2}{k_e}
+        \end{align*}
+        (Note,
+        $\boldsymbol{\tau}:\nabla\boldsymbol{v}=\tau_{ij}\nabla_iv_j$
+        for Cartesian
+    coordinates)
+       </li>
+       <li class="fragment">
+        We note that wires are usually made out of solid material
+    (aluminium), so we can state that $\boldsymbol{v}=0$
+        , and cancel all terms
+    with the velocity in them:
+        \begin{align*}
+        \rho C_p\frac{\partial T}{\partial t} =&amp; - \nabla\cdot\boldsymbol{q} +\frac{I^2}{k_e}
+        \end{align*}
+       </li>
+       <li class="fragment">
+        Assuming the system is at steady state (no severe weather
+    changes or sudden surges in electricity demand), we have
+        \begin{align*}
+        \nabla\cdot\boldsymbol{q} =\frac{I^2}{k_e}
+        \end{align*}
+       </li>
+      </ul>
+     </section>
+     <section>
+      <div style="display:flex;align-items:center;">
+       <div style="flex: 1 1 calc(100% * 0.41);">
+        <figure>
+         <div class="center">
+          <object data="img/solid_cyl_coords.svg" type="image/svg+xml" width="100%">
+          </object>
+         </div>
+        </figure>
+       </div>
+       <div style="flex: 1 1 calc(100% * 0.51);">
+        \begin{align*}
+        \nabla\cdot\boldsymbol{q} =\frac{I^2}{k_e}
+        \end{align*}
+       </div>
+      </div>
+      <ul>
+       <li>
+        Assuming our wires are cylinders, we should use
+    cylindrical coordinates.
+       </li>
+       <li class="fragment">
+        Our expression becomes
+        \begin{align*}
+        \nabla\cdot\boldsymbol{q}=\frac{1}{r}\frac{\partial}{\partial r}\left(r 
+    q_r\right) + \frac{1}{r}\frac{\partial q_\theta}{\partial
+    \theta}+ \frac{\partial q_z}{\partial z}= \frac{I^2}{k_e}
+        \end{align*}
+       </li>
+       <li class="fragment">
+        To simplify this problem, we assume that the wire is
+    cooled evenly by the wind so that there is no variance in external
+    temperature with the angle $\theta$
+        or position on the wire
+        $z$
+        .
+       </li>
+       <li class="fragment">
+        This makes the problem symmetric in $z$
+        and
+        $\theta$
+        .
+       </li>
+      </ul>
+     </section>
+     <section>
+      <div style="display:flex;align-items:center;">
+       <div style="flex: 1 1 calc(100% * 0.41);">
+        <figure>
+         <div class="center">
+          <object data="img/solid_cyl_coords.svg" type="image/svg+xml" width="100%">
+          </object>
+         </div>
+        </figure>
+       </div>
+       <div style="flex: 1 1 calc(100% * 0.51);">
+        \begin{align*}
+        \frac{1}{r}\frac{\partial}{\partial r}\left(r 
+    q_r\right) + \frac{1}{r}\frac{\partial q_\theta}{\partial
+    \theta}+ \frac{\partial q_z}{\partial z}= \frac{I^2}{k_e}
+        \end{align*}
+       </div>
+      </div>
+      <ul>
+       <li>
+        Whenever there is symmetry, there is no transport.
+       </li>
+       <li class="fragment">
+        This is because there are no gradients or flow across a
+    symmetry as the values of all functions are equal either side of
+    the symmetry.
+       </li>
+       <li class="fragment">
+        All transport is driven by gradients (convective, Newton's
+    Law, Fourier's Law, and Fick's First Law).
+       </li>
+       <li class="fragment">
+        Our problem is rotationally symmetric in $\theta$
+        and has
+    translational invariance/symmetry in
+        $z$
+        so
+        $q_\theta=q_z=0$
+        and we have
+        \begin{align*}
+        \frac{1}{r}\frac{\partial}{\partial r}\left(r 
+        q_r\right) = \frac{I^2}{k_e}
+        \end{align*}
+       </li>
+      </ul>
+     </section>
+     <section data-menu-title="Solving for the Heat Flux">
+      <div style="display:flex;align-items:center;">
+       <div style="flex: 1 1 calc(100% * 0.41);">
+        <figure>
+         <div class="center">
+          <object data="img/solid_cyl_coords.svg" type="image/svg+xml" width="100%">
+          </object>
+         </div>
+        </figure>
+       </div>
+       <div style="flex: 1 1 calc(100% * 0.51);">
+        \begin{align*}
+        \frac{1}{r}\frac{\partial r q_r}{\partial r}=\frac{I^2}{k_e}
+        \end{align*}
+       </div>
+      </div>
+      <ul>
+       <li>
+        Integrating this expression, we have
+        \begin{align*}
+        q_r=\frac{I^2}{k_e}\left(\frac{r}{2} + \frac{C}{r}\right)
+        \end{align*}
+       </li>
+       <li class="fragment">
+        Hopefully you have a feeling of deja vu as you note that
+    in the centre of the wire where $r=0$
+        , the heat flux cannot reach
+    infinity so we must have
+        $C=0$
+        .
+       </li>
+       <li class="fragment">
+        We could also note that at $r=0$
+        we are on an axis of
+    symmetry and so
+        $q_r=0$
+        , also requiring
+        $C=0$
+        .
+       </li>
+       <li class="fragment">
+        Our final expression for the heat flux is then:
+        \begin{align*}
+        q_r=\frac{I^2}{2 k_e}r
+        \end{align*}
+       </li>
+      </ul>
+     </section>
+     <section data-menu-title="Temperature Profile">
+      <div style="display:flex;align-items:center;">
+       <div style="flex: 1 1 calc(100% * 0.41);">
+        <figure>
+         <div class="center">
+          <object data="img/solid_cyl_coords.svg" type="image/svg+xml" width="100%">
+          </object>
+         </div>
+        </figure>
+       </div>
+       <div style="flex: 1 1 calc(100% * 0.51);">
+        \begin{align*}
+        q_r=\frac{I^2}{2 k_e}r
+        \end{align*}
+       </div>
+      </div>
+      <ul>
+       <li>
+        Now let's use the definition of Fourier's law in 3D
+        <figure>
+         <figcaption>
+          Fourier's Law in all coordinate systems
+         </figcaption>
+        </figure>
+       </li>
+       <li class="fragment">
+        Selecting the correct definition, we have
+        \begin{align*}
+        \frac{\partial T}{\partial r} = -\frac{I^2}{2 k_e k}r
+        \end{align*}
+       </li>
+      </ul>
+     </section>
+     <section>
+      <div style="display:flex;align-items:center;">
+       <div style="flex: 1 1 calc(100% * 0.41);">
+        <figure>
+         <div class="center">
+          <object data="img/solid_cyl_coords.svg" type="image/svg+xml" width="100%">
+          </object>
+         </div>
+        </figure>
+       </div>
+       <div style="flex: 1 1 calc(100% * 0.51);">
+        \begin{align*}
+        q_r&amp;=\frac{I^2}{2 k_e}r\\
+        \frac{\partial T}{\partial r} &amp;= -\frac{I^2}{2 k_e k}r\\
+        \end{align*}
+       </div>
+      </div>
+      <ul>
+       <li>
+        Assuming $k$
+        is constant (it actually depends on the
+    temperature), we can integrate this expression to gives us the
+    temperature profile.
+        \begin{align*}
+        T &amp;= \frac{I^2}{4 k_e k}\left(C-r^2\right)
+        \end{align*}
+       </li>
+       <li class="fragment">
+        For now, we will use the simple boundary condition that
+    the exterior of the wire ($r=R$
+        ) is held at a fixed temperature
+        $T=T_0$
+        to solve for the constant
+        $C$
+        to give
+        \begin{align*}
+        T - T_0 &amp;= \frac{I^2 R^2}{4 k_e k}\left(1-\frac{r^2}{R^2}\right)
+        \end{align*}
+       </li>
+      </ul>
+     </section>
+     <section data-menu-title="Total Heat Flux">
+      <div style="display:flex;align-items:center;">
+       <div style="flex: 1 1 calc(100% * 0.41);">
+        <figure>
+         <div class="center">
+          <object data="img/solid_cyl_coords.svg" type="image/svg+xml" width="100%">
+          </object>
+         </div>
+        </figure>
+       </div>
+       <div style="flex: 1 1 calc(100% * 0.51);">
+        \begin{align*}
+        q_r&amp;=\frac{I^2}{2 k_e}r\\
+        T - T_0 &amp;= \frac{I^2 R^2}{4 k_e k}\left(1-\frac{r^2}{R^2}\right)
+        \end{align*}
+       </div>
+      </div>
+      <ul>
+       <li>
+        A final derivation is to find the total heat flux at the
+    surface of the wire $Q_r|_{wall}$
+        .
+       </li>
+       <li class="fragment">
+        Setting $r=R$
+        in the equation for the heat flux
+        $q_r$
+        and
+    multiplying by the surface area of the wire gives us
+        \begin{align*}
+        Q_r|_{wall} = \frac{\pi R^2 L I^2}{k_e}
+        \end{align*}
+       </li>
+       <li class="fragment">
+        This could also be immediately derived by noting that at
+    steady state, all heat generated in the wire must flow out.
+       </li>
+      </ul>
+     </section>
+     <section data-menu-title="Similarity To Momentum Transport">
+      <div style="display:flex;align-items:center;">
+       <div style="flex: 1 1 calc(100% * 0.41);">
+        <figure>
+         <div class="center">
+          <object data="img/solid_cyl_coords.svg" type="image/svg+xml" width="100%">
+          </object>
+         </div>
+        </figure>
+       </div>
+       <div style="flex: 1 1 calc(100% * 0.51);">
+        \begin{align*}
+        q_r&amp;=\frac{I^2}{2 k_e}r\\
+        T - T_0 &amp;= \frac{I^2 R^2}{4 k_e k}\left(1-\frac{r^2}{R^2}\right)\\
+        q_r|_{wall} &amp;= \frac{\pi R^2 L I^2}{k_e}
+        \end{align*}
+       </div>
+      </div>
+      <ul>
+       <li>
+        Our solution is mathematically identical to the solution
+    for momentum transport in pipes!
+        \begin{align*}
+        \tau_{rz} &amp;= \frac{\Delta p}{2 L}r\\
+      v_z &amp;= -\frac{\Delta p R^2}{4 \mu L}\left(1 - \frac{r^2}{R^2}\right)\\
+      \tau_{rz}|_{wall} &amp;= \Delta p \pi R^2
+        \end{align*}
+       </li>
+       <li class="fragment">
+        We have found an
+        <b>
+         analogous
+        </b>
+        process for flow profiles
+    in heat transfer! This is the power of combined Momentum, Heat,
+    and Mass transfer studies.
+       </li>
+       <li class="fragment">
+        With a bit of thought you should be able to immediately
+    write down the expression for electrical heating in a tubular
+    conductor (think flow in an annulus).
+       </li>
+      </ul>
+     </section>
+    </section>
+    <section>
+     <section data-menu-title="Example: Spherical Nuclear Fuel">
+      <div style="display:flex;align-items:center;">
+       <div style="flex: 1 1 calc(100% * 0.51);">
+        <figure>
+         <div class="center">
+          <img src="img/Pebble_bed_reactor_scheme.jpg"/>
+         </div>
+         <figcaption>
+          An Italian diagram of a pebble bed nuclear reactor.
+         </figcaption>
+        </figure>
+       </div>
+       <div style="flex: 1 1 calc(100% * 0.51);">
+        <figure>
+         <div class="center">
+          <img src="img/GraphitePebble.jpg" style="width:90%;"/>
+         </div>
+         <figcaption>
+          A single Graphite pebble.
+         </figcaption>
+        </figure>
+        <ul>
+         <li>
+          Let's take another look at a heat transfer problem.
+         </li>
+         <li class="fragment">
+          There is an unusual design of nuclear reactor called a
+          <b>
+           pebble bed reactor
+          </b>
+          .
+         </li>
+        </ul>
+       </div>
+      </div>
+     </section>
+     <section>
+      <div style="display:flex;align-items:center;">
+       <div style="flex: 1 1 calc(100% * 0.51);">
+        <figure>
+         <div class="center">
+          <object data="img/pebble_diag.svg" type="image/svg+xml" width="80%">
+          </object>
+         </div>
+         <figcaption>
+          Diagram of a graphite pebble
+         </figcaption>
+        </figure>
+       </div>
+       <div style="flex: 1 1 calc(100% * 0.51);">
+        <ul>
+         <li>
+          Each pebble consists of a sphere of fissionable
+        material with a radius $R^{(F)}$
+          surrounded by a spherical
+        shell of graphite “cladding” to a radius
+          $R^{(C)}$
+          .
+         </li>
+         <li class="fragment">
+          Due to the nature of nuclear fission, the rate of heat
+        generation is not uniform within the sphere, it depends on
+        temperature and the production of neutrons within the sphere.
+         </li>
+         <li class="fragment">
+          As a first approximation, it is assumed that the
+        generation rate is given by
+          \begin{align*}
+          \sigma_{energy}^{fission} = \sigma_0 \left(1+b\left(\frac{r}{R^{(F)}}\right)^2\right)
+          \end{align*}
+         </li>
+        </ul>
+       </div>
+      </div>
+     </section>
+     <section>
+      <ul>
+       <li>
+        Taking our general balance equation, we have
+        \begin{align*}
+        \rho C_p\frac{\partial T}{\partial t} =&amp; -\rho C_p  \boldsymbol{v}
+      \cdot\nabla T - \nabla\cdot\boldsymbol{q} - \boldsymbol{\tau}:\nabla\boldsymbol{v} -
+      p \nabla\cdot\boldsymbol{v} +\sigma_{energy}
+        \end{align*}
+       </li>
+       <li class="fragment">
+        Again, the system is solid so we can state that
+    $\boldsymbol{v}=0$
+        .
+        \begin{align*}
+        \rho C_p\frac{\partial T}{\partial t} =&amp;- \nabla\cdot\boldsymbol{q}
+      +\sigma_{energy}
+        \end{align*}
+       </li>
+       <li class="fragment">
+        Assuming that the nuclear reactor is at steady state, we
+    have
+        \begin{align*}
+        \nabla\cdot\boldsymbol{q} =\sigma_{energy}
+        \end{align*}
+       </li>
+       <li class="fragment">
+        Choosing spherical coordinates, we assume due to symmetry
+    that only the radial flux is important ($q_\theta=q_\phi=0$
+        ), and
+    we have
+        \begin{align*}
+        \frac{1}{r^2}\frac{\partial}{\partial
+    r}\left(r^2  q_r\right) +
+  \frac{1}{r\sin\theta}\frac{\partial}{\partial
+    \theta}\left(\cancelto{0}{q_\theta}\sin\theta\right)+
+  \frac{1}{r\sin\theta}\frac{\partial \cancelto{0}{q_\phi}}{\partial \phi} =\sigma_{energy}
+        \end{align*}
+       </li>
+      </ul>
+     </section>
+     <section>
+      <div style="display:flex;align-items:center;">
+       <div style="flex: 1 1 calc(100% * 0.51);">
+        <figure>
+         <div class="center">
+          <object data="img/pebble_diag.svg" type="image/svg+xml" width="30%">
+          </object>
+         </div>
+         <figcaption>
+          Diagram of a graphite pebble
+         </figcaption>
+        </figure>
+       </div>
+       <div style="flex: 1 1 calc(100% * 0.51);">
+        \begin{align*}
+        \frac{1}{r^2}\frac{\partial}{\partial
+    r}\left(r^2  q_r\right)=\sigma_{energy}
+        \end{align*}
+       </div>
+      </div>
+      <ul>
+       <li>
+        We actually have two coupled equations to solve, one for
+    the core of fissionable material (where there is heat production):
+        \begin{align*}
+        \frac{1}{r^2}\frac{\partial}{\partial
+    r}\left(r^2  q_r^{(F)}\right) &amp;= \sigma_0 \left(1+b\left(\frac{r}{R^{(F)}}\right)^2\right)
+        \end{align*}
+       </li>
+       <li class="fragment">
+        And one for the aluminium cladding (where there is no heat
+    production):
+        \begin{align*}
+        \frac{1}{r^2}\frac{\partial}{\partial
+    r}\left(r^2  q_r^{(C)}\right) &amp;= 0
+        \end{align*}
+       </li>
+      </ul>
+     </section>
+     <section>
+      <div style="display:flex;align-items:center;">
+       <div style="flex: 1 1 calc(100% * 0.51);">
+        <figure>
+         <div class="center">
+          <object data="img/pebble_diag.svg" type="image/svg+xml" width="30%">
+          </object>
+         </div>
+         <figcaption>
+          Diagram of a graphite pebble
+         </figcaption>
+        </figure>
+       </div>
+       <div style="flex: 1 1 calc(100% * 0.51);">
+        \begin{align*}
+        \frac{1}{r^2}\frac{\partial}{\partial r}\left(r^2 
+          q_r^{(F)}\right) &amp;= \sigma_0
+        \left(1+b\left(\frac{r}{R^{(F)}}\right)^2\right)
+        \\
+        \frac{1}{r^2}\frac{\partial}{\partial r}\left(r^2 
+          q_r^{(C)}\right) &amp;= 0
+        \end{align*}
+       </div>
+      </div>
+      <ul>
+       <li>
+        Our equations then become
+        \begin{align*}
+        \frac{\partial}{\partial r}r^2 q^{(F)}_r &amp;= \sigma_0 r^2
+        \left(1+b\left(\frac{r}{R^{(F)}}\right)^2\right)
+        \\
+        \frac{\partial}{\partial r}r^2 q^{(C)}_r &amp;= 0
+        \end{align*}
+       </li>
+      </ul>
+     </section>
+     <section data-menu-title="Heat Flux">
+      <div style="display:flex;align-items:center;">
+       <div style="flex: 1 1 calc(100% * 0.51);">
+        <figure>
+         <div class="center">
+          <object data="img/pebble_diag.svg" type="image/svg+xml" width="30%">
+          </object>
+         </div>
+         <figcaption>
+          Diagram of a graphite pebble
+         </figcaption>
+        </figure>
+       </div>
+       <div style="flex: 1 1 calc(100% * 0.51);">
+        \begin{align*}
+        \frac{\partial}{\partial r}r^2 q^{(F)}_r &amp;= \sigma_0 r^2 \left(1+b\left(\frac{r}{R^{(F)}}\right)^2\right)\\
+        \frac{\partial}{\partial r}r^2 q^{(C)}_r &amp;= 0
+        \end{align*}
+       </div>
+      </div>
+      <ul>
+       <li>
+        We can integrate these equations to give
+        \begin{align*}
+        q^{(F)}_r &amp;= \sigma_0\left(\frac{r}{3}+\frac{b r^3}{5 \left(R^{(F)}\right)^2}\right) + \frac{C_1^{(F)}}{r^2}\\
+      q^{(C)}_r &amp;= \frac{C_1^{(C)}}{r^2}
+        \end{align*}
+       </li>
+       <li class="fragment">
+        At $r=0$
+        we know that the flux in the fissionable material
+    must be finite so
+        $C_1^{(F)}=0$
+        . In fact, as the problem is
+    symmetric at the origin, we know the flux is zero in the centre.
+       </li>
+      </ul>
+     </section>
+     <section>
+      <div style="display:flex;align-items:center;">
+       <div style="flex: 1 1 calc(100% * 0.51);">
+        <figure>
+         <div class="center">
+          <object data="img/pebble_diag.svg" type="image/svg+xml" width="30%">
+          </object>
+         </div>
+         <figcaption>
+          Diagram of a graphite pebble
+         </figcaption>
+        </figure>
+       </div>
+       <div style="flex: 1 1 calc(100% * 0.51);">
+        \begin{align*}
+        q^{(F)}_r &amp;= \sigma_0\left(\frac{r}{3}+\frac{b r^3}{5 \left(R^{(F)}\right)^2}\right)\\
+        q^{(C)}_r &amp;= \frac{C_1^{(C)}}{r^2}
+        \end{align*}
+       </div>
+      </div>
+      <ul>
+       <li>
+        We know that both heat fluxes at $r=R^{(F)}$
+        must equal
+        $q_r^{(F)}=q_r^{(C)}$
+        , so we can determine
+        $C_1^{(C)}$
+        to give.
+        \begin{align*}
+        q^{(C)}_r &amp;= \frac{\sigma_0 \left(R^{(F)}\right)^3}{r^2}\left(\frac{1}{3}+\frac{b}{5}\right)
+        \end{align*}
+       </li>
+      </ul>
+     </section>
+     <section data-menu-title="Temperature Profile">
+      <div style="display:flex;align-items:center;">
+       <div style="flex: 1 1 calc(100% * 0.51);">
+        <figure>
+         <div class="center">
+          <object data="img/pebble_diag.svg" type="image/svg+xml" width="30%">
+          </object>
+         </div>
+         <figcaption>
+          Diagram of a graphite pebble
+         </figcaption>
+        </figure>
+       </div>
+       <div style="flex: 1 1 calc(100% * 0.51);">
+        \begin{align*}
+        q^{(F)}_r &amp;= \sigma_0\left(\frac{r}{3}+\frac{b r^3}{5 \left(R^{(F)}\right)^2}\right)\\
+        q^{(C)}_r &amp;= \frac{\sigma_0 \left(R^{(F)}\right)^3}{r^2}\left(\frac{1}{3}+\frac{b}{5}\right)
+        \end{align*}
+       </div>
+      </div>
+      <ul>
+       <li>
+        Again, we must check the definition of Fourier's law in
+    Spherical coordinates.
+        <figure>
+         <figcaption>
+          Fourier's Law in all coordinate systems
+         </figcaption>
+        </figure>
+       </li>
+       <li class="fragment">
+        We can then rewrite our problems in terms of the
+    temperature profile.
+       </li>
+      </ul>
+     </section>
+     <section>
+      <div style="display:flex;align-items:center;">
+       <div style="flex: 1 1 calc(100% * 0.51);">
+        <figure>
+         <div class="center">
+          <object data="img/pebble_diag.svg" type="image/svg+xml" width="30%">
+          </object>
+         </div>
+         <figcaption>
+          Diagram of a graphite pebble
+         </figcaption>
+        </figure>
+       </div>
+       <div style="flex: 1 1 calc(100% * 0.51);">
+        \begin{align*}
+        \frac{\partial T^{(F)}}{\partial r} &amp;= -\frac{\sigma_0}{k^{(F)}}\left(\frac{r}{3}+\frac{b r^3}{5 \left(R^{(F)}\right)^2}\right)\\
+        \frac{\partial T^{(C)}}{\partial r} &amp;= -\frac{\sigma_0 \left(R^{(F)}\right)^3}{k^{(C)} r^2}\left(\frac{1}{3}+\frac{b}{5}\right)
+        \end{align*}
+       </div>
+      </div>
+      <ul>
+       <li>
+        Again assuming constant thermal conductivity we can
+    integrate these expressions.
+       </li>
+       <li class="fragment">
+        We then need boundary conditions for the constants, the
+    first is that the temperatures are equal at the bonded interface
+        \begin{align*}
+        T^{(F)} &amp;= T^{(C)} &amp; \text{for} \quad r=R^{(F)}
+        \end{align*}
+       </li>
+       <li class="fragment">
+        We will also assume the surface temperature of the
+    particle is known
+        \begin{align*}
+        T^{(C)} &amp;= T_0 &amp; \text{for} \quad r=R^{(C)}
+        \end{align*}
+       </li>
+      </ul>
+     </section>
+     <section>
+      <ul>
+       <li>
+        The final expressions are enormous, for the fissionable
+    material we have
+        \begin{multline*}
+        T^{(F)} -T_0 \\
+      = \frac{\sigma_0 \left(R^{(F)}\right)^2}{3}
+      \left\{\frac{1}{2 k^{(F)}}\left[1-\left(\frac{r}{R^{(F)}}\right)^2
+          + \frac{3}{10} b\left(1-\left(\frac{r}{R^{(F)}}\right)^4\right)\right]\right.\\
+      \left.+\frac{1}{k^{(C)}}\left(1+\frac{3 b}{5}\right)\left(1-\frac{R^{(F)}}{R^{(C)}}\right)\right\}
+        \end{multline*}
+       </li>
+       <li class="fragment">
+        For the cladding we have
+        \begin{align*}
+        T^{(C)} -T_0 =
+      \frac{\sigma_0 \left(R^{(F)}\right)^2}{3 k^{(C)}}
+      \left(1+\frac{3 b}{5}\right)
+      \left(\frac{R^{(F)}}{r}-\frac{R^{(F)}}{R^{(C)}}\right)
+        \end{align*}
+       </li>
+       <li class="fragment">
+        We can see the temperature increases towards the centre of
+    each particle.
+       </li>
+       <li class="fragment">
+        Its vital that the temperature of the fissionable material
+    is monitored as a design parameter!
+       </li>
+      </ul>
+     </section>
+    </section>
+    <section>
+     <section data-menu-title="Learning Objectives">
+      <ul>
+       <li>
+        The general energy balance equation is:
+        \begin{align*}
+        \rho\frac{\partial U}{\partial t} &amp;= -\rho  v_j  \nabla_j U -
+      \nabla_i q_i - \tau_{ji} \nabla_j v_i - p \nabla_i v_i
+      +\sigma_{energy}
+        \end{align*}
+       </li>
+       <li class="fragment">
+        A simpler heat balance equation is derived using the
+    assumption that the internal energy has only a weak pressure
+    dependence:
+        \begin{align*}
+        \rho C_p\frac{\partial T}{\partial t} &amp;= -\rho C_p  v_j
+       \nabla_j T - \nabla_i q_i - \tau_{ji} \nabla_j v_i -
+      p \nabla_i v_i +\sigma_{energy}
+        \end{align*}
+       </li>
+       <li class="fragment">
+        We have solved our first conduction problem for heat
+    transfer in an electrically heated wire and found it is analogous
+    to velocity profiles in a pipe.
+       </li>
+       <li class="fragment">
+        We solved for the temperature profile in a nuclear fuel
+    pellet (our first spherical coordinate problem).
+       </li>
+       <li class="fragment">
+        This all required being careful with terms involving
+    $\nabla$
+        terms.
+       </li>
+       <li class="fragment">
+        But our boundary conditions for the systems were
+    unsatisfactory, all systems had
+        <b>
+         fixed temperatures
+        </b>
+        at the
+    surface but this is not realistic…
+       </li>
+       <li class="fragment">
+        … we need to set other boundary conditions on heat
+    transfer problems.
+       </li>
+      </ul>
+     </section>
+    </section>
+   </div>
+   <div class="slide-menu-button" style="left:170px;cursor:pointer;">
+    <a class="hide-on-pdf" id="PrintButton" onclick="document.location = '?print-pdf';">
+     <i class="fa fa-print">
+     </i>
+    </a>
+   </div>
+   <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({ TeX: { extensions: ["cancel.js"] }});
+   </script>
+   <script src="footer.js">
+   </script>
+  </div>
+ </body>
+</html>

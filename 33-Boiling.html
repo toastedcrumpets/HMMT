@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <title>
+   Heat, Mass, and Momentum Transfer
+  </title>
+  <meta content="Heat Mass and Momentum Transfer notes" name="description"/>
+  <meta content="Marcus Bannerman &lt;m.bannerman@gmail.com" name="author"/>
+  <meta content="yes" name="apple-mobile-web-app-capable"/>
+  <meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"/>
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui" name="viewport"/>
+  <script data-headjs-load="header.js" src="../reveal.js/lib/js/head.min.js">
+  </script>
+ </head>
+ <body>
+  <div class="reveal">
+   <div class="slides">
+    <section>
+     <section>
+      <h2>
+       Boiling
+      </h2>
+      <div class="center">
+      </div>
+     </section>
+     <section>
+      <h3>
+       Slides Outline
+      </h3>
+      <div class="tableofcontents">
+      </div>
+     </section>
+    </section>
+    <section>
+     <section data-menu-title="Pool Boiling">
+      <ul>
+       <li>
+        Let's watch water boil…
+        <figure>
+         <div class="center">
+          <img src="img/pot.jpg" style="width:80%;"/>
+         </div>
+        </figure>
+       </li>
+       <li class="fragment">
+        In boiling terminology, this is known as
+        <b>
+         pool
+      boiling
+        </b>
+        .
+       </li>
+       <li class="fragment">
+        This is in contrast to
+        <b>
+         forced boiling
+        </b>
+        , where the
+    boiling fluid is driven through the boiler.
+       </li>
+      </ul>
+     </section>
+     <section>
+      <ul>
+       <li>
+        At first, nothing happens as the liquid and walls are well
+    below the water boiling temperature $T_w\ll T_{boil}$
+        (the same as
+    the vapour saturation temperature
+        $T_{sat}$
+        ).
+        <figure>
+         <div class="center">
+          <img src="img/convection.jpg" style="width:80%;"/>
+         </div>
+        </figure>
+       </li>
+       <li class="fragment">
+        Heat is transferred by
+        <b>
+         convection
+        </b>
+        but no significant
+    amount of vapour is generated. This is
+        <b>
+         NOT boiling
+        </b>
+        but still
+    classified as
+        <b>
+         Natural Convection
+        </b>
+        .
+       </li>
+      </ul>
+     </section>
+     <section>
+      <ul>
+       <li>
+        After a while the wall rises above the boiling temperature
+    $T_w\gtrsim T_{sat}$
+        , and localised boiling occurs at the surface
+    of the plate.
+        <figure>
+         <div class="center">
+          <img src="img/subcooled.jpg" style="width:80%;"/>
+         </div>
+        </figure>
+       </li>
+       <li class="fragment">
+        Small bubbles will form but quickly dissolve or oscillate
+    as they are cooled by the fluid, which is still well below
+    $T_{sat}$
+        .
+       </li>
+       <li class="fragment">
+        This is known as
+        <b>
+         subcooled boiling
+        </b>
+        even though
+    little vapour is produced.
+       </li>
+      </ul>
+     </section>
+     <section>
+      <ul>
+       <li>
+        After a while, the water begins to steam as it reaches the
+    saturation temperature!
+        <figure>
+         <div class="center">
+          <img src="img/convective_boil.jpg" style="width:70%;"/>
+         </div>
+        </figure>
+       </li>
+       <li class="fragment">
+        Here, there are some bubbles on the surface but they
+        <b>
+         do not detach or grow
+        </b>
+        .
+       </li>
+       <li class="fragment">
+        Water is
+        <b>
+         superheated
+        </b>
+        at the wall and convects to the
+    surface where it evaporates into steam.
+       </li>
+       <li class="fragment">
+        This is the
+        <b>
+         convective region of boiling
+        </b>
+        , and can be
+    treated as
+        <b>
+         Natural Convection
+        </b>
+        .
+       </li>
+      </ul>
+     </section>
+     <section>
+      <ul>
+       <li>
+        As the wall temperature increases further relative to the
+    saturation temperature $T_w\gg T_{sat}$
+        , bubbles grow and detach
+    from the wall.
+        <figure>
+         <div class="center">
+          <img src="img/boiling.jpg" style="width:70%;"/>
+         </div>
+        </figure>
+       </li>
+       <li class="fragment">
+        This is the critical boiling regime known as
+        <b>
+         nucleate
+      boiling
+        </b>
+        .
+       </li>
+       <li class="fragment">
+        As the bubbles nucleate, grow then detach from the wall,
+    they mix the fluid and greatly increase the heat transfer.
+       </li>
+       <li class="fragment">
+        We must consider
+        <b>
+         nucleate boiling heat transfer
+      coefficients
+        </b>
+        ,
+        $h_{nb}$
+        .
+       </li>
+      </ul>
+     </section>
+     <section>
+      <ul>
+       <li>
+        Finally, we have what is called
+        <b>
+         film boiling
+        </b>
+        .
+       </li>
+       <li class="fragment">
+        Here, the bubbles are large enough to merge and completely
+    cover the hot surface.
+        <br/>
+        <a src="{http://youtu.be/UZio0f7fP04?t=2m42s}">
+         {http://youtu.be/UZio0f7fP04?t=2m42s}
+        </a>
+       </li>
+       <li class="fragment">
+        This actually
+        <b>
+         insulates
+        </b>
+        the surface, lowering the
+    rate of heat transfer, and is called the
+        <b>
+         Liedenfrost effect
+        </b>
+        .
+       </li>
+       <li class="fragment">
+        You see this when a droplet of water boils on a hot plate,
+    it doesn't instantly boil, but it skips around.
+       </li>
+       <li class="fragment">
+        Or when Mythbusters dip their fingers into molten lead at
+    450${}^\circ$
+        C, without burning them.
+        <br/>
+        *
+        <a src="{http://youtu.be/UZio0f7fP04?t=7m25s}">
+         {http://youtu.be/UZio0f7fP04?t=7m25s}
+        </a>
+       </li>
+      </ul>
+     </section>
+    </section>
+    <section>
+     <section data-menu-title="Pool Boiling Regimes">
+      <ul>
+       <li>
+        Experimental measurements of bulk/boiling generate the
+    following curve
+        <div class="center">
+         <object data="img/boiling_curve1.svg" type="image/svg+xml" width="90%">
+         </object>
+        </div>
+       </li>
+       <li class="fragment">
+        This is a plot of the log of the heat transfer rate $Q$
+        versus the log of the wall superheat,
+        $\ln(T_w-T_{sat})$
+        ).
+       </li>
+       <li class="fragment">
+        Plots of $\ln(h)$
+        versus
+        $\ln(T_w-T_{sat})$
+        are common in
+    the literature too, and they are qualitatively identical.
+       </li>
+       <li class="fragment">
+        We can identify many features in this graph…
+       </li>
+      </ul>
+     </section>
+     <section data-menu-title="Convective Boiling">
+      <div class="center">
+       <object data="img/boiling_curve2.svg" type="image/svg+xml" width="90%">
+       </object>
+      </div>
+      <ul>
+       <li>
+        The first region of the graph is the
+        <b>
+         convective
+      boiling
+        </b>
+        regime.
+       </li>
+       <li class="fragment">
+        Fluid is
+        <b>
+         superheated
+        </b>
+        at the wall and convects to the
+    surface of the fluid where it evaporates.
+       </li>
+       <li class="fragment">
+        No significant vapour is generated at the wall and we can
+    use
+        <b>
+         Natural Convection
+        </b>
+        to calculate the heat transfer
+    coefficient.
+        \begin{align*}
+        h = C \left(\text{Gr Pr}\right)^n
+        \end{align*}
+       </li>
+       <li class="fragment">
+        This region exists from $T_w=T_{sat}$
+        until the
+        <b>
+         Onset
+      of Nucleate Boiling
+        </b>
+        (ONB).
+       </li>
+      </ul>
+     </section>
+     <section data-menu-title="Nucleate Boiling">
+      <div class="center">
+       <object data="img/boiling_curve3.svg" type="image/svg+xml" width="90%">
+       </object>
+      </div>
+      <ul>
+       <li>
+        The second region of the graph is the
+        <b>
+         nucleate
+      boiling
+        </b>
+        regime (or “Bubbly Boiling” to the layman).
+       </li>
+       <li class="fragment">
+        Vapour is generated at the wall and the mixing it causes
+    greatly increases the heat transferred.
+       </li>
+       <li class="fragment">
+        This region exists from the Onset of Nucleate Boiling
+    (ONB) until the
+        <b>
+         critical heat flux is reached
+        </b>
+        (CHF).
+       </li>
+       <li class="fragment">
+        This is the region in which industrial boilers typically
+    operate! But they don't operate near the CHF (see Burn-out)!
+       </li>
+      </ul>
+     </section>
+     <section data-menu-title="Film Boiling">
+      <div class="center">
+       <object data="img/boiling_curve4.svg" type="image/svg+xml" width="90%">
+       </object>
+      </div>
+      <ul>
+       <li>
+        The final region of the graph is the
+        <b>
+         film boiling
+        </b>
+        regime (or mythbusters regime).
+       </li>
+       <li class="fragment">
+        Here, the heat flux rapidly drops as the surface bubbles
+    coalesce into a large film, insulating the plate.
+       </li>
+       <li class="fragment">
+        At the
+        <b>
+         Liedenfrost point
+        </b>
+        , film boiling becomes
+    stable (see Burn-out).
+       </li>
+       <li class="fragment">
+        Beyond the Liedenfrost point, the heat transfer increases
+    again as
+        <b>
+         radiation
+        </b>
+        comes into play.
+       </li>
+      </ul>
+     </section>
+     <section>
+      <figure>
+       <div class="center">
+        <object data="img/boiling_curve_nucleate_to_film.svg" type="image/svg+xml" width="95%">
+        </object>
+       </div>
+       <figcaption>
+        Taken from
+        <a src="{http://www.unm.edu/ isnps/research/research.html}">
+         {http://www.unm.edu/ isnps/research/research.html}
+        </a>
+       </figcaption>
+      </figure>
+     </section>
+    </section>
+    <section>
+     <section data-menu-title="Burn-Out">
+      <div class="center">
+       <object data="img/boiling_curve5.svg" type="image/svg+xml" width="90%">
+       </object>
+      </div>
+      <ul>
+       <li>
+        Why don't we operate industrial boilers near the critical
+    heat flux point?
+       </li>
+       <li class="fragment">
+        Consider an electrical heater which by its nature has a
+    fixed duty $Q_{duty}$
+        …
+       </li>
+      </ul>
+     </section>
+     <section>
+      <div class="center">
+       <object data="img/boiling_curve6.svg" type="image/svg+xml" width="90%">
+       </object>
+      </div>
+      <ul>
+       <li>
+        If the heater is in the
+        <span style="color:{green}">
+        </span>
+        or
+        <span style="color:{amber}">
+        </span>
+        regions at steady
+    state, the boiler is
+        <b>
+         stable
+        </b>
+        .
+       </li>
+       <li class="fragment">
+        If fluctuations cause the wall to become
+        <i>
+         hotter
+        </i>
+        …
+       </li>
+       <li class="fragment">
+        … the heat flux will
+        <i>
+         increase
+        </i>
+        above
+        $Q_{duty}$
+        …
+       </li>
+       <li class="fragment">
+        … and the wall will cool down again back to the
+    steady state.
+       </li>
+      </ul>
+     </section>
+     <section>
+      <div class="center">
+       <object data="img/boiling_curve7.svg" type="image/svg+xml" width="90%">
+       </object>
+      </div>
+      <ul>
+       <li>
+        If the heater enters the
+        <span style="color:{red}">
+        </span>
+        region, the
+    boiler becomes unstable.
+       </li>
+       <li class="fragment">
+        If we heat up slightly passed the CHF…
+       </li>
+       <li class="fragment">
+        … the heat flux will
+        <i>
+         decrease
+        </i>
+        below
+        $Q_{duty}$
+        …
+       </li>
+       <li class="fragment">
+        … and the wall will heat up even more!
+       </li>
+       <li class="fragment">
+        If you enter the unstable region from the CHF (heating),
+    the wall temperature will increase uncontrollably.
+       </li>
+       <li class="fragment">
+        If you enter from the Liedenfrost point (cooling) the wall
+    temperature will drop uncontrollably.
+       </li>
+      </ul>
+     </section>
+     <section>
+      <div class="center">
+       <object data="img/boiling_curve5.svg" type="image/svg+xml" width="90%">
+       </object>
+      </div>
+      <ul>
+       <li>
+        This instability only exists between the CHF and the
+        <b>
+         Liedenfrost point
+        </b>
+        .
+       </li>
+       <li class="fragment">
+        This is why the Liedenfrost point marks the onset of
+        <b>
+         stable film boiling
+        </b>
+        .
+       </li>
+       <li class="fragment">
+        Unfortunately, this point is approaching the melting point
+    of the material the boiler is made out of, and we experience
+        <b>
+         Burn-out
+        </b>
+        if we reach here.
+       </li>
+       <li class="fragment">
+        We will need to use
+        <i>
+         process control
+        </i>
+        (EG3575: Unit
+    Operations) to make sure that our boilers never burn-out.
+       </li>
+      </ul>
+     </section>
+    </section>
+    <section>
+     <section data-menu-title="$h_{nb}$ and Critical Heat Flux Estimations">
+      <ul>
+       <li>
+        The calculation of boiling heat transfer coefficients
+        <b>
+         strongly
+        </b>
+        depends on the surface type, roughness and
+    wettability, as well as the properties of the fluid.
+       </li>
+       <li class="fragment">
+        <b>
+         Enhanced tubes
+        </b>
+        make these predictions even more
+    difficult, as the surface has a complex structure.
+        <div class="center">
+         <object data="img/enhanced_tube.svg" type="image/svg+xml" width="50%">
+         </object>
+        </div>
+       </li>
+       <li class="fragment">
+        Between cleanings the transfer coefficient also changes
+    significantly.
+       </li>
+       <li class="fragment">
+        For water boiling on copper plates it drops from
+    8000 W/m${}^2 $
+        K almost new to 3900 W/m
+        ${}^2 $
+        K when just
+    cleaned (sandblasted), to 2600 W/m
+        ${}^2 $
+        K after long use.
+       </li>
+      </ul>
+     </section>
+     <section data-menu-title="Forster-Zuber $h_{nb}$">
+      <ul>
+       <li>
+        Needless to say, when designing boilers we need
+    experimental data.
+       </li>
+       <li class="fragment">
+        But there are correlations that provide predictions in the
+    absence of this.
+       </li>
+       <li class="fragment">
+        We will present and use the correlations given in Coulson
+    and Richardson Vol. 6.
+       </li>
+       <li class="fragment">
+        First, we have the Forster-Zuber correlation
+        \begin{align*}
+        h_{nb}=0.00122\frac{k_L^{0.79}  C_{p,L}^{0.45} 
+        \rho_L^{0.49}}{\gamma^{0.5} \mu_L^{0.29} h_{fg}^{0.24} \rho_G^{0.24}}\left(T_w
+        - T_{sat}\right)^{0.24}\left(p_w-p_{sat}\right)^{0.75}
+        \end{align*}
+        where
+        $\gamma$
+        is the surface tension of the liquid, and
+        $h_{fg}$
+        is the latent heat of vapourisation.
+       </li>
+       <li class="fragment">
+        This correlation requires many fluid properties, such as
+    the surface tension and the temperature and pressure at the hot
+    surface and in the bulk of the saturated fluid.
+       </li>
+       <li class="fragment">
+        If these properties are not available, we must use another
+    correlation…
+       </li>
+      </ul>
+     </section>
+     <section data-menu-title="Mostinski $h_{nb}$">
+      <ul>
+       <li>
+        In the absence of both experimental data and sufficient
+    fluid data we can use the Mostinski correlation, given by
+        \begin{align*}
+        h_{nb} = 0.104 p_c^{0.69}  q^{0.7}
+      \left[1.8\left(\frac{p}{p_c}\right)^{0.17}
+        +4\left(\frac{p}{p_c}\right)^{1.2}
+        +10\left(\frac{p}{p_c}\right)^{10}\right]
+        \end{align*}
+        where the operating pressure
+        $p$
+        and the critical pressure
+        $p_c$
+        are in units of bar.
+       </li>
+       <li class="fragment">
+        Here, we need the critical pressure of the fluid
+    $p_c$
+        . This is a single value for each fluid and does not depend
+    on the temperature/pressure/density, which is readily available in
+    the literature.
+       </li>
+       <li class="fragment">
+        An important thing to note is that the Mostinski
+    correlation is also a function of the heat flux $q\approx
+    h_{nb}\left(T_w-T_{sat}\right)$
+        .
+       </li>
+       <li class="fragment">
+        The estimations of the Forster-Zuber correlation are
+    preferred over the Mostinski correlation,
+        <i>
+         if the data is
+      available
+        </i>
+        .
+       </li>
+      </ul>
+     </section>
+     <section data-menu-title="Forster-Zuber CHF">
+      <ul>
+       <li>
+        When designing a boiler, we must also ensure the boiler is
+    operating well below the Critical Heat Flux.
+       </li>
+       <li class="fragment">
+        We need estimations for this, and Zuber presents a
+    correlation using several fluid properties
+        \begin{align*}
+        q_c=0.149 h_{fg} \rho_G^{0.5}\left(\gamma g 
+        \left(\rho_L-\rho_G\right)\right)^{0.25}
+        \end{align*}
+       </li>
+       <li class="fragment">
+        Again, if there is insufficient experimental data and
+    fluid property data, Mostinski provides a correlation in the
+    critical pressure.
+        \begin{align*}
+        q_c = 3.67\times10^4 p_c\left(\frac{p}{p_c}\right)^{0.35}
+      \left[1-\frac{p}{p_c}\right]^{0.9}
+        \end{align*}
+        where the operating pressure
+        $p$
+        and the critical pressure
+        $p_c$
+        are in units of bar.
+       </li>
+       <li class="fragment">
+        <b>
+         Note:
+        </b>
+        These expressions are for the critical heat
+    flux (W/m
+        ${}^2$
+        )
+       </li>
+      </ul>
+     </section>
+    </section>
+    <section>
+     <section data-menu-title="Real Boilers">
+      <div style="display:flex;align-items:center;">
+       <div style="flex: 1 1 calc(100% * 0.51);">
+        <ul>
+         <li>
+          A common boiler configuration is the
+          <b>
+           kettle
+          reboiler
+          </b>
+          .
+         </li>
+         <li class="fragment">
+          These are effectively
+          <b>
+           pool boiling
+          </b>
+          systems.
+         </li>
+         <li class="fragment">
+          The expression for the heat transfer coefficients in
+        this system are given by
+          \begin{align*}
+          h\approx h_{nb}
+          \end{align*}
+         </li>
+         <li class="fragment">
+          The expressions for $h_{nb}$
+          are similar to the
+        Forster-Zuber expression, modified for pipes and with terms to
+        account for the presence of other tubes in the bundle.
+         </li>
+         <li class="fragment">
+          The more popular (cheaper) types of boilers are
+          <b>
+           forced
+          </b>
+          or
+          <b>
+           convective boilers
+          </b>
+          …
+         </li>
+        </ul>
+       </div>
+       <div style="flex: 1 1 calc(100% * 0.51);">
+        <figure>
+         <div class="center">
+          <object data="img/Kettle_reboiler.svg" type="image/svg+xml" width="100%">
+          </object>
+         </div>
+         <figcaption>
+          A kettle reboiler.
+         </figcaption>
+        </figure>
+       </div>
+      </div>
+     </section>
+     <section>
+      <div class="center">
+       <object data="img/forced_boilers.svg" type="image/svg+xml" width="100%">
+       </object>
+      </div>
+     </section>
+    </section>
+    <section>
+     <section data-menu-title="Forced Boiling">
+      <div style="display:flex;align-items:center;">
+       <div style="flex: 1 1 calc(100% * 0.51);">
+        <ul>
+         <li>
+          In industry, the complete forced vaporisation of a
+        fluid usually occurs up the inside of a vertical tube (see
+        right).
+         </li>
+         <li class="fragment">
+          Here we can see that nucleate boiling and convective
+        heat transfer are occurring at the same time.
+         </li>
+         <li class="fragment">
+          This is the start of us (re-)considering two phase
+        flow properly.
+         </li>
+         <li class="fragment">
+          You may know these definitions of the two phase flow
+        patterns already…
+         </li>
+        </ul>
+       </div>
+       <div style="flex: 1 1 calc(100% * 0.51);">
+        <figure>
+         <div class="center">
+          <img src="img/forced_boiling_tube.png"/>
+         </div>
+         <figcaption>
+          Taken from Fig. 12.55 in Coulson and Richardson
+          Vol.6, pg.732
+         </figcaption>
+        </figure>
+       </div>
+      </div>
+     </section>
+     <section data-menu-title="Calculations">
+      <div style="display:flex;align-items:center;">
+       <div style="flex: 1 1 calc(100% * 0.581);">
+        <ul>
+         <li>
+          For forced-convective boiling, the effective
+        heat-transfer coefficient is split into two parts.
+          \begin{align*}
+          h_{cb} =  f_c h_{conv.} + f_s h_{nb}
+          \end{align*}
+         </li>
+         <li class="fragment">
+          The forced convection coefficient (calculated for the
+        liquid phase) and the nucleate boiling coefficient are
+        multiplied by the two-phase correction factors $f_{c}$
+          and
+          $f_s$
+          .
+         </li>
+         <li class="fragment">
+          These are calculated from two charts provided in C&amp;R
+        Vol. 6, via the
+          <b>
+           Lockhart-Martinelli
+          </b>
+          parameter,
+          $X_{tt}$
+          ,
+        from multiphase flow.
+         </li>
+        </ul>
+       </div>
+       <div style="flex: 1 1 calc(100% * 0.321);">
+        <figure>
+         <div class="center">
+          <img src="img/forced_boiling_tube.png"/>
+         </div>
+        </figure>
+       </div>
+      </div>
+     </section>
+    </section>
+    <section>
+     <section data-menu-title="Learning Objectives">
+      <ul>
+       <li>
+        The difference between
+        <b>
+         Subcooled
+        </b>
+        and
+        <b>
+         bulk
+        </b>
+        /
+        <b>
+         saturated
+        </b>
+        boiling.
+       </li>
+       <li class="fragment">
+        The difference between
+        <b>
+         Forced
+        </b>
+        and
+        <b>
+         Pool
+        </b>
+        boiling.
+       </li>
+       <li class="fragment">
+        The
+        <b>
+         bulk
+        </b>
+        /
+        <b>
+         saturated
+        </b>
+        boiling curve, with its
+    three
+        <b>
+         bulk
+        </b>
+        boiling regimes (convective, nucleating and film)
+    and each regimes characteristics.
+       </li>
+       <li class="fragment">
+        When to choose to use the Forster-Zuber or Mostinkski
+    correlation for nucleate boiling.
+       </li>
+       <li class="fragment">
+        How to calculate heat transfer coefficients for forced
+    boiling.
+       </li>
+      </ul>
+     </section>
+    </section>
+   </div>
+   <div class="slide-menu-button" style="left:170px;cursor:pointer;">
+    <a class="hide-on-pdf" id="PrintButton" onclick="document.location = '?print-pdf';">
+     <i class="fa fa-print">
+     </i>
+    </a>
+   </div>
+   <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({ TeX: { extensions: ["cancel.js"] }});
+   </script>
+   <script src="footer.js">
+   </script>
+  </div>
+ </body>
+</html>

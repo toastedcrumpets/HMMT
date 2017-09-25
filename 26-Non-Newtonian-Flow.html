@@ -1,0 +1,1184 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <title>
+   Heat, Mass, and Momentum Transfer
+  </title>
+  <meta content="Heat Mass and Momentum Transfer notes" name="description"/>
+  <meta content="Marcus Bannerman &lt;m.bannerman@gmail.com" name="author"/>
+  <meta content="yes" name="apple-mobile-web-app-capable"/>
+  <meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"/>
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui" name="viewport"/>
+  <script data-headjs-load="header.js" src="../reveal.js/lib/js/head.min.js">
+  </script>
+ </head>
+ <body>
+  <div class="reveal">
+   <div class="slides">
+    <section>
+     <section>
+      <h2>
+       Non-Newtonian Flows
+      </h2>
+      <div class="center">
+      </div>
+     </section>
+     <section>
+      <h3>
+       Slides Outline
+      </h3>
+      <div class="tableofcontents">
+      </div>
+     </section>
+    </section>
+    <section>
+     <section data-menu-title="Review">
+      <ul>
+       <li>
+        We have learnt how to use the balance equations in
+    rectangular, cylindrical and spherical geometries.
+        \begin{align*}
+        \frac{\partial \rho}{\partial t} &amp;=- \nabla\cdot \rho \boldsymbol{v}\\
+      \rho\frac{\partial \boldsymbol{v}}{\partial t} &amp;= -\rho \boldsymbol{v}\cdot\nabla \boldsymbol{v}
+      - \nabla\cdot\boldsymbol{\tau} - \nabla p + \rho \boldsymbol{g}\\
+      \rho C_p\frac{\partial T}{\partial t} &amp;= -\rho C_p  v_j
+       \nabla_j T - \nabla_i q_i - \tau_{ji} \nabla_j v_i -
+      p \nabla_i v_i +\sigma_{energy}
+        \end{align*}
+       </li>
+       <li class="fragment">
+        We also looked at the flow of
+        <b>
+         Newtonian fluids
+        </b>
+        in a
+    various geometries and derived the Hagen-Poiseuille equation.
+        \begin{align*}
+        \dot{V}_z &amp;= \pi\left(\frac{-\Delta p}{L} +
+        \rho g_z\right)\frac{R^4}{8 \mu}
+        \end{align*}
+       </li>
+       <li class="fragment">
+        This is an important design equation for calculating
+    (laminar) pressure drop in pipes.
+       </li>
+       <li class="fragment">
+        We will now explore how Newtonian and non-Newtonian fluids
+    differ.
+       </li>
+      </ul>
+     </section>
+    </section>
+    <section>
+     <section data-menu-title="Non-Newtonian Fluids">
+      <ul>
+       <li>
+        Typically,
+        <b>
+         low-molecular weight
+        </b>
+        fluids such as
+        <b>
+         water
+        </b>
+        , molten metals and
+        <b>
+         gases
+        </b>
+        exhibit
+        <b>
+         Newtonian
+        </b>
+        behaviour.
+       </li>
+       <li class="fragment">
+        In a Newtonian fluid at constant temperature and pressure
+    the stress is related by Newton's “law”
+        \begin{align*}
+        \tau_{xy} = -\mu \frac{\partial v_x}{\partial y}
+        \end{align*}
+        (
+        <b>
+         Note:
+        </b>
+        This does not include bulk terms that appear for
+        $\tau_{xx}$
+        ,
+        $\tau_{yy}$
+        , and
+        $\tau_{zz}$
+        when the fluid is
+    compressible).
+       </li>
+       <li class="fragment">
+        This is the definition of a
+        <b>
+         Newtonian
+        </b>
+        fluid, the
+    stress obey's the law above; However, there are a wide range of
+    fluids which exhibit
+        <b>
+         non-Newtonian
+        </b>
+        behaviour:
+
+    Adhesives, ales, dough, blood, butter, chocolate, cement,
+    cosmetics,
+        <b>
+         custard
+        </b>
+        , mud, grease,
+        <b>
+         waxy crude oils
+        </b>
+        ,
+        <b>
+         polymer melts
+        </b>
+        , sewerage, toothpaste, …
+
+    … are all examples of non-Newtonian fluids!
+       </li>
+       <li class="fragment">
+        How does their behaviour differ from Newtonian fluids?
+       </li>
+      </ul>
+     </section>
+     <section data-menu-title="Shear Behaviour">
+      <div style="display:flex;align-items:center;">
+       <div style="flex: 1 1 calc(100% * 0.51);">
+        <figure>
+         <div class="center">
+          <object data="img/non-newtonian1.svg" type="image/svg+xml" width="100%">
+          </object>
+         </div>
+        </figure>
+       </div>
+       <div style="flex: 1 1 calc(100% * 0.51);">
+        <ul>
+         <li>
+          On the left we have the
+          <b>
+           shear stress
+          </b>
+          (
+          $\tau_{xy}$
+          ) versus
+          <b>
+           shear rate
+          </b>
+          (
+          $\frac{\partial
+          v_x}{\partial y}$
+          ) for three of the most common models for
+        non-Newtonian fluids.
+         </li>
+         <li class="fragment">
+          The baseline system for comparison is the
+          <b>
+           Newtonian
+          </b>
+          fluid, which has a linear relationship between the stress and
+        strain.
+          \begin{align*}
+          \tau_{xy} = -\mu \frac{\partial v_x}{\partial y}
+          \end{align*}
+         </li>
+         <li class="fragment">
+          For the Newtonian fluid, the slope of the plot is the
+        viscosity…
+         </li>
+         <li class="fragment">
+          … for other fluid model types, the slope of the
+        line, connecting a point on the model back to the origin, is
+        the
+          <b>
+           “apparent”
+          </b>
+          viscosity. More later…
+         </li>
+        </ul>
+       </div>
+      </div>
+     </section>
+     <section>
+      <div style="display:flex;align-items:center;">
+       <div style="flex: 1 1 calc(100% * 0.51);">
+        <figure>
+         <div class="center">
+          <object data="img/non-newtonian2.svg" type="image/svg+xml" width="100%">
+          </object>
+         </div>
+        </figure>
+       </div>
+       <div style="flex: 1 1 calc(100% * 0.51);">
+        <ul>
+         <li>
+          The most common form of non-Newtonian fluids are
+          <b>
+           Shear-thinning
+          </b>
+          or
+          <b>
+           Pseudoplastic
+          </b>
+          fluids. Here
+        the
+          <i>
+           apparent viscosity decreases as more stress is
+          applied
+          </i>
+          .
+         </li>
+         <li class="fragment">
+          Examples of these fluids include polymer melts and
+        solids suspensions.
+         </li>
+         <li class="fragment">
+          When the fluid is sheared, structural changes occur
+        which reduce the viscosity of the fluid. For example, in
+        polymer melts the polymers are “combed” and align along the
+        direction of shear.
+         </li>
+         <li class="fragment">
+          This is just like long knotted hair. As you comb/shear
+        it, it becomes easier to comb/shear.
+         </li>
+        </ul>
+       </div>
+      </div>
+     </section>
+     <section>
+      <div style="display:flex;align-items:center;">
+       <div style="flex: 1 1 calc(100% * 0.51);">
+        <figure>
+         <div class="center">
+          <object data="img/non-newtonian3.svg" type="image/svg+xml" width="100%">
+          </object>
+         </div>
+        </figure>
+       </div>
+       <div style="flex: 1 1 calc(100% * 0.51);">
+        <ul>
+         <li>
+          <b>
+           Shear thickening
+          </b>
+          or
+          <b>
+           dilatant
+          </b>
+          fluids are
+        not as common as shear thinning fluids but their behaviour
+        is very dramatic.
+         </li>
+         <li class="fragment">
+          As the fluid is sheared the viscosity increases and
+        many shear-thickening fluids can even turn solid.
+         </li>
+         <li class="fragment">
+          Corn starch or uncooked custard powder with a small
+        amount of water is a very popular shear thickening fluid.
+          <br/>
+          See the swimming pool experiment:
+          <a src="{http://youtu.be/f2XQ97XHjVw}">
+           {http://youtu.be/f2XQ97XHjVw}
+          </a>
+          Or what happens if you shake
+        it:
+          <a src="{http://youtu.be/3zoTKXXNQIU}">
+           {http://youtu.be/3zoTKXXNQIU}
+          </a>
+          Or how you can “pump”
+        it with a wheel (see video).
+         </li>
+        </ul>
+       </div>
+      </div>
+     </section>
+     <section>
+      <div style="display:flex;align-items:center;">
+       <div style="flex: 1 1 calc(100% * 0.51);">
+        <figure>
+         <div class="center">
+          <object data="img/non-newtonian4.svg" type="image/svg+xml" width="100%">
+          </object>
+         </div>
+        </figure>
+       </div>
+       <div style="flex: 1 1 calc(100% * 0.51);">
+        <ul>
+         <li>
+          Finally, we concern ourselves with fluids with a
+          <b>
+           yield stress
+          </b>
+          ,
+          $\tau_0$
+          , known as
+          <b>
+           Viscoplastics
+          </b>
+          .
+         </li>
+         <li class="fragment">
+          These fluids will not flow until the stress in the
+        fluid reaches the yield stress. After this the fluid may be
+        shear-thinning, shear-thickening, or Newtonian.
+         </li>
+         <li class="fragment">
+          The simplest model of a
+          <b>
+           viscoplastic
+          </b>
+          material is
+        the
+          <b>
+           Bingham plastic
+          </b>
+          model, which
+        has a
+          <b>
+           Newtonian
+          </b>
+          response above
+        the yield stress.
+         </li>
+         <li class="fragment">
+          Examples of viscoplastic fluids are blood, ketchup/red
+        sauce, toothpaste, and mayonnaise. Many suspensions or gels,
+        such as paint or jelly are examples of viscoplastic fluids.
+         </li>
+        </ul>
+       </div>
+      </div>
+     </section>
+     <section>
+      <div style="display:flex;align-items:center;">
+       <div style="flex: 1 1 calc(100% * 0.51);">
+        <figure>
+         <div class="center">
+          <object data="img/non-newtonian.svg" type="image/svg+xml" width="100%">
+          </object>
+         </div>
+        </figure>
+       </div>
+       <div style="flex: 1 1 calc(100% * 0.51);">
+        <ul>
+         <li>
+          If we want to model non-Newtonian flows, we need to
+        select an expression which closely approximates the real
+        stress/strain relationship.
+         </li>
+         <li class="fragment">
+          We can then use this expression in the Cauchy momentum
+        equation to derive the velocity profile, then a Non-Newtonian
+        equilivent to the Hagen-Poiseuille equation.
+         </li>
+        </ul>
+       </div>
+      </div>
+     </section>
+     <section>
+      <ul>
+       <li>
+        To try to develop a model for Non-newtonian fluids, let us
+    consider if we were testing the viscous behaviour of a new fluid.
+       </li>
+       <li class="fragment">
+        We could place the fluid between two moveable plates (see
+    tutorial 2) and shear it at a fixed shear-rate
+    ($\dot{\gamma}=\left|\frac{\partial v_x}{\partial y}\right|$
+        ).
+       </li>
+       <li class="fragment">
+        We could then measure the stress $\left|\tau_{xy}\right|$
+        (which is related to the power) required to maintain this shear
+    rate.
+       </li>
+       <li class="fragment">
+        We can then use Newton's law to calculate the apparent
+    viscosity of the fluid
+        \begin{align*}
+        \frac{\left|\tau_{xy}\right| }{\dot{\gamma}} = \mu_{app.}
+        \end{align*}
+       </li>
+       <li class="fragment">
+        Let's look at the apparent viscosity of a real fluid…
+       </li>
+      </ul>
+     </section>
+     <section>
+      <figure>
+       <div class="center">
+        <object data="img/apparent_visc.svg" type="image/svg+xml" width="None%">
+        </object>
+       </div>
+       <figcaption>
+        Apparent viscosity of a real fluid, plotted
+      logarithmically for several orders of shear rate.
+        <div style="font-size:0.7em;">
+         Coulson &amp; Richardson, “Volume 1: Fluid Flow, Heat Transfer
+        and Mass Transfer,” 6th Ed., Elsevier
+        </div>
+       </figcaption>
+      </figure>
+     </section>
+     <section>
+      <div style="display:flex;align-items:center;">
+       <div style="flex: 1 1 calc(100% * 0.51);">
+        <figure>
+         <div class="center">
+          <object data="img/apparent_visc.svg" type="image/svg+xml" width="100%">
+          </object>
+         </div>
+        </figure>
+        <div style="font-size:0.7em;">
+         Coulson &amp; Richardson, “Volume 1: Fluid Flow, Heat
+        Transfer and Mass Transfer,” 6th Ed., Elsevier
+        </div>
+       </div>
+       <div style="flex: 1 1 calc(100% * 0.51);">
+        <ul>
+         <li>
+          At low shear rates the apparent viscosity tends
+        towards a limiting value of $\mu_{app.}\to\mu_0$
+          .
+         </li>
+         <li class="fragment">
+          At high shear rates the apparent viscosity tends
+        towards a limiting value of $\mu_{app.}\to\mu_{\infty}$
+          .
+         </li>
+         <li class="fragment">
+          However, in the middle of the plot the apparent
+        viscosity appears to be relatively linear…
+         </li>
+         <li class="fragment">
+          A straight line on a log-log plot suggests that a
+        power-law is a suitable function to fit.
+          \begin{align*}
+          y &amp;= m x^n
+          \\
+          \ln y &amp;= n\ln x +\ln m
+          \end{align*}
+          (the slope of the
+          $\ln y$
+          vs
+          $\ln x$
+          plot is the power:
+          $n$
+          )
+         </li>
+        </ul>
+       </div>
+      </div>
+     </section>
+     <section data-menu-title="Power Law Model">
+      <ul>
+       <li>
+        A simple model for both shear thickening and shear
+    thinning fluids is then the
+        <b>
+         Power Law fluid
+        </b>
+        . The shear
+    stress for a Power Law fluid is given by
+        \begin{align*}
+        \left|\tau_{xy}\right| = k \left|\frac{\partial v_x}{\partial y}\right|^n
+        \end{align*}
+        where
+        $k$
+        is known as the consistency coefficient.  This is also
+    called the
+        <b>
+         Ostwald-de Waele
+        </b>
+        relationship.
+       </li>
+       <li class="fragment">
+        Note that this is always positive. If you want to obtain
+    the correct sign of the stress, you need to make sure the stress
+    opposes the velocity gradient like so:
+        \begin{align*}
+        \tau_{xy} = - k \left|\frac{\partial v_x}{\partial y}\right|^{n-1} \frac{\partial v_x}{\partial y}
+        \end{align*}
+       </li>
+       <li class="fragment">
+        Although you may be tempted to call $k$
+        the “viscosity”,
+    you should note that the units of
+        $k$
+        change as a function of
+        $n$
+        ,
+    so we can't directly compare the consistency coefficients of
+    different fluids (except when their
+        $n$
+        values are equal).
+        <ul>
+         <li class="fragment">
+          When $n=1$
+          , the flow is Newtonian and
+          $k=\mu$
+          .
+         </li>
+         <li class="fragment">
+          For $n&gt;1$
+          , the fluid becomes thicker as the shear rate is
+      increased.
+         </li>
+         <li class="fragment">
+          For $n&lt;1$
+          , the fluid becomes thinner as the shear rate is
+      increased.
+         </li>
+        </ul>
+       </li>
+      </ul>
+     </section>
+     <section>
+      \begin{align*}
+      \left|\tau_{xy}\right| = -k \left|\frac{\partial v_x}{\partial y}\right|^n
+      \end{align*}
+      <ul>
+       <li>
+        Let's define the apparent viscosity as the viscosity
+    Newton's law needs to have to give you the same stress at the current shear rate.
+       </li>
+       <li class="fragment">
+        Setting the power law stress equal to the stress from
+    Newton's law and rearranging for the viscosity, we have:
+        \begin{align*}
+        \left|\tau_{xy}\right|&amp;= k \left|\frac{\partial v_x}{\partial
+          y}\right|^{n} =\mu_{app.}\left|\frac{\partial v_x}{\partial
+          y}\right|
+      \\
+      \mu_{app.}&amp;= k \left|\frac{\partial v_x}{\partial
+          y}\right|^{n-1}
+        \end{align*}
+       </li>
+       <li class="fragment">
+        This expression gives the apparent viscosity as a function
+    of shear rate. It is the viscosity needed in Newton's law to give
+    you the same stress as the fluid is giving, i.e.,
+        <b>
+         it is
+      the viscosity the fluid appears to have
+        </b>
+        .
+       </li>
+      </ul>
+     </section>
+     <section>
+      <div style="display:flex;align-items:center;">
+       <div style="flex: 1 1 calc(100% * 0.41);">
+        <figure>
+         <div class="center">
+          <object data="img/apparent_visc.svg" type="image/svg+xml" width="100%">
+          </object>
+         </div>
+        </figure>
+        <div style="font-size:0.7em;">
+         Coulson &amp; Richardson, “Volume 1: Fluid Flow, Heat
+        Transfer and Mass Transfer,” 6th Ed., Elsevier
+        </div>
+       </div>
+       <div style="flex: 1 1 calc(100% * 0.61);">
+        \begin{align*}
+        \mu_{app.}&amp;= k \left|\frac{\partial v_x}{\partial
+            y}\right|^{n-1}
+        \end{align*}
+        <ul>
+         <li>
+          But there's a problem with the Power Law model with
+        its limiting behaviour.
+         </li>
+         <li class="fragment">
+          Taking $n&lt;1$
+          for a shear thinning fluid:
+          <ul>
+           <li class="fragment">
+            As the shear rate tends to zero, the viscosity tends to
+          infinity, not $\mu_0$
+            !
+           </li>
+           <li class="fragment">
+            When the shear rate tends to infinity, the viscosity
+          tends to zero, not $\mu_\infty$
+            !
+           </li>
+          </ul>
+         </li>
+         <li class="fragment">
+          Power law fluids only work over a specified range of
+        behaviour. Luckily, this range is usually quite big and
+        encompasses the industrially interesting range of shear rates.
+         </li>
+         <li class="fragment">
+          Just be careful with creeping or slow flows of fluids!
+         </li>
+        </ul>
+       </div>
+      </div>
+     </section>
+     <section>
+      <ul>
+       <li>
+        You need to be aware of this limitation, but there are
+    other models available which “fix” these problems. For example
+    the
+        <b>
+         Reiner-Philippoff
+        </b>
+        Model
+        \begin{align*}
+        -\frac{\partial v_x}{\partial y} = \frac{\tau_{xy}}{\mu_\infty + \frac{\mu_0-\mu_\infty}{1+\left(\tau_{xy}/\tau_{s}\right)^2}}
+        \end{align*}
+        which has the correct limits at zero and infinite shear, along
+    with an additional fitting parameter
+        $\tau_s$
+        .
+       </li>
+       <li class="fragment">
+        We will not cover these models, but you can look them up
+    in standard texts such as the Transport Phenomena book.
+       </li>
+       <li class="fragment">
+        We will only consider the Power-Law model for
+    shear-thinning and shear thickening fluids, as it is sufficient to
+    introduce all of the fundamentals of these flows.
+       </li>
+       <li class="fragment">
+        But we still need a model with a yield stress…
+       </li>
+      </ul>
+     </section>
+     <section data-menu-title="Bingham Plastic Model">
+      <div style="display:flex;align-items:center;">
+       <div style="flex: 1 1 calc(100% * 0.41);">
+        <figure>
+         <div class="center">
+          <object data="img/non-newtonian4.svg" type="image/svg+xml" width="100%">
+          </object>
+         </div>
+        </figure>
+       </div>
+       <div style="flex: 1 1 calc(100% * 0.61);">
+        <ul>
+         <li>
+          Viscoplastic materials only flow above a certain yield
+        stress $\tau_0$
+          (they usually just start to yield a little
+        before this, its not a sharp change in real life; However, a
+        sharp change is theoretically easier to calculate with).
+         </li>
+         <li class="fragment">
+          Once they yield, they may have any behaviour, such as
+        a power law fluid.
+         </li>
+         <li class="fragment">
+          The
+          <span style="color:{purplepink}">
+          </span>
+          is a simple model where the fluid
+        is Newtonian above the yield stress.
+          \begin{align*}
+          \frac{\partial v_x}{\partial y} = \begin{cases}
+            -\mu^{-1}\left(\tau_{xy}-\tau_0)\right) &amp; \text{if
+              $\tau_{xy} &gt; \tau_0 $}
+            \\
+            0 &amp; \text{if $\tau_{xy}\leq\tau_0 $}
+          \end{cases}
+          \end{align*}
+         </li>
+         <li class="fragment">
+          This leads to
+          <i>
+           unusual
+          </i>
+          flows: For example, in a
+        pipe flow of a Bingham Plastic the centre of the flow is a
+        solid with a liquid surrounding it in the higher-stress areas.
+         </li>
+        </ul>
+       </div>
+      </div>
+     </section>
+    </section>
+    <section>
+     <section data-menu-title="Flow Properties">
+      <ul>
+       <li>
+        We have seen that for steady-state incompressible laminar
+    flows the momentum equation often reduces to
+        \begin{align*}
+        \nabla\cdot\boldsymbol{\tau} = \rho \boldsymbol{g} - \nabla p
+        \end{align*}
+       </li>
+       <li class="fragment">
+        This equation can typically be integrated to determine the
+    stress profile $\boldsymbol{\tau}$
+        of the flow
+        <b>
+         without reference to the viscosity
+      of the fluid
+        </b>
+        .
+       </li>
+       <li class="fragment">
+        For a given flow configuration and pressure drop the
+    steady state stress profile is the same for all types of fluids.
+       </li>
+       <li class="fragment">
+        As the form of the above equation suggests, the stress
+    profile is typically linear in the position for rectangular
+    systems.
+       </li>
+       <li class="fragment">
+        A minimum in the stress will appear at points, lines or
+    planes of symmetry and a maximum of stress always appears at the
+    wall boundaries (if the fluid is in motion).
+       </li>
+      </ul>
+     </section>
+     <section data-menu-title="Example Stress Profiles">
+      <figure>
+       <div class="center">
+        <object data="img/flow_in_a_channel.svg" type="image/svg+xml" width="90%">
+        </object>
+       </div>
+       <figcaption>
+        Pressure driven flow between two parallel plates. The
+      velocity profile is for a Newtonian fluid.
+       </figcaption>
+      </figure>
+      \begin{align*}
+      \tau_{xy} &amp;= \frac{p_{out}-p_{in}}{\mu  L}\left(y - \frac{H}{2}\right)
+      \end{align*}
+      For flow between two plates we have a nice linear stress profile,
+  with zero stress in the middle of the flow.
+     </section>
+     <section>
+      <figure>
+       <div class="center">
+        <object data="img/pipe_flow_cyl.svg" type="image/svg+xml" width="100%">
+        </object>
+       </div>
+       <figcaption>
+        Pressure and gravity driven flow in a cylindrical
+      channel/pipe. The velocity profile is for a Newtonian fluid.
+       </figcaption>
+      </figure>
+      \begin{align*}
+      \tau_{rz} = \left(\frac{\Delta p}{L} -
+      \rho g_z\right)\frac{r}{2}
+      \end{align*}
+      With flow in a pipe, we again have a nice linear stress profile,
+  with zero stress in the middle of the flow. In general, the stress
+  always peaks at wall boundaries in the system, it also has the same
+  value at these walls.
+     </section>
+     <section>
+      <figure>
+       <div class="center">
+        <object data="img/film-flow.svg" type="image/svg+xml" width="60%">
+        </object>
+       </div>
+       <figcaption>
+        Gravity driven flow of a film down an inclined plane. The
+      velocity profile is for a Newtonian fluid.
+       </figcaption>
+      </figure>
+      \begin{align*}
+      \tau_{xy} &amp;= \rho g_x\left(Y - y\right)
+      \end{align*}
+      Again, another linear profile of the stress, peaking at the wall,
+  but with a zero value at the free surface. This solution is the
+  bottom half of gravity-driven flow between two plates.
+     </section>
+     <section>
+      <div style="display:flex;align-items:center;">
+       <div style="flex: 1 1 calc(100% * 0.51);">
+        <figure>
+         <div class="center">
+          <object data="img/pipe_film.svg" type="image/svg+xml" width="80%">
+          </object>
+         </div>
+         <figcaption>
+          Flow of a film down the outside of a pipe.
+         </figcaption>
+        </figure>
+       </div>
+       <div style="flex: 1 1 calc(100% * 0.51);">
+        Stress can be nonlinear too:
+        \begin{align*}
+        \tau_{rz} =-\frac{\rho g_z}{2}\left(r-\frac{\lambda^2 R^2}{r}\right)
+        \end{align*}
+        For film flow around the outside of a pipe, the stress has a
+      nonlinear form. But the stress still peaks at the no-slip
+      boundaries.
+       </div>
+      </div>
+     </section>
+     <section>
+      <figure>
+       <div class="center">
+        <object data="img/annular_flow.svg" type="image/svg+xml" width="100%">
+        </object>
+       </div>
+       <figcaption>
+        Flow through an annulus, the stress profile is not
+      linear!
+       </figcaption>
+      </figure>
+      A similar story appears for the annular flow (see tutorial 3):
+      \begin{align*}
+      \tau_{rz} &amp;= \frac{1}{2}\left(\rho g_z - \frac{\Delta p}{L}\right)\left(r - \frac{\lambda^2  R_0^2}{r}\right)
+      \end{align*}
+      The stress again peaks at the boundaries and is nonlinear. Why does
+  the stress change sign for the annulus, but not for the pipe?
+     </section>
+     <section>
+      <ul>
+       <li>
+        It is crucial to note, regardless of the geometry, we can
+    solve for the stress profile without knowing the rheological
+    behaviour of the fluid.
+       </li>
+       <li class="fragment">
+        The stress profile is the solution of the Cauchy momentum
+    equation, it is only when we want to derive the velocity profile
+    that we actually need a Newton's law/Power law/Bingham model.
+       </li>
+       <li class="fragment">
+        This invariance of the stress profile allows us, if we're
+    careful, to derive the stress profile just
+        <b>
+         once
+        </b>
+        for a
+    certain geometry.
+       </li>
+       <li class="fragment">
+        We can then calculate the velocity profiles and flow rates
+    of the flows for Newtonian
+        <b>
+         and
+        </b>
+        Non-Newtonian flows straight
+    from the stress profile.
+       </li>
+       <li class="fragment">
+        We'll look at this through the following, motivating
+    example:
+       </li>
+      </ul>
+     </section>
+     <section data-menu-title="Example:Power Law Fluids">
+      <h3>
+       Example
+      </h3>
+      <ul>
+       <li>
+        You're a member of BeeP, a huge multinational company
+    who have set up an office in America.
+       </li>
+       <li class="fragment">
+        The CEO has a great plan to save money, the environment
+    and their image. Instead of shipping oil around the world, they
+    think it would be easier and cheaper to just pipe it everywhere.
+       </li>
+       <li class="fragment">
+        The business development division is tasked with making
+    sure great new ideas like this are viable, so they go straight to
+    their library to look up a rough sizing calculation for pipelines.
+       </li>
+       <li class="fragment">
+        Unfortunately they found that a visitor from their
+    gulf-of-mexico office has spilt oil all over their copy of Perrys,
+    C&amp;R, and Campbells!
+       </li>
+       <li class="fragment">
+        They need an expression for the pressure drop for a given
+    flow rate, pipe length, and radius. But here's the kicker, the oil
+    they want to pipe is non-Newtonian, so they can't just use the
+    Hagen-Poiseuille equation anymore!
+        \begin{align*}
+        \cancel{\dot{V}_z = \pi\left(\frac{-\Delta p}{L} +
+          \rho g_z\right)\frac{R^4}{8 \mu}}
+        \end{align*}
+       </li>
+      </ul>
+     </section>
+     <section>
+      <ul>
+       <li>
+        Luckily, the one of the top engineers in the business
+    development unit attended EG3030 at Aberdeen.
+       </li>
+       <li class="fragment">
+        Of course they remembered that the stress profile in a
+    cylindrical pipe is always the same, regardless of the type of
+    fluid. They even remembered the expression for the stress in a
+    pipe
+        \begin{align*}
+        \tau_{rz} = \left(\rho g_z - \frac{\Delta p}{L}\right)\frac{r}{2}
+        \end{align*}
+       </li>
+       <li class="fragment">
+        Using equally superhuman feats of recollection, the
+    engineer also remembered the Power Law model and that it works
+    pretty well for non-Newtonian flows.
+        \begin{align*}
+        \left|\tau_{rz}\right| = k \left|\frac{\partial v_z}{\partial r}\right|^n
+        \end{align*}
+       </li>
+       <li class="fragment">
+        If the engineer can somehow connect these two, they can
+    work out the velocity profile in the pipe.  They can then
+    integrate this to obtain the volumetric flow, an improved
+    Hagen-Poiseuille-like expression, the respect of their colleagues,
+    and a large bonus in the process.
+       </li>
+      </ul>
+     </section>
+     <section>
+      <ul>
+       <li>
+        By rearranging the Power Law model to make the shear rate
+    the subject
+        \begin{align*}
+        \left|\frac{\partial v_z}{\partial r}\right| = \left|\frac{\tau_{rz}}{k}\right|^{\frac{1}{n}}
+        \end{align*}
+       </li>
+       <li class="fragment">
+        Noting that $r$
+        is always positive, the expression for the
+    shear stress in a pipe can be substituted in
+        \begin{align*}
+        \left|\frac{\partial v_z}{\partial r}\right| = \left|\frac{\Delta p}{2 k L} -
+        \frac{\rho \boldsymbol{g}_z}{2 k}\right|^{\frac{1}{n}}r^{\frac{1}{n}}
+        \end{align*}
+       </li>
+       <li class="fragment">
+        The engineer can now solve the equation by integration…
+        \begin{align*}
+        \int {\rm d} \left|v_z\right| = \int \left|\frac{\Delta p}{2 k L} -
+        \frac{\rho \boldsymbol{g}_z}{2 k}\right|^{\frac{1}{n}}r^{\frac{1}{n}}  {\rm d} r
+        \end{align*}
+       </li>
+       <li class="fragment">
+        Noting that $1/n + 1 = (n+1)/n$
+        , we obtain
+        \begin{align*}
+        \left|v_z\right| = \left|\frac{\Delta p}{2 k L} -
+        \frac{\rho \boldsymbol{g}_z}{2 k}\right|^{\frac{1}{n}}\frac{n}{n+1}r^{\frac{n+1}{n}}+C
+        \end{align*}
+       </li>
+      </ul>
+     </section>
+     <section>
+      <ul>
+       <li>
+        Even though the expression is starting to look a little
+    grim, the engineer perseveres and attempts to figure out the
+    constant of integration
+        \begin{align*}
+        \left|v_z\right| = \left|\frac{\Delta p}{2 k L} -
+        \frac{\rho \boldsymbol{g}_z}{2 k}\right|^{\frac{1}{n}}\frac{n}{n+1}r^{\frac{n+1}{n}}+C
+        \end{align*}
+       </li>
+       <li class="fragment">
+        Remembering that boundary conditions are useful for
+    solving for constants, the engineer assumes that at the pipe wall
+    they will have the no-slip condition $v_z(r=R)=0$
+        . Setting
+        $r=R$
+        and
+        $v_z=0$
+        in their last equation, the engineer obtains an
+    expression for the constant term.
+        \begin{align*}
+        C = -\left|\frac{\Delta p}{2 k L} -
+        \frac{\rho \boldsymbol{g}_z}{2 k}\right|^{\frac{1}{n}}\frac{n}{n+1}R^{\frac{n+1}{n}}
+        \end{align*}
+       </li>
+       <li class="fragment">
+        As $r \le R$
+        , and substituting this back in allows an
+    expression for the flow profile to be calculated.
+        \begin{align*}
+        \left|v_z\right| = \left|\frac{\Delta p}{2 k L} -
+        \frac{\rho \boldsymbol{g}_z}{2 k}\right|^{\frac{1}{n}}\frac{n}{n+1}\left(R^{\frac{n+1}{n}} - r^{\frac{n+1}{n}}\right)
+        \end{align*}
+       </li>
+      </ul>
+     </section>
+     <section>
+      \begin{align*}
+      \left|v_z\right| = \left|\frac{\Delta p}{2 k L} -
+      \frac{\rho \boldsymbol{g}_z}{2 k}\right|^{\frac{1}{n}}\frac{n}{n+1}\left(R^{\frac{n+1}{n}} - r^{\frac{n+1}{n}}\right)
+      \end{align*}
+      <ul>
+       <li>
+        The Engineer isn't done yet, they need something like the
+    Hagen-Poiseuille equation, relating the volumetric flow rate,
+    pressure drop and pipeline size.
+       </li>
+       <li class="fragment">
+        But the Engineer decides to try and simplify the equation
+    a little first.
+       </li>
+       <li class="fragment">
+        The maximum velocity in the pipe occurs at the centre line
+    of the pipe. This velocity is found by taking the equation for the
+    flow velocity and setting $r=0$
+        \begin{align*}
+        \left|v_z^{max}\right| = \left|\frac{\Delta p}{2 k L} -
+        \frac{\rho \boldsymbol{g}_z}{2 k}\right|^{\frac{1}{n}}\frac{n}{n+1}R^{\frac{n+1}{n}}
+        \end{align*}
+       </li>
+       <li class="fragment">
+        This can be used to rewrite the flow velocity in terms of
+    the maximum velocity
+        \begin{align*}
+        v_z = v_z^{max}\left(1 - \left(\frac{r}{R}\right)^{\frac{n+1}{n}}\right)
+        \end{align*}
+       </li>
+      </ul>
+     </section>
+     <section>
+      \begin{align*}
+      v_z = v_z^{max}\left(1 - \left(\frac{r}{R}\right)^{\frac{n+1}{n}}\right)
+      \end{align*}
+      <ul>
+       <li>
+        Going for the finish line, the engineer remembers that
+    volumetric flow-rate is related to the velocity by an integral
+    over the cross-sectional area of the pipe
+        \begin{align*}
+        \dot{V}_z=\int_0^R\int_0^{2\pi}v_z r {\rm d}\theta {\rm d}r
+        \end{align*}
+       </li>
+       <li class="fragment">
+        The $\theta$
+        integral can be performed immediately as
+        $v_z$
+        does not depend on
+        $\theta$
+        .
+        \begin{align*}
+        \dot{V}_z=2 \pi\int_0^Rv_z  r {\rm d}r
+        \end{align*}
+       </li>
+       <li class="fragment">
+        Substituting in the flow velocity gives
+        \begin{align*}
+        \dot{V}_z=2 \pi v_z^{max} \int_0^R\left(1 - \left(\frac{r}{R}\right)^{\frac{n+1}{n}}\right) r {\rm d}r
+        \end{align*}
+       </li>
+      </ul>
+     </section>
+     <section>
+      \begin{align*}
+      \dot{V}_z=2 \pi v_z^{max} \int_0^R\left(1 - \left(\frac{r}{R}\right)^{\frac{n+1}{n}}\right) r {\rm d}r
+      \end{align*}
+      <ul>
+       <li>
+        Finishing the integration gives
+        \begin{align*}
+        \dot{V}_z&amp;=2 \pi v_z^{max} \left[\frac{r^2}{2} -
+        \frac{n}{3n+1}\frac{r^{\frac{3n+1}{n}}}{R^{\frac{n+1}{n}}}\right]^R_0\\
+      &amp;= 2 \pi R^2 v_z^{max} \left(\frac{1}{2} -
+        \frac{n}{3n+1}\right)\\
+      &amp;= \pi R^2 v_z^{max} \frac{n+1}{3n+1}
+        \end{align*}
+       </li>
+       <li class="fragment">
+        Job done. The engineer has a design equation for
+    non-Newtonian fluid flow in a pipeline.
+       </li>
+       <li class="fragment">
+        The engineer then proves that the CEO's plan is a terrible
+    one as with very long pipes ($L&gt;&gt;1$
+        ), it would require either huge
+    pressure drops or enormous pipe radii to achieve even a low
+    volumetric flow rate (
+        $v_z^{max}\propto \Delta P / L$
+        ).
+       </li>
+      </ul>
+     </section>
+     <section>
+      <ul>
+       <li>
+        But for some reason the CEO wouldn't give the engineer his
+    bonus…
+       </li>
+       <li class="fragment">
+        Maybe it was because the Engineer forgot to check if the
+    flow was turbulent first?
+       </li>
+       <li class="fragment">
+        To be continued…
+       </li>
+      </ul>
+     </section>
+    </section>
+    <section>
+     <section data-menu-title="Learning Objectives">
+      <ul>
+       <li>
+        We have covered non-Newtonian fluids and learnt the two
+    basic stress models/law's for viscous forces
+        <ul>
+         <li class="fragment">
+          For shear thinning or shear thickening fluids, we can
+      use the Power Law model for intermediate shear rates
+          \begin{align*}
+          \left|\tau_{xy}\right| = k \left|\frac{\partial v_x}{\partial y}\right|^n
+          \end{align*}
+          or, if we really want the sign of the stress,
+          \begin{align*}
+          \tau_{xy} = -k \frac{\partial v_x}{\partial y} \left|\frac{\partial v_x}{\partial y}\right|^{n-1}
+          \end{align*}
+         </li>
+         <li class="fragment">
+          For simple viscoplastic fluids, we can use the Bingham
+      Plastic model
+          \begin{align*}
+          \frac{\partial v_x}{\partial y} = \begin{cases}
+          -\mu^{-1}\left(\tau_{xy}-\tau_0)\right) &amp; \text{if
+            $\tau_{xy} &gt; \tau_0 $}
+          \\
+          0 &amp; \text{if $\tau_{xy}\leq\tau_0 $}
+        \end{cases}
+          \end{align*}
+         </li>
+        </ul>
+       </li>
+       <li class="fragment">
+        Derived an expression for the pressure drop of a
+    non-Newtonian fluid.
+       </li>
+      </ul>
+     </section>
+    </section>
+   </div>
+   <div class="slide-menu-button" style="left:170px;cursor:pointer;">
+    <a class="hide-on-pdf" id="PrintButton" onclick="document.location = '?print-pdf';">
+     <i class="fa fa-print">
+     </i>
+    </a>
+   </div>
+   <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({ TeX: { extensions: ["cancel.js"] }});
+   </script>
+   <script src="footer.js">
+   </script>
+  </div>
+ </body>
+</html>

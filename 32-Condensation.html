@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <title>
+   Heat, Mass, and Momentum Transfer
+  </title>
+  <meta content="Heat Mass and Momentum Transfer notes" name="description"/>
+  <meta content="Marcus Bannerman &lt;m.bannerman@gmail.com" name="author"/>
+  <meta content="yes" name="apple-mobile-web-app-capable"/>
+  <meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"/>
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui" name="viewport"/>
+  <script data-headjs-load="header.js" src="../reveal.js/lib/js/head.min.js">
+  </script>
+ </head>
+ <body>
+  <div class="reveal">
+   <div class="slides">
+    <section>
+     <section>
+      <h2>
+       Condensation
+      </h2>
+      <div class="center">
+      </div>
+     </section>
+     <section>
+      <h3>
+       Slides Outline
+      </h3>
+      <div class="tableofcontents">
+      </div>
+     </section>
+    </section>
+    <section>
+     <section data-menu-title="Review">
+      <ul>
+       <li>
+        In previous lectures, we covered
+        <b>
+         conductive
+        </b>
+        ,
+        <b>
+         radiative
+        </b>
+        ,
+        <b>
+         natural
+        </b>
+        and
+        <b>
+         forced convective
+        </b>
+        heat
+    transfer.
+       </li>
+       <li class="fragment">
+        There are just two remaining classes of heat transfer
+    process,
+        <b>
+         boiling
+        </b>
+        and
+        <b>
+         condensation
+        </b>
+        .
+       </li>
+       <li class="fragment">
+        These two processes are not distinct classes of heat
+    transfer on their own, but are a combination of the conductive,
+    radiative and convective heat transfer.
+       </li>
+      </ul>
+     </section>
+    </section>
+    <section>
+     <section data-menu-title="Condensers">
+      <div style="display:flex;align-items:center;">
+       <div style="flex: 1 1 calc(100% * 0.451);">
+        <figure>
+         <div class="center">
+          <object data="img/jacketed_vessel.svg" type="image/svg+xml" width="100%">
+          </object>
+         </div>
+        </figure>
+       </div>
+       <div style="flex: 1 1 calc(100% * 0.551);">
+        <ul>
+         <li>
+          Condensation occurs in many unit-processes.
+         </li>
+         <li class="fragment">
+          When steam is used to heat a vessel, the steam is
+        almost always at its saturation temperature (the
+          <b>
+           latent
+          heat
+          </b>
+          of the steam carries the energy).
+         </li>
+         <li class="fragment">
+          Here, steam will condense on the vessel surface and
+          <b>
+           flow down in a film
+          </b>
+          to be collected at the base.
+         </li>
+        </ul>
+       </div>
+      </div>
+     </section>
+     <section>
+      <div style="display:flex;align-items:center;">
+       <div style="flex: 1 1 calc(100% * 0.451);">
+        <figure>
+         <div class="center">
+          <img src="img/pot_stills.jpg" style="width:100%;"/>
+         </div>
+        </figure>
+       </div>
+       <div style="flex: 1 1 calc(100% * 0.551);">
+        <ul>
+         <li>
+          Condensing of process streams typically takes place
+        within condensing heat exchangers, often with a shell-and-tube
+        configuration.
+         </li>
+         <li class="fragment">
+          You can see the vertical shell and tube exchangers on
+        the wall.
+         </li>
+         <li class="fragment">
+          As with convective heat transfer, a
+          <b>
+           condensate
+          film
+          </b>
+          will form on the cool surface and
+          <b>
+           heat transfer
+          will be dominated by the heat transfer in the film layer
+          </b>
+          !
+         </li>
+         <li class="fragment">
+          We will need to find a
+          <b>
+           condensation-film heat
+          transfer coefficient
+          </b>
+          !
+         </li>
+        </ul>
+       </div>
+      </div>
+     </section>
+     <section data-menu-title="Film Transport">
+      <div style="display:flex;align-items:center;">
+       <div style="flex: 1 1 calc(100% * 0.451);">
+        <figure>
+         <div class="center">
+          <object data="img/film_flow1.svg" type="image/svg+xml" width="None%">
+          </object>
+         </div>
+        </figure>
+       </div>
+       <div style="flex: 1 1 calc(100% * 0.551);">
+        <ul>
+         <li>
+          <b>
+           Nusselt
+          </b>
+          was the first to analyse condensation on
+        a surface.
+         </li>
+         <li class="fragment">
+          First, he noted that when vapour condenses on a
+        surface, it tends to do so evenly and forms a
+          <b>
+           film
+          </b>
+          .
+         </li>
+         <li class="fragment">
+          Then Nusselt noted that if the vapour (steam) is at
+        its saturation temperature,
+          <b>
+           it cannot cool without
+          changing phase
+          </b>
+          .
+         </li>
+         <li class="fragment">
+          The surface of the film must be at the bulk
+        temperature, $T_\infty$
+          .
+         </li>
+         <li class="fragment">
+          As the vapour must be at one temperature, the
+        condensing heat transfer resistance is solely due to the
+          <b>
+           conduction of heat through the liquid film
+          </b>
+          .
+         </li>
+        </ul>
+       </div>
+      </div>
+     </section>
+     <section>
+      <div style="display:flex;align-items:center;">
+       <div style="flex: 1 1 calc(100% * 0.451);">
+        <figure>
+         <div class="center">
+          <object data="img/film_runoff.svg" type="image/svg+xml" width="100%">
+          </object>
+         </div>
+        </figure>
+       </div>
+       <div style="flex: 1 1 calc(100% * 0.551);">
+        <ul>
+         <li>
+          This is a critical piece of information.
+         </li>
+         <li class="fragment">
+          In condensation, the thickness of the liquid layer is
+          <i>
+           inversely
+          </i>
+          proportional to the efficiency of the rate of
+        condensation.
+         </li>
+         <li class="fragment">
+          In situations where condensation is done using a
+        horizontal tube bundle in a shell and tube exchanger,
+          <b>
+           condensing liquid from higher tubes falls onto lower tubes
+          </b>
+          (see left).
+         </li>
+         <li class="fragment">
+          This makes the lower tubes more inefficient at
+        condensing vapour and instead the energy is used to
+          <b>
+           sub-cool the condensate
+          </b>
+          .
+         </li>
+        </ul>
+       </div>
+      </div>
+     </section>
+     <section data-menu-title="Deriving the expression">
+      <figure>
+       <div class="center">
+        <object data="img/film_flow2.svg" type="image/svg+xml" width="None%">
+        </object>
+       </div>
+      </figure>
+      <ul>
+       <li>
+        <b>
+         Nusselt
+        </b>
+        managed to derive equations for the heat
+    transfer in a condensing film by combining heat and momentum balances.
+       </li>
+       <li class="fragment">
+        The amount of heat transferred through the liquid layer of
+    thickness $s(x)$
+        over the positions
+        $x$
+        to
+        $x+{\rm d}x$
+        is
+        \begin{align*}
+        Q(x) = \frac{k }{s(x)}{\rm d}x Z\left(T_\infty-T_w\right)
+        \end{align*}
+       </li>
+       <li class="fragment">
+        Ignoring the effects of flow, sub-cooling and assuming
+    constant heat capacity, any heat transferred causes vapour to
+    condense, so dividing by the latent heat will yield the rate of
+    vapour condensation
+        \begin{align*}
+        {\rm d}\dot{M} &amp;= \frac{Q(x)}{h_{g\to l}} &amp;
+      \frac{{\rm d}\dot{M}}{{\rm d}x}&amp;=\frac{Q(x)}{{\rm d}x h_{g\to l}} = \frac{k }{s(x) h_{g\to l}} Z\left(T_\infty-T_w\right)\\
+        \end{align*}
+       </li>
+      </ul>
+     </section>
+     <section>
+      <figure>
+       <div class="center">
+        <object data="img/film_flow2.svg" type="image/svg+xml" width="None%">
+        </object>
+       </div>
+      </figure>
+      <ul>
+       <li>
+        Any vapour which condenses into the film, must flow away
+    in the film.
+       </li>
+       <li class="fragment">
+        We know from the previous lectures, the mass flow rate in
+    a laminar film (ignoring effects of heat transfer) is given by
+        \begin{align*}
+        \dot{M}=\rho \dot{V}_x(x)= \frac{\rho^2 g_x s^3(x) Z}{3 \mu}
+        \end{align*}
+       </li>
+       <li class="fragment">
+        The rate of change of this mass flow-rate in $x$
+        is equal
+    to the rate at which vapour is condensed
+        \begin{align*}
+        \frac{{\rm d}\dot{M}}{{\rm d} x}=\frac{{\rm d}s}{{\rm d} x}\frac{{\rm d}}{{\rm d}s}\left[\rho \dot{V}_x\right]= \frac{{\rm d}s}{{\rm d} x}\frac{\rho^2 g_x s^2 Z}{\mu}
+        \end{align*}
+       </li>
+      </ul>
+     </section>
+     <section>
+      <figure>
+       <div class="center">
+        <object data="img/film_flow2.svg" type="image/svg+xml" width="None%">
+        </object>
+       </div>
+      </figure>
+      <ul>
+       <li>
+        Setting these two expressions for $\frac{{\rm d}\dot{M}}{{\rm d} x}$
+        to be equal to each other gives:
+        \begin{align*}
+        \frac{{\rm d}s}{{\rm d} x}\frac{\rho^2 g_x s^2 Z}{\mu} 
+      = \frac{k }{s h_{g\to l}} Z\left(T_\infty-T_w\right)
+        \end{align*}
+       </li>
+       <li class="fragment">
+        We can integrate both sides by ${\rm d}x$
+        and use the
+    boundary condition that
+        $s=0$
+        at
+        $x=0$
+        to get the layer thickness
+    as a function of position
+        \begin{align*}
+        s(x) = \left(\frac{4 \mu k x\left(T_\infty-T_w\right)}{g_x h_{g\to l} \rho^2}\right)^{1/4}
+        \end{align*}
+       </li>
+      </ul>
+     </section>
+     <section>
+      <figure>
+       <div class="center">
+        <object data="img/film_flow2.svg" type="image/svg+xml" width="None%">
+        </object>
+       </div>
+      </figure>
+      <ul>
+       <li>
+        We can put back the expression for $s(x)$
+        into the
+    expression for the heat transfer at a point
+        $x$
+        .
+        \begin{align*}
+        Q(x) &amp;= \frac{k}{s(x)}{\rm d}x Z\left(T_\infty-T_w\right) \\
+      &amp;= \left(\frac{k^3 g_x h_{g\to l} \rho^2}{4 \mu x
+          \left(T_\infty - T_w\right)}\right)^{1/4} {\rm d}x Z\left(T_\infty-T_w\right)\\
+      h_{condensation}(x) &amp;= \left(\frac{k^3 g_x h_{g\to
+            l} \rho^2}{4 \mu x \left(T_\infty -
+            T_w\right)}\right)^{1/4}
+        \end{align*}
+        where we define the condensation film transfer coefficient
+        <b>
+         at
+      a point
+         $x$
+        </b>
+        .
+       </li>
+       <li class="fragment">
+        We have managed to calculate an expression for the
+    condensation film transfer coefficient, without too many awkward
+    assumptions!
+       </li>
+      </ul>
+     </section>
+     <section>
+      <figure>
+       <div class="center">
+        <object data="img/film_flow2.svg" type="image/svg+xml" width="None%">
+        </object>
+       </div>
+      </figure>
+      <ul>
+       <li>
+        To find the overall heat transfer coefficient we just
+    integrate over the whole of the plate and divide by the plate
+    length to obtain the average value.
+        \begin{align*}
+        \bar{h}_{condensation}&amp;=0.943\left(\frac{k^3 g_x h_{g\to l} \rho^2}{X \mu\left(T_\infty-T_w\right)}\right)^{1/4}
+        \end{align*}
+       </li>
+       <li class="fragment">
+        All physical properties in the above expression should be
+    evaluated at the film temperature
+    $T_f=\left(T_w+T_\infty\right)/2$
+        .
+       </li>
+      </ul>
+     </section>
+     <section data-menu-title="Summing up">
+      <ul>
+       <li>
+        Nusselt developed several different equations for the
+    condensation film coefficient for horizontal or vertical, pipes or
+    plates.
+       </li>
+       <li class="fragment">
+        Condensation film transfer coefficients are a great
+    example of the success of combined momentum and heat balances.
+       </li>
+       <li class="fragment">
+        The Nusselt approach provides excellent theoretical
+    estimates of the heat transfer coefficient.
+       </li>
+       <li class="fragment">
+        For condensation around the outside of horizontal pipes,
+    the estimates given by the following equation from Nusselt are
+    within 15% (estimates are worse for vertical tubes).
+        \begin{align*}
+        h = 0.72
+      \left(\frac{k^3 \rho^2 g_x h_{g\to l}}{D \mu \left(T_w-T_\infty\right)}\right)^{1/4}
+        \end{align*}
+       </li>
+       <li class="fragment">
+        The theoretical estimates are usually low, so they even
+    provide a good worst-case estimate for the condenser performance.
+       </li>
+      </ul>
+     </section>
+     <section data-menu-title="Vapour Velocity">
+      <div style="display:flex;align-items:center;">
+       <div style="flex: 1 1 calc(100% * 0.451);">
+        <figure>
+         <div class="center">
+          <object data="img/film_flow_vapour.svg" type="image/svg+xml" width="None%">
+          </object>
+         </div>
+        </figure>
+       </div>
+       <div style="flex: 1 1 calc(100% * 0.551);">
+        <ul>
+         <li>
+          The effect of the vapour velocity is mainly
+        characterised by how it affects the film flow.
+         </li>
+         <li class="fragment">
+          If the vapour velocity is in the direction of flow,
+        the film thickness is reduced and the heat transfer rate
+        increases (up to 2–$3\times$
+          ).
+         </li>
+         <li class="fragment">
+          If the vapour velocity is against the flow, we can get
+          <b>
+           liquid hold-up
+          </b>
+          , increasing the film thickness.
+         </li>
+         <li class="fragment">
+          This is especially significant for condensation inside
+        a vertical tube with upward flow, where there is a danger of
+          <b>
+           flooding
+          </b>
+          .
+         </li>
+        </ul>
+       </div>
+      </div>
+     </section>
+     <section>
+      <div style="display:flex;align-items:center;">
+       <div style="flex: 1 1 calc(100% * 0.451);">
+        <figure>
+         <div class="center">
+          <object data="img/film_flow_vapour.svg" type="image/svg+xml" width="None%">
+          </object>
+         </div>
+        </figure>
+       </div>
+       <div style="flex: 1 1 calc(100% * 0.551);">
+        <ul>
+         <li>
+          It is difficult to obtain turbulence inside the film
+        layer unless the layer is quite thick.
+         </li>
+         <li class="fragment">
+          However, if the layer is thick, then turbulence will
+        add convective heat transfer on top of the conductive heat
+        transfer, and the transfer coefficient will increase.
+         </li>
+        </ul>
+       </div>
+      </div>
+     </section>
+    </section>
+    <section>
+     <section data-menu-title="Drop-wise Condensation">
+      <div style="display:flex;align-items:center;">
+       <div style="flex: 1 1 calc(100% * 0.451);">
+        <figure>
+         <div class="center">
+          <img src="img/dropwise.jpg" style="width:100%;"/>
+         </div>
+         <figcaption>
+          Gold plated copper (left) and polished copper
+          (right), undergoing condensation.
+         </figcaption>
+        </figure>
+       </div>
+       <div style="flex: 1 1 calc(100% * 0.551);">
+        <ul>
+         <li>
+          There are actually two forms of condensation that can
+        occur in a process.
+         </li>
+         <li class="fragment">
+          Film condensation (right side of image) is the most
+        common industrial condensation process.
+         </li>
+         <li class="fragment">
+          It is easy to design as we have excellent predictions
+        for the transport coefficients, and the behaviour is very
+        predictable.
+         </li>
+        </ul>
+       </div>
+      </div>
+     </section>
+     <section>
+      <div style="display:flex;align-items:center;">
+       <div style="flex: 1 1 calc(100% * 0.451);">
+        <figure>
+         <div class="center">
+          <img src="img/dropwise.jpg" style="width:100%;"/>
+         </div>
+         <figcaption>
+          Gold plated copper (left) and polished copper
+          (right), undergoing condensation.
+         </figcaption>
+        </figure>
+       </div>
+       <div style="flex: 1 1 calc(100% * 0.551);">
+        <ul>
+         <li>
+          The alternative condensation mechanism is
+          <b>
+           drop-wise
+          </b>
+          condensation.
+         </li>
+         <li class="fragment">
+          Here, the condensate fluid has a high
+          <b>
+           contact
+          angle
+          </b>
+          with the condenser surface and large drops form.
+         </li>
+         <li class="fragment">
+          The flow only begins once the drops reach a critical
+        size, when a “avalanche” of drops occurs and the process
+        restarts.
+         </li>
+        </ul>
+       </div>
+      </div>
+     </section>
+     <section>
+      <div style="display:flex;align-items:center;">
+       <div style="flex: 1 1 calc(100% * 0.451);">
+        <figure>
+         <div class="center">
+          <img src="img/dropwise.jpg" style="width:100%;"/>
+         </div>
+         <figcaption>
+          Gold plated copper (left) and polished copper
+          (right), undergoing condensation.
+         </figcaption>
+        </figure>
+       </div>
+       <div style="flex: 1 1 calc(100% * 0.551);">
+        <ul>
+         <li>
+          The disadvantage of drop-wise condensation is that
+        behaviour fluctuates due to the droplet “avalanches” and
+        behaviour is hard to predict.
+         </li>
+         <li class="fragment">
+          The coatings used to promote drop-wise condensation
+        become ineffective over time, and the process returns to film
+        condensation.
+         </li>
+         <li class="fragment">
+          However, due to the reduced film thickness in parts
+        the drop-wise film coefficient can be
+          <b>
+           10
+          </b>
+          to
+          <b>
+           100
+          </b>
+          times larger than the film coefficient!
+         </li>
+        </ul>
+       </div>
+      </div>
+     </section>
+    </section>
+    <section>
+     <section data-menu-title="Learning Objectives">
+      <ul>
+       <li>
+        We have learnt that
+        <b>
+         condensation processes are also
+      controlled by film heat transfer
+        </b>
+        .
+       </li>
+       <li class="fragment">
+        The conduction of heat through the condensate film
+        <b>
+         is
+        </b>
+        the source of the condensing heat transfer coefficient.
+       </li>
+       <li class="fragment">
+        The condensate film thickness is a key parameter in the
+    condenser design.
+       </li>
+       <li class="fragment">
+        Drop-wise condensation is an alternative mechanism for
+    condensation with the potential for almost 2 orders of magnitude
+    higher heat transfer rates.
+       </li>
+       <li class="fragment">
+        But this is offset by short life times, uncertainty in the
+    design, and fluctuations in operation.
+       </li>
+      </ul>
+     </section>
+    </section>
+   </div>
+   <div class="slide-menu-button" style="left:170px;cursor:pointer;">
+    <a class="hide-on-pdf" id="PrintButton" onclick="document.location = '?print-pdf';">
+     <i class="fa fa-print">
+     </i>
+    </a>
+   </div>
+   <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({ TeX: { extensions: ["cancel.js"] }});
+   </script>
+   <script src="footer.js">
+   </script>
+  </div>
+ </body>
+</html>

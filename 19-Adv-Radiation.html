@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <title>
+   Heat, Mass, and Momentum Transfer
+  </title>
+  <meta content="Heat Mass and Momentum Transfer notes" name="description"/>
+  <meta content="Marcus Bannerman &lt;m.bannerman@gmail.com" name="author"/>
+  <meta content="yes" name="apple-mobile-web-app-capable"/>
+  <meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"/>
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui" name="viewport"/>
+  <script data-headjs-load="header.js" src="../reveal.js/lib/js/head.min.js">
+  </script>
+ </head>
+ <body>
+  <div class="reveal">
+   <div class="slides">
+    <section>
+     <section>
+      <h2>
+       Advanced Radiation
+      </h2>
+      <div class="center">
+      </div>
+     </section>
+     <section>
+      <h3>
+       Slides Outline
+      </h3>
+      <div class="tableofcontents">
+      </div>
+     </section>
+    </section>
+    <section>
+     <section data-menu-title="Review">
+      <ul>
+       <li>
+        In previous lectures, we found there are 3 main modes
+    of heat transport.
+        <br/>
+        *
+        <b>
+         Conduction, Convection, and Radiation
+        </b>
+        .
+       </li>
+       <li class="fragment">
+        We found that there are two forms of convective heat
+    transfer,
+        <b>
+         forced
+        </b>
+        and
+        <b>
+         natural
+        </b>
+        .
+       </li>
+       <li class="fragment">
+        We discovered that the film transfer coefficients in both
+    cases are calculated using empirical power laws.
+        \begin{align*}
+        h_{forced}  &amp;= C \text{Re}^m\text{Pr}^n\\
+      h_{natural} &amp;= C \left(\text{Gr} \text{Pr}\right)^m
+        \end{align*}
+       </li>
+       <li class="fragment">
+        We found an analogy for the Reynolds number, called the
+        <b>
+         Grashof number
+        </b>
+        .
+       </li>
+       <li class="fragment">
+        We found that radiative heat transfer is governed by an
+    equation of the form
+        \begin{align*}
+        Q = \sigma \varepsilon A_{obj}\left(T_{obj}^4-T_\infty^4\right)
+        \end{align*}
+       </li>
+       <li class="fragment">
+        We will now cover a little more on radiative transport
+    before moving on.
+       </li>
+      </ul>
+     </section>
+    </section>
+    <section>
+     <section data-menu-title="Thermal Radiation">
+      <figure>
+       <div class="center">
+        <object data="img/furnace.svg" type="image/svg+xml" width="100%">
+        </object>
+       </div>
+      </figure>
+     </section>
+     <section>
+      <figure>
+       <div class="center">
+        <img src="img/platform.jpg" style="width:100%;"/>
+       </div>
+      </figure>
+     </section>
+     <section data-menu-title="Emissivities">
+      <ul>
+       <li>
+        We've considered thermal radiation in systems where an
+    object is completely surrounded by a larger body.
+       </li>
+       <li class="fragment">
+        In this special case, we have the following expression.
+        \begin{align*}
+        Q = \sigma \varepsilon A_{obj}\left(T_{obj}^4-T_\infty^4\right)
+        \end{align*}
+        where
+        $\sigma$
+        is the Stefan-Boltzmann constant, and
+        $\varepsilon$
+        is the emissivity of the object.
+       </li>
+       <li class="fragment">
+        This can be used for rough heat-loss calculations on
+    external pipes, vessels and so on.
+       </li>
+       <li class="fragment">
+        Some typical values for the emissivity are given in the
+    following table.
+       </li>
+      </ul>
+     </section>
+     <section>
+      <figure>
+       <div class="center">
+        <table style="border-collapse:collapse;">
+         <tr>
+          <td>
+           Surface
+          </td>
+          <td>
+           $\varepsilon$
+          </td>
+          <td>
+           Surface
+          </td>
+          <td>
+           $\varepsilon$
+          </td>
+         </tr>
+         <tr style="border-top:thick solid black;">
+          <td>
+           Asbestos, Board
+          </td>
+          <td>
+           0.96
+          </td>
+          <td>
+           Carbon, Candle soot
+          </td>
+          <td>
+           0.95
+          </td>
+         </tr>
+         <tr>
+          <td>
+           Water
+          </td>
+          <td>
+           0.95–0.96
+          </td>
+          <td>
+           Carbon, Lampblack
+          </td>
+          <td>
+           0.95
+          </td>
+         </tr>
+         <tr>
+          <td>
+           Iron and steel, rough
+          </td>
+          <td>
+           0.94–0.97
+          </td>
+          <td>
+           Brick, Red, rough
+          </td>
+          <td>
+           0.93
+          </td>
+         </tr>
+         <tr>
+          <td>
+           White enamel paint
+          </td>
+          <td>
+           0.906
+          </td>
+          <td>
+           Iron and steel
+          </td>
+          <td>
+           0.74
+          </td>
+         </tr>
+         <tr>
+          <td>
+           Iron and steel, Sheet steel, oxidised
+          </td>
+          <td>
+           0.657
+          </td>
+          <td>
+           Oxidised Lead
+          </td>
+          <td>
+           0.28
+          </td>
+         </tr>
+         <tr>
+          <td>
+           Iron and steel, Polished iron
+          </td>
+          <td>
+           0.14–0.38
+          </td>
+          <td>
+           Rough Aluminium
+          </td>
+          <td>
+           0.06
+          </td>
+         </tr>
+         <tr>
+          <td>
+           Polished Aluminium
+          </td>
+          <td>
+           0.04
+          </td>
+          <td>
+           Highly polished Gold
+          </td>
+          <td>
+           0.02–0.35
+          </td>
+         </tr>
+        </table>
+       </div>
+       <figcaption>
+        Typical values of the emissivity for various materials, 
+      taken from Coulson &amp; Richardson, Vol. 1, Fig. 9.40.
+       </figcaption>
+      </figure>
+     </section>
+     <section>
+      <figure>
+       <div class="center">
+        <img src="img/satellite.jpg" style="width:80%;"/>
+       </div>
+       <figcaption>
+        Satellites use gold-plated mylar-sheet insulation to
+      protect the electronics from overheating due to
+      radiation.
+        $\varepsilon_{gold}=0.02$
+        –
+        $0.35$
+        .
+       </figcaption>
+      </figure>
+     </section>
+     <section data-menu-title="View Factors">
+      \begin{align*}
+      Q = \sigma \varepsilon A_{obj}\left(T_{obj}^4-T_\infty^4\right)
+      \end{align*}
+      <ul>
+       <li>
+        But what about radiation in more complex geometries?
+       </li>
+       <li class="fragment">
+        In the furnace, the radiant transfer of heat is crucial to
+    its function but the pipes extracting heat do not completely
+    surround the flame.
+       </li>
+       <li class="fragment">
+        When designing and positioning a flare, we must be careful
+    to minimise the radiant heating of the rig and personnel.
+       </li>
+       <li class="fragment">
+        We may even use
+        <b>
+         shielding
+        </b>
+        to reduce the radiant flux
+    onto objects…
+       </li>
+      </ul>
+     </section>
+     <section>
+      <figure>
+       <div class="center">
+        <object data="img/viewfactor.svg" type="image/svg+xml" width="60%">
+        </object>
+       </div>
+      </figure>
+      <ul>
+       <li>
+        The amount of heat emitted by object 1 and received by
+    object 2 is given by
+        \begin{align*}
+        Q_{1\to2} = F_{1\to2}  \times \sigma \varepsilon_1 A_{1} T_{1}^4
+        \end{align*}
+       </li>
+       <li class="fragment">
+        Where we have defined $F_{1,2}$
+        as the ratio of how much
+    of object 1's emitted radiant heat reaches object 2.
+       </li>
+       <li class="fragment">
+        $F_{1,2}$
+        is known as the
+        <b>
+         view factor
+        </b>
+        <i>
+         or
+        </i>
+        <b>
+         shape
+      factor
+        </b>
+        <i>
+         or
+        </i>
+        <b>
+         configuration
+        </b>
+        .
+       </li>
+      </ul>
+     </section>
+     <section>
+      <figure>
+       <div class="center">
+        <object data="img/viewfactor.svg" type="image/svg+xml" width="60%">
+        </object>
+       </div>
+      </figure>
+      <ul>
+       <li>
+        If two
+        <b>
+         black
+        </b>
+        (
+        $\varepsilon=1$
+        ) objects are at the
+    same temperature, they do not exchange heat, and we have
+        \begin{align*}
+        Q_{1\to2} &amp;= Q_{2\to1}\\
+      F_{1\to2}  \times \sigma \varepsilon_1 A_{1} T^4 &amp;= F_{2\to1}  \times \sigma \varepsilon_2 A_2 T^4\\
+      F_{1\to2} A_{1} &amp;= F_{2\to1} A_2
+        \end{align*}
+       </li>
+       <li class="fragment">
+        is known as the
+        <b>
+         reciprocity relationship
+        </b>
+        .
+       </li>
+      </ul>
+     </section>
+     <section>
+      <ul>
+       <li>
+        To obtain the value of $F_{1\to2}$
+        , we have to solve a
+    complex integral…
+        \begin{align*}
+        A_1 F_{1\to2} = \iiint
+      \cos\alpha_1\cos\alpha_2 \pi^{-1} L^{-2} {\rm d}A_1 {\rm
+        d}A_2
+        \end{align*}
+        <figure>
+         <div class="center">
+          <object data="img/viewfactorint.svg" type="image/svg+xml" width="60%">
+          </object>
+         </div>
+        </figure>
+       </li>
+       <li class="fragment">
+        To solve this integral you typically require a numerical
+    approach, but there are plenty of
+    expressions/graphs/etc. available in the literature for simple
+    geometries.
+       </li>
+      </ul>
+     </section>
+     <section>
+      <div style="display:flex;align-items:center;">
+       <div style="flex: 1 1 calc(100% * 0.31);">
+        <figure>
+         <div class="center">
+          <object data="img/viewfactor_sum.svg" type="image/svg+xml" width="100%">
+          </object>
+         </div>
+        </figure>
+       </div>
+       <div style="flex: 1 1 calc(100% * 0.71);">
+        <ul>
+         <li>
+          We need to note is that if an object (2) surrounds
+        another object (1), all radiation from 1 will reach object 2.
+          \begin{align*}
+          F_{1\to2}=1
+          \end{align*}
+          We are already using this rule when calculating radiation loss
+        of vessels to the surroundings.
+         </li>
+         <li class="fragment">
+          But not all of the radiation emitted from object 2
+        will reach 1. Some will reach object 2 again as object 2 is
+        convex (see the red arrows)!
+         </li>
+         <li class="fragment">
+          But we have the
+          <b>
+           reciprocity relationship
+          </b>
+          .
+          \begin{align*}
+          F_{1\to2}  A_{1} &amp;= F_{2\to1} A_2
+          \end{align*}
+         </li>
+         <li class="fragment">
+          For our example image we have $F_{1\to2}=1$
+          so we can
+        use the reciprocity relationship to give
+          \begin{align*}
+          F_{2\to1}=\frac{A_1}{A_2}
+          \end{align*}
+         </li>
+        </ul>
+       </div>
+      </div>
+     </section>
+     <section>
+      <div style="display:flex;align-items:center;">
+       <div style="flex: 1 1 calc(100% * 0.31);">
+        <figure>
+         <div class="center">
+          <object data="img/sum_rule.svg" type="image/svg+xml" width="100%">
+          </object>
+         </div>
+        </figure>
+       </div>
+       <div style="flex: 1 1 calc(100% * 0.71);">
+        <ul>
+         <li>
+          A similar rule is the
+          <b>
+           summation rule
+          </b>
+          .
+         </li>
+         <li class="fragment">
+          If an object is surrounded by other objects, the view
+        factors must add up to 1!
+         </li>
+         <li class="fragment">
+          This gives the following rule for the arrangement on
+        the left
+          \begin{align*}
+          F_{1\to2}+F_{1\to3}+F_{1\to4} = 1
+          \end{align*}
+         </li>
+         <li class="fragment">
+          If we took away object 3 and 4, the radiation lost to
+        the uncovered surroundings would be
+          \begin{align*}
+          F_{1\to S} = 1 - F_{1\to2}
+          \end{align*}
+         </li>
+        </ul>
+       </div>
+      </div>
+     </section>
+    </section>
+    <section>
+     <section data-menu-title="Example: Heated Pot">
+      <div style="display:flex;align-items:center;">
+       <div style="flex: 1 1 calc(100% * 0.41);">
+        <figure>
+         <div class="center">
+          <object data="img/pot.svg" type="image/svg+xml" width="None%">
+          </object>
+         </div>
+        </figure>
+       </div>
+       <div style="flex: 1 1 calc(100% * 0.61);">
+        <ul>
+         <li>
+          Consider a pot placed on an electric cooker…
+         </li>
+         <li class="fragment">
+          We want to calculate the efficiency of radiant heating
+        and how much heat is lost to the environment.
+         </li>
+         <li class="fragment">
+          For simplicity, we'll assume that the heat source can
+        be modelled as a disk with the same diameter (30 cm) as the
+        pot.
+         </li>
+         <li class="fragment">
+          The pot is not placed directly on the heat source of
+        the cooker but is suspended some height (15 cm) above it.
+         </li>
+         <li class="fragment">
+          Assume the water is boiling ($T_2=100^\circ$
+          C) and the
+        heater is at
+          $T_1=1000^\circ$
+          C.
+         </li>
+         <li class="fragment">
+          We'll start by calculating the heat transmitted
+        between the plates…
+         </li>
+        </ul>
+       </div>
+      </div>
+     </section>
+     <section>
+      <div style="display:flex;align-items:center;">
+       <div style="flex: 1 1 calc(100% * 0.41);">
+        <figure>
+         <div class="center">
+          <object data="img/pot2.svg" type="image/svg+xml" width="None%">
+          </object>
+         </div>
+        </figure>
+       </div>
+       <div style="flex: 1 1 calc(100% * 0.61);">
+        <ul>
+         <li>
+          We need to calculate the viewing factor $F_{1\to 2}$
+          .
+         </li>
+         <li class="fragment">
+          The formula given in the table for parallel coaxial
+        disks is
+          \begin{align*}
+          F_{1\to 2}=0.5 \left(S-\left(S^2-4(r_j/r_i)^2\right)^{0.5}\right)
+          \end{align*}
+          where
+          $S=1+\left(1+R_j^2\right)/R_i^2$
+          ,
+          <br/>
+          *
+          $R_i=r_i/L$
+          and
+          $R_j=r_j/L$
+          .
+         </li>
+         <li class="fragment">
+          We have $R_1=R_2=15/15$
+          , so
+          \begin{align*}
+          S&amp;=1+\left(1+R_j^2\right)/R_i^2\\
+          &amp;= 1+(1+1)/1 = 3
+          \end{align*}
+         </li>
+         <li class="fragment">
+          Thus
+          \begin{align*}
+          F_{1\to2}&amp;=0.5 \left(S-\left(S^2-4(r_j/r_i)^2\right)^{0.5}\right)\\
+          &amp;=0.5 \left(3-\left(3^2-4\right)^{0.5}\right)= 0.382
+          \end{align*}
+         </li>
+        </ul>
+       </div>
+      </div>
+     </section>
+     <section>
+      <div style="display:flex;align-items:center;">
+       <div style="flex: 1 1 calc(100% * 0.381);">
+        <figure>
+         <div class="center">
+          <object data="img/pot2.svg" type="image/svg+xml" width="None%">
+          </object>
+         </div>
+        </figure>
+       </div>
+       <div style="flex: 1 1 calc(100% * 0.621);">
+        <ul>
+         <li>
+          The heat transmitted between the hot plate and the
+        pot bottom is given by
+          \begin{align*}
+          Q_{1\to2} &amp;= Q_{2\to1} = F_{1\to2} A_1 \sigma \left(T_1^4-T_2^4\right)\\
+          &amp;= 0.382 \pi 0.15^2 5.67\times10^{-8}\left(1273^4-373^4\right)\\
+          &amp;= 3990 \text{W}
+          \end{align*}
+         </li>
+         <li class="fragment">
+          A kitchen kettle produces around 1-3 kW, so this is a
+        slightly high amount to transmit, but not unreasonable.
+         </li>
+         <li class="fragment">
+          But what is the total amount of heat emitted by the
+        bottom plate, including the amount
+          <b>
+           lost to the
+          surroundings
+          </b>
+          ?
+         </li>
+        </ul>
+       </div>
+      </div>
+     </section>
+     <section>
+      <div style="display:flex;align-items:center;">
+       <div style="flex: 1 1 calc(100% * 0.41);">
+        <figure>
+         <div class="center">
+          <object data="img/pot2.svg" type="image/svg+xml" width="None%">
+          </object>
+         </div>
+        </figure>
+       </div>
+       <div style="flex: 1 1 calc(100% * 0.61);">
+        <ul>
+         <li>
+          What is the value of the viewing factor to the
+        surroundings ($F_{1\to S}$
+          )?
+         </li>
+         <li class="fragment">
+          Any heat that does not reach the opposite disk, must
+        go to the surroundings, so from the summation rule we have
+          \begin{align*}
+          F_{1\to S} = 1 - F_{1\to 2}= 0.618
+          \end{align*}
+         </li>
+         <li class="fragment">
+          Assuming the temperature of the surroundings is
+        $T_s=17^\circ$
+          C, the heat lost to the surroundings from plate
+        1 is
+          \begin{align*}
+          Q_{1\to S} &amp;= F_{1\to S} A_1 \sigma \left(T_1^4-T_S^4\right)\\
+          &amp;= 0.618 \pi 0.15^2 5.67\times10^{-8}\left(1273^4-300^4\right)\\
+          &amp;= 6484 \text{W}
+          \end{align*}
+         </li>
+         <li class="fragment">
+          The bottom plate is producing around 10.5 kW of heat
+        but only 4 kW actually reaches the opposite plate!
+         </li>
+        </ul>
+       </div>
+      </div>
+     </section>
+     <section>
+      <div style="display:flex;align-items:center;">
+       <div style="flex: 1 1 calc(100% * 0.41);">
+        <figure>
+         <div class="center">
+          <object data="img/pot2.svg" type="image/svg+xml" width="None%">
+          </object>
+         </div>
+        </figure>
+       </div>
+       <div style="flex: 1 1 calc(100% * 0.61);">
+        <ul>
+         <li>
+          This is not an efficient distance at which to cook!
+         </li>
+         <li class="fragment">
+          This is made even worse by the pot radiating to the
+        surroundings as well, although this is not a significant amount of heat
+         </li>
+         <li class="fragment">
+          The radiation from the bottom of the pot is
+          \begin{align*}
+          Q_{2\to S} &amp;= F_{2\to S} A_2 \sigma \left(T_2^4-T_S^4\right)\\
+          &amp;= 0.618 \pi 0.15^2 5.67\times10^{-8}\left(373^4-300^4\right)\\
+          &amp;= 27 \text{W}
+          \end{align*}
+         </li>
+        </ul>
+       </div>
+      </div>
+     </section>
+    </section>
+    <section>
+     <section data-menu-title="Thermal Radiation Shields">
+      <div style="display:flex;align-items:center;">
+       <div style="flex: 1 1 calc(100% * 0.41);">
+        <figure>
+         <div class="center">
+          <img src="img/platform.jpg" style="width:100%;"/>
+         </div>
+        </figure>
+        <figure>
+         <div class="center">
+          <img src="img/emergency_flare_rig.jpg" style="width:80%;"/>
+         </div>
+        </figure>
+       </div>
+       <div style="flex: 1 1 calc(100% * 0.61);">
+        <ul>
+         <li>
+          You can completely remove conductive and convective
+        heat transfer by using a
+          <b>
+           vacuum
+          </b>
+          (think about a thermos).
+         </li>
+         <li class="fragment">
+          But how do you insulate against thermal radiation?
+         </li>
+         <li class="fragment">
+          Consider an oil rig flare, we might need to protect
+        vessels from high surface temperatures during emergency
+        flaring.
+         </li>
+         <li class="fragment">
+          Plating everything with gold could be expensive and
+        will not work at high temperatures.
+         </li>
+         <li class="fragment">
+          The answer is to use radiation shields…
+         </li>
+        </ul>
+       </div>
+      </div>
+     </section>
+     <section>
+      <div style="display:flex;align-items:center;">
+       <div style="flex: 1 1 calc(100% * 0.41);">
+        <figure>
+         <div class="center">
+          <object data="img/radiation_shield1.svg" type="image/svg+xml" width="None%">
+          </object>
+         </div>
+        </figure>
+       </div>
+       <div style="flex: 1 1 calc(100% * 0.61);">
+        <ul>
+         <li>
+          Consider two parallel plates and assume for simplicity
+        that they have equal emissivity
+        $\varepsilon_1=\varepsilon_2=\varepsilon$
+          and area
+          $A_1=A_2=A$
+          .
+         </li>
+         <li class="fragment">
+          The thermal radiation heat flux is given by
+          \begin{align*}
+          Q = \sigma A \varepsilon  \left(T_1^4 - T_2^4\right)
+          \end{align*}
+         </li>
+        </ul>
+       </div>
+      </div>
+     </section>
+     <section>
+      <div style="display:flex;align-items:center;">
+       <div style="flex: 1 1 calc(100% * 0.41);">
+        <figure>
+         <div class="center">
+          <object data="img/radiation_shield2.svg" type="image/svg+xml" width="None%">
+          </object>
+         </div>
+        </figure>
+       </div>
+       <div style="flex: 1 1 calc(100% * 0.61);">
+        <ul>
+         <li>
+          We could try adding an additional radiation shield
+        between the heat source and object to screen some radiation.
+         </li>
+         <li class="fragment">
+          This shield will still heat up and re-emit the
+        radiation, but at a lower overall flux $Q$
+          .
+         </li>
+         <li class="fragment">
+          The thermal radiation heat flux is then
+          \begin{align*}
+          Q&amp;= Q_{1\to3}=\sigma A \varepsilon  \left(T_1^4 - T_3^4\right)\\
+          &amp;= Q_{3\to2}=\sigma A \varepsilon  \left(T_3^4 - T_2^4\right)
+          \end{align*}
+         </li>
+         <li class="fragment">
+          With a bit of rearrangement we obtain
+          \begin{align*}
+          T_3^4 = \frac{1}{2}\left(T_1^4+T_2^4\right)
+          \end{align*}
+         </li>
+         <li class="fragment">
+          If we insert this back into either of the above
+        expressions for the heat flux we obtain
+          \begin{align*}
+          Q&amp;= \frac{1}{2} \sigma A \varepsilon  \left(T_1^4 - T_2^4\right)
+          \end{align*}
+         </li>
+        </ul>
+       </div>
+      </div>
+     </section>
+     <section>
+      <ul>
+       <li>
+        Adding a heat shield reduced our heat transfer by
+    radiation by a factor of $1/2$
+        .
+       </li>
+       <li class="fragment">
+        Extending to $N$
+        heat shields one after another, we find
+    the radiative heat flux is reduced by a factor
+        \begin{align*}
+        \frac{Q_{shielded}}{Q_{unshielded}} = \frac{1}{1+N}
+        \end{align*}
+       </li>
+       <li class="fragment">
+        NASA is using this property well.
+       </li>
+      </ul>
+     </section>
+     <section>
+      <figure>
+       <div class="center">
+        <img src="img/james_webb.jpg" style="width:80%;"/>
+       </div>
+       <figcaption>
+        The James-Webb telescope has a lightweight thermal
+      radiation shield with 5 layers to hide the telescope from solar
+      and planetary radiation (1/6th of the radiation of one
+      shield)).
+       </figcaption>
+      </figure>
+     </section>
+    </section>
+    <section>
+     <section data-menu-title="Learning Objectives">
+      <ul>
+       <li>
+        We have learnt about the
+        <b>
+         view factor
+        </b>
+        ,
+        $F_{12}$
+        , in
+    thermal radiation and its use in determining the heat transmitted
+    between objects.
+       </li>
+       <li class="fragment">
+        We have discovered the
+        <b>
+         reciprocity relationship
+        </b>
+        for
+    the view factor between two objects
+        \begin{align*}
+        F_{1\to2} A_{1} &amp;= F_{2\to1} A_2
+        \end{align*}
+       </li>
+       <li class="fragment">
+        We have found that
+        <b>
+         heat shields
+        </b>
+        are effective
+    devices for screening thermal radiation, and the reduction in heat
+    flux is given by
+        \begin{align*}
+        \frac{Q_{shielded}}{Q_{unshielded}} = \frac{1}{1+N}
+        \end{align*}
+       </li>
+      </ul>
+     </section>
+    </section>
+   </div>
+   <div class="slide-menu-button" style="left:170px;cursor:pointer;">
+    <a class="hide-on-pdf" id="PrintButton" onclick="document.location = '?print-pdf';">
+     <i class="fa fa-print">
+     </i>
+    </a>
+   </div>
+   <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({ TeX: { extensions: ["cancel.js"] }});
+   </script>
+   <script src="footer.js">
+   </script>
+  </div>
+ </body>
+</html>
