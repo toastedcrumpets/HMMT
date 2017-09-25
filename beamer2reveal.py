@@ -42,6 +42,9 @@ class Tex2Reveal(object):
                                         #simple comma
         
         #Fix my use of \bf and \em, switches go hard on texsoup
+        code = code.replace("{\\em", "\\textit{")
+        code = code.replace("{\\bf", "\\textbf{")
+        code = code.replace("{\\sl", "\\textit{")
         code = code.replace("{\\scriptsize", "\\scriptsize{")
         
         #Also the use of \bm which is not supported by mathjax
@@ -320,21 +323,14 @@ class Tex2Reveal(object):
         self.pop('a')
         return True
     
-    def _handle_bf(self, node, starred=False, fragment=False):
-        self.push('b')
-
-    def _handle_sl(self, node, starred=False, fragment=False):
-        self.push('i')
-
-    _handle_em = _handle_sl
-        
     def _handle_textcolor(self, node, starred=False, fragment=False):    
-        span = self.push('span')
         args = list(node.args)
         if len(args) != 2:
             print("Failed to apply \\textcolor with incorrect number of args")
             print(repr(args))
             print(list(node.children))
+            return True
+        span = self.push('span')
         span['style'] = "color:"+str(args[0])
         self._walk(args[1])
         self.pop('span')
