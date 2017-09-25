@@ -19,7 +19,7 @@ class Tex2Reveal(object):
         code = re.sub('(?<!\\\\)%.*$', '', code, flags=re.M)
 
         #Add $ to the math environments
-        for env in ['align', 'equation']:
+        for env in ['align', 'equation', 'multline']:
             code = code.replace(r'\begin{'+env+'}', r'\begin{'+env+'}$')
             code = code.replace(r'\end{'+env+'}', r'$\end{'+env+'}')
             code = code.replace(r'\begin{'+env+'*}', r'\begin{'+env+'*}$')
@@ -33,14 +33,15 @@ class Tex2Reveal(object):
         code = code.replace("''", u"\u201D")
         code = code.replace("\\ldots", u"\u2026")
         code = code.replace("\\pounds", "£")
+        code = code.replace("\\copyright", u"\u00A9")
+        code = code.replace("\\'a", '&‌aacute;')
+        code = code.replace("\\centering", '')
         #Replace \% provided its not \\%
         code = re.sub("(?<=[^\\\\])\\\\%", "%", code, flags=re.M)
         code = code.replace("\\,", u"\u202F")#Replace the half space with a
                                         #simple comma
         
         #Fix my use of \bf and \em, switches go hard on texsoup
-        code = code.replace("{\\bf", "\\textbf{")
-        code = code.replace("{\\em", "\\textit{")
         code = code.replace("{\\scriptsize", "\\scriptsize{")
         
         #Also the use of \bm which is not supported by mathjax
@@ -55,7 +56,11 @@ class Tex2Reveal(object):
         #Collapse whitespace
         code = re.sub(r'\n\s*\n', '\n\n', code, flags=re.M)
         self.soup = TexSoup(code)
-        
+
+        if str(list(list(self.soup.find_all('documentclass'))[0].args)[-1]) != "{beamer}":
+            print("Unexpected document class ", list(list(self.soup.find_all('documentclass'))[0].args)[-1], "aborting!")
+            exit()
+            
         #Parse any standalone commands
         nodes = ('title', 'subtitle', 'author', 'institute', 'date', 'logo')
         for node in nodes:
@@ -204,13 +209,14 @@ class Tex2Reveal(object):
                 self.current_tag.append(line)
         
     def _handle_equation(self, node, starred=False, fragment=False):
-        self.current_tag.append('\\begin{align'+('*' if starred else '')+'}\n')
+        self.current_tag.append('\\begin{'+node.name+'}\n')
         #We need to trim the $ added to make sure TexSoup leaves commands in there alone
         self.current_tag.append(''.join(str(x) for x in node.contents)[1:-1])
-        self.current_tag.append('\\end{align'+('*' if starred else '')+'}\n')
+        self.current_tag.append('\\end{'+node.name+'}\n')
         return True
     
     _handle_align = _handle_equation
+    _handle_multline = _handle_equation
 
     def _handle_frametitle(self, node, starred=False, fragment=False):
         tag = self.soup.new_tag("h3")
@@ -232,6 +238,7 @@ class Tex2Reveal(object):
             
         for item in node.contents:
             self._walk(item)
+        
         #Can't pop here, due to the open ended nature of \list
         #commands. Just manually reset.
         self.current_tag = container.parent
@@ -267,6 +274,7 @@ class Tex2Reveal(object):
             'uncover':['div',{}],
             'center':['div',{"class":'center'}],
             'figure':['figure', {}],
+            'table':['figure', {}],
             'caption':['figcaption', {}],
             'block':['div',{"class":'mathblock'}],
         }[name]
@@ -290,6 +298,7 @@ class Tex2Reveal(object):
     _handle_only = _handle_wrapper
     _handle_uncover = _handle_wrapper
     _handle_figure = _handle_wrapper
+    _handle_table = _handle_wrapper
     _handle_caption = _handle_wrapper
     _handle_center = _handle_wrapper
     _handle_block = _handle_wrapper
@@ -302,10 +311,31 @@ class Tex2Reveal(object):
         self.pop('a')
         return True
 
-    def _handle_textcolor(self, node, starred=False, fragment=False):
+    def _handle_url(self, node, starred=False, fragment=False):
+        a = self.push('a')
+        args = list(node.args)
+        url = str(args[0])
+        a['src'] = url
+        a.append(url)
+        self.pop('a')
+        return True
+    
+    def _handle_bf(self, node, starred=False, fragment=False):
+        self.push('b')
+
+    def _handle_sl(self, node, starred=False, fragment=False):
+        self.push('i')
+
+    _handle_em = _handle_sl
+        
+    def _handle_textcolor(self, node, starred=False, fragment=False):    
         span = self.push('span')
         args = list(node.args)
-        span['style'] = "color:"+args[0]
+        if len(args) != 2:
+            print("Failed to apply \\textcolor with incorrect number of args")
+            print(repr(args))
+            print(list(node.children))
+        span['style'] = "color:"+str(args[0])
         self._walk(args[1])
         self.pop('span')
         return True
@@ -374,41 +404,69 @@ class Tex2Reveal(object):
         self.current_tag.append(self.soup.new_tag('br'))
         return False
 
-    def _handle_footnote(self, node, starred=False, fragment=False):
-        #Add the annotation in place
-        span = self.push("span")
-        span['class'] = "footnote"
-        span.string = str(self.footnote_counter)
-        self.pop("span")
-
+    def _get_footnote_container(self):
         #Check for (and add if needed) the footnote container div
         container = list(self.current_slide.find_all('div', class_='footnote-container'))
         if container:
-            container = container[0]
+            return container[0]
         else:
             container = self.soup.new_tag('div')
             container['class'] = 'footnote-container'
             self.current_slide.append(container)
+            return container
 
+    def _footnotemark(self, counter):
+        span = self.soup.new_tag("sup")
+        span['class'] = "footnotemark"
+        span.string = str(counter)
+        return span
+        
+    def _footnotetext(self, counter):
+        container = self._get_footnote_container()
         #Add a div to the outer slide page for the actual footnote
         footnote = self.soup.new_tag('div')
-        footnote['class'] = 'footnote'
+        footnote.append(self._footnotemark(counter))
         container.append(footnote)
-        span = self.soup.new_tag('span')
-        span['class'] = "footnote"
-        span.string = str(self.footnote_counter)
-        footnote.append(span)
+        return footnote
+        
+        
+    def _handle_footnote(self, node, starred=False, fragment=False):
+        #Add the mark
+        self.current_tag.append(self._footnotemark(self.footnote_counter))
+        #Create a container
+        footnote = self._footnotetext(self.footnote_counter)
 
+        self.footnote_counter += 1
+
+        #Preserve the current position
         old_loc = self.current_tag
         self.current_tag = footnote
         for item in node.args:
-            self._walk(item)        
+            self._walk(item)
         self.current_tag = old_loc
-        self.footnote_counter += 1
-        
-        self.current_tag.append(span)
         return False
 
+    def _handle_footnotetext(self, node, starred=False, fragment=False):
+        #Preserve the current position
+        old_loc = self.current_tag
+
+        footnote = self._footnotetext(self.footnote_counter)
+        self.current_tag = footnote
+
+        for item in node.args:
+            self._walk(item)
+
+        self.current_tag = old_loc
+        
+        
+    def _handle_footnotemark(self, node, starred=False, fragment=False):
+        args = list(node.args)
+        if len(args) > 0 and isinstance(args[0], OArg):
+            self.current_tag.append(self._footnotemark(str(args[0])))
+        else:
+            self.current_tag.append(self._footnotemark(self.footnote_counter))
+            self.footnote_counter += 1
+        
     def _handle_ignore(self, node, starred=False, fragment=False):
         return True
 
@@ -417,27 +475,22 @@ class Tex2Reveal(object):
     _handle_vspace = _handle_ignore
     _handle_hspace = _handle_ignore
     _handle_linewidth = _handle_ignore
+    _handle_textheight = _handle_ignore
     _handle_textwidth = _handle_ignore
     _handle_vphantom = _handle_ignore
+    _handle_setbeamercolor = _handle_ignore
+    _handle_includepdf = _handle_ignore
+    _handle_part = _handle_ignore
 
+    def _handle_animategraphics(self, node, starred=False, fragment=False):
+        print("Can't handle animations yet! Skipping", list(node.contents))
+        return True
+    
     def _handle_tableofcontents(self, node, starred=False, fragment=False):
         div = self.push('div')
         div['class'] = 'tableofcontents'
         self.pop('div')
         return True
-
-    def _handle_footnotemark(self, node, starred=False, fragment=False):
-        args = list(node.args)
-        if len(args) > 0 and isinstance(args[0], OArg):
-            tag = self.push('sup')
-            tag.append(str(args[0]))
-            self.pop('sup')
-        else:
-            tag = self.push('sup')
-            tag.append(str(self.footnote_counter))
-            self.pop('sup')
-            self.footnote_counter += 1
-
     
     def _handle_includegraphics(self, node, starred=False, fragment=False):
         filename = str(list(node.args)[-1])[1:-1].replace("figures/", '')
@@ -527,7 +580,6 @@ class Tex2Reveal(object):
     
     def _handle_unknown(self, node, starred=False, fragment=False):
         print("No handler for ", node.name + ('*' if starred else ''))
-        print("\t", repr(node.parent))
         print(repr(list(node.contents)))
         if self.current_slide != None:
             pass
