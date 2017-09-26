@@ -101,8 +101,6 @@
      <section data-menu-title="Placement of the Coordinate System">
       <figure>
        <div class="center">
-        <object data="img/film-flow-1.svg" type="image/svg+xml" width="50%">
-        </object>
         <object data="img/film-flow-2.svg" type="image/svg+xml" width="50%">
         </object>
        </div>
@@ -119,27 +117,13 @@
     symmetry.
        </li>
        <li class="fragment" data-fragment-index="2">
-        In this problem, rectangular ($x$
-        ,
-        $y$
-        ,
-        $z$
-        ) as opposed to
-    cylindrical (
-        $r$
-        ,
-        $\theta$
-        ,
-        $z$
-        ) or spherical (
-        $r$
-        ,
-        $\theta$
-        ,
-        $\phi$
-        ) coordinates are a natural choice as the domain or space of
-    the problem is rectangular (and we've only got rectangular
-    equations so far).
+        In this problem, rectangular ($x$,
+        $y$,
+        $z$) as opposed to
+	cylindrical ($r$, $\theta$, $z$) or spherical ($r$, $\theta$, $\phi$)
+        coordinates are a natural choice as the domain or space of
+	the problem is rectangular (and we've only got rectangular
+	equations so far).
        </li>
       </ul>
      </section>
@@ -172,18 +156,14 @@
        </li>
        <li class="fragment" data-fragment-index="3">
         This was done as the problem is symmetric in $z$
-        (it's a
-    2D problem) and the flow may be symmetric in
-        $x$
-        …
+        (it's a 2D problem) and the flow may be symmetric in
+        $x$…
        </li>
       </ul>
      </section>
      <section data-menu-title="Variables">
       <figure>
        <div class="center">
-        <object data="img/film-flow-4.svg" type="image/svg+xml" width="70%">
-        </object>
         <object data="img/film-flow-5.svg" type="image/svg+xml" width="70%">
         </object>
        </div>
@@ -205,11 +185,8 @@
         .
        </li>
        <li class="fragment" data-fragment-index="2">
-        We only need to add the thickness of the film $Y$
-        and
-    inclination of the plane
-        $\theta_{plane}$
-        .
+        We only need to add the thickness of the film $Y$ and
+        inclination of the plane $\theta_{plane}$.
        </li>
       </ul>
      </section>
@@ -226,11 +203,10 @@
     of these variables.
        </li>
        <li class="fragment" data-fragment-index="1">
-        There are many mathematical categories of boundary
-    conditions, but the two simplest are:
-        <ul>
-         <div class="fragment " data-fragment-index="2">
-          <li class="fragment" data-fragment-index="3">
+         There are many mathematical categories of boundary
+	 conditions, but the two simplest are:
+         <ul>
+          <li class="fragment" data-fragment-index="2">
            <b>
             Dirichlet
            </b>
@@ -247,29 +223,26 @@
            This type is useful when dealing with constrained systems where
         some value is held fixed.
           </li>
-         </div>
-         <div class="fragment " data-fragment-index="4">
-          <li>
-           <b>
-            Neumann
-           </b>
-           or
-           <b>
-            second-type
-           </b>
-           BC: This is a
-        statement of the first derivative at some boundary. E.g.:
-           \begin{align*}
-           f'(x_1) = C_1 &amp;&amp; f'(x_2) = C_2
-           \end{align*}
-           This is useful when dealing with boundaries with an unknown
-        value but there is some symmetry or other feature of the
-        system which can be exploited.
+          <li class="fragment " data-fragment-index="3">
+            <b>
+              Neumann
+            </b>
+            or
+            <b>
+              second-type
+            </b>
+            BC: This is a
+            statement of the first derivative at some boundary. E.g.:
+            \begin{align*}
+            f'(x_1) = C_1 &amp;&amp; f'(x_2) = C_2
+            \end{align*}
+            This is useful when dealing with boundaries with an unknown
+            value but there is some symmetry or other feature of the
+            system which can be exploited.
           </li>
-         </div>
-        </ul>
+	 </ul>
        </li>
-      </ul>
+      </ul>      
      </section>
      <section>
       <figure>
@@ -566,6 +539,7 @@
       - \nabla_j\tau_{ji} - \nabla_i p + \rho g_i
         \end{align*}
         <div class="mathblock">
+	  <h3>Math Notes</h3>
          The dot/scalar product of a matrix and a vector is defined as:
          \begin{align*}
          \boldsymbol{a}\cdot\boldsymbol{B} &amp;= a_i b_{ij} &amp; \boldsymbol{B}\cdot\boldsymbol{a} = b_{ji}a_i
