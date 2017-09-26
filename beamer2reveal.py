@@ -287,6 +287,12 @@ class Tex2Reveal(object):
         }[name]
         container = self.push(tagtype[0])
 
+        args = list(node.args)
+        if len(args) > 1 and isinstance(node.args[0], RArg):
+            self.push('h3')
+            self._walk(node.args[0])
+            self.pop('h3')
+            
         container['class'] = ""
         if fragment:
             container['class'] = "fragment "
