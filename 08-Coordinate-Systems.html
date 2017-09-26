@@ -34,11 +34,11 @@
         <ul>
          <div class="fragment " data-fragment-index="1">
           <li>
-           Pressure driven flow between two plates with/without a
-        moving top plate.
+            (Lecture) Gravity driven flow of a film over a
+            plate.
            <figure>
             <div class="center">
-             <object data="img/flow_in_a_channel.svg" type="image/svg+xml" width="95%">
+             <object data="img/film-flow-1.svg" type="image/svg+xml" width="None%">
              </object>
             </div>
            </figure>
@@ -46,11 +46,11 @@
          </div>
          <div class="fragment " data-fragment-index="2">
           <li>
-           Gravity driven flow of a film over a
-        plate.
+            (Tutorial) Pressure driven flow between two plates
+            with/without a moving top plate.
            <figure>
             <div class="center">
-             <object data="img/film-flow-1.svg" type="image/svg+xml" width="None%">
+             <object data="img/flow_in_a_channel.svg" type="image/svg+xml" width="95%">
              </object>
             </div>
            </figure>
@@ -93,11 +93,10 @@
        </li>
        <li class="fragment" data-fragment-index="1">
         But what about non-planar symmetry? For example, take
-    fluid flow in a pipe:
+	fluid flow in a pipe:
         <figure>
-         <div class="center">
-          <object data="img/pipe_flow.svg" type="image/svg+xml" width="80%">
-          </object>
+          <div class="center">
+          <object data="img/pipe_flow_pipe.svg" type="image/svg+xml" width="80%"></object>
          </div>
         </figure>
        </li>
@@ -248,26 +247,24 @@
     equations?
        </li>
        <li class="fragment" data-fragment-index="1">
-        To learn how to use them, we must derive the general
-    balance equation in cylindrical coordinate systems, and then
-    compare the results to see if we can find some pattern.
+         Rather than understand differential operations in curvelinear
+	coordinates properly, we just derive the general balance
+	equation in cylindrical coordinate systems and then compare
+	the results to see if we can find some pattern.
        </li>
        <li class="fragment" data-fragment-index="2">
-        It actually turns out that we can use our existing balance
-    equations, but we first must prove this!
+         It actually turns out that we can use our existing balance
+	 equations with look-up tables, but we first must prove this!
        </li>
        <li class="fragment" data-fragment-index="3">
-        Just as before, we will look at creating a general balance
-    of a property $B$
-        over a cylindrical
-        <b>
-         control volume
-        </b>
-        .
+         Just as before, we will look at creating a general balance
+	 of a property $B$
+         over a cylindrical
+         <b>control volume</b>.
        </li>
        <li class="fragment" data-fragment-index="4">
-        Lets start by defining the cylindrical coordinate system
-    properly…
+         Lets start by defining the cylindrical coordinate system
+	 properly…
        </li>
       </ul>
      </section>
@@ -278,6 +275,31 @@
          <div class="center">
           <object data="img/cylindrical_coords-partial.svg" type="image/svg+xml" width="100%">
           </object>
+         </div>
+        </figure>
+       </div>
+       <div style="flex: 1 1 calc(100% * 0.61);">
+        <ul>
+         <li>
+          In rectangular coordinates we can specify a point using
+          ($x$,
+          $y$,
+          $z$) coordinates (this axis is highlighted on the diagram).
+         </li>
+         <li class="fragment" data-fragment-index="1">
+          Note that the directions $\hat{\boldsymbol{x}}$,
+          $\hat{\boldsymbol{y}}$, and
+          $\hat{\boldsymbol{z}}$ are always the same.
+         </li>
+	</ul>
+       </div>
+      </div>
+     </section>
+     <section>
+      <div style="display:flex;align-items:center;">
+       <div style="flex: 1 1 calc(100% * 0.41);">
+        <figure>
+         <div class="center">
           <object data="img/cylindrical_coords_only.svg" type="image/svg+xml" width="100%">
           </object>
          </div>
@@ -285,89 +307,36 @@
        </div>
        <div style="flex: 1 1 calc(100% * 0.61);">
         <ul>
+         <li>
+          In cylindrical coordinates, we use a radius $r$, angle
+          $\theta$ and axial offset $z$.
+         </li>
          <li class="fragment" data-fragment-index="1">
-          In rectangular coordinates we can specify a point using
-        ($x$
-          ,
-          $y$
-          ,
-          $z$
-          ) coordinates (this axis is highlighted on the diagram).
+          Please note that the directions $\hat{\boldsymbol{r}}$ and
+          $\hat{\boldsymbol{\theta}}$ change with position, but
+          $\hat{\boldsymbol{z}}$ is still easy.
          </li>
          <li class="fragment" data-fragment-index="2">
-          Note that the directions $\hat{\boldsymbol{x}}$
-          ,
-          $\hat{\boldsymbol{y}}$
-          , and
-          $\hat{\boldsymbol{z}}$
-          are always the same.
-         </li>
-         <li class="fragment" data-fragment-index="3">
-          In cylindrical coordinates, we use a radius $r$
-          ,
-        angle
-          $\theta$
-          and axial offset
-          $z$
-          .
-         </li>
-         <li class="fragment" data-fragment-index="4">
-          Please note that the directions
-        $\hat{\boldsymbol{r}}$
-          and
-          $\hat{\boldsymbol{\theta}}$
-          change with position,
-        but
-          $\hat{\boldsymbol{z}}$
-          is still easy.
-         </li>
-         <li class="fragment" data-fragment-index="5">
-          Therefore, to generate a balance equation we
-        will need to consider the fluxes over a small volume from ($r$
-          ,
-          $\theta$
-          ,
-          $z$
-          ) to
-          <br/>
-          *(
-          $r+\delta r$
-          ,
-          $\theta+\delta\theta$
-          ,
-          $z+\delta
-        z$
-          ).
+          Therefore, to generate a balance equation we will need to
+          consider the fluxes over a small volume from ($r$ , $\theta$
+          , $z$ ) to ($r+\delta r$,&nbsp;$\theta+\delta\theta$,&nbsp;$z+\delta z$).
          </li>
         </ul>
        </div>
       </div>
-      <div class="fragment " data-fragment-index="6">
+      <div class="fragment " data-fragment-index="3">
        <div class="mathblock">
-        <b>
-         Note
-        </b>
-        We have already assumed that
-        $\Delta r\to
-      0$
-        ,
-        $\Delta \theta\to 0$
-        , and
-        $\Delta z\to 0$
-        , hence why we are
-      not using
-        $\Delta r$
-        but
-        $\delta r$
-        instead. This is the
-      “correct” way to do these derivations.
+        <h3>Note</h3> We have already assumed that $\Delta r\to0$,
+        $\Delta\theta\to0$, and $\Delta z\to0$, hence why we are not
+        using $\Delta r$ but $\delta r$ instead. This is to allow us
+        to cancel terms which are second order in any one direction.
        </div>
       </div>
      </section>
      <section data-menu-title="Cylindrical Control Volume">
       <figure>
        <div class="center">
-        <object data="img/cylindrical_control_vol.svg" type="image/svg+xml" width="None%">
+        <object data="img/cylindrical_control_vol.svg" type="image/svg+xml" width="50%">
         </object>
        </div>
       </figure>
@@ -461,7 +430,7 @@
      <section>
       <figure>
        <div class="center">
-        <object data="img/cylindrical_control_faces3.svg" type="image/svg+xml" width="None%">
+        <object data="img/cylindrical_control_faces3.svg" type="image/svg+xml" width="100%">
         </object>
        </div>
       </figure>
@@ -538,7 +507,7 @@
      </section>
      <section>
       <div style="display:flex;align-items:center;">
-       <div style="flex: 1 1 calc(100% * 0.31);">
+       <div style="flex: 1 1 calc(100% * 0.25);">
         <figure>
          <div class="center">
           <object data="img/cylindrical_fluxes.svg" type="image/svg+xml" width="100%">
@@ -546,7 +515,7 @@
          </div>
         </figure>
        </div>
-       <div style="flex: 1 1 calc(100% * 0.71);">
+       <div style="flex: 1 1 calc(100% * 0.75);">
         <ul>
          <li>
           Before we can perform our balances, we must note that we
@@ -576,9 +545,8 @@
         \end{align*}
        </li>
        <li class="fragment" data-fragment-index="1">
-        As we take the limit $\Delta x\to 0$
-        ,
-    we find that
+        As we take the limit $\Delta x\to 0$,
+	we find that eventually only the linear terms survive
         \begin{align*}
         J_{B,x}(x+\delta x) &amp;= J_{B,x}(x) + \delta x \frac{\partial J_{B,x}(x)}{\partial
         x}
@@ -600,7 +568,7 @@
      </section>
      <section>
       <div style="display:flex;align-items:center;">
-       <div style="flex: 1 1 calc(100% * 0.31);">
+       <div style="flex: 1 1 calc(100% * 0.25);">
         <figure>
          <div class="center">
           <object data="img/cylindrical_fluxes_theta.svg" type="image/svg+xml" width="100%">
@@ -608,7 +576,7 @@
          </div>
         </figure>
        </div>
-       <div style="flex: 1 1 calc(100% * 0.71);">
+       <div style="flex: 1 1 calc(100% * 0.75);">
         <ul>
          <li>
           Lets start with $J_{B,\theta}$
@@ -639,7 +607,7 @@
      </section>
      <section>
       <div style="display:flex;align-items:center;">
-       <div style="flex: 1 1 calc(100% * 0.31);">
+       <div style="flex: 1 1 calc(100% * 0.25);">
         <figure>
          <div class="center">
           <object data="img/cylindrical_fluxes_z.svg" type="image/svg+xml" width="100%">
@@ -647,7 +615,7 @@
          </div>
         </figure>
        </div>
-       <div style="flex: 1 1 calc(100% * 0.71);">
+       <div style="flex: 1 1 calc(100% * 0.75);">
         <ul>
          <li>
           Next is the $z$
@@ -793,12 +761,16 @@
       <ul>
        <li>
         If we look at the flux in cylindrical coordinates, we can
-    be consider it to be a vector of the form
+	be consider it to be a vector of the form
         \begin{align*}
         \boldsymbol{J}_B=\begin{bmatrix}
         J_{B,r},&amp; J_{B,\theta},&amp; J_{B,z}
-      \end{bmatrix}
+	\end{bmatrix}
         \end{align*}
+
+	(Note that these are the fluxes in the $\hat{\boldsymbol{r}}$,
+	$\hat{\boldsymbol{\theta}}$, and $\hat{\boldsymbol{z}}$
+	directions, see the initial lecture on vectors).
        </li>
        <li class="fragment" data-fragment-index="1">
         If we then say the equation above
@@ -813,14 +785,9 @@
        </li>
        <li class="fragment" data-fragment-index="2">
         We end up with a definition of the gradient/del operator
-    dotted with a vector in cylindrical coordinates (
-        <b>
-         Note:
-        </b>
-        we
-    cannot define a general
-        $\nabla$
-        vector from this comparison):
+	dotted with a vector in cylindrical coordinates (<b>Note:</b> we
+	cannot define a general $\nabla$
+        <b>&ldquo;vector&rdquo;</b> from this comparison, only what the action of $\nabla\cdot \boldsymbol{v}$ is):
         \begin{align*}
         \nabla\cdot \boldsymbol{v} = 
         \frac{1}{r} \frac{\partial }{\partial r} r v_r + 
@@ -838,10 +805,7 @@
        <li>
         This is a fundamental goal of vector notation, it is to
     become
-        <b>
-         independent of the coordinate system
-        </b>
-        !
+        <b>independent of the coordinate system</b>!
        </li>
        <li class="fragment" data-fragment-index="1">
         This means we do not have to re-derive the continuity
@@ -855,11 +819,7 @@
        </li>
        <li class="fragment" data-fragment-index="2">
         And use the cylindrical definition of each of these
-    scalar/vector/tensor operations
-        <sup class="footnotemark">
-         1
-        </sup>
-        :
+    scalar/vector/tensor operations<sup class="footnotemark">1</sup>:
         \begin{align*}
         \boldsymbol{v} &amp;=
         \begin{bmatrix}
@@ -958,27 +918,24 @@
         \\
         … &amp;=…
         \end{align*}
-        <div class="mathblock">
-         For more information on vector mechanics, coordinates take a
-      look at Appendix A in BSL
-         <sup class="footnotemark">
-          [1]
-         </sup>
-         1
-         , the primary textbook
-      for this course.
-         <sup class="footnotemark">
-          [1]
-         </sup>
-         1
-         Bird, R.
-        </div>
+       </li>
+       <li class="fragment" data-fragment-index="1">
+	 All of this information (and more) is provided in the exam
+	 and tutorial datasheet.
        </li>
       </ul>
+      <div class="mathblock fragment" data-fragment-index="1">
+	<h3>Course notes</h3> For more information on vector calculus,
+        in particular how to rigorously derive the results of applying
+        the del operator to expressions by consideration of the basis
+        unit vectors, take a look at Appendix A in BSL, the primary
+        textbook for this course.
+      </div>
      </section>
     </section>
     <section>
-     <section data-menu-title="Learning Objectives">
+      <section data-menu-title="Learning Objectives">
+	<h3>Learning objectives</h3>
       <ul>
        <li>
         The

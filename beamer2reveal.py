@@ -548,7 +548,7 @@ class Tex2Reveal(object):
             tag = self.soup.new_tag('object')
             tag['type'] = "image/svg+xml"
             tag['data'] = 'img/'+filename+'.svg'
-            if width != None:
+            if linewidth != None:
                 tag['width'] = str(linewidth)+"%"
 
             self.current_tag.append(tag)
