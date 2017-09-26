@@ -295,7 +295,10 @@ class Tex2Reveal(object):
 
         if "class" in tagtype[1]:
             container['class'] =  container['class'] + tagtype[1]["class"]
-        
+
+        if container['class'] == "":
+            del container['class']
+            
         for item in node.contents:
             self._walk(item)
             

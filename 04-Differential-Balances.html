@@ -42,7 +42,7 @@
      </section>
      <section data-menu-title="The Equation">
       The fundamental equation of chemical engineering is arguably the
-      <b class="">
+      <b>
        balance equation
       </b>
       :
@@ -88,7 +88,7 @@
        </li>
        <li class="fragment" data-fragment-index="2">
         It is also particularly useful when looking at a single
-        <i class="">
+        <i>
          unit operation
         </i>
         as a black-box.
@@ -111,25 +111,13 @@
       <ul>
        <li class="fragment" data-fragment-index="1">
         This allows a rough estimate of the heat exchanger
-        <b class="">
-         duty
-        </b>
-        ,
-        $Q$
-        , to be calculated from the temperature change of the
-    fluid (assuming constant heat capacity
-        <sup class="footnotemark">
-         1
-        </sup>
-        ).
+        <b>duty</b>, $Q$, to be calculated from the temperature change
+        of the fluid (assuming constant heat capacity<sup class="footnotemark">1</sup>).
        </li>
        <li class="fragment" data-fragment-index="2">
         But what if we want to perform a detailed design and
     design inside the
-        <i class="">
-         unit operation
-        </i>
-        ? What about differences in
+        <i>unit operation</i>? What about differences in
     flow configuration?
        </li>
       </ul>
@@ -146,7 +134,7 @@
       </div>
      </section>
      <section>
-      <figure class="">
+      <figure>
        <div class="center">
         <object data="img/LMTD.svg" type="image/svg+xml" width="100%">
         </object>
@@ -183,51 +171,35 @@
       <ul>
        <li>
         We wish to describe the transport of some property, be it
-        <b class="">
-         mass
-        </b>
-        ,
-        <b class="">
-         momentum
-        </b>
+        <b>mass</b>,
+        <b>momentum</b>,
         and/or
-        <b class="">
-         energy
-        </b>
-        .
+        <b>energy</b>.
        </li>
        <li class="fragment" data-fragment-index="1">
         We want to
-        <b class="">
+        <b>
          model
         </b>
         these transport processes at the
     smallest resolution possible, so that we can calculate
-    temperatures, pressures, etc.
-        <i class="">
-         within a unit process
-        </i>
-        .
+	temperatures, pressures, etc.
+        <i>within a unit process</i>.
        </li>
        <li class="fragment" data-fragment-index="2">
         The solution is to create a
-        <b class="">
-         differential balance
-        </b>
-        !
+        <b>
+         differential balance</b>!
        </li>
        <li class="fragment" data-fragment-index="3">
         This is a balance of some property (mass, energy,
     momentum) over a
-        <b class="">
+        <b>
          vanishingly small volume
         </b>
         of the system,
     known as a
-        <b class="">
-         control volume
-        </b>
-        .
+        <b>control volume</b>.
        </li>
        <li class="fragment" data-fragment-index="4">
         Just as the balance equation works for larger volumes, it
@@ -236,11 +208,8 @@
        <li class="fragment" data-fragment-index="5">
         The resulting balance equations will describe the
     transport
-        <b class="">
-         at every point in the system
-        </b>
-        , not just the overall
-    transport.
+        <b>at every point in the system</b>, not just the overall
+	transport.
        </li>
       </ul>
      </section>
@@ -253,21 +222,12 @@
        <li class="fragment" data-fragment-index="1">
         For example, you have a bank account which earns interest
     at a
-        <b class="">
-         continuous
-        </b>
-        <sup class="footnotemark">
-         1
-        </sup>
+        <b>continuous</b><sup class="footnotemark">1</sup>
         and
-        <b class="">
+        <b>
          compounding rate
         </b>
-        $I$
-        , proportional to your current
-    balance
-        $B(t)$
-        .
+        $I$, proportional to your current balance $B(t)$.
        </li>
        <li class="fragment" data-fragment-index="2">
         Performing a balance over a small interval of time,
@@ -351,22 +311,17 @@
       <ul>
        <li>
         To create engineering balances, we'll need to use the
-    input and output (
-        <b class="">
-         fluxes
-        </b>
-        ) as well as the
+    input and output (<b>fluxes</b>) as well as the
     generation/accumulation terms.
        </li>
        <li class="fragment" data-fragment-index="1">
         To keep this general, we will look at an example of a
-    differential balance for an arbitrary property, $B$
-        , in one
+    differential balance for an arbitrary property, $B$, in one
     dimension.
        </li>
        <li class="fragment" data-fragment-index="2">
         $B$
-        may be the energy, mass or momentum in the system.
+        may be the energy, mass, or momentum in the system.
        </li>
        <li class="fragment" data-fragment-index="3">
         The one-dimensional system may be along the axis of a
@@ -375,39 +330,29 @@
        <li class="fragment" data-fragment-index="4">
         We can define $J_B(x)$
         to be the
-        <b class="">
-         flux
-        </b>
+        <b>flux</b>
         of
         $B$
         (the
-    flow rate of units of
+	flow rate of units of
         $B$
         per unit area) at some point,
-        $x$
-        , in
+        $x$, in
     the system.
        </li>
        <li class="fragment" data-fragment-index="5">
-        We also can define that at any point, $x$
-        , in the system,
-        $B$
-        is being generated at a rate of
-        $\sigma_B(x)$
-        units of
-        $B$
-        per
-    unit volume.
+        We also can define that at any point, $x$, in the system, $B$
+        is being generated at a rate of $\sigma_B(x)$ units of $B$ per
+        unit volume.
        </li>
        <li class="fragment" data-fragment-index="6">
-        Now we take a small volume of the system, around the point
-    $x$
-        and perform a balance…
+        Now we take a small volume of the system, around the point $x$
+	and perform a balance…
        </li>
       </ul>
      </section>
      <section>
-      <figure class="">
+      <figure>
        <div class="center">
         <object data="img/1D_balance.svg" type="image/svg+xml" width="60%">
         </object>
@@ -474,7 +419,7 @@
        <li class="fragment" data-fragment-index="1">
         Dividing both sides by $A \Delta x \Delta t$
         (
-        <b class="">
+        <b>
          the
     control volume and time
         </b>
@@ -528,12 +473,12 @@
      <section data-menu-title="Three-Dimensional Systems">
       We wish to extend our previous derivation to three dimensions.
   First, we must extend our differential volume to three dimensions:
-      <figure class="">
+      <figure>
        <div class="center">
         <object data="img/3D_balance.svg" type="image/svg+xml" width="60%">
         </object>
        </div>
-       <figcaption class="">
+       <figcaption>
         $J_{B,z}$
         fluxes omitted for clarity
        </figcaption>
@@ -612,12 +557,12 @@
       <div class="mathblock">
        $\nabla$
        (Greek:
-       <i class="">
+       <i>
         nabla
        </i>
        ) is known as the gradient or del
     operator, defined in
-       <b class="">
+       <b>
         rectangular coordinates
        </b>
        as
@@ -635,7 +580,7 @@
     </section>
     <section>
      <section data-menu-title="Learning Objectives">
-      You should know:
+       <p>You should know:</p>
       <ul>
        <li>
         The general balance equation:

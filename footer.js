@@ -19,7 +19,7 @@ head.load("../reveal.js/js/reveal.js", function() {
 	controls:false,
 	math: {
 	    mathjax: '../MathJax/MathJax.js', 
-	    config: 'TeX-AMS_HTML-full'
+	    config: 'TeX-AMS_SVG-full'
 	},
 	dependencies: [
 	    // Cross-browser shim that fully implements classList - https://github.com/eligrey/classList.js/

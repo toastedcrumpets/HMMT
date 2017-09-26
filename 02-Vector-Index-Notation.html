@@ -32,21 +32,22 @@
        <div style="flex: 1 1 calc(100% * 0.61);">
         <ul>
          <li>
-          All Engineering tasks start out as a fully
-        three-dimensional problem.
+          All Engineering tasks are three-dimensional problems.
          </li>
          <li class="fragment">
-          Often we try to simplify the problem by neglecting
-        some component of the system, or exploiting a symmetry.
+           Often we try to simplify the problem by neglecting some
+           component of the system, or exploiting a symmetry to reduce
+           its dimensionality.
          </li>
          <li class="fragment">
-          For example, for the flow of a fluid between two
-        plates (top-right), we ignore the direction into the plane.
+           For example, for the flow of a fluid between two plates
+           (top-right), we ignore the direction into the plane (the
+           problem is now 2D).
          </li>
          <li class="fragment">
-          And for problems with an axis of symmetry, such as
-        annular flow (bottom-right) we can ignore the rotational
-        component ($\theta$).
+           And for problems with an axis of symmetry, such as annular
+           flow (bottom-right) we can ignore the rotational component
+           ($\theta$).
          </li>
         </ul>
        </div>
@@ -68,30 +69,27 @@
        <div style="flex: 1 1 calc(100% * 0.61);">
         <ul>
          <li>
-          However, there are many problems which are fully
-        three-dimensional and need to be treated using a general
-        approach.
+          However, we must start from a 3D description, as some
+          problems are fully three-dimensional and need to be treated
+          using a general approach.
          </li>
          <li class="fragment">
-          We will learn this general approach by practising
-        applying it on these simple systems that do reduce to one or
-        two dimensions.
+           In this course, all systems reduce to one dimension, but
+           the basics of later 3D problems are being taught which can
+           be solved using CFD (see later courses).
          </li>
          <li class="fragment">
-          But if we want to apply these techniques, we need to
-        be fluent in the language/notation of three dimensional problems.
+           We need to be fluent in the language/notation of three
+           dimensional problems.
          </li>
          <li class="fragment">
           The natural mathematical language for describing three
-        dimensional problems is that of
+          dimensional problems is that of
           <b>
-           Matrices
+            Matrices
           </b>
           and
-          <b>
-           Vectors
-          </b>
-          .
+          <b>Vectors</b>.
          </li>
         </ul>
        </div>
@@ -162,8 +160,7 @@
           <b>
            origin
           </b>
-          for position or velocity
-        vectors to make sense.
+          for vectors to make sense, even for velocity.
          </li>
          <li class="fragment">
           <b>
@@ -223,12 +220,15 @@
          </li>
          <li class="fragment">
           For example, on a sphere like the earth, we might use
-        latitude, longitude, and altitude.
+          latitude, longitude, and altitude.
+
+	  \begin{align*}
+	  \boldsymbol{r}=\left[\text{lat},\,\text{lon},\,\text{alt}\right]
+	  \end{align*}
          </li>
          <li class="fragment">
-          We don't usually use lat/lon/alt in engineering
-        problems as they're a bit archaic, but we do use radians and
-        meters.
+           We don't usually use these as they're a bit archaic, but we
+           do use radians and meters.
          </li>
         </ul>
        </div>
@@ -329,10 +329,12 @@
         encoded.
          </li>
          <li class="fragment">
-          One last term to introduce, spherical and cylindrical
-        coordinates can be collectively grouped together as
+          Spherical and cylindrical coordinates are collectively
+          grouped together as
           <b>
-           curvelinear coordinate systems</b>.
+           curvelinear coordinate systems</b>, and defining operations
+           in these coordinate systems is problematic as they change
+           depending on the coordinate system.
          </li>
         </ul>
        </div>
@@ -354,27 +356,30 @@
        <div style="flex: 1 1 calc(100% * 0.61);">
         <ul>
          <li>
-          Please note that if we write
-          \begin{align}
-          \boldsymbol{r}=\left[r_r,  r_\theta, r_z\right]
-          \end{align}
-          that
-          $r_\theta\neq\theta$
-          ! It is instead the distance of the
-        vector
-          $\boldsymbol{r}$
-          projected along the unit vector
-          $\hat{\boldsymbol{\theta}}$
-          , illustrated in the diagram.
+           If we don't want them to
+           change<sup class="footnotemark">1</sup>, the position
+           vector may be defined as follows:
+
+	   \begin{align} \boldsymbol{r}=\left[r_r, 
+           r_\theta, r_z\right] \end{align}
+	 </li>
+	 <li>
+	   $r_\theta\neq\theta$, but instead is distance of the vector
+           $\boldsymbol{r}$ projected along the unit vector
+           $\hat{\boldsymbol{\theta}}$ illustrated in the diagram.
          </li>
          <li class="fragment">
-           This is an important distinction, which leads to difficulty
-           when discussing derivatives in curvelinear coordinates.
+           This is not convenient for us to work in, so we have to
+           make a choice, either use a consistent and convenient
+           definition of the operations (and an inconvenient
+           definition of the vector components), or changing
+           definitions of the operations and a consistent and
+           convenient vector components.
          </li>
          <li class="fragment">
-           We'll derive everything in rectangular coordinates and
-           demonstrate how to generalise to other coordinate systems
-           later.
+           In this course, we take the engineering approach and derive
+           everything in rectangular coordinates (which are easy) and
+           use look-up tables for other coordinate systems.
          </li>
         </ul>
        </div>
@@ -387,6 +392,16 @@
         </figure>
        </div>
       </div>
+      <div class="footnote-container">
+       <div>
+         <sup class="footnotemark">1</sup> To prove that basic
+	  operations change, consider the units of each term of
+	  $\boldsymbol{r}\cdot\boldsymbol{r}=r_r^2+r_\theta^2+r_z^2$
+	  which are inconsistent if ${r}_r=r$, ${r}_\theta=\theta$,
+	  and $r_z=z$, thus the usual definition of the dot product
+	  does not apply.
+       </div>
+      </div>
      </section>
      <section data-menu-title="Operations">
       <h3>
@@ -397,21 +412,12 @@
         <ul>
          <li>
           So far, we've covered what vectors are and their
-        representations.
+          representations.
          </li>
          <li class="fragment">
-          Now we need to define some operations or mathematics
-        for them.
-         </li>
-         <li class="fragment">
-          We will first define the magnitude operator,
-        $\left|\boldsymbol{x}\right|$
-          .
-         </li>
-         <li class="fragment">
-          Here we will see that the magnitude operator has
-        different definitions in different coordinate systems (like
-        many other operations)!
+           Now we need to define some operations or mathematics for
+           them (and discuss how they change in different
+           coordinates).
          </li>
         </ul>
        </div>
@@ -432,57 +438,47 @@
       <ul>
        <li>
         We write the magnitude (or length) of a vector,
-    $\boldsymbol{r}$
-        , as
-        $\left|\boldsymbol{r}\right|$
-        .
+	$\boldsymbol{r}$, as $\left|\boldsymbol{r}\right|$.
        </li>
        <li class="fragment">
-        How we actually calculate it depends on the coordinate
-    system used.
+         How we actually calculate it depends on the coordinate
+	 system used.
        </li>
        <li class="fragment">
         For example, in a
         <b>
-         rectangular coordinate system
-        </b>
-        ,
-    we use a 3D version of Pythagoras' theorem:
+         rectangular coordinate system</b>,
+	we use a 3D version of Pythagoras' theorem:
+	
         \begin{align*}
         \boldsymbol{r} &amp;= \left[x,y,z\right] &amp;
-      \left|\boldsymbol{r}\right| &amp;= \sqrt{x^2+y^2+z^2}
+	\left|\boldsymbol{r}\right| &amp;= \sqrt{x^2+y^2+z^2}
         \end{align*}
        </li>
        <li class="fragment">
         In a
-        <b>
-         cylindrical coordinate system
-        </b>
-        , we have the
-    following coordinates and length:
+        <b>cylindrical coordinate system</b> (using the simple
+	coordinate definition), we again apply Pythagoras' theorem:
+	
         \begin{align*}
         \boldsymbol{r} &amp;= \left[r, \theta, z\right] &amp; \left|\boldsymbol{r}\right| &amp;= \sqrt{r^2 + z^2}
         \end{align*}
        </li>
        <li class="fragment">
-        In a
-        <b>
-         spherical coordinate system
-        </b>
-        , we have:
+         In a <b>spherical coordinate system</b>, only one component
+         has units of length and we have:
+
         \begin{align*}
         \boldsymbol{r} &amp;= \left[r, \theta, \phi\right] &amp; \left|\boldsymbol{r}\right| &amp;= r
         \end{align*}
        </li>
        <li class="fragment">
-        The key thing to note is that many vector/matrix
-    operations change if you try to do them in different coordinate
-    systems!
+         It should be clear that many vector/matrix operations change
+	 if you try to carry them out in different coordinate systems!
        </li>
        <li class="fragment">
-        Typically, we learn how to do the operations in
-    rectangular coordinates, and then learn how to generalise from
-    there.
+         We will learn how to carry out operations in rectangular
+	 coordinates and rely on look-up tables after that.
        </li>
       </ul>
      </section>
@@ -534,8 +530,8 @@
       </h3>
       <ul>
        <li>
-        We'll only define the other operations in Cartesian
-	coordinates, as they are complex in other systems.
+         Again, noting that the following definitions only apply for
+	 Cartesian coordinates:
        </li>
        <li class="fragment">
         Vector addition/subtraction is straightforward:
@@ -753,6 +749,12 @@
       &amp;=…
         \end{align*}
        </li>
+       <li class="fragment">
+	 But you must be consistent in the order of the free indices when converting, i.e.
+	 \begin{align*}
+	 \boldsymbol{A} = A_{ij} \neq A_{ji}
+	 \end{align*}
+       </li>
       </ul>
      </section>
      <section>
@@ -776,7 +778,8 @@
        <li class="fragment">
         An expression with two free indices is a matrix, e.g.
         \begin{align*}
-        \boldsymbol{A} \equiv A_{ij} = \boldsymbol{a}\boldsymbol{b} = a_i b_j = \left[\begin{matrix}
+        \boldsymbol{A} &amp;= A_{ij} \\
+	\boldsymbol{a}\boldsymbol{b} &amp;= a_i b_j = \left[\begin{matrix}
           a_x b_x, &amp; a_x b_y, &amp; a_x b_z\\ a_y b_x, &amp; a_y b_y, &amp; a_y b_z\\ a_z b_x, &amp; a_z b_y, &amp; a_z b_z\\
         \end{matrix}
       \right]

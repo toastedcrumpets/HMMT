@@ -30,7 +30,7 @@
       <ul>
        <li>
         In the previous lecture, we discussed the concept of
-        <b class="">
+        <b>
          differential balances
         </b>
         , and derived the general balance equation
@@ -43,15 +43,8 @@
        <li class="fragment" data-fragment-index="1">
         In this lecture we're going to generate two important
     balance equations from this general equation, the
-        <b class="">
-         continuity
-      equation
-        </b>
-        (mass) and the
-        <b class="">
-         Cauchy momentum equation
-        </b>
-        .
+        <b>continuity equation</b> (mass) and the
+        <b>Cauchy momentum equation</b>.
        </li>
        <li class="fragment" data-fragment-index="2">
         Using these two equations, we will solve complex flow
@@ -80,7 +73,7 @@
         When a volume of fluid flows, it has a velocity $\boldsymbol{v}$
         ;
     therefore, using the density we can calculate the
-        <b class="">
+        <b>
          convective
         </b>
         mass flux,
@@ -110,12 +103,12 @@
          1
         </sup>
         There is also a
-        <b class="">
+        <b>
          diffusive
         </b>
         mass flux, but we assume that we are dealing
       with pure fluids where diffusion processes do not apply. We will
-      come back to this later.
+      come back to this later in diffusion.
        </div>
       </div>
      </section>
@@ -127,7 +120,7 @@
        <li>
         This is a well-known equation in fluid dynamics called
     the
-        <b class="">
+        <b>
          continuity equation
         </b>
         .
@@ -158,7 +151,7 @@
        </li>
        <li class="fragment" data-fragment-index="1">
         This is an important result in fluid flow, the
-        <b class="">
+        <b>
          divergence
         </b>
         of the velocity field (
@@ -183,23 +176,16 @@
       <ul>
        <li>
         Starting from the general balance equation for a property
-    $B$
+	$B$
         :
         \begin{align*}
         \frac{\partial c_B}{\partial t} = -\nabla\cdot \boldsymbol{J}_B + \sigma_B
         \end{align*}
        </li>
        <li class="fragment" data-fragment-index="1">
-        Setting $B=momentum$
-        , we must determine what the
-    concentration (
-        $c_{momentum}$
-        ), flux (
-        $J_{momentum}$
-        ), and
-    generation of momentum (
-        $\sigma_{momentum}$
-        ) terms are.
+        Setting $B=momentum$, we must determine what the concentration
+	($c_{momentum}$), flux ($J_{momentum}$), and generation of
+	momentum ($\sigma_{momentum}$) terms are.
        </li>
        <li class="fragment" data-fragment-index="2">
         You should note that, in general, the momentum is a vector
@@ -238,47 +224,30 @@
       <ul>
        <li>
         The momentum is simply
-        <b class="">
-         mass
-        </b>
-        $\times$
-        <b class="">
-         velocity
-        </b>
-        .
+        <b>mass</b>$\times$<b>velocity</b>.
        </li>
        <li class="fragment" data-fragment-index="1">
         Velocity is an
-        <b class="">
+        <b>
          intensive
         </b>
         property, it does not directly
-    depend on the amount of fluid present.
+	depend on the amount of fluid present.
        </li>
        <li class="fragment" data-fragment-index="2">
-        Mass is an
-        <b class="">
-         extensive
-        </b>
-        property, it directly depends
-    on the amount of fluid present. This means it has a concentration
-    (
-        $c_{mass}=\rho$
-        ).
+         Mass is an
+         <b>
+           extensive
+         </b>
+         property, it directly depends
+	 on the amount of fluid present. This means it has a concentration
+	 ($c_{mass}=\rho$).
        </li>
        <li class="fragment" data-fragment-index="3">
         Therefore, the concentration of momentum (or the momentum
     per unit volume) is the
-        <b class="">
-         density
-        </b>
-        $\times$
-        <b class="">
-         velocity
-        </b>
-        , or
-        $\boldsymbol{c}_{momentum}=\rho \boldsymbol{v}$
-        .
+        <b>density</b>$\times$<b>velocity</b>, or
+        $\boldsymbol{c}_{momentum}=\rho \boldsymbol{v}$.
        </li>
       </ul>
      </section>
@@ -289,22 +258,17 @@
       \end{align*}
       <ul>
        <li>
-        For now we will ignore the flux of momentum and skip to
-    the generation of momentum, $\boldsymbol{\sigma}_{momentum}$
-        .
+        For now we will ignore the flux of momentum and skip to the
+	generation of momentum, $\boldsymbol{\sigma}_{momentum}$.
        </li>
        <li class="fragment" data-fragment-index="1">
-        When momentum is “generated” in a system, it is actually
-    due to external forces acting on the system, causing an
-    acceleration
-        <sup class="footnotemark">
-         1
-        </sup>
-        .
+         When momentum is “generated” in a system, it is actually due
+	 to external forces acting on the system, causing an
+	 acceleration<sup class="footnotemark">1</sup>.
        </li>
        <li class="fragment" data-fragment-index="2">
         By comparing
-        <b class="">
+        <b>
          Newton's equation of motion
         </b>
         (
@@ -320,10 +284,8 @@
        </li>
        <li class="fragment" data-fragment-index="3">
         The simplest force to consider is
-        <b class="">
-         gravity
-        </b>
-        :
+        <b>gravity</b>:
+	
         \begin{align*}
         \boldsymbol{\sigma}_{momentum}^{grav.} = \rho \boldsymbol{g}
         \end{align*}
@@ -344,29 +306,28 @@
      <section data-menu-title="Pressure">
       <ul>
        <li>
-        There are also other forces to consider, such as the force
-    due to
-        <b class="">
-         pressure
-        </b>
-        differences…
+         The force due to
+         <b>
+           pressure
+         </b>
+         differences is derived here (it can be viewed as a source
+         term, but over the volume momentum is conserved by this
+         force)…
        </li>
        <li class="fragment" data-fragment-index="1">
-        If we perform a pressure balance over the volume, we can
-    determine the pressure contribution:
-        <figure class="">
-         <div class="center">
-          <object data="img/pressure_balance.svg" type="image/svg+xml" width="60%">
-          </object>
-         </div>
-         <figcaption class="">
-          Pressure forces in the
-          $z$
-          -dimension omitted for
-        clarity. Please notice that the pressure is a scalar! The
-        force pressure applies is always to contract the volume
-        (inward direction).
-         </figcaption>
+         Performing a pressure balance over the volume, we can
+	 determine the pressure contribution:
+         <figure>
+           <div class="center">
+             <object data="img/pressure_balance.svg" type="image/svg+xml" width="60%">
+             </object>
+           </div>
+           <figcaption>
+             Pressure forces in the $z$-dimension omitted for
+             clarity. Please notice that the pressure is a scalar! The
+             force pressure applies is always to contract the volume
+             (inward direction).
+           </figcaption>
         </figure>
        </li>
       </ul>
@@ -406,16 +367,16 @@
       \end{align*}
       <ul>
        <li>
-        We've now determined the concentration and generation
-    terms, now on to the more complicated flux terms.
+         We've now determined the concentration and &ldquo;generation&rdquo;
+	 terms, now on to the more complicated flux terms.
        </li>
        <li class="fragment" data-fragment-index="1">
         As with the mass, the flux of momentum consists of a
-        <b class="">
+        <b>
          convective
         </b>
         term and a
-        <b class="">
+        <b>
          diffusive
         </b>
         term.
@@ -425,7 +386,7 @@
        </li>
        <li class="fragment" data-fragment-index="2">
         The
-        <b class="">
+        <b>
          convective
         </b>
         momentum flux is the flux of
@@ -438,16 +399,16 @@
         \end{align*}
        </li>
       </ul>
-      <div class="mathblock">
-       &lt;4-&gt;
-       \begin{align*}
-       \boldsymbol{a} \boldsymbol{b} = 
-      \begin{Bmatrix}
+      <div class="mathblock fragment" data-fragment-index="2">
+	<h3>Math Notes: Dyadic product</h3>
+	\begin{align*}
+	\boldsymbol{a} \boldsymbol{b} = 
+	\begin{Bmatrix}
         a_x b_x &amp; a_x b_y &amp; a_x b_z \\
         a_y b_x &amp; a_y b_y &amp; a_y b_z \\
         a_z b_x &amp; a_z b_y &amp; a_z b_z
-      \end{Bmatrix} = a_i b_j
-       \end{align*}
+	\end{Bmatrix} = a_i b_j
+	\end{align*}
       </div>
      </section>
      <section data-menu-title="Viscous Flows">
@@ -467,17 +428,13 @@
        <li class="fragment" data-fragment-index="2">
         It didn't appear in the continuity equation as we're not
     considering mixtures (yet) but mass diffusion (AKA
-        <b class="">
-         diffusion
-        </b>
-        )
-    will be introduced later.
+        <b>diffusion</b>) will be introduced later.
        </li>
        <li class="fragment" data-fragment-index="3">
         The diffusion of momentum in fluids arises from
     viscosity. Viscosity is the fluid analogue of friction, so imagine
     “blocks” of fluid sliding past each other:
-        <figure class="">
+        <figure>
          <div class="center">
           <object data="img/viscosity_friction.svg" type="image/svg+xml" width="90%">
           </object>
@@ -487,36 +444,31 @@
        <li class="fragment" data-fragment-index="4">
         Block $C$
         has a
-        <b class="">
+        <b>
          stress
         </b>
         (force per unit area) pulling
-    it
-        <b class="">
+	it
+        <b>
          forward
         </b>
         from block
-        $B$
-        , and a stress pulling it
-        <b class="">
+        $B$, and a stress pulling it
+        <b>
          back
         </b>
         from block
-        $D$
-        .
+        $D$.
        </li>
        <li class="fragment" data-fragment-index="5">
-        The net effect of these stresses is $\tau_{xy}$
-        .
+        The net effect of these stresses is $\tau_{xy}$.
        </li>
        <li class="fragment" data-fragment-index="6">
         $\tau_{xy}$
         is the stress in the
-        $x$
-        -direction caused by a
-    difference in velocities in the
-        $y$
-        -direction.
+        $x$-direction caused by a
+	difference in velocities in the
+        $y$-direction.
        </li>
       </ul>
      </section>
@@ -529,12 +481,9 @@
        <li class="fragment" data-fragment-index="1">
         We can make a definition and state that the  diffusive
     momentum flux is equal to the
-        <b class="">
-         stress tensor
-        </b>
-        ,
-        $\boldsymbol{\tau}$
-        .
+        <b>stress tensor</b>,
+        $\boldsymbol{\tau}$.
+	
         \begin{align*}
         \boldsymbol{J}_{momentum}^{diff.} \equiv \boldsymbol{\tau}= \left[\begin{matrix}
           \tau_{xx} &amp; \tau_{xy} &amp; \tau_{xz} \\%
@@ -544,40 +493,28 @@
         \end{align*}
        </li>
        <li class="fragment" data-fragment-index="2">
-        If an element of fluid is moving in the $x$
-        -direction, it
-    will:
-        <ul>
+         If an element of fluid is moving in the $x$-direction, it
+	 will:
+         <ul>
          <li class="fragment" data-fragment-index="3">
-          Drag the fluid behind/ahead of it, $\tau_{xx}$
-          .
+          Drag the fluid behind/ahead of it, $\tau_{xx}$.
          </li>
          <li class="fragment" data-fragment-index="4">
-          Drag the fluid above/below it (
-          <b class="">
-           y
-          </b>
-          -direction),
-          $\tau_{xy}$
-          .
+          Drag the fluid above/below it (<b>y</b>-direction),
+          $\tau_{xy}$.
          </li>
          <li class="fragment" data-fragment-index="5">
-          And drag the fluid either side of it (
-          <b class="">
-           z
-          </b>
-          -direction),
-          $\tau_{xz}$
-          .
+          And drag the fluid either side of it (<b>z</b>-direction),
+          $\tau_{xz}$.
          </li>
         </ul>
        </li>
       </ul>
      </section>
      <section>
-      <figure class="">
+      <figure>
        <div class="center">
-        <object data="img/developing_flow.svg" type="image/svg+xml" width="60%">
+        <object data="img/developing_flow_profile.svg" type="image/svg+xml" width="60%">
         </object>
        </div>
       </figure>
@@ -585,7 +522,7 @@
        <li>
         You should know from previous courses, that for a
     Newtonian fluid under 1D shear, the
-        <b class="">
+        <b>
          off-diagonal stress
         </b>
         is
@@ -604,16 +541,13 @@
        </li>
        <li class="fragment" data-fragment-index="2">
         But what about the
-        <b class="">
+        <b>
          bulk
         </b>
         terms
-        $\tau_{xx}$
-        ,
-        $\tau_{yy}$
-        ,
-        $\tau_{zz}$
-        ?
+        $\tau_{xx}$,
+        $\tau_{yy}$,
+        $\tau_{zz}$?
        </li>
       </ul>
      </section>
@@ -625,15 +559,15 @@
        </li>
        <li class="fragment" data-fragment-index="1">
         Here there is another coefficient to consider known as the
-        <b class="">
+        <b>
          volume
         </b>
         ,
-        <b class="">
+        <b>
          bulk
         </b>
         or
-        <b class="">
+        <b>
          second
         </b>
         viscosity,
@@ -649,19 +583,20 @@
       \delta_{ij} \mu^B \nabla\cdot\boldsymbol{v}
         \end{align*}
         <div class="mathblock">
-         $\delta_{ij}$
-         is the Kronecker delta function and is defined as
-      follows
-         \begin{align*}
-         \delta_{ij} = \begin{cases}
+	  <h3>Math Notes</h3>
+          $\delta_{ij}$
+          is the Kronecker delta function and is defined as
+	  follows
+          \begin{align*}
+          \delta_{ij} = \begin{cases}
           1 &amp; \text{if $i=j$} \\
           0 &amp; \text{if $i\neq j$}
-        \end{cases}
-         \end{align*}
+          \end{cases}
+          \end{align*}
         </div>
        </li>
        <li class="fragment" data-fragment-index="3">
-        <b class="">
+        <b>
          Note:
         </b>
         If the flow is incompressible, we have
@@ -690,7 +625,7 @@
         Using the normal product rule on the left side and the
     vector product rule, $\nabla \cdot \boldsymbol{a}\boldsymbol{b} = \boldsymbol{b}\nabla \cdot
     \boldsymbol{a} + \boldsymbol{a}\cdot\nabla \boldsymbol{b}$
-        (see tutorial 1) on the first
+        (see tutorial&nbsp;1) on the first
     right hand term:
         \begin{align*}
         \rho\frac{\partial\boldsymbol{v}}{\partial t} +\boldsymbol{v}\frac{\partial
@@ -762,30 +697,23 @@
        </li>
        <li class="fragment" data-fragment-index="1">
         If we assume that the fluid is
-        <b class="">
-         irrotational
-        </b>
-        , this is
-    expressed mathematically as
-        $\nabla \times \boldsymbol{v}=\boldsymbol{0}$
-        .
+        <b>irrotational</b>, this is
+	expressed mathematically as
+        $\nabla \times \boldsymbol{v}=\boldsymbol{0}$.
        </li>
        <li class="fragment" data-fragment-index="2">
         Physically speaking, this is a statement that the fluid is
-    not being “turned” by viscous, unsteady, or external effects
+	not being “turned” by viscous, unsteady, or external effects
     (and we've neglected viscosity for now).
        </li>
        <li class="fragment" data-fragment-index="3">
-        Assuming irrotational ($\nabla \times \boldsymbol{v}=\boldsymbol{0}$
-        ) and
-    incompressible flow (
-        $\rho=\mbox{constant}$
-        ), and that gravity is
-    a constant, we can write
-        \begin{align*}
-        \rho\frac{\partial\boldsymbol{v}}{\partial t} &amp;= -\nabla\left(\frac{1}{2}\rho v^2
-        + p - \rho \boldsymbol{g}\cdot\boldsymbol{r}\right)
-        \end{align*}
+         Assuming irrotational ($\nabla \times \boldsymbol{v}=\boldsymbol{0}$) and
+	 incompressible flow ($\rho=\mbox{constant}$), and that gravity is
+	 a constant, we can write
+         \begin{align*}
+         \rho\frac{\partial\boldsymbol{v}}{\partial t} &amp;= -\nabla\left(\frac{1}{2}\rho v^2
+         + p - \rho \boldsymbol{g}\cdot\boldsymbol{r}\right)
+         \end{align*}
        </li>
       </ul>
      </section>
@@ -813,10 +741,7 @@
        <li class="fragment" data-fragment-index="2">
         If we neglect viscous forces and assume irrotational,
     incompressible flow, the differential momentum balance reduces to
-        <b class="">
-         Bernoulli's equation
-        </b>
-        .
+        <b>Bernoulli's equation</b>.
        </li>
        <li class="fragment" data-fragment-index="3">
         This is hugely more complicated than just taking a simple
