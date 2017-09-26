@@ -115,7 +115,7 @@
          </li>
          <li class="fragment" data-fragment-index="1">
           For example, the pasteurisation process for milk
-        requires the milk to be rapidly heated to $71.7^\circ$
+        requires the milk to be rapidly heated to $71.7^\circ$C
           to kill
         any bacteria, then rapidly cooled to prevent the milk burning.
          </li>
@@ -123,14 +123,13 @@
           Even in 2011,
           <i>
            “Raw milk is
-          responsible for nearly three times more hospitalizations
-          than any other foodborne disease outbreak, making it one of
-          the world's most dangerous food products.”
+           responsible for nearly three times more hospitalizations
+           than any other foodborne disease outbreak, making it one of
+           the world's most dangerous food products.”
           </i>
           <sup class="footnotemark">
-           [1]
+	    1
           </sup>
-          1
          </li>
         </ul>
        </div>
@@ -147,14 +146,8 @@
       </div>
       <div class="footnote-container">
        <div>
-        <sup class="footnotemark">
-         1
-        </sup>
+        <sup class="footnotemark">1</sup><a href="http://edition.cnn.com/2011/10/12/health/food-poisoning-protection-guide/index.html">http://edition.cnn.com/2011/10/12/health/food-poisoning-protection-guide/index.html</a>
        </div>
-      </div>
-      1
-      <div style="font-size:0.7em;">
-       http://edition.cnn.com/2011/10/12/health/food-poisoning-protection-guide/index.html
       </div>
      </section>
      <section>
@@ -166,8 +159,8 @@
         integral part of a larger process.
          </li>
          <li class="fragment" data-fragment-index="1">
-          Distillation columns are a great example (see EG3502
-        Separation processes 1 and  EG4530 Separation processes 2).
+          Distillation columns are a great example (see EX3502
+        Separation processes 1 and  EX4502 Separation processes 2).
          </li>
         </ul>
        </div>
@@ -191,19 +184,12 @@
          <li>
           The input of heat into the heat exchanger at the base
         (the
-          <b>
-           re-boiler
-          </b>
-          ) partially boils the fluid and produces a
+          <b>re-boiler</b>) partially boils the fluid and produces a
         vapour.
          </li>
          <li class="fragment" data-fragment-index="1">
           The removal of heat in the heat exchanger at the top
-        (the
-          <b>
-           condenser
-          </b>
-          ) produces a liquid stream.
+        (the <b>condenser</b>) produces a liquid stream.
          </li>
          <li class="fragment" data-fragment-index="2">
           The contacting counter-current flow of these liquid
@@ -215,7 +201,7 @@
        <div style="flex: 1 1 calc(100% * 0.41);">
         <figure>
          <div class="center">
-          <object data="img/fractionation_column_01.svg" type="image/svg+xml" width="None%">
+          <object data="img/fractionation_column_01.svg" type="image/svg+xml">
           </object>
          </div>
          <figcaption>
@@ -241,10 +227,7 @@
           </b>
           of a heat
         exchanger is the
-          <b>
-           shell-and-tube exchanger
-          </b>
-          .
+          <b>shell-and-tube exchanger</b>.
          </li>
          <li class="fragment" data-fragment-index="2">
           In such systems, one process fluid
@@ -257,9 +240,7 @@
           </b>
           of an exchanger, flowing around a
           <b>
-           tube-bundle
-          </b>
-          .
+           tube-bundle</b>.
          </li>
          <li class="fragment" data-fragment-index="3">
           In the
@@ -267,19 +248,14 @@
            tube-side
           </b>
           another fluid
-          <b>
-           passes
-          </b>
-          , and
+          <b>passes</b>, and
         heat is exchanged through the walls of the tubes.
          </li>
          <li class="fragment" data-fragment-index="4">
           Another common configuration exists in
           <b>
-           plate
-          heat-exchangers
-          </b>
-          .
+            plate
+            heat-exchangers</b>.
          </li>
         </ul>
        </div>
@@ -300,7 +276,7 @@
        <div style="flex: 1 1 calc(100% * 0.51);">
         <figure>
          <div class="center">
-          <img src="img/plateHX.jpg" style="width:100%;"/>
+          <img src="img/plateHX.jpg" style="width:80%;"/>
          </div>
          <figcaption>
           An installed plate heat exchanger.
@@ -332,10 +308,7 @@
        </li>
        <li class="fragment" data-fragment-index="1">
         However, the key function of a heat-exchanger is the
-        <b>
-         transport of energy
-        </b>
-        .
+        <b>transport of energy</b>.
        </li>
        <li class="fragment" data-fragment-index="2">
         We will need another
@@ -434,18 +407,19 @@
       <ul>
        <li>
         From thermodynamics, we know that everything (including
-    fluids) have an the
+    fluids) has an
         <b>
          internal energy
-        </b>
-        $U$
+        </b>,
+        $U$,
         (also in units of
     energy per unit mass).
        </li>
        <li class="fragment" data-fragment-index="1">
-        This is related to the temperature of the fluid and is the
-    amount of energy that is not directly observable (we must use a
-    thermometer to measure it).
+         This is related to the temperature of the fluid and
+	 represents an amount of energy that is not directly
+	 observable (we must use a thermometer to indirectly measure
+	 it).
        </li>
        <li class="fragment" data-fragment-index="2">
         The energy is stored in the degrees of freedom of the
@@ -453,8 +427,8 @@
        </li>
        <li class="fragment" data-fragment-index="3">
         It also includes chemical energies, if reactions are
-    included. We don't treat these here, as the hydrodynamics becomes
-    significantly more complex.
+	included. We don't treat these here, as the hydrodynamics
+	becomes significantly more complex.
        </li>
       </ul>
      </section>
@@ -499,23 +473,20 @@
     for the energy, we need to find expressions for the energy flux
     $\boldsymbol{J}_{energy}$
         and to include any general sources of energy
-        $\sigma_{energy}$
-        .
+        $\sigma_{energy}$.
        </li>
        <li class="fragment" data-fragment-index="3">
         The first law of thermodynamics states that energy is not
     created or destroyed, so at first it looks like $\sigma_{energy} =
-    0$
-        .
+    0$.
        </li>
        <li class="fragment" data-fragment-index="4">
         But it is not always that simple, we might have a nuclear
     reaction producing heat or heat energy inputted electrically.
        </li>
        <li class="fragment" data-fragment-index="5">
-        We will assume that we might have $\sigma_{energy}\neq0$
-        ,
-    until we make any further approximations.
+         We will assume that we might have $\sigma_{energy}\neq0$,
+	 until we make any further approximations.
        </li>
       </ul>
      </section>
@@ -672,10 +643,12 @@
         </b>
         to
     describe the diffusive flux, which both have a
-        <span style="color:{blue}">
+        <span style="color:blue">
+         driving force
         </span>
         and a
-        <span style="color:{red}">
+        <span style="color:red">
+         phenomenological coefficient
         </span>
         .
         \begin{align*}
@@ -995,7 +968,7 @@
        <div style="flex: 1 1 calc(100% * 0.41);">
         <figure>
          <div class="center">
-          <object data="img/cylindrical_coords.svg" type="image/svg+xml" width="None%">
+          <object data="img/cylindrical_coords.svg" type="image/svg+xml">
           </object>
          </div>
         </figure>

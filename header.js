@@ -1,5 +1,1 @@
-head.load("../reveal.js/css/reveal.css");
-head.load("../reveal.js/css/theme/beige.css");
-head.load("../MCBreveal.css");
-head.load("../resources/Font-Awesome/css/font-awesome.min.css");
-
+head.load("../reveal.js/css/reveal.css", "../reveal.js/css/theme/beige.css", "../MCBreveal.css", "../resources/Font-Awesome/css/font-awesome.min.css");

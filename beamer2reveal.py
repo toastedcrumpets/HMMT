@@ -348,8 +348,11 @@ class Tex2Reveal(object):
             print(list(node.children))
             return True
         span = self.push('span')
-        span['style'] = "color:"+str(args[0])
-        self._walk(args[1])
+        span['style'] = "color:"+str(args[0])[1:-1]
+
+        for item in args[1].exprs:
+            self._walk(item)
+            
         self.pop('span')
         return True
         

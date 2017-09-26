@@ -18,7 +18,7 @@ head.load("../reveal.js/js/reveal.js", function() {
 	pdfMaxPagesPerSlide: 1,
 	controls:false,
 	math: {
-	    mathjax: '../MathJax/MathJax.js', 
+	    mathjax: '../MathJax/MathJax.js',
 	    config: 'TeX-AMS_SVG-full'
 	},
 	dependencies: [
