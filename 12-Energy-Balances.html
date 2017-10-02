@@ -96,10 +96,10 @@
          </li>
          <li class="fragment" data-fragment-index="2">
           <b>
-           thermal design
+            …thermal design
           </b>
           is an essential part of all
-        processes.
+          processes (see the insulation on the pipeline to the right).
          </li>
         </ul>
        </div>
@@ -131,6 +131,10 @@
 	    1
           </sup>
          </li>
+	 <li>
+	   Flow and heat transfer must be carefully controlled and
+	   designed to facilitate this process, the stakes are high!
+	 </li>
         </ul>
        </div>
        <div style="flex: 1 1 calc(100% * 0.51);">
@@ -155,12 +159,12 @@
        <div style="flex: 1 1 calc(100% * 0.61);">
         <ul>
          <li>
-          A huge number of processes include heat transfer as an
-        integral part of a larger process.
+          Heat transfer also drives all separation processes and many
+          reactions (must transfer heat to "pay" any entropy cost).
          </li>
          <li class="fragment" data-fragment-index="1">
           Distillation columns are a great example (see EX3502
-        Separation processes 1 and  EX4502 Separation processes 2).
+          Separation processes 1 and EX4502 Separation processes 2).
          </li>
         </ul>
        </div>
@@ -216,9 +220,7 @@
        <div style="flex: 1 1 calc(100% * 0.61);">
         <ul>
          <li>
-          As well as appearing within unit-processes, such as
-        distillation, often heat exchangers appear as isolated
-        unit-process to cool or heat a stream.
+           What do heat exchangers look like?
          </li>
          <li class="fragment" data-fragment-index="1">
           A very common
@@ -252,10 +254,8 @@
         heat is exchanged through the walls of the tubes.
          </li>
          <li class="fragment" data-fragment-index="4">
-          Another common configuration exists in
-          <b>
-            plate
-            heat-exchangers</b>.
+           <b>Plate heat-exchangers</b> are the other most popular
+             design and are quite different.
          </li>
         </ul>
        </div>
@@ -270,6 +270,12 @@
         </figure>
        </div>
       </div>
+     </section>
+     <section>
+       <iframe class="stretch" width="560" height="315" src="https://www.youtube-nocookie.com/embed/mw7J8zyLsvg?rel=0&amp;showinfo=0&amp;start=13" frameborder="0" allowfullscreen></iframe>
+     </section>
+     <section>
+       <iframe width="560" height="315" class="stretch" src="https://www.youtube-nocookie.com/embed/Jv5p7o-7Pms?rel=0&amp;showinfo=0&amp;start=15" frameborder="0" allowfullscreen></iframe>
      </section>
      <section>
       <div style="display:flex;align-items:center;">
@@ -297,25 +303,26 @@
      </section>
      <section>
       <ul>
-       <li>
-        The
-        <b>
-         flow
-        </b>
-        of the fluids on either side of the heat
-    exchanger is crucial to the efficiency of the heat exchanger, thus
-    the momentum balance equation will still be required.
+	<li>
+	  To design a heat exchanger, we must understand the
+          <b>flow</b> of the fluids on either side of the heat
+          exchanger (flow in pipes and between plates), to size any
+          pumps/compressors required to "pay" the pressure drop.
        </li>
        <li class="fragment" data-fragment-index="1">
-        However, the key function of a heat-exchanger is the
-        <b>transport of energy</b>.
+         The key function of a heat-exchanger is the
+         <b>transport of energy</b> which takes place at the same time
+         as the transport of momentum.
        </li>
        <li class="fragment" data-fragment-index="2">
-        We will need another
+        We will will need a
         <b>
          differential balance equation
         </b>
-        to describe the transport of energy!
+        which describes the transport of energy, so we can design this
+        aspect of heat exchange, but this will include contributions
+        from the kinetic energy of the flow (this is why we cover
+        momentum first!).
        </li>
       </ul>
      </section>
@@ -333,9 +340,16 @@
         \end{align*}
        </li>
        <li class="fragment" data-fragment-index="1">
-        We need to find expressions for all of the types of energy
-    that can be stored per unit mass of fluid…
+        We need to find expressions for the concentration of all of
+	the types of energy that are stored in a given mass of
+	fluid. We need the concentration $c_\text{Energy}$ for our
+	general balance equation:
+
+        \begin{align*}
+        \frac{\partial c_B}{\partial t} = -\nabla\cdot \boldsymbol{J}_B + \sigma_B
+        \end{align*}
        </li>
+       
       </ul>
      </section>
      <section>
@@ -344,12 +358,9 @@
       \end{align*}
       <ul>
        <li>
-        A straightforward source of energy is the
-        <b>
-         kinetic
-      energy
-        </b>
-        of the substance.
+         The
+         <b>kinetic energy</b> of a fluid is perhaps the most obvious
+         form.
        </li>
        <li class="fragment" data-fragment-index="1">
         The kinetic energy per unit mass is given by
@@ -370,32 +381,28 @@
       \end{align*}
       <ul>
        <li>
-        Another simple energy store is the
+         Another type of energy are the
         <b>
-         potential energy
+         potential energies
         </b>
-        ,
-        $e_{pot.}(\boldsymbol{r})$
-        .
+        which arise from external fields, i.e.,
+        $e_{pot.}(\boldsymbol{r})$ .
        </li>
        <li class="fragment" data-fragment-index="1">
-        One typical example of potential energy is the
-    gravitational potential
+        One typical example is the gravitational potential
+	
         \begin{align*}
         e^{g}_{pot.}(\boldsymbol{r}) = - \boldsymbol{g}\cdot\boldsymbol{r}
         \end{align*}
        </li>
        <li class="fragment" data-fragment-index="2">
-        This is just the vector and per-unit-mass expression for
-    the standard expression, $\rho g H$
-        .
+         This is just the vector and per-unit-mass expression for
+	 the standard expression, $\rho g H$.
        </li>
        <li class="fragment" data-fragment-index="3">
-        Other examples of potential energies are magnetic fields,
-    but we do not consider
-        <b>
-         magnetohydrodynamics
-        </b>
+        Other examples of potential energies are magnetic/electrical
+	fields, but we do not consider
+        <b>magnetohydrodynamics</b>
         in this course.
        </li>
       </ul>
@@ -406,29 +413,20 @@
       \end{align*}
       <ul>
        <li>
-        From thermodynamics, we know that everything (including
-    fluids) has an
-        <b>
-         internal energy
-        </b>,
-        $U$,
-        (also in units of
-    energy per unit mass).
+        To include the chemical and thermal energy of a fluid, the
+        specific thermodynamic
+        <b>internal energy</b>, $U$, must also be included (also in
+        units of energy per unit mass).
        </li>
        <li class="fragment" data-fragment-index="1">
-         This is related to the temperature of the fluid and
-	 represents an amount of energy that is not directly
-	 observable (we must use a thermometer to indirectly measure
-	 it).
+         The most important aspect of this energy for non-reactive
+	 flows is from the temperature of the fluid.
        </li>
        <li class="fragment" data-fragment-index="2">
-        The energy is stored in the degrees of freedom of the
-    atoms (translation, rotation, vibration).
-       </li>
-       <li class="fragment" data-fragment-index="3">
-        It also includes chemical energies, if reactions are
-	included. We don't treat these here, as the hydrodynamics
-	becomes significantly more complex.
+	 The heat from reactions is not included in this course, as
+	 the hydrodynamics becomes significantly more complex, but it
+	 is a challenging aspect of reactor design (see thermal
+	 runaway).
        </li>
       </ul>
      </section>
@@ -580,10 +578,7 @@
         $\boldsymbol{q}$
         is known as the
         <b>
-         heat flux
-        </b>
-        . Assuming the
-    material is
+          heat flux</b>. Assuming the material is
         <b>
          isotropic
         </b>
@@ -599,9 +594,7 @@
        <li class="fragment" data-fragment-index="2">
         This is
         <b>
-         Fourier's law
-        </b>
-        .
+         Fourier's law</b>.
        </li>
       </ul>
      </section>
@@ -616,14 +609,11 @@
        </li>
        <li class="fragment" data-fragment-index="1">
         Both the momentum and energy balance have
-        <b>
-         convective
-      fluxes
-        </b>
-        .
+        <b>convective fluxes</b>.
+	
         \begin{align*}
         \boldsymbol{J}_{mom.}^{conv.} &amp;= \left(\rho \boldsymbol{v}\right)\boldsymbol{v} &amp;
-      \boldsymbol{J}_{energy}^{conv.} &amp;= (\rho e)\boldsymbol{v}
+	\boldsymbol{J}_{energy}^{conv.} &amp;= (\rho e)\boldsymbol{v}
         \end{align*}
        </li>
        <li class="fragment" data-fragment-index="2">
@@ -680,11 +670,8 @@
        <li class="fragment" data-fragment-index="3">
         In fact, in certain cases we expect
         <b>
-         exactly the same
-      answers
-        </b>
-        . It turns out the solution of electrical heating of a
-    wire is equivalent to flow in a pipe!
+         exactly the same answers</b>. It turns out the solution of
+    electrical heating of a wire is equivalent to flow in a pipe!
        </li>
        <li class="fragment" data-fragment-index="4">
         This is what makes the study of
@@ -711,31 +698,24 @@
     fluid.
        </li>
        <li class="fragment" data-fragment-index="2">
-        Work was originally defined in 1824 by Sadi Carnot in
-        <i>
-         “Reflections on the Motive Power of Fire”
-        </i>
-        :
+        Work was originally defined in 1824 by Sadi Carnot:
         <div class="mathblock">
-         We use here motive power (work) to express the useful effect
-      that a motor is capable of producing… It
-      has, as we know, as a measure,
-         <b>
-          the product of the weight
-        multiplied by the height to which it is raised.
-         </b>
+	  <h3>Reflections on the Motive Power of Fire</h3>
+          We use here motive power (work) to express the useful effect
+	  that a motor is capable of producing… It
+	  has, as we know, as a measure,
+          <b>
+            the product of the weight
+            multiplied by the height to which it is raised.
+          </b>
         </div>
        </li>
        <li class="fragment" data-fragment-index="3">
-        A slightly more modern definition of work is that it is a
-        <i>
-         force
-        </i>
-        multiplied by a distance.
-       </li>
+         Little has changed, aside from a clarification of weight
+         versus force.
        <li class="fragment" data-fragment-index="4">
         The rate of work generation is then a force multiplied by
-    a
+	a
         <i>
          velocity
         </i>
@@ -753,28 +733,20 @@
        <li class="fragment" data-fragment-index="1">
         A simple example of a work balance is given by the
     pressure.
-        \begin{multline*}
-        \text{Work Rate}|^{pressure}_{in,x} - \text{Work
-        Rate}|^{pressure}_{out,x} \\
-      = \left(p(x) v(x) - p(x+\Delta x) v(x+\Delta x)\right)\Delta
+        \begin{align*}
+        \text{Work Rate}|^{pressure}_{in,x} - \text{Work Rate}|^{pressure}_{out,x} = \left(p(x) v(x) - p(x+\Delta x) v(x+\Delta x)\right)\Delta
       y \Delta z
-        \end{multline*}
+        \end{align*}
        </li>
        <li class="fragment" data-fragment-index="2">
-        Dividing by the volume $\Delta x \Delta y \Delta z$
-        and
-    taking the limit
-        $\Delta x \to 0$
-        ,
-        $\Delta y \to 0$
-        ,
-        $\Delta z \to
-    0$
-        , we find that the rate of pressure work per unit volume per
-    time is given by
+        Dividing by the volume $\Delta x \Delta y \Delta z$ and taking
+        the limit $\Delta x \to 0$, $\Delta y \to 0$, $\Delta z \to
+        0$, we find that the rate of pressure work per unit volume per
+        time is given by
+	
         \begin{align*}
         W_{pressure} = \frac{\partial p v_i}{\partial r_i} =
-      \nabla_i p v_i = \nabla\cdot\left(p \boldsymbol{v}\right)
+	\nabla_i p v_i = \nabla\cdot\left(p \boldsymbol{v}\right)
         \end{align*}
        </li>
       </ul>
@@ -789,27 +761,23 @@
         For each element of the stress tensor $\boldsymbol{\tau}$
         (each
     element represents a stress force) we have a rate of work being performed.
-        \begin{multline*}
-        \text{Work Rate}|^{viscous}_{in,xy} - \text{Work
-        Rate}|^{viscous}_{out,xy} \\
+        \begin{align*}
+        \text{Work Rate}|^{viscous}_{in,xy} - \text{Work Rate}|^{viscous}_{out,xy}
       = \left(\tau_{xy}(x+\Delta x) v_y(x+\Delta x) -
         \tau_{xy}(x) v_y(x)\right) \Delta y  \Delta z
-        \end{multline*}
+        \end{align*}
        </li>
        <li class="fragment" data-fragment-index="2">
-        Again, dividing by the volume $\Delta x \Delta y \Delta
-    z$
+        Again, dividing by the volume $\Delta x \Delta y \Delta z$
         and taking the limit
-        $\Delta x \to 0$
-        ,
-        $\Delta y \to 0$
-        ,
-        $\Delta z \to 0$
-        , we find that the rate of viscous work per unit volume
-    per time is given by
+        $\Delta x \to 0$,
+        $\Delta y \to 0$,
+        $\Delta z \to 0$, we find that the rate of viscous work per unit volume
+	per time is given by
+	
         \begin{align*}
         W_{viscous}=\frac{\partial \tau_{ij}v_j}{\partial r_i} =
-      \nabla_i\tau_{ij}v_j = \nabla\cdot\boldsymbol{\tau}\cdot\boldsymbol{v}
+	\nabla_i\tau_{ij}v_j = \nabla\cdot\boldsymbol{\tau}\cdot\boldsymbol{v}
         \end{align*}
        </li>
       </ul>
@@ -908,9 +876,9 @@
         \end{align*}
        </li>
        <li class="fragment" data-fragment-index="2">
-        This is a Laplace equation for steady state heat
-    conduction, which you should have encountered in EG3XXX
-    Engineering Analysis and Methods.
+        This enormously simple equation is the Laplace equation for
+	steady state heat conduction, which you will encounter
+	repeatedly.
        </li>
       </ul>
      </section>
@@ -948,16 +916,16 @@
         \end{align*}
        </li>
        <li class="fragment" data-fragment-index="2">
-        Note that index notation fails us here. $\nabla$
-        in
-    cylindrical coordinates is
+         Note that you cannot define a $\nabla$
+         in
+	 cylindrical coordinates  like so
         \begin{align*}
-        \nabla &amp;= \left[\nabla_r, \nabla_\theta,  \nabla_z\right]
-        = \left[\frac{\partial}{\partial r}, 
+        \nabla &amp; \left[\nabla_r, \nabla_\theta,  \nabla_z\right]
+         \neq \left[\frac{\partial}{\partial r}, 
         \frac{1}{r}\frac{\partial}{\partial \theta}, 
         \frac{\partial}{\partial z}\right]
         \end{align*}
-        But when it acts on vector terms (including other
+         as when it acts on vector terms (including other
         $\nabla$
         operators) the result is not straightforward…
        </li>
@@ -1035,43 +1003,116 @@
       \end{align*}
       <ul>
        <li>
-        We also have look up tables for the constitutive
-    relationships for convenience. For example, here is Fourier's law:
-        <figure>
-         <figcaption>
-          Fourier's Law in all coordinate systems
-         </figcaption>
-        </figure>
+         We also have look up tables for the constitutive
+	 relationships for convenience. For example, here is Fourier's law:
+         <figure>
+	   <table>
+	     <tr><td> Rectangular </td><td> Cylindrical </td><td> Spherical </td> </tr>
+	     <tr>
+	       <td>$q_x = -k\frac{\partial T}{\partial x}$ </td><td>
+		 $q_r = -k\frac{\partial T}{\partial r}$ </td><td>
+		 $q_r = -k\frac{\partial T}{\partial r}$</td>
+             </tr>
+	     <tr><td>$q_y = -k\frac{\partial T}{\partial y}$
+               </td><td> $q_\theta = -k\frac{1}{r}\frac{\partial T}{\partial \theta}$ 
+               </td><td> $q_\theta = -k\frac{1}{r}\frac{\partial T}{\partial \theta}$ 
+	     </td></tr>
+             <tr><td>$q_z = -k\frac{\partial T}{\partial z}$
+               </td><td> $q_z = -k\frac{\partial T}{\partial z}$ 
+               </td><td> $q_\phi = -k\frac{1}{r\,\sin\theta}\frac{\partial T}{\partial \phi}$
+	       </td>
+	     </tr>
+	   </table>
+	   <figcaption>
+	     Fourier's Law in all coordinate systems
+           </figcaption>
+         </figure>
        </li>
       </ul>
      </section>
      <section>
       Here are the look-up tables for the stress:
       <figure>
+	<table>
+	  <tr><td>Rectangular</td>
+	  <tr><td>$\tau_{xx} = -2\,\mu\frac{\partial v_x}{\partial x} + \mu^B \,\nabla\cdot\boldsymbol{v}$
+	  </td></tr><tr><td>
+	      $\tau_{yy} = -2\,\mu\frac{\partial v_y}{\partial y} + \mu^B \,\nabla\cdot\boldsymbol{v}$
+	  </td></tr><tr><td>
+	      $\tau_{zz} = -2\,\mu\frac{\partial v_z}{\partial z} + \mu^B \,\nabla\cdot\boldsymbol{v}$
+	  </td></tr><tr><td>
+	      $\tau_{xy} = \tau_{yx} = -\mu\left(\frac{\partial v_x}{\partial y} +\frac{\partial v_y}{\partial x}\right)$
+	  </td></tr><tr><td>
+	      $\tau_{yz} = \tau_{zy} = -\mu\left(\frac{\partial v_y}{\partial z} +\frac{\partial v_z}{\partial y}\right)$
+	  </td></tr><tr><td>
+	      $\tau_{xz} = \tau_{zx} = -\mu\left(\frac{\partial v_x}{\partial z} +\frac{\partial v_z}{\partial x}\right)$
+	  </td></tr><tr><td>
+	      $\nabla\cdot\boldsymbol{v} = \frac{\partial v_x}{\partial x}+\frac{\partial v_y}{\partial y} +\frac{\partial v_z}{\partial z}$
+	  </td></tr>
+	</table>
+	<figcaption>
+          Newton's law for the stress in rectangular coordinates.
+	</figcaption>
+      </figure>
+     </section>
+     <section>
+      Here are the look-up tables for the stress:
+      <figure>
+	<table>
+	  <tr><td>
+	      Cylindrical
+	  </td></tr><tr><td>
+	      $\tau_{rr} = -2\,\mu\frac{\partial v_r}{\partial r} + \mu^B \,\nabla\cdot\boldsymbol{v}$
+	  </td></tr><tr><td>
+	      $\tau_{\theta\theta} = -2\,\mu\left(\frac{1}{r}\frac{\partial v_\theta}{\partial\theta}+\frac{v_r}{r}\right) + \mu^B \,\nabla\cdot\boldsymbol{v}$
+	  </td></tr><tr><td>
+	      $\tau_{zz} = -2\,\mu\frac{\partial v_z}{\partial z} + \mu^B \,\nabla\cdot\boldsymbol{v}$
+	  </td></tr><tr><td>
+	      $\tau_{r\theta} = \tau_{\theta r} = -\mu\left(r\frac{\partial}{\partial r}\left(\frac{v_\theta}{r}\right) +\frac{1}{r}\frac{\partial v_r}{\partial \theta}\right)$
+	  </td></tr><tr><td>
+	      $\tau_{\theta z} = \tau_{z\theta} = -\mu\left(\frac{1}{r}\frac{\partial v_z}{\partial \theta} +\frac{\partial v_\theta}{\partial z}\right)$
+	  </td></tr><tr><td>
+	      $\tau_{zr} = \tau_{rz} = -\mu\left(\frac{\partial v_r}{\partial z} +\frac{\partial v_z}{\partial r}\right)$
+	  </td></tr><tr><td>
+	      $\nabla\cdot\boldsymbol{v} = \frac{1}{r}\frac{\partial r\,v_r}{\partial r}+\frac{1}{r}\frac{\partial v_\theta}{\partial \theta} +\frac{\partial v_z}{\partial z}$
+	  </td></tr>
+	</table>
        <figcaption>
-        Newton's law for the stress in rectangular coordinates.
+         Newton's law for the stress in cylindrical coordinates.
        </figcaption>
       </figure>
      </section>
      <section>
       Here are the look-up tables for the stress:
       <figure>
-       <figcaption>
-        Newton's law for the stress in cylindrical coordinates.
-       </figcaption>
-      </figure>
-     </section>
-     <section>
-      Here are the look-up tables for the stress:
-      <figure>
-       <figcaption>
-        Newton's law for the stress in spherical coordinates.
-       </figcaption>
+	<table>
+	  <tr><td>
+	      Spherical
+	  </td></tr><tr><td>
+	      $\tau_{rr} = -2\,\mu\frac{\partial v_r}{\partial r} + \mu^B \,\nabla\cdot\boldsymbol{v}$
+	  </td></tr><tr><td>
+	      $\tau_{\theta\theta} = -2\,\mu\left(\frac{1}{r}\frac{\partial v_\theta}{\partial\theta}+\frac{v_r}{r}\right) + \mu^B \,\nabla\cdot\boldsymbol{v}$
+	  </td></tr><tr><td>
+	      $\tau_{\phi\phi} = -2\,\mu\left(\frac{1}{r\sin\theta}\frac{\partial v_\phi}{\partial \phi} + \frac{v_r+v_\theta\cot\theta}{r}\right) + \mu^B \,\nabla\cdot\boldsymbol{v}$
+	  </td></tr><tr><td>
+	      $\tau_{r\theta} = \tau_{\theta r} = -\mu\left(r\frac{\partial}{\partial r}\left(\frac{v_\theta}{r}\right) +\frac{1}{r}\frac{\partial v_r}{\partial \theta}\right)$
+	  </td></tr><tr><td>
+	      $\tau_{\theta \phi} = \tau_{\phi\theta} = -\mu\left(\frac{\sin\theta}{r}\frac{\partial}{\partial \theta}\left(\frac{v_\phi}{\sin\theta}\right) +\frac{1}{r\sin\theta}\frac{\partial v_\theta}{\partial \phi}\right)$
+	  </td></tr><tr><td>
+	      $\tau_{\phi r} = \tau_{r\phi} = -\mu\left(\frac{1}{r\sin\theta}\frac{\partial v_r}{\partial \phi} +r\frac{\partial}{\partial r}\left(\frac{v_\phi}{r}\right)\right)$
+	  </td></tr><tr><td>
+	      $\nabla\cdot\boldsymbol{v} = \frac{1}{r^2}\frac{\partial r^2\,v_r}{\partial r}+\frac{1}{r\sin\theta}\frac{\partial v_\theta\sin\theta}{\partial \theta} +\frac{1}{r\sin\theta}\frac{\partial v_\phi}{\partial \phi}$
+	  </td></tr>
+	</table>
+	<figcaption>
+	  Newton's law for the stress in spherical coordinates.
+	</figcaption>
       </figure>
      </section>
     </section>
     <section>
-     <section data-menu-title="Learning Objectives">
+      <section data-menu-title="Learning Objectives">
+	<h3>Learning Objectives</h3>
       <ul>
        <li>
         The two main types of heat exchanger have been presented
@@ -1120,7 +1161,7 @@
     </a>
    </div>
    <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({ TeX: { extensions: ["cancel.js"] }});
+    MathJax.Hub.Config({ TeX: { extensions: ["cancel.js","color.js"] }});
    </script>
    <script src="footer.js">
    </script>
