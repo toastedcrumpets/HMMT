@@ -46,6 +46,9 @@ class Tex2Reveal(object):
         code = code.replace("{\\bf", "\\textbf{")
         code = code.replace("{\\sl", "\\textit{")
         code = code.replace("{\\scriptsize", "\\scriptsize{")
+
+        code = code.replace("{\\setlength","\\setlength")
+        code = code.replace("tabular}}","tabular}")
         
         #Also the use of \bm which is not supported by mathjax
         code = code.replace("{\\bm ", "\\boldsymbol{")
@@ -119,7 +122,13 @@ class Tex2Reveal(object):
         elif isinstance(node, str):
             if self.current_slide is not None:
                 self._handle_str(node)
-
+        elif isinstance(node, RArg):
+            print("Assuming ",repr(node), "Is not meant to be a container")
+            for item in node:
+                self._walk(item)
+        else:
+            print("!!!! Unhandled walk item", node.name)
+        
     def _handle_document(self, node, starred=False, fragment=False):
         template = """
 <!doctype html>
@@ -304,7 +313,7 @@ class Tex2Reveal(object):
 
         if container['class'] == "":
             del container['class']
-            
+        
         for item in node.contents:
             self._walk(item)
             
@@ -509,7 +518,9 @@ class Tex2Reveal(object):
     _handle_setbeamercolor = _handle_ignore
     _handle_includepdf = _handle_ignore
     _handle_part = _handle_ignore
-
+    _handle_setlength = _handle_ignore
+    _handle_extrarowheight = _handle_ignore
+    
     def _handle_animategraphics(self, node, starred=False, fragment=False):
         print("Can't handle animations yet! Skipping", list(node.contents))
         return True
