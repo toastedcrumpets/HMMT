@@ -633,6 +633,7 @@ class Tex2Reveal(object):
         out = re.sub('\s+,', ',', out)
         out = re.sub('\s+\\.', '.', out)
         out = re.sub('\s+\\?', '?', out)
+        out = re.sub('\s+)', ')', out)
         for tag in ['b', 'u', 'span', 'i']:
             out = re.sub('<'+tag+'>\s+', '<'+tag+'>', out)
             out = re.sub('\s+</'+tag+'>', '</'+tag+'>', out)
