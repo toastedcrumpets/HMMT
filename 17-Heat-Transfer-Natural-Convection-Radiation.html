@@ -186,8 +186,9 @@
         But what about the
         <b>Prandtl number</b>?
         \begin{align*}
-        \text{Pr}=\frac{C_p \mu}{k}
+        \text{Pr}=\frac{C_p \mu}{k}=\frac{\nu}{\alpha}
         \end{align*}
+	where $\alpha=k\,c_p^{-1}\,\rho^{-1}$ is the thermal diffusivity.
        </li>
        <li class="fragment" data-fragment-index="1">
         The Prandtl number is also a ratio of two phenomena, the
@@ -302,7 +303,8 @@
     the boundary layer conduction problem (using von Kármán
     integral analysis) to obtain
         \begin{align*}
-        \frac{\delta_T}{\delta} = \left(\frac{13}{14}\right)^{1/3}\text{Pr}^{-1/3}
+        \frac{\delta_T}{\delta} &amp;= \left(\frac{13}{14}\right)^{1/3}\text{Pr}^{-1/3}&amp;
+        \text{Pr}&amp;=\frac{C_p \mu}{k}=\frac{\nu}{\alpha}
         \end{align*}
        </li>
        <li class="fragment" data-fragment-index="1">
@@ -331,10 +333,15 @@
     at a Reynolds number of $\text{Re} \approx 2000$.
        </li>
        <li class="fragment" data-fragment-index="2">
-        We can characterise a transition from strong conductive
-    transfer for $\text{Pr}\ll 1$
-        to strong convective transfer for
-        $\text{Pr}\gg 1$.
+         We can characterise a transition from strong conductive
+	 transfer for $\text{Pr}\ll 1$
+         to strong convective transfer for
+         $\text{Pr}\gg 1$.
+       </li>
+       <li class="fragment">
+	 The high Prandtl number limit is interesting, as we have high
+	 viscosity (nice laminar systems) with low thermal
+	 conductivity, thus only the boundary layer is important.
        </li>
       </ul>
      </section>
@@ -427,11 +434,10 @@
        </li>
        <li class="fragment" data-fragment-index="1">
         For a isothermal wall, with a laminar flow and with a high
-    Prandtl number (strong conductive), we can obtain an analytic
-    expression for the Nusselt number
-        \begin{align*}
-        \text{Nu} \approx 0.332 \text{Re}^{1/2} \text{Pr}^{1/3}
-        \end{align*}
+	Prandtl number (boundary important only), we can obtain an analytic
+	expression for the Nusselt number \begin{align*} \text{Nu}
+	&amp;\approx 0.332 \text{Re}^{1/2} \text{Pr}^{1/3} &amp;
+	\text{Pr}\ge 0.6 \end{align*}
        </li>
        <li class="fragment" data-fragment-index="2">
         We can see this expression is proportional to
