@@ -31,9 +31,7 @@
       <ul>
        <li>
         The
-        <b>
-         vector
-        </b>
+        <b>vector</b>
         continuity equation and momentum balance
     equation are the same in all coordinate systems
         \begin{align*}
@@ -65,10 +63,8 @@
        </li>
        <li class="fragment" data-fragment-index="6">
         How to derive a generalised
-        <u>
-         Hagen-Poiseuille
-      equation for pipes
-        </u>
+        <u>Hagen-Poiseuille
+      equation for pipes</u>
         with a non-Newtonian fluid, which relates
     the pressure drop, pipe geometry and volumetric flow-rate.
        </li>
@@ -78,10 +74,7 @@
         But as Engineers, we will need to be able to derive
     general design equations for any geometry, viscous model, and to
     calculate corrections for
-        <b>
-         turbulence
-        </b>
-        .
+        <b>turbulence</b>.
        </li>
       </ul>
      </section>
@@ -136,9 +129,7 @@
         We then have an expression relating the design variables
     (flow-rate, flow geometry, pressure drop). The most famous example
     is the Hagen-Poiseuille equation for
-        <b>
-         Newtonian
-        </b>
+        <b>Newtonian</b>
         flow in pipes.
         \begin{align*}
         \dot{V}_z &amp;= \pi\left(\frac{-\Delta p}{L} +
@@ -150,9 +141,7 @@
     derivation to repeat it for non-Newtonian flows. We took the
     stress profile in a pipe along with the Power-Law model and solved
     them to yield a generalised Hagen-Poiseuille equation for
-        <b>
-         non-Newtonian
-        </b>
+        <b>non-Newtonian</b>
         flow in pipes (Power Law fluids).
         \begin{align*}
         \dot{V}_z &amp;= 2 \pi R^2 v_z^{max} \left(\frac{1}{2} -
@@ -169,8 +158,7 @@
       <ul>
        <li>
         This derivation introduced another useful variable, the
-    maximum flow velocity, $v_z^{max}$
-        .
+    maximum flow velocity, $v_z^{max}$.
        </li>
        <li class="fragment" data-fragment-index="1">
         This is an important property of the flow that (like the
@@ -347,8 +335,7 @@
          <td>
           $\frac{\Delta p}{L}\frac{r}{2}$
          </td>
-         <td>
-          ?
+         <td>?
          </td>
         </tr>
         <tr style="border-top:thin solid black;">
@@ -358,8 +345,7 @@
          <td>
           $\frac{\Delta p R^2}{8 \mu L}\left(2 - 4  X + 2 X^2\right)$
          </td>
-         <td>
-          ?
+         <td>?
          </td>
         </tr>
         <tr>
@@ -386,9 +372,7 @@
        </li>
        <li class="fragment" data-fragment-index="1">
         But our treatment so far is limited to
-        <b>
-         laminar
-        </b>
+        <b>laminar</b>
         flows.
         <a src="{http://www.youtube.com/watch?v=p08_KlTKP50}">
          {http://www.youtube.com/watch?v=p08_KlTKP50}
@@ -434,9 +418,7 @@
          </li>
          <li class="fragment" data-fragment-index="3">
           And we must be able to calculate a
-          <b>
-           pressure drop
-          </b>
+          <b>pressure drop</b>
           for
         the turbulent flow.
          </li>
@@ -458,13 +440,9 @@
        </li>
        <li class="fragment" data-fragment-index="1">
         It is a ratio of the
-        <b>
-         inertial
-        </b>
+        <b>inertial</b>
         and the
-        <b>
-         viscous
-        </b>
+        <b>viscous</b>
         forces in the system.
         \begin{align*}
         \text{Re} = \frac{\text{inertial forces}}{\text{viscous forces}}
@@ -472,17 +450,13 @@
        </li>
        <li class="fragment" data-fragment-index="2">
         Viscous forces
-        <b>
-         dampen
-        </b>
+        <b>dampen</b>
         eddies in the flow and move it
     towards a laminar flow profile.
        </li>
        <li class="fragment" data-fragment-index="3">
         Inertial forces arise from the
-        <b>
-         momentum of the flow
-        </b>
+        <b>momentum of the flow</b>
         and must be damped by the viscous forces.
        </li>
        <li class="fragment" data-fragment-index="4">
@@ -539,8 +513,7 @@
        <li>
         For Newtonian pipe flows, we find that the fluid can
     stably transition from laminar to turbulent flow above a Reynolds
-    number of $\text{Re}=2100$
-        .
+    number of $\text{Re}=2100$.
        </li>
        <li class="fragment" data-fragment-index="1">
         Above this Reynolds number, viscous forces are relatively
@@ -551,11 +524,8 @@
        <li class="fragment" data-fragment-index="2">
         We then have to resort to empirical fits to determine
     pressure drops. The
-        <b>
-         Fanning friction
-      factor
-        </b>
-        .
+        <b>Fanning friction
+      factor</b>.
        </li>
        <li class="fragment" data-fragment-index="3">
         The friction factor is defined as the ratio of the viscous
@@ -610,8 +580,7 @@
         For a pipe, we have a cross sectional area of
     $A_{flow}=\pi R^2$
         and a wetted perimeter of
-        $P_w=2 \pi R$
-        , so
+        $P_w=2 \pi R$, so
     the friction factor is then given by the ratio of these values
         \begin{align*}
         C_f &amp;= -\frac{\Delta p}{L}\frac{R}{\rho \left\langle v\right\rangle^2}
@@ -629,8 +598,7 @@
        <li class="fragment" data-fragment-index="2">
         This is an empirical design equation for pipes, called the
     Darcy-Weisbach equation, that allows you to calculate the pressure
-    drop in a pipe if the empirical Fanning factor, $C_f$
-        , is known.
+    drop in a pipe if the empirical Fanning factor, $C_f$, is known.
        </li>
       </ul>
      </section>
@@ -702,9 +670,7 @@
        <li class="fragment" data-fragment-index="1">
         Lewis Ferry Moody measured the Darcy-Weisbach friction
     factor as a function of Reynolds number and
-        <b>
-         pipe roughness
-        </b>
+        <b>pipe roughness</b>
         and created the Moody chart.
        </li>
       </ul>
@@ -712,9 +678,7 @@
        <div class="mathblock">
         Eengineers and scientists have managed to confuse matters by
       using a
-        <b>
-         Darcy-Weisbach friction coefficient
-        </b>
+        <b>Darcy-Weisbach friction coefficient</b>
         which is 4
       times the Fanning friction factor!
         \begin{align*}
@@ -727,8 +691,7 @@
         (Darcy-Weisbach), or
         $16/\text{Re}$
         (Fanning), or
-        $8/\text{Re}$
-        .
+        $8/\text{Re}$.
        </div>
       </div>
      </section>
@@ -868,8 +831,7 @@
       <ul>
        <li>
         Metzner and Reed generalised the Reynolds number
-    $\text{Re}_{MR}$
-        , by stating that the definition of the friction
+    $\text{Re}_{MR}$, by stating that the definition of the friction
     factor for laminar flow stays the same.
        </li>
        <li class="fragment" data-fragment-index="1">
@@ -908,18 +870,11 @@
         <ul>
          <li class="fragment" data-fragment-index="1">
           Substitute our
-          <b>
-           laminar
-          </b>
+          <b>laminar</b>
           expression for the
-          <b>
-           average flow velocity
-          </b>
+          <b>average flow velocity</b>
           in terms of the
-          <b>
-           pressure drop
-          </b>
-          .
+          <b>pressure drop</b>.
          </li>
          <li class="fragment" data-fragment-index="2">
           We get this expression from the velocity profile.
@@ -969,14 +924,8 @@
          1
         </sup>
         Dodge, D.
-        <i>
-         A.I.Ch.E.
-        </i>
-        ,
-        <b>
-         5
-        </b>
-        , 189–204, (1959)
+        <i>A.I.Ch.E.</i>,
+        <b>5</b>, 189–204, (1959)
        </div>
       </div>
      </section>
@@ -1092,8 +1041,7 @@
         We can confirm that we still have the result for Newtonian
     fluids by setting $n=1$
         and
-        $k=\mu$
-        , to yield
+        $k=\mu$, to yield
         \begin{align*}
         \text{Re}_{MR} = \frac{2 \rho \left\langle
           v\right\rangle R}{\mu} = \frac{\rho \left\langle
@@ -1120,22 +1068,16 @@
         In fact, C&amp;R have some strong advice on its use:
         <ul>
          <li>
-          <i>
-           …
+          <i>…
            the experimental results and extrapolated values
         are separately designated.
-           <b>
-            Extrapolated values should
-          never be used
-           </b>
+           <b>Extrapolated values should
+          never be used</b>
            for non-Newtonian fluids; certainly not the
         extrapolated
-           <b>
-            values for shear-thickening fluids which
-          should be ignored
-           </b>
-           …
-          </i>
+           <b>values for shear-thickening fluids which
+          should be ignored</b>
+           …</i>
          </li>
         </ul>
        </li>
@@ -1151,16 +1093,14 @@
       \end{align*}
       <ul>
        <li>
-        In summary, by defining $C_f=16/\text{Re}_{MR}$
-        , we can
+        In summary, by defining $C_f=16/\text{Re}_{MR}$, we can
     generate the above general definition of the Reynolds number.
        </li>
        <li class="fragment" data-fragment-index="1">
         To use it, we have to pick a stress model (Power Law etc.)
     and then solve the Cauchy momentum equation for the pressure drop
     in terms of the average velocity,
-    $\Delta{}p\left(\left\langle{}v\right\rangle\right)$
-        .
+    $\Delta{}p\left(\left\langle{}v\right\rangle\right)$.
        </li>
        <li class="fragment" data-fragment-index="2">
         Inserting this into the top equation, we generate the
@@ -1168,14 +1108,11 @@
        </li>
        <li class="fragment" data-fragment-index="3">
         This allows us to
-        <b>
-         guess
-        </b>
+        <b>guess</b>
         that the fluid will
     transition to turbulent flow somewhere around
         $\text{Re}\approx
-    2000$
-        , as we've collapsed all flows onto the same laminar friction
+    2000$, as we've collapsed all flows onto the same laminar friction
     factor; However, we have no pressure drop predictions for
     turbulent non-Newtonian flows.
        </li>
@@ -1190,13 +1127,11 @@
     in Newtonian flows.
         <ul>
          <li class="fragment" data-fragment-index="1">
-          For $\text{Re}&lt;2100$
-          , the flow is laminar and we can use
+          For $\text{Re}&lt;2100$, the flow is laminar and we can use
       our Hagen-Poiuselle equations.
          </li>
          <li class="fragment" data-fragment-index="2">
-          For $\text{Re}&gt;2100$
-          , the flow may be turbulent and we
+          For $\text{Re}&gt;2100$, the flow may be turbulent and we
       should use friction factor plots, like the Moody chart.
          </li>
         </ul>
@@ -1236,8 +1171,7 @@
     paper
         <sup class="footnotemark">
          1
-        </sup>
-        .
+        </sup>.
        </li>
       </ul>
       <div class="footnote-container">
@@ -1246,14 +1180,8 @@
          1
         </sup>
         Dodge, D.
-        <i>
-         A.I.Ch.E.
-        </i>
-        ,
-        <b>
-         5
-        </b>
-        , 189–204,
+        <i>A.I.Ch.E.</i>,
+        <b>5</b>, 189–204,
       (1959)
        </div>
       </div>
@@ -1262,8 +1190,7 @@
    </div>
    <div class="slide-menu-button" style="left:170px;cursor:pointer;">
     <a class="hide-on-pdf" id="PrintButton" onclick="document.location = '?print-pdf';">
-     <i class="fa fa-print">
-     </i>
+     <i class="fa fa-print"></i>
     </a>
    </div>
    <script type="text/x-mathjax-config">

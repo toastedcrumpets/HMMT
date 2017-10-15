@@ -55,10 +55,7 @@
          <li class="fragment" data-fragment-index="1">
           We will see in later lectures that to
         understand/predict
-          <b>
-           Forced boiling
-          </b>
-          , we require two-phase
+          <b>Forced boiling</b>, we require two-phase
         corrections for the heat transfer coefficients.
           \begin{align*}
           h_{cb} =  f_c h_{conv.} + f_s h_{nb}
@@ -66,12 +63,8 @@
          </li>
          <li class="fragment" data-fragment-index="2">
           We needed to consider a parameter known as the
-          <b>
-           Lockhart-Martinelli parameter
-          </b>
-          ,
-          $X_{tt}$
-          , to calculate these
+          <b>Lockhart-Martinelli parameter</b>,
+          $X_{tt}$, to calculate these
         corrections (
           $f_c$
           and
@@ -109,10 +102,7 @@
        <li class="fragment" data-fragment-index="3">
         Over a long enough pipeline, any multiphase flow will go
     to
-        <b>
-         slug flow
-        </b>
-        .
+        <b>slug flow</b>.
         <div class="center">
          <div class="fragment " data-fragment-index="4">
          </div>
@@ -158,21 +148,15 @@
         With a long oil and gas pipeline we cannot always avoid
     slug flow, but in smaller process equipment we might avoid it in
     design, if we can predict the
-        <b>
-         flow pattern
-        </b>
+        <b>flow pattern</b>
         !
        </li>
        <li class="fragment" data-fragment-index="2">
         In the oil and gas industry, pipeline simulation software
     such as
-        <b>
-         olga
-        </b>
+        <b>olga</b>
         and
-        <b>
-         LedaFlow
-        </b>
+        <b>LedaFlow</b>
         are used to perform these
     complex calculations for long pipelines.
        </li>
@@ -180,10 +164,7 @@
         But we can get an idea of the calculations they perform
     and gain rough estimates for the flow pattern in a pipe using
     empirical
-        <b>
-         flow pattern maps
-        </b>
-        .
+        <b>flow pattern maps</b>.
        </li>
       </ul>
      </section>
@@ -252,9 +233,7 @@
          <li>
           Typically, Bubble, Plug and Slug flow are grouped
         together as
-          <b>
-           Intermittent
-          </b>
+          <b>Intermittent</b>
           flow.
          </li>
          <li class="fragment" data-fragment-index="1">
@@ -296,10 +275,7 @@
          <li>
           To estimate the flow pattern in a pipe, we need to use
         a
-          <b>
-           flow pattern map
-          </b>
-          .
+          <b>flow pattern map</b>.
          </li>
          <li class="fragment" data-fragment-index="1">
           There are hundreds of these maps in existence, some
@@ -312,10 +288,8 @@
          </li>
          <li class="fragment" data-fragment-index="3">
           The most common functions are the
-          <b>
-           superficial
-          velocities
-          </b>
+          <b>superficial
+          velocities</b>
           \begin{align*}
           u_L &amp;= \frac{\dot{V}_{Liq.}}{A} &amp;
           u_G &amp;= \frac{\dot{V}_{Gas}}{A}
@@ -436,8 +410,7 @@
           &amp;= \frac{\rho_G \dot{V}_{Gas}}{A} = \rho_G u_G
           \end{align*}
           and the total mass flux is
-          $G=G_L+G_G$
-          .
+          $G=G_L+G_G$.
          </li>
          <li class="fragment" data-fragment-index="1">
           The actual terms used in a popular vertical flow map,
@@ -518,8 +491,7 @@
        <li class="fragment" data-fragment-index="5">
         As a result, the critical Reynolds number is typically
     somewhere in the range of $1000\lesssim \text{Re}_{crit}\lesssim
-    2000$
-        .
+    2000$.
        </li>
       </ul>
      </section>
@@ -530,16 +502,11 @@
        <li>
         If we want to calculate the pressure drop in a multi-phase
     liquid, there are only a few times we might be able to do this
-        <i>
-         analytically
-        </i>
-        .
+        <i>analytically</i>.
        </li>
        <li class="fragment" data-fragment-index="1">
         One example is the
-        <b>
-         Stratified flow
-        </b>
+        <b>Stratified flow</b>
         we studied in
     tutorial 9!
         <div class="center">
@@ -581,17 +548,14 @@
        </li>
        <li class="fragment" data-fragment-index="2">
         We calculate these pressure drops in the standard way,
-        <b>
-         for each phase
-        </b>
+        <b>for each phase</b>
         in pipes:
         <ul>
          <li class="fragment" data-fragment-index="3">
           Calculate the Reynolds number.
          </li>
          <li class="fragment" data-fragment-index="4">
-          Select the expression for the friction factor $C_f$
-          .
+          Select the expression for the friction factor $C_f$.
           \begin{align*}
           C_f&amp;=16/Re &amp; C_f&amp;=0.079 \text{Re}^{-1/4}
           \end{align*}
@@ -613,14 +577,11 @@
      <section data-menu-title="Pressure Drop">
       <ul>
        <li>
-        But what can we do with $X$
-        , once we have it?
+        But what can we do with $X$, once we have it?
        </li>
        <li class="fragment" data-fragment-index="1">
         We can calculate so-called
-        <b>
-         multiphase multipliers
-        </b>
+        <b>multiphase multipliers</b>
         which allow the calculation of the two phase pressure drop.
         \begin{align*}
         \Delta p_{two-phase} = \Phi^2_{liq.} \Delta p_{liq.-only} = \Phi^2_{gas} \Delta p_{gas-only}
@@ -630,10 +591,7 @@
         The two phase multiplier $\Phi^2$
         is calculated from
     semi-empirical expressions, such as
-        <b>
-         Chisholm's relation
-        </b>
-        ,
+        <b>Chisholm's relation</b>,
     which take into account frictional pressure drop:
         \begin{align*}
         \Phi^2_{gas} &amp;= 1 + c X + X^2 &amp;\\
@@ -657,14 +615,12 @@
           Calculate the single-phase pressure drops$\Delta
         p_{liq.-only}$
           and
-          $\Delta p_{gas-only}$
-          .
+          $\Delta p_{gas-only}$.
          </li>
          <li>
           Use Chisholm's relation to calculate either$\Phi^2_{liq.}$
           or
-          $\Phi^2_{gas}$
-          .
+          $\Phi^2_{gas}$.
          </li>
          <li>
           Calculate the two-phase pressure drop!
@@ -679,10 +635,8 @@
       <ul>
        <li>
         We've found that we can calculate the
-        <b>
-         frictional
-      pressure drop
-        </b>
+        <b>frictional
+      pressure drop</b>
         using the Lockhart-Martinelli parameter to work
     out a two phase multiplier:
         \begin{align*}
@@ -692,10 +646,7 @@
        <li class="fragment" data-fragment-index="1">
         Friction is not the only mechanism by which pressure
     energy may be lost. Another is through changes in the
-        <b>
-         hydrostatic head
-        </b>
-        .
+        <b>hydrostatic head</b>.
         \begin{align*}
         \Delta p_{two-phase} = \Phi^2_{liq.} \Delta p_{liq.-only} +
       \rho_{two-phase} g \Delta Y
@@ -726,14 +677,12 @@
       <ul>
        <li>
         To calculate the hydrostatic pressure loss
-    $\rho_{two-phase} g \Delta Y$
-        , we need the two-phase fluid
+    $\rho_{two-phase} g \Delta Y$, we need the two-phase fluid
     density.
        </li>
        <li class="fragment" data-fragment-index="1">
         If we knew the fraction of the pipe volume which is
-    occupied with liquid, $h$
-        , we could easily calculate the
+    occupied with liquid, $h$, we could easily calculate the
     multiphase density like so
         \begin{align*}
         \rho_{two-phase} = h \rho_L + (1-h) \rho_G
@@ -742,15 +691,11 @@
        <li class="fragment" data-fragment-index="2">
         The parameter is a $h$
         as it is known as the
-        <b>
-         liquid
-      hold-up
-        </b>
-        .
+        <b>liquid
+      hold-up</b>.
        </li>
        <li class="fragment" data-fragment-index="3">
-        $h$
-        , in segregated flow between plates, is proportional to
+        $h$, in segregated flow between plates, is proportional to
     the height of occupied by the liquid (Fluid 2) phase:
         <div class="center">
          <object data="img/layers.svg" type="image/svg+xml" width="60%">
@@ -769,9 +714,7 @@
        <li>
         The simplest estimate we can come up with for the liquid
     hold-up is the
-        <b>
-         no-slip
-        </b>
+        <b>no-slip</b>
         estimate.
        </li>
        <li class="fragment" data-fragment-index="1">
@@ -784,16 +727,13 @@
        </li>
        <li class="fragment" data-fragment-index="2">
         This is not realistic as the gas phase usually
-        <b>
-         bypasses
-        </b>
+        <b>bypasses</b>
         the liquid phase (in segregated flows, not so much in
     bubble or plug flows).
        </li>
        <li class="fragment" data-fragment-index="3">
         For example, consider the two-phase laminar plate flow in
-    Tutorial 9 (and setting $1=L$
-        ,
+    Tutorial 9 (and setting $1=L$,
         $2=G$
         ):
         \begin{multline*}
@@ -823,13 +763,9 @@
        <li class="fragment" data-fragment-index="1">
         There is no one-size fits all expression, experimental
     data is often needed or specialist simulation packages like
-        <b>
-         Olga
-        </b>
+        <b>Olga</b>
         or
-        <b>
-         LedaFlow
-        </b>
+        <b>LedaFlow</b>
         are used.
        </li>
        <li class="fragment" data-fragment-index="2">
@@ -884,22 +820,15 @@
        </li>
        <li class="fragment" data-fragment-index="1">
         The area which is available for liquid flow is
-    $A_{L}=h A$
-        , and for gas flow is
-        $A_{G}=(1-h) A$
-        .
+    $A_{L}=h A$, and for gas flow is
+        $A_{G}=(1-h) A$.
        </li>
        <li class="fragment" data-fragment-index="2">
         We can use the no-slip hold-up to calculate
-        <b>
-         no-slip
-      velocities
-        </b>
+        <b>no-slip
+      velocities</b>
         or the actual hold-up to calculate
-        <b>
-         actual-velocities
-        </b>
-        .
+        <b>actual-velocities</b>.
         \begin{align*}
         v_{L,no-slip} &amp;= \dot{V}_L / (A h_{no-slip}) &amp;  v_{L,actual} &amp;= \dot{V}_L / (A h_{actual})
         \end{align*}
@@ -918,16 +847,10 @@
        <li>
         One last, important consideration is that the gas in
     multi-phase flow is
-        <b>
-         compressible
-        </b>
-        .
+        <b>compressible</b>.
        </li>
        <li class="fragment" data-fragment-index="1">
-        <b>
-         As the pressure drops the gas flow expands
-        </b>
-        , causing
+        <b>As the pressure drops the gas flow expands</b>, causing
     the gas phase to accelerate. This implies that the flow pattern,
     liquid hold up, and pressure drop will all change along the pipe.
        </li>
@@ -954,8 +877,7 @@
        <li class="fragment" data-fragment-index="1">
         The Reynolds number is calculated for each phase
     separately using the superficial velocity, and the turbulent
-    transition is around $1000\to2000$
-        .
+    transition is around $1000\to2000$.
        </li>
        <li class="fragment" data-fragment-index="2">
         We can calculate the Lockhart-Martinelli parameter and use
@@ -977,8 +899,7 @@
    </div>
    <div class="slide-menu-button" style="left:170px;cursor:pointer;">
     <a class="hide-on-pdf" id="PrintButton" onclick="document.location = '?print-pdf';">
-     <i class="fa fa-print">
-     </i>
+     <i class="fa fa-print"></i>
     </a>
    </div>
    <script type="text/x-mathjax-config">

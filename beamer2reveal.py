@@ -34,7 +34,7 @@ class Tex2Reveal(object):
         code = code.replace("\\ldots", u"\u2026")
         code = code.replace("\\pounds", "£")
         code = code.replace("\\copyright", u"\u00A9")
-        code = code.replace("\\'a", '&‌aacute;')
+        code = code.replace("\\'a", u"\u00E1")
         code = code.replace("\\centering", '')
         #Replace \% provided its not \\%
         code = re.sub("(?<=[^\\\\])\\\\%", "%", code, flags=re.M)
@@ -627,9 +627,18 @@ class Tex2Reveal(object):
             #self.current_tag.append('\\%s ' % node.name)
         else:
             print("Outside of frame!")
-            
+
+    def out(self):
+        out = self.soup.prettify()
+        out = re.sub('\s+,', ',', out)
+        out = re.sub('\s+\\.', '.', out)
+        out = re.sub('\s+\\?', '?', out)
+        for tag in ['b', 'u', 'span', 'i']:
+            out = re.sub('<'+tag+'>\s+', '<'+tag+'>', out)
+            out = re.sub('\s+</'+tag+'>', '</'+tag+'>', out)
+        return out
 import sys
 
 soup = Tex2Reveal(sys.argv[1])
 
-open(os.path.basename(sys.argv[1]).replace('.tex', '.html'), 'w').write(soup.soup.prettify())
+open(os.path.basename(sys.argv[1]).replace('.tex', '.html'), 'w').write(soup.out())
