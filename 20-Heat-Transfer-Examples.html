@@ -1,446 +1,446 @@
 <!DOCTYPE html>
 <html lang="en">
- <head>
-  <meta charset="utf-8"/>
-  <title>
-   Heat, Mass, and Momentum Transfer
-  </title>
-  <meta content="Heat Mass and Momentum Transfer notes" name="description"/>
-  <meta content="Marcus Bannerman &lt;m.bannerman@gmail.com" name="author"/>
-  <meta content="yes" name="apple-mobile-web-app-capable"/>
-  <meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"/>
-  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui" name="viewport"/>
-  <script data-headjs-load="header.js" src="../reveal.js/lib/js/head.min.js">
-  </script>
- </head>
- <body>
-  <div class="reveal">
-   <div class="slides">
-    <section>
-     <section>
-      <h2>
-       Heat Transfer Examples
-      </h2>
-      <div class="center">
+  <head>
+    <meta charset="utf-8"/>
+    <title>
+      Heat, Mass, and Momentum Transfer
+    </title>
+    <meta content="Heat Mass and Momentum Transfer notes" name="description"/>
+    <meta content="Marcus Bannerman &lt;m.bannerman@gmail.com" name="author"/>
+    <meta content="yes" name="apple-mobile-web-app-capable"/>
+    <meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"/>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui" name="viewport"/>
+    <script data-headjs-load="header.js" src="../reveal.js/lib/js/head.min.js">
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+	<section>
+	  <section>
+	    <h2>
+	      Heat Transfer Examples
+	    </h2>
+	    <div class="center">
+	    </div>
+	  </section>
+	</section>
+	<section>
+	  <section data-menu-title="Critical pipe insulation">
+	    A 10 m pipe with a outer-radius of
+	    $r_{pipe}=2.5$
+	    cm is to be
+	    insulated using a layer of insulation with a thermal conductivity of
+	    $k=0.18$
+	    W/m K.  You may assume that the external convective heat
+	    transfer coefficient of the insulation is constant at
+	    $h=5$
+	    W/m
+	    ${}^2$
+	    K and that these two mechanisms are the only
+	    significant heat transfer resistances.
+	    <ol>
+	      <li>
+		Write down the heat transfer equation for this system showing
+		how the overall heat transfer rate$Q$
+		depends on
+		$k$,
+		$r_{pipe}$,
+		the outer radius of the pipe insulation
+		$r_{ins.}$, the pipe
+		length
+		$L$, and the temperature difference
+		$\Delta T$
+		between the
+		pipe wall and the ambient air.
+		<br/>
+		<i><b>Note:</b>
+		  The resistance to heat transfer in a cylindrical shell
+		  is:
+		  \begin{align*}
+		  R = \frac{\ln\left(r_{outer}/r_{inner}\right)}{2 \pi k L}
+		  \end{align*}
+		  The external convection resistance to heat transfer is
+		  \begin{align*}
+		  R_{conv.}= \frac{1}{2 \pi r_{ins.} L h}
+		  \end{align*}
+		  Summing the resistances, we have
+		  \begin{align*}
+		  Q = \Delta
+		  T/\left(\frac{\ln\left(r_{ins.}/r_{pipe}\right)}{2 \pi k L}
+		  + \frac{1}{2 \pi r_{ins.} L h}\right)
+		  \end{align*}</i>
+	      </li>
+	    </ol>
+	  </section>
+	  <section>
+	    A 10 m pipe with a outer-radius of
+	    $r_{pipe}=2.5$
+	    cm is to be
+	    insulated using a layer of insulation with a thermal conductivity of
+	    $k=0.18$
+	    W/m K.  You may assume that the external convective heat
+	    transfer coefficient of the insulation is constant at
+	    $h=5$
+	    W/m
+	    ${}^2$
+	    K and that these two mechanisms are the only
+	    significant heat transfer resistances.
+	    <ol>
+	      <li>
+		ii)
+		Calculate the heat transfer rate for three thicknesses of
+		insulation
+		$r_{ins.}=3.0$
+		cm, 3.6 cm, and 4.2 cm. The surface temperature of the
+		pipe is
+		$400^\circ$
+		C and ambient conditions are at
+		$10^\circ$
+		C.
+		<i>Substituting in the known values, we have
+		  \begin{align*}
+		  Q &amp;= 2 \pi L \Delta T /
+		  \left(\frac{\ln\left(r_{ins.}/r_{pipe}\right)}{k} +
+		  \frac{1}{r_{ins.} h}\right)\\
+		  &amp;= 2 \pi 10\times(400-10) / \left(\frac{\ln\left(r_{ins.}/0.025\right)}{0.18} +
+		  \frac{1}{r_{ins.}\times5}\right)\\
+		  &amp;= 24500 / (\ln\left(r_{ins.}/0.025\right)/0.18 + 0.2/r_{ins.})\\
+		  &amp;= \begin{cases}
+		  3190 \text{W} &amp; \text{for $r_{ins.}=3.0$}\\
+		  3231 \text{W} &amp; \text{for $r_{ins.}=3.6$}\\
+		  3205 \text{W} &amp; \text{for $r_{ins.}=4.2$}\\
+		  \end{cases}
+		  \end{align*}</i>
+	      </li>
+	    </ol>
+	  </section>
+	  <section>
+	    <ol>
+	      <li>
+		iii)
+		Explain why you observe a maximum in the heat transfer
+		rate.
+		<i>There is a maximum in the heat transfer rate as, at first, the
+		  resistance to convection decreases faster than the resistance to
+		  conduction increases. Eventually the conduction resistance
+		  dominates.
+
+		  The critical radius can be derived as follows:
+		  \begin{align*}
+		  \frac{\partial Q}{\partial r} &amp;= 2 \pi L \Delta T \frac{\partial}{\partial r} 1 /
+		  \left(\frac{\ln\left(r_{ins.}/r_{pipe}\right)}{k} +
+		  \frac{1}{r_{ins.} h}\right)
+		  \end{align*}
+		  Using the chain rule the derivative is
+		  \begin{align*}
+		  \frac{\partial Q}{\partial r} &amp;= -2 \pi L \Delta T \left(\frac{\ln\left(r_{ins.}/r_{pipe}\right)}{k} +
+		  \frac{1}{r_{ins.} h}\right)^{-2}
+		  \left(\frac{1}{r_{ins.} k} - \frac{1}{r_{ins.}^2 h}\right)
+		  \end{align*}
+		  This derivative is zero when
+		  \begin{align*}
+		  \left(\frac{1}{r_{ins.} k} - \frac{1}{r_{ins.}^2 h}\right)&amp;=0
+		  \end{align*}
+		  Rearranging for the critical insulation radius gives
+		  \begin{align*}
+		  r_c = \frac{k}{h}
+		  \end{align*}
+		  In this case the critical radius is
+		  $r_c=0.18/5=0.036$
+		  m or 3.6 cm.</i>
+	      </li>
+	    </ol>
+	  </section>
+	</section>
+	<section>
+	  <section data-menu-title="Car in the sun">
+	    A black-body car is left in direct sunlight at midday, which
+	    can be approximated as a constant heat flux
+	    $q_{sun}=1000$
+	    W/m
+	    ${}^2$. The car's surface temperature reaches
+	    steady state with its surroundings and is approximately
+	    constant. The car has a surface area of 26 m
+	    ${}^2$
+	    but only
+	    $8$
+	    m
+	    ${}^2$
+	    are exposed to sunlight.
+	    <ol>
+	      <li>
+		Assuming that the ambient temperature is 15${}^\circ$
+		C and
+		that radiation is the only heat transfer mechanism, calculate
+		the surface temperature of the car. Is the estimate realistic?
+		<br/>
+		<i>At steady state, the flux of energy into the car from the
+		  sunlight is equal to the energy lost through radiation:
+		  \begin{align*}
+		  A_{sun} q_{sun}=-A_{car} q_{rad}=\sigma A_{car} \varepsilon\left(T^4_{car}-T^4_\infty\right)
+		  \end{align*}
+		  We have
+		  $\varepsilon=1$
+		  as the car is black and
+		  $\sigma=5.6703\times10^{-8}$
+		  W/m
+		  ${}^2$
+		  K
+		  ${}^4$
+		  from the data
+		  sheet. Substituting in the known values, we have
+		  \begin{align*}
+		  8\times1000&amp;=26\times5.6703\times10^{-8}\left(T^4_{car}-288.15^4\right)\\
+		  T^4_{car}&amp;=\frac{8000}{26\times5.6703\times10^{-8}}+288.15^4\\
+		  T_{car}&amp;=333 K = 60 {{}^\circ}C
+		  \end{align*}
+		  This temperature is fairly realistic for cars in the UK on hot
+		  summer days.</i>
+	      </li>
+	    </ol>
+	  </section>
+	  <section>
+	    <ol>
+	      <li>
+		ii)
+		Using the previous estimate for the surface temperature
+		(
+		$T_{car}=333$
+		K), estimate the heat flux due to natural
+		convection from the sides of the car and comment on its magnitude.
+		You may approximate the sides of the car as a vertical wall 12 m
+		wide and 1.5 m high. You may assume the following properties of
+		air at these conditions.
+		<div class="center">
+		  <table style="border-collapse:collapse;">
+		    <tr style="border-top:thin solid black;">
+		      <td>
+			$\rho$
+			(kg/m
+			${}^3$
+			)
+		      </td>
+		      <td>
+			$k$
+			(W/m K)
+		      </td>
+		      <td>
+			$\mu$
+			(kg/m s)
+		      </td>
+		      <td>
+			$C_p$
+			(J/mol K)
+		      </td>
+		      <td>
+			Mol. Weight (g)
+		      </td>
+		    </tr>
+		    <tr style="border-top:thin solid black;">
+		      <td>
+			1.225
+		      </td>
+		      <td>
+			0.026
+		      </td>
+		      <td>
+			$1.827\times10^{-5}$
+		      </td>
+		      <td>
+			29.19
+		      </td>
+		      <td>
+			29
+		      </td>
+		    </tr>
+		    <tr style="border-top:thin solid black;">
+		      <td>
+		      </td>
+		    </tr>
+		  </table>
+		</div>
+		<i>First we must calculate the Grashof number, but we need the
+		  thermal expansion coefficient,
+		  $\beta$. We can quickly derive
+		  it from the ideal gas equation and the identity in the
+		  datasheet
+		  \begin{align*}
+		  \beta&amp;=\frac{1}{V}\frac{\partial V}{\partial T} =\frac{1}{V}\frac{\partial}{\partial T}\frac{n R T}{P}
+		  =\frac{n R}{P V} =\frac{1}{T}
+		  \end{align*}
+		  Or simply remember that
+		  $\beta=1/T$
+		  for an ideal gas. This
+		  must be evaluated at the film temperature
+		  $T_f=(T_{wall}+T_\infty)/2=(60+15)/2=37.5 {}^\circ$
+		  C
+		  $=311$
+		  K. The
+		  $L$
+		  term in the Grashof number is the plate height, as the
+		  height is the characteristic length for convection.</i>
+	      </li>
+	    </ol>
+	  </section>
+	  <section>
+	    <ol>
+	      <li>
+		ii)
+		<table style="border-collapse:collapse;">
+		  <tr style="border-top:thin solid black;">
+		    <td>
+		      $\rho$
+		      (kg/m
+		      ${}^3$
+		      )
+		    </td>
+		    <td>
+		      $k$
+		      (W/m K)
+		    </td>
+		    <td>
+		      $\mu$
+		      (kg/m s)
+		    </td>
+		    <td>
+		      $C_p$
+		      (J/mol K)
+		    </td>
+		    <td>
+		      Mol. Weight (g)
+		    </td>
+		  </tr>
+		  <tr style="border-top:thin solid black;">
+		    <td>
+		      1.225
+		    </td>
+		    <td>
+		      0.026
+		    </td>
+		    <td>
+		      $1.827\times10^{-5}$
+		    </td>
+		    <td>
+		      29.19
+		    </td>
+		    <td>
+		      29
+		    </td>
+		  </tr>
+		  <tr style="border-top:thin solid black;">
+		    <td>
+		    </td>
+		  </tr>
+		</table>
+		<i>\begin{align*}
+		  \text{Gr}&amp;=\frac{g \rho^2 \beta\left(T_w-T_\infty\right)
+		  L^3}{\mu^2}\\
+		  &amp;=\frac{9.81\times1.225^2\times311^{-1}(60-15)1.5^3}{\left(1.827\times 10^{-5}\right)^2}\\
+		  &amp;\approx2.15\times10^{10}
+		  \end{align*}
+		  Converting
+		  $C_p$
+		  to kJ/kg, we have
+		  $C_p=29.19/29=1.007$
+		  kJ/kg K. Calculating the Prandtl number
+		  \begin{align*}
+		  \text{Pr}=\frac{\mu C_p}{k}=\frac{1.827\times10^{-5}\times1.007\times10^3}{0.026}\approx0.71
+		  \end{align*}
+		  The Rayleigh number is then
+		  \begin{align*}
+		  \text{Ra}=\text{Pr} \text{Gr}=0.71\times2.15\times10^{10}\approx1.53\times10^{10}
+		  \end{align*}
+		  Looking in the data sheet, this corresponds to the following
+		  expression for the Nusselt number
+		  \begin{align*}
+		  \text{Nu}=0.13\left(\text{Ra}\right)^{1/3}=0.13\times\left(1.53\times10^{10}\right)^{1/3}\approx323
+		  \end{align*}
+		  This gives a heat transfer coefficient of
+		  \begin{align*}
+		  h = \frac{\text{Nu} k}{L}=\frac{323\times0.026}{1.5}\approx5.60 \text{W/m${}^2$K}
+		  \end{align*}
+		  The convective heat transfer is then
+		  \begin{align*}
+		  Q_{conv.}=h A \left(T_{wall}-T_\infty\right)=5.60\times1.5\times12\left(60-15\right)=4.536 \text{kW}
+		  \end{align*}
+		  The natural convective heat transfer is relatively large
+		  compared to the total radiant heat transfer (
+		  $8000$
+		  W),
+		  therefore iterations are needed to determine the true surface
+		  temperature.</i>
+	      </li>
+	      <li>
+		Discuss how you might improve the accuracy of the
+		calculations, and what the effect of setting the car in motion
+		will be.
+		<i>The accuracy may be improved by finding a better approximation
+		  for the car surface for the convection calculations,
+		  specifying realistic emissivities for the car surface, and
+		  solving for the radiation and convection fluxes
+		  simultaneously.
+
+		  If the car is set in motion, the natural convection will
+		  become a forced convection, greatly increasing the heat
+		  transfer rate of this mode. It is likely that this will cause
+		  the car surface to significantly cool.</i>
+	      </li>
+	    </ol>
+	  </section>
+	  <section>
+	    <ol>
+	      <li>
+		ii)
+		<i>This gives a heat transfer coefficient of
+		  \begin{align*}
+		  h = \frac{\text{Nu} k}{L}=\frac{323\times0.026}{1.5}\approx5.60 \text{W/m${}^2$K}
+		  \end{align*}
+		  The convective heat transfer is then
+		  \begin{align*}
+		  Q_{conv.}=h A \left(T_{wall}-T_\infty\right)=5.60\times1.5\times12\left(60-15\right)=4.536 \text{kW}
+		  \end{align*}
+		  The natural convective heat transfer is relatively large
+		  compared to the total radiant heat transfer (
+		  $8$
+		  kW),
+		  therefore iterations are needed to determine the true surface
+		  temperature.</i>
+	      </li>
+	    </ol>
+	  </section>
+	  <section>
+	    <ol>
+	      <li>
+		iii)
+		Discuss how you might improve the accuracy of the
+		calculations, and what the effect of setting the car in motion
+		will be.
+		<i>The accuracy may be improved by finding a better approximation
+		  for the car surface for the convection calculations,
+		  specifying realistic emissivities for the car surface, and
+		  solving for the radiation and convection fluxes
+		  simultaneously.
+
+		  If the car is set in motion, the natural convection will
+		  become a forced convection, greatly increasing the heat
+		  transfer rate of this mode. It is likely that this will cause
+		  the car surface to significantly cool.</i>
+	      </li>
+	    </ol>
+	  </section>
+	</section>
       </div>
-     </section>
-    </section>
-    <section>
-     <section data-menu-title="Critical pipe insulation">
-      A 10 m pipe with a outer-radius of
-      $r_{pipe}=2.5$
-      cm is to be
-  insulated using a layer of insulation with a thermal conductivity of
-      $k=0.18$
-      W/m K.  You may assume that the external convective heat
-  transfer coefficient of the insulation is constant at
-      $h=5$
-      W/m
-      ${}^2$
-      K and that these two mechanisms are the only
-  significant heat transfer resistances.
-      <ol>
-       <li>
-        Write down the heat transfer equation for this system showing
-    how the overall heat transfer rate$Q$
-        depends on
-        $k$,
-        $r_{pipe}$,
-    the outer radius of the pipe insulation
-        $r_{ins.}$, the pipe
-    length
-        $L$, and the temperature difference
-        $\Delta T$
-        between the
-    pipe wall and the ambient air.
-        <br/>
-        <i><b>Note:</b>
-         The resistance to heat transfer in a cylindrical shell
-      is:
-         \begin{align*}
-         R = \frac{\ln\left(r_{outer}/r_{inner}\right)}{2 \pi k L}
-         \end{align*}
-         The external convection resistance to heat transfer is
-         \begin{align*}
-         R_{conv.}= \frac{1}{2 \pi r_{ins.} L h}
-         \end{align*}
-         Summing the resistances, we have
-         \begin{align*}
-         Q = \Delta
-        T/\left(\frac{\ln\left(r_{ins.}/r_{pipe}\right)}{2 \pi k L}
-          + \frac{1}{2 \pi r_{ins.} L h}\right)
-         \end{align*}</i>
-       </li>
-      </ol>
-     </section>
-     <section>
-      A 10 m pipe with a outer-radius of
-      $r_{pipe}=2.5$
-      cm is to be
-  insulated using a layer of insulation with a thermal conductivity of
-      $k=0.18$
-      W/m K.  You may assume that the external convective heat
-  transfer coefficient of the insulation is constant at
-      $h=5$
-      W/m
-      ${}^2$
-      K and that these two mechanisms are the only
-  significant heat transfer resistances.
-      <ol>
-       <li>
-        ii)
-        Calculate the heat transfer rate for three thicknesses of
-    insulation
-        $r_{ins.}=3.0$
-        cm, 3.6 cm, and 4.2 cm. The surface temperature of the
-    pipe is
-        $400^\circ$
-        C and ambient conditions are at
-        $10^\circ$
-        C.
-        <i>Substituting in the known values, we have
-         \begin{align*}
-         Q &amp;= 2 \pi L \Delta T /
-        \left(\frac{\ln\left(r_{ins.}/r_{pipe}\right)}{k} +
-          \frac{1}{r_{ins.} h}\right)\\
-        &amp;= 2 \pi 10\times(400-10) / \left(\frac{\ln\left(r_{ins.}/0.025\right)}{0.18} +
-          \frac{1}{r_{ins.}\times5}\right)\\
-        &amp;= 24500 / (\ln\left(r_{ins.}/0.025\right)/0.18 + 0.2/r_{ins.})\\
-        &amp;= \begin{cases}
-          3190 \text{W} &amp; \text{for $r_{ins.}=3.0$}\\
-          3231 \text{W} &amp; \text{for $r_{ins.}=3.6$}\\
-          3205 \text{W} &amp; \text{for $r_{ins.}=4.2$}\\
-        \end{cases}
-         \end{align*}</i>
-       </li>
-      </ol>
-     </section>
-     <section>
-      <ol>
-       <li>
-        iii)
-        Explain why you observe a maximum in the heat transfer
-    rate.
-        <i>There is a maximum in the heat transfer rate as, at first, the
-      resistance to convection decreases faster than the resistance to
-      conduction increases. Eventually the conduction resistance
-      dominates.
-
-      The critical radius can be derived as follows:
-         \begin{align*}
-         \frac{\partial Q}{\partial r} &amp;= 2 \pi L \Delta T \frac{\partial}{\partial r} 1 /
-        \left(\frac{\ln\left(r_{ins.}/r_{pipe}\right)}{k} +
-          \frac{1}{r_{ins.} h}\right)
-         \end{align*}
-         Using the chain rule the derivative is
-         \begin{align*}
-         \frac{\partial Q}{\partial r} &amp;= -2 \pi L \Delta T \left(\frac{\ln\left(r_{ins.}/r_{pipe}\right)}{k} +
-          \frac{1}{r_{ins.} h}\right)^{-2}
-        \left(\frac{1}{r_{ins.} k} - \frac{1}{r_{ins.}^2 h}\right)
-         \end{align*}
-         This derivative is zero when
-         \begin{align*}
-         \left(\frac{1}{r_{ins.} k} - \frac{1}{r_{ins.}^2 h}\right)&amp;=0
-         \end{align*}
-         Rearranging for the critical insulation radius gives
-         \begin{align*}
-         r_c = \frac{k}{h}
-         \end{align*}
-         In this case the critical radius is
-         $r_c=0.18/5=0.036$
-         m or 3.6 cm.</i>
-       </li>
-      </ol>
-     </section>
-    </section>
-    <section>
-     <section data-menu-title="Car in the sun">
-      A black-body car is left in direct sunlight at midday, which
-  can be approximated as a constant heat flux
-      $q_{sun}=1000$
-      W/m
-      ${}^2$. The car's surface temperature reaches
-  steady state with its surroundings and is approximately
-  constant. The car has a surface area of 26 m
-      ${}^2$
-      but only
-      $8$
-      m
-      ${}^2$
-      are exposed to sunlight.
-      <ol>
-       <li>
-        Assuming that the ambient temperature is 15${}^\circ$
-        C and
-    that radiation is the only heat transfer mechanism, calculate
-    the surface temperature of the car. Is the estimate realistic?
-        <br/>
-        <i>At steady state, the flux of energy into the car from the
-      sunlight is equal to the energy lost through radiation:
-         \begin{align*}
-         A_{sun} q_{sun}=-A_{car} q_{rad}=\sigma A_{car} \varepsilon\left(T^4_{car}-T^4_\infty\right)
-         \end{align*}
-         We have
-         $\varepsilon=1$
-         as the car is black and
-         $\sigma=5.6703\times10^{-8}$
-         W/m
-         ${}^2$
-         K
-         ${}^4$
-         from the data
-      sheet. Substituting in the known values, we have
-         \begin{align*}
-         8\times1000&amp;=26\times5.6703\times10^{-8}\left(T^4_{car}-288.15^4\right)\\
-        T^4_{car}&amp;=\frac{8000}{26\times5.6703\times10^{-8}}+288.15^4\\
-        T_{car}&amp;=333 K = 60 {{}^\circ}C
-         \end{align*}
-         This temperature is fairly realistic for cars in the UK on hot
-      summer days.</i>
-       </li>
-      </ol>
-     </section>
-     <section>
-      <ol>
-       <li>
-        ii)
-        Using the previous estimate for the surface temperature
-    (
-        $T_{car}=333$
-        K), estimate the heat flux due to natural
-    convection from the sides of the car and comment on its magnitude.
-    You may approximate the sides of the car as a vertical wall 12 m
-    wide and 1.5 m high. You may assume the following properties of
-    air at these conditions.
-        <div class="center">
-         <table style="border-collapse:collapse;">
-          <tr style="border-top:thin solid black;">
-           <td>
-            $\rho$
-            (kg/m
-            ${}^3$
-            )
-           </td>
-           <td>
-            $k$
-            (W/m K)
-           </td>
-           <td>
-            $\mu$
-            (kg/m s)
-           </td>
-           <td>
-            $C_p$
-            (J/mol K)
-           </td>
-           <td>
-            Mol. Weight (g)
-           </td>
-          </tr>
-          <tr style="border-top:thin solid black;">
-           <td>
-            1.225
-           </td>
-           <td>
-            0.026
-           </td>
-           <td>
-            $1.827\times10^{-5}$
-           </td>
-           <td>
-            29.19
-           </td>
-           <td>
-            29
-           </td>
-          </tr>
-          <tr style="border-top:thin solid black;">
-           <td>
-           </td>
-          </tr>
-         </table>
-        </div>
-        <i>First we must calculate the Grashof number, but we need the
-      thermal expansion coefficient,
-         $\beta$. We can quickly derive
-      it from the ideal gas equation and the identity in the
-      datasheet
-         \begin{align*}
-         \beta&amp;=\frac{1}{V}\frac{\partial V}{\partial T} =\frac{1}{V}\frac{\partial}{\partial T}\frac{n R T}{P}
-        =\frac{n R}{P V} =\frac{1}{T}
-         \end{align*}
-         Or simply remember that
-         $\beta=1/T$
-         for an ideal gas. This
-      must be evaluated at the film temperature
-         $T_f=(T_{wall}+T_\infty)/2=(60+15)/2=37.5 {}^\circ$
-         C
-         $=311$
-         K. The
-         $L$
-         term in the Grashof number is the plate height, as the
-      height is the characteristic length for convection.</i>
-       </li>
-      </ol>
-     </section>
-     <section>
-      <ol>
-       <li>
-        ii)
-        <table style="border-collapse:collapse;">
-         <tr style="border-top:thin solid black;">
-          <td>
-           $\rho$
-           (kg/m
-           ${}^3$
-           )
-          </td>
-          <td>
-           $k$
-           (W/m K)
-          </td>
-          <td>
-           $\mu$
-           (kg/m s)
-          </td>
-          <td>
-           $C_p$
-           (J/mol K)
-          </td>
-          <td>
-           Mol. Weight (g)
-          </td>
-         </tr>
-         <tr style="border-top:thin solid black;">
-          <td>
-           1.225
-          </td>
-          <td>
-           0.026
-          </td>
-          <td>
-           $1.827\times10^{-5}$
-          </td>
-          <td>
-           29.19
-          </td>
-          <td>
-           29
-          </td>
-         </tr>
-         <tr style="border-top:thin solid black;">
-          <td>
-          </td>
-         </tr>
-        </table>
-        <i>\begin{align*}
-         \text{Gr}&amp;=\frac{g \rho^2 \beta\left(T_w-T_\infty\right)
-          L^3}{\mu^2}\\
-        &amp;=\frac{9.81\times1.225^2\times311^{-1}(60-15)1.5^3}{\left(1.827\times 10^{-5}\right)^2}\\
-        &amp;\approx2.15\times10^{10}
-         \end{align*}
-         Converting
-         $C_p$
-         to kJ/kg, we have
-         $C_p=29.19/29=1.007$
-         kJ/kg K. Calculating the Prandtl number
-         \begin{align*}
-         \text{Pr}=\frac{\mu C_p}{k}=\frac{1.827\times10^{-5}\times1.007\times10^3}{0.026}\approx0.71
-         \end{align*}
-         The Rayleigh number is then
-         \begin{align*}
-         \text{Ra}=\text{Pr} \text{Gr}=0.71\times2.15\times10^{10}\approx1.53\times10^{10}
-         \end{align*}
-         Looking in the data sheet, this corresponds to the following
-      expression for the Nusselt number
-         \begin{align*}
-         \text{Nu}=0.13\left(\text{Ra}\right)^{1/3}=0.13\times\left(1.53\times10^{10}\right)^{1/3}\approx323
-         \end{align*}
-         This gives a heat transfer coefficient of
-         \begin{align*}
-         h = \frac{\text{Nu} k}{L}=\frac{323\times0.026}{1.5}\approx5.60 \text{W/m${}^2$K}
-         \end{align*}
-         The convective heat transfer is then
-         \begin{align*}
-         Q_{conv.}=h A \left(T_{wall}-T_\infty\right)=5.60\times1.5\times12\left(60-15\right)=4.536 \text{kW}
-         \end{align*}
-         The natural convective heat transfer is relatively large
-      compared to the total radiant heat transfer (
-         $8000$
-         W),
-      therefore iterations are needed to determine the true surface
-      temperature.</i>
-       </li>
-       <li>
-        Discuss how you might improve the accuracy of the
-    calculations, and what the effect of setting the car in motion
-    will be.
-        <i>The accuracy may be improved by finding a better approximation
-      for the car surface for the convection calculations,
-      specifying realistic emissivities for the car surface, and
-      solving for the radiation and convection fluxes
-      simultaneously.
-
-      If the car is set in motion, the natural convection will
-      become a forced convection, greatly increasing the heat
-      transfer rate of this mode. It is likely that this will cause
-      the car surface to significantly cool.</i>
-       </li>
-      </ol>
-     </section>
-     <section>
-      <ol>
-       <li>
-        ii)
-        <i>This gives a heat transfer coefficient of
-         \begin{align*}
-         h = \frac{\text{Nu} k}{L}=\frac{323\times0.026}{1.5}\approx5.60 \text{W/m${}^2$K}
-         \end{align*}
-         The convective heat transfer is then
-         \begin{align*}
-         Q_{conv.}=h A \left(T_{wall}-T_\infty\right)=5.60\times1.5\times12\left(60-15\right)=4.536 \text{kW}
-         \end{align*}
-         The natural convective heat transfer is relatively large
-    compared to the total radiant heat transfer (
-         $8$
-         kW),
-    therefore iterations are needed to determine the true surface
-    temperature.</i>
-       </li>
-      </ol>
-     </section>
-     <section>
-      <ol>
-       <li>
-        iii)
-        Discuss how you might improve the accuracy of the
-    calculations, and what the effect of setting the car in motion
-    will be.
-        <i>The accuracy may be improved by finding a better approximation
-      for the car surface for the convection calculations,
-      specifying realistic emissivities for the car surface, and
-      solving for the radiation and convection fluxes
-      simultaneously.
-
-      If the car is set in motion, the natural convection will
-      become a forced convection, greatly increasing the heat
-      transfer rate of this mode. It is likely that this will cause
-      the car surface to significantly cool.</i>
-       </li>
-      </ol>
-     </section>
-    </section>
-   </div>
-   <div class="slide-menu-button" style="left:170px;cursor:pointer;">
-    <a class="hide-on-pdf" id="PrintButton" onclick="document.location = '?print-pdf';">
-     <i class="fa fa-print"></i>
-    </a>
-   </div>
-   <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({ TeX: { extensions: ["cancel.js"] }});
-   </script>
-   <script src="footer.js">
-   </script>
-  </div>
- </body>
+      <div class="slide-menu-button" style="left:170px;cursor:pointer;">
+	<a class="hide-on-pdf" id="PrintButton" onclick="document.location = '?print-pdf';">
+	  <i class="fa fa-print"></i>
+	</a>
+      </div>
+      <script type="text/x-mathjax-config">
+	MathJax.Hub.Config({ TeX: { extensions: ["cancel.js"] }});
+      </script>
+      <script src="footer.js">
+      </script>
+    </div>
+  </body>
 </html>
