@@ -130,7 +130,7 @@
        <div style="flex: 1 1 calc(100% * 0.51);">
         <figure>
          <div class="center">
-          <object data="img/BinghamPlastics.svg" type="image/svg+xml" width="100%">
+          <object data="img/BinghamPlastics.svg" type="image/svg+xml" height="100%">
           </object>
          </div>
         </figure>
@@ -293,12 +293,126 @@
       <div style="display:flex;align-items:center;">
        <div style="flex: 1 1 calc(100% * 0.51);">
         <ul>
-         <div class="fragment " data-fragment-index="1">
           <li>
-           Let's take a simple example such as the flow of a
+            Let's take a simple example such as the flow of a
           Bingham plastic in a pipe…
           </li>
+        </ul>
+       </div>
+       <div style="flex: 1 1 calc(100% * 0.51);">
+        <figure>
+         <div class="center">
+          <object data="img/bingham_pipe_flow.svg" type="image/svg+xml">
+          </object>
          </div>
+        </figure>
+       </div>
+      </div>
+     </section>
+     <section data-menu-title="Example: Bingham Plastic in a Pipe">
+      <div style="display:flex;align-items:center;">
+       <div style="flex: 1 1 calc(100% * 0.51);">
+        <ul>
+         <div class="fragment " data-fragment-index="2">
+          <li class="fragment" data-fragment-index="3">
+           Immediately, we can use the expression we derived
+          earlier for the viscous stress at the wall in terms of the
+          pressure drop.
+           \begin{align*}
+           \tau_{boundary} = \frac{\Delta p A_{flow}}{L P_w}
+           \end{align*}
+          </li>
+          <li class="fragment" data-fragment-index="4">
+           For a pipe, the wetted perimeter is given by the pipe
+          circumference $P_w=2\pi R$
+           and the flow area is
+           $A_{flow}=\pi R^2$.
+          </li>
+          <li class="fragment" data-fragment-index="5">
+           The stress on the boundary is then given by
+           \begin{align*}
+           \tau_{boundary} = \frac{\Delta p R}{2 L}
+           \end{align*}
+          </li>
+         </div>
+         <div class="fragment " data-fragment-index="6">
+          <li class="fragment" data-fragment-index="7">
+           The stresses at the boundaries are the maximum
+          stresses in the system!
+           \begin{align*}
+           \tau_{boundary} = \frac{\Delta p R}{2 L}
+           \end{align*}
+          </li>
+          <li class="fragment" data-fragment-index="8">
+           If these stresses are less than the yield stress
+          $\tau_{boundary} \leq \tau_0$, the fluid will not flow!
+          </li>
+          <li class="fragment" data-fragment-index="9">
+           We can also rearrange this to calculate a critical
+          “yield” pressure drop $\Delta p_0$.
+           \begin{align*}
+           \Delta p_0 = \frac{2 \tau_0 L}{R}
+           \end{align*}
+          </li>
+         </div>
+         <div class="fragment " data-fragment-index="10">
+          <li class="fragment" data-fragment-index="11">
+           We note that, as always, the stress profile is
+          always the same for a given flow geometry. Even if the
+          flowing fluid might be part solid.
+           \begin{align*}
+           \tau_{rz} = \left(\frac{\Delta p}{L}-\rho g_z\right)\frac{r}{2}
+           \end{align*}
+          </li>
+          <li class="fragment" data-fragment-index="12">
+           We also note that at $r=R$, and in the absence of
+          gravity, this is the same expression that we derived for the
+          boundary stress
+           \begin{align*}
+           \tau_{boundary} = \frac{\Delta p R}{2 L}
+           \end{align*}
+          </li>
+         </div>
+         <div class="fragment " data-fragment-index="13">
+          <li class="fragment" data-fragment-index="14">
+           Let's assume that the wall stresses are above the
+          critical stress, $\tau_{boundary}&gt;\tau_0$
+           and therefore
+           $\Delta p&gt;\Delta p_0$.
+          </li>
+          <li class="fragment" data-fragment-index="15">
+           The flow will be part-fluid and part-solid,
+          depending on the shear stress.
+          </li>
+          <li class="fragment" data-fragment-index="16">
+           The first thing we need to do is identify where the
+          shear stress $\tau_{rz}$
+           in the system drops below the yield
+          stress using the stress profile
+           \begin{align*}
+           \tau_{rz} = \frac{\Delta p}{L}\frac{r}{2}
+           \end{align*}
+          </li>
+          <li class="fragment" data-fragment-index="17">
+           When $\tau_{rz}=\tau_0$, the fluid becomes a solid.
+          </li>
+         </div>
+        </ul>
+       </div>
+       <div style="flex: 1 1 calc(100% * 0.51);">
+        <figure>
+         <div class="center">
+          <object data="img/bingham_pipe_flow.svg" type="image/svg+xml">
+          </object>
+         </div>
+        </figure>
+       </div>
+      </div>
+     </section>
+     <section data-menu-title="Example: Bingham Plastic in a Pipe">
+      <div style="display:flex;align-items:center;">
+       <div style="flex: 1 1 calc(100% * 0.51);">
+        <ul>
          <div class="fragment " data-fragment-index="2">
           <li class="fragment" data-fragment-index="3">
            Immediately, we can use the expression we derived
