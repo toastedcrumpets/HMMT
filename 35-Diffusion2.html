@@ -210,9 +210,9 @@
         <ul>
          <li>
           For example, at small concentrations we have $x_A\to0$
-          which gives
+          which gives Ficks law back as the solution for the flux,
           \begin{align*}
-          \boldsymbol{N}_A &amp;=-D_{AB} \nabla C_A + \cancelto{0}{x_A \left(\boldsymbol{N}_A + \boldsymbol{N}_B\right)}
+          \boldsymbol{N}_A &amp;=-D_{AB} \nabla C_A + \cancelto{0}{x_A} \left(\boldsymbol{N}_A + \boldsymbol{N}_B\right).
           \end{align*}
          </li>
          <li class="fragment" data-fragment-index="1">
@@ -220,14 +220,14 @@
         or liquid is usually very low compared to the solid density.
          </li>
          <li class="fragment" data-fragment-index="2">
-          Therefore, assuming the concentration of diffusing
-        species is low ($x_A\to0$
-          ) is a good assumption when you are
-        treating diffusion through solids.
+          Therefore, assuming the concentration of diffusing species
+        is low ($x_A\to0$) is a good assumption when you are treating
+        diffusion through solids.
          </li>
          <li class="fragment" data-fragment-index="3">
-          Q1 of tutorial 11 (right), and the previous class
-        example are applications of this.
+          The hydrogen diffusion tutorial question (see right) and the
+          previous class example are both applications of this
+          assumption.
          </li>
         </ul>
        </div>
@@ -269,13 +269,15 @@
           The expression for the flux then becomes
           \begin{align*}
           \boldsymbol{N}_A &amp;=-D_{AB} \nabla C_A + x_A \left(\boldsymbol{N}_A + \boldsymbol{N}_B\right)\\
-          &amp;=-D_{AB} \nabla C_A + \cancelto{0}{x_A \left(\boldsymbol{N}_A - \boldsymbol{N}_A\right)}
+          &amp;=-D_{AB} \nabla C_A + x_A \left(\cancelto{0}{\boldsymbol{N}_A - \boldsymbol{N}_A}\right)
           \end{align*}
          </li>
          <li class="fragment" data-fragment-index="3">
-          Q. 2 a) of tutorial 11 is an example of equimolar
-        counterdiffusion, when you have diffusion between two
-        different concentrations of gas.
+           The tutorial has an example of equimolar counterdiffusion,
+           when you have diffusion between two different
+           concentrations of gas (see right). This also applies in
+           distillation columns where you have <em>Constant Molar
+           Overflow</em>.
          </li>
         </ul>
        </div>
@@ -297,8 +299,7 @@
         <ul>
          <li>
           Finally, we consider the case where one species is
-        stationary ($N_B=0$
-          ).
+        stationary ($N_B=0$).
          </li>
          <li class="fragment" data-fragment-index="1">
           This may occur when the other species, $A$, is being
@@ -320,10 +321,9 @@
         is an enhancement of the diffusion of the other species</b>.
          </li>
          <li class="fragment" data-fragment-index="4">
-          Q. 2b of tutorial 7 is an example of diffusion
-        through a stationary component, and so is the
-          <b>Winklemann
-          experiment</b>.
+           The <b>Winklemann experiment</b> (see right), used to
+           determine values of the diffusivity is an example of this,
+           and other examples are available in the tutorial questions.
          </li>
         </ul>
        </div>
@@ -368,8 +368,12 @@
        </li>
        <li class="fragment" data-fragment-index="4">
         These parameters are key to characterising systems such as
-    boiling or combustion, where mass, momentum and heat transfer are
-    combined and occurring simultaneously.
+	boiling or combustion, where mass, momentum and heat transfer
+	are combined and occurring simultaneously. It should be clear
+	though, that whenever we add new forms of transport (e.g.,
+	electrical/magnetic), there will be a set of additional
+	dimensionless numbers taking the ratio of their
+	phenomenological coefficients.
        </li>
       </ul>
      </section>
