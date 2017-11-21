@@ -29,7 +29,7 @@
      <section data-menu-title="Recap and Real Multiphase Systems">
       <figure>
        <div class="center">
-        <img src="img/boiling_pan.jpg" style="width:80%;"/>
+        <img src="img/boiling_pan.jpg" style="width:50%;"/>
        </div>
        <figcaption>
         A boiling pan.
@@ -38,45 +38,47 @@
       <ul>
        <li>
         Multiphase flows are everywhere, one example is in boiling
-    fluids
+	fluids
         <br/>
-        (a two-phase gas-liquid flow we study later in heat transfer).
+        (a two-phase gas-liquid flow).
        </li>
       </ul>
      </section>
      <section>
       <div style="display:flex;align-items:center;">
-       <div style="flex: 1 1 calc(100% * 0.51);">
+       <div style="flex: 1 1 calc(100% * 0.61);">
         <ul>
          <li>
           Steam is used to transfer heat in nearly every
-        industry, and it needs boilers to “raise” it.
+          industry, and it needs boilers to “raise” it.
          </li>
          <li class="fragment" data-fragment-index="1">
-          We will see in later lectures that to
-        understand/predict
-          <b>Forced boiling</b>, we require two-phase
-        corrections for the heat transfer coefficients.
-          \begin{align*}
-          h_{cb} =  f_c h_{conv.} + f_s h_{nb}
-          \end{align*}
+           For <b>forced boiling</b>, we require two-phase corrections
+           for the heat transfer coefficients.  \begin{align*} h_{cb} =
+           f_c h_{conv.} + f_s h_{nb} \end{align*}
          </li>
          <li class="fragment" data-fragment-index="2">
-          We needed to consider a parameter known as the
-          <b>Lockhart-Martinelli parameter</b>,
-          $X_{tt}$, to calculate these
-        corrections (
-          $f_c$
-          and
-          $f_s$
-          ).
+           In the simplest models, we needed to consider the
+           dimensionless parameter known as the
+           <b>Lockhart-Martinelli parameter</b>, $X_{tt}$, to
+           calculate these corrections ($f_c$ and $f_s$).
          </li>
+	 <li class="fragment">
+	   This parameter is part of the foundation of simple
+	   multiphase flow pressure drop calculations.
+	 </li>
+	 <li class="fragment">
+	   Modern methods for estimating multiphase flow properties
+	   are "mechanistic" and are moving beyond this parameter;
+	   however, many correlations for other properties (such as
+	   heat transfer) have yet to catch up so we cover it here.
+	 </li>
         </ul>
        </div>
-       <div style="flex: 1 1 calc(100% * 0.51);">
+       <div style="flex: 1 1 calc(100% * 0.41);">
         <figure>
          <div class="center">
-          <img src="img/forced_boiling_tube.png"/>
+          <img src="img/forced_boiling_tube.png" width="221" height="372" style="width:50%"/>
          </div>
          <figcaption>
           Forced boiling in a vertical tube.
@@ -88,33 +90,31 @@
      <section data-menu-title="Slug-Catchers">
       <ul>
        <li>
-        In oil and gas, multiphase flow is a huge problem.
+         Multiphase flow is a key challenge in oil and gas production
+         and its this industry that has driven the development of
+         mechanistic flow models.
        </li>
        <li class="fragment" data-fragment-index="1">
-        The fluid coming out of oil wells and passing through rigs
-    and pipelines are a mixture of gas, oil, water and other
-    chemicals.
+        The fluid coming out of oil wells and passing through rigs and
+	pipelines are a mixture of gas, oil, water, other chemicals, and
+	solids from formation erosion.
        </li>
        <li class="fragment" data-fragment-index="2">
-        This mixture is piped to shore in huge (100's km)
+        This multi-phase mixture is piped to shore in huge (100's km)
     pipelines, to be treated at an onshore oil/gas plant.
        </li>
        <li class="fragment" data-fragment-index="3">
         Over a long enough pipeline, any multiphase flow will go
     to
         <b>slug flow</b>.
-        <div class="center">
-         <div class="fragment " data-fragment-index="4">
-         </div>
-         <div class="fragment " data-fragment-index="5">
-         </div>
-         <div class="fragment " data-fragment-index="6">
-          <br/>
-         </div>
-         <a src="{http://www.wlv.com/products/databook}">
-          {http://www.wlv.com/products/databook}
-         </a>
-        </div>
+        <figure>
+          <div class="center">
+            <img src="img/slug.gif" width="240" height="192" style="width:30%"/>
+          </div>
+          <figcaption>
+	    Taken from http://www.wlv.com/products/databook
+          </figcaption>
+        </figure>
        </li>
        <li class="fragment" data-fragment-index="7">
         When these “slugs” of liquid arrive at the oil and gas
@@ -126,13 +126,15 @@
      <section>
       <figure>
        <div class="center">
-        <object data="img/SlugCatchers.svg" type="image/svg+xml" width="100%">
+        <object data="img/SlugCatchers.svg" type="image/svg+xml" style="width:80%">
         </object>
        </div>
        <figcaption>
         Installation of a slugcatcher in Ireland. These pieces of
       equipment exist to prevent slugs overwhelming the plant and to
-      separate the gas and liquid phases.
+      separate the gas and liquid phases. Multiple pipes are used to
+      expand the flow as they are the cheapest way to construct the
+      large volumes needed to decellerate and settle out the flow.
        </figcaption>
       </figure>
      </section>
@@ -148,23 +150,21 @@
         With a long oil and gas pipeline we cannot always avoid
     slug flow, but in smaller process equipment we might avoid it in
     design, if we can predict the
-        <b>flow pattern</b>
-        !
+        <b>flow pattern</b>!
        </li>
        <li class="fragment" data-fragment-index="2">
-        In the oil and gas industry, pipeline simulation software
-    such as
-        <b>olga</b>
-        and
-        <b>LedaFlow</b>
-        are used to perform these
-    complex calculations for long pipelines.
+         In the oil and gas industry, the mechanistic models of
+        <b>olga</b> and
+        <b>LedaFlow</b> are used to perform these complex calculations
+        for long pipelines. Mechanistic models attempt to classify the
+        type of flow, and apply particular models depending on the
+        flow pattern.
        </li>
        <li class="fragment" data-fragment-index="3">
-        But we can get an idea of the calculations they perform
-    and gain rough estimates for the flow pattern in a pipe using
-    empirical
-        <b>flow pattern maps</b>.
+         Initially, <b>flow pattern maps</b> were used to predict the
+         flow pattern. Now, the flow pattern is more a statement of
+         which mechanistic model we have will have the best
+         predictions based on experimental data.
        </li>
       </ul>
      </section>
@@ -174,41 +174,24 @@
       <div style="display:flex;align-items:center;">
        <div style="flex: 1 1 calc(100% * 0.551);">
         <ul>
-         <li>
-          The prediction of flow patterns first requires the
-        identification of certain flow regimes.
-         </li>
-         <li class="fragment" data-fragment-index="1">
-          In multiphase flow in horizontal pipes, a common set
-        of flow regimes are identified to the right.
+         <li data-fragment-index="1">
+           In multiphase flow in horizontal pipes, a common set
+           of flow regimes are identified to the right.
          </li>
          <li class="fragment" data-fragment-index="2">
-          These patterns are identified by eye, or by some
-        measurement of the pressure fluctuations.
+           Originally, these patterns were identified by eye, or by
+           some measurement of the pressure fluctuations. Now,
+           empirical evidence of which model best fits a mechanistic
+           model is used to select the flow pattern (i.e. laminar
+           stratified flow is well approximated by the model in the
+           tutorials, thus any flow well approximated by that model is
+           "defined" as stratified flow).
          </li>
          <li class="fragment" data-fragment-index="3">
-          There are no hard and fast definitions, and many flow
-        types blend from one to another…
-          <br/>
-          Bubble $\to$
-          Plug
-          $\to$
-          Slug
-          $\to$
-          Wavy
-          $\to$
-          Stratified
-          <br/>
-          or Annular
-          $\to$
-          Spray.
-         </li>
-         <li class="fragment" data-fragment-index="4">
-          The Wolverine databooks are a great resource to
-        understand flow phenomena and its link to heat transfer:
-          <a src="{http://www.wlv.com/products/databook}">
-           {http://www.wlv.com/products/databook}
-          </a>
+           Visual/pressure fluctuation identification is problematic
+           as there are no hard and fast definitions, and many flow types
+           blend from one to another… <br/> Bubble $\to$ Plug $\to$ Slug
+           $\to$ Wavy $\to$ Stratified <br/> or Annular $\to$ Spray.
          </li>
         </ul>
        </div>
@@ -231,14 +214,14 @@
        <div style="flex: 1 1 calc(100% * 0.551);">
         <ul>
          <li>
-          Typically, Bubble, Plug and Slug flow are grouped
-        together as
+           Bubble, Plug and Slug flow are examples of
           <b>Intermittent</b>
           flow.
          </li>
          <li class="fragment" data-fragment-index="1">
-          This is because in these regions the flow of gas or
-        liquid is intermittent.
+          This is because in these regions the flow of gas or liquid
+          has strong fluctuations in the pressure or flow velocities
+          of the individual phases.
          </li>
          <li class="fragment" data-fragment-index="2">
           Obviously this regime of flow is difficult to design
@@ -273,21 +256,22 @@
        <div style="flex: 1 1 calc(100% * 0.551);">
         <ul>
          <li>
-          To estimate the flow pattern in a pipe, we need to use
-        a
+           Without using mechanistic models, the simplest way to
+           estimate the flow pattern in a pipe is using a
           <b>flow pattern map</b>.
          </li>
          <li class="fragment" data-fragment-index="1">
-          There are hundreds of these maps in existence, some
-        generalised to arbitrary fluids but most are for air/water
-        mixtures.
+           There are hundreds of these maps in existence, some
+           generalised to arbitrary fluids but most are for air/water
+           mixtures and are not very general (this is why mechanistic
+           models are being developed).
          </li>
          <li class="fragment" data-fragment-index="2">
           The axis of these graphs are usually functions of the
         liquid (y-axis) and the gas (x-axis) flow rate.
          </li>
          <li class="fragment" data-fragment-index="3">
-          The most common functions are the
+          The most axes are the
           <b>superficial
           velocities</b>
           \begin{align*}
@@ -321,7 +305,10 @@
         </object>
        </div>
        <figcaption>
-        Chhabra-Richardson flow map for flow in Horizontal Pipes.
+         Chhabra-Richardson flow map for flow in Horizontal
+	 Pipes. Most maps are constructed using air-water flows at
+	 atmospheric pressure and temperature thus they must be used
+	 with caution for other flows.
        </figcaption>
       </figure>
      </section>
@@ -330,18 +317,19 @@
        <div style="flex: 1 1 calc(100% * 0.51);">
         <ul>
          <li>
-          The Chharbra-Richardson flow map can be used for a
-        wide range of pipes and corrections for the effect of
-        different fluid properties seems to be negligible.
+           The Chharbra-Richardson flow map is popular as it can be
+           used for a wide range of pipes and corrections for the
+           effect of different fluid properties seems to be smaller
+           than most.
          </li>
          <li class="fragment" data-fragment-index="1">
-          The graph even appears to work well for gas and shear
-        thinning suspensions mixtures.
+           The graph even appears to work well for gas and shear
+           thinning suspensions mixtures.
          </li>
          <li class="fragment" data-fragment-index="2">
-          There is even suggestion that the map can be used for
-        vertical flow, but research in general has moved away from
-        graphical flow maps.
+           There is even suggestion that the map can be used for
+           vertical flow according to C&amp;R vol 1, but research in
+           general has moved away from graphical flow maps.
          </li>
         </ul>
        </div>
@@ -362,13 +350,10 @@
       <div style="display:flex;align-items:center;">
        <div style="flex: 1 1 calc(100% * 0.51);">
         <ul>
-         <li>
-          vertical flow, the principle flow patterns are much
-        simpler.
-         </li>
-         <li class="fragment" data-fragment-index="1">
-          This is because gravity does not cause an asymmetric
-        separation.
+          <li>
+            In vertical flow, the principle flow patterns are much
+            simpler.  This is because gravity does not cause an
+            asymmetric separation.
          </li>
          <li class="fragment" data-fragment-index="2">
           Also, the dangers of intermittent flow are not as
@@ -391,7 +376,7 @@
           </object>
          </div>
          <figcaption>
-          Vertical two-phase flow patterns.
+           Vertical two-phase flow patterns.
          </figcaption>
         </figure>
        </div>
@@ -402,9 +387,8 @@
        <div style="flex: 1 1 calc(100% * 0.51);">
         <ul>
          <li>
-          vertical flows, the flow pattern maps are usually
-        expressed in terms of the mass flux (kg / m${}^2$
-          s).
+           In vertical flows, the flow pattern maps are usually
+           expressed in terms of the mass flux (kg m${}^{-2}$s${}^{-1}$).
           \begin{align*}
           G_L &amp;= \frac{\rho_L \dot{V}_{Liq.}}{A} = \rho_L u_L \\ G_G
           &amp;= \frac{\rho_G \dot{V}_{Gas}}{A} = \rho_G u_G
@@ -413,8 +397,8 @@
           $G=G_L+G_G$.
          </li>
          <li class="fragment" data-fragment-index="1">
-          The actual terms used in a popular vertical flow map,
-        the Hewitt-Roberts map, are the momentum fluxes
+           The terms used in a popular vertical flow map,
+           the Hewitt-Roberts map, are the momentum fluxes
           \begin{align*}
           \frac{G_L^2}{\rho_L} &amp;= \rho_L u_L^2 &amp; \frac{G_G^2}{\rho_G}
           &amp;= \rho_G u_G^2
@@ -440,8 +424,8 @@
        <div style="flex: 1 1 calc(100% * 0.51);">
         <ul>
          <li>
-          Vertical boiling is one of many cases of multiphase
-        flow, where every vertical flow pattern can be observed.
+           Vertical boiling is one of many cases of multiphase
+          flow, where every vertical flow pattern can be observed.
          </li>
          <li class="fragment" data-fragment-index="1">
           Another case might be bubbles coalescing as they rise
@@ -453,7 +437,7 @@
        <div style="flex: 1 1 calc(100% * 0.51);">
         <figure>
          <div class="center">
-          <img src="img/forced_boiling_tube.png"/>
+          <img src="img/forced_boiling_tube.png" width="221" height="372" style="width:50%"/>
          </div>
          <figcaption>
           Forced boiling in a vertical tube.
@@ -466,32 +450,33 @@
     <section>
      <section data-menu-title="Multiphase Turbulence">
       <ul>
-       <li>
-        Turbulence is slightly more tricky in multiphase flows.
+	<li>
+	  Turbulence is tricky in multiphase flows as each phase
+          individually may be laminar or turbulent.
        </li>
-       <li class="fragment" data-fragment-index="1">
-        Each phase may be turbulent or laminar independently.
+       <li class="fragment">
+         We then have to calculate a Reynolds number for each phase,
+	 but using generalised Reynolds numbers such as the
+	 Metzner-Reed definition requires solutions for the flow,
+	 which is difficult in any complex flow.
        </li>
-       <li class="fragment" data-fragment-index="2">
-        We then have to calculate a Reynolds number for each
-    phase.
-       </li>
-       <li class="fragment" data-fragment-index="3">
-        This is easily done if we use the superficial velocities
-        \begin{align*}
-        \text{Re}_L &amp;= \frac{\rho_L u_L D}{\mu_L} = \frac{G_L D}{\mu_L} &amp;
-      \text{Re}_G &amp;= \frac{\rho_G u_G D}{\mu_G} = \frac{G_G D}{\mu_G}
-        \end{align*}
-       </li>
-       <li class="fragment" data-fragment-index="4">
-        The actual flow velocities will be higher than the
-    superficial velocities as the other phase occupies some of the
-    pipe.
-       </li>
-       <li class="fragment" data-fragment-index="5">
-        As a result, the critical Reynolds number is typically
-    somewhere in the range of $1000\lesssim \text{Re}_{crit}\lesssim
-    2000$.
+	<li class="fragment">
+          A simple definition arises from using the superficial
+          velocities \begin{align*} \text{Re}_L &amp;=
+          \frac{\rho_L u_L D}{\mu_L} = \frac{G_L D}{\mu_L} &amp;
+          \text{Re}_G &amp;= \frac{\rho_G u_G D}{\mu_G} =
+          \frac{G_G D}{\mu_G} \end{align*} in the standard Reynolds
+          number definition.
+	</li>
+	<li class="fragment">
+          The actual flow velocities will be higher than the
+	  superficial velocities as the other phase occupies some of the
+	  pipe.
+	</li>
+	<li class="fragment">
+          As a result, the critical Reynolds number appears to be
+	  somewhere in the range of $1000\lesssim
+	  \text{Re}_{crit}\lesssim 2000$.
        </li>
       </ul>
      </section>
@@ -499,47 +484,49 @@
     <section>
      <section data-menu-title="Two-Phase Multipliers">
       <ul>
-       <li>
-        If we want to calculate the pressure drop in a multi-phase
-    liquid, there are only a few times we might be able to do this
-        <i>analytically</i>.
-       </li>
-       <li class="fragment" data-fragment-index="1">
-        One example is the
-        <b>Stratified flow</b>
-        we studied in
-    tutorial 9!
+	<li>
+          If we want to calculate the pressure drop in a multi-phase
+	  liquid, there are only a few times we might be able to do this
+          <i>analytically</i>.
+	</li>
+	<li class="fragment" data-fragment-index="1">
+          One example is the
+          <b>Stratified flow</b> studied in the tutorials.
         <div class="center">
          <object data="img/layers.svg" type="image/svg+xml" width="80%">
          </object>
         </div>
        </li>
        <li class="fragment" data-fragment-index="2">
-        But unfortunately, the more complex flow patterns are the
-    ones that typically occur in industrially relevant systems.
+         This would form part of a mechanistic model and would be used
+         for any flows which approach laminar stratified flow.
        </li>
        <li class="fragment" data-fragment-index="3">
-        Another complication arises from the expansion of the gas
-    phase. As the pressure drops, the gas expands, which causes the
-    gas velocity to increase and this ends up accelerating the liquid
-    phase.
+         Another complication of multiphase flow arises from the
+	 expansion of the gas phase. As the pressure drops, the gas
+	 expands, which causes the gas velocity to increase and this
+	 ends up accelerating the liquid phase.
        </li>
        <li class="fragment" data-fragment-index="4">
         We will need to use empirical expressions to capture this
-    frictional pressure drop, and equations of state to capture the
-    expansion effects (compressible flow)…
+	frictional pressure drop, and equations of state to capture
+	the expansion effects (compressible flow)... hence why
+	simulation is popular.
        </li>
       </ul>
      </section>
      <section data-menu-title="Lockhart-Martinelli Parameter">
       <ul>
        <li>
-        Empirical multiphase correlations may be expressed in
-    terms of the Lockhart-Martinelli parameter.
-        \begin{align*}
-        X^2 = \frac{\left(\Delta p/L\right)_{liq.-only}}{\left(\Delta
-          p/L\right)_{gas-only}}
-        \end{align*}
+         In this course we will use some simpler and older expressions
+	 for predicting pressure drop. These empirical multiphase
+	 correlations are often expressed in terms of the
+	 Lockhart-Martinelli parameter.
+	 \begin{align*}
+	 X^2 =
+	 \frac{\left(\Delta p/L\right)_{liq.-only}}{\left(\Delta
+	 p/L\right)_{gas-only}}
+	 \end{align*}
        </li>
        <li class="fragment" data-fragment-index="1">
         This parameter is the ratio of the theoretical pressure
@@ -576,18 +563,16 @@
      </section>
      <section data-menu-title="Pressure Drop">
       <ul>
-       <li>
-        But what can we do with $X$, once we have it?
-       </li>
-       <li class="fragment" data-fragment-index="1">
-        We can calculate so-called
+	<li>
+          One of the simplest multiphase pressure drop calculations
+          uses
         <b>multiphase multipliers</b>
         which allow the calculation of the two phase pressure drop.
         \begin{align*}
         \Delta p_{two-phase} = \Phi^2_{liq.} \Delta p_{liq.-only} = \Phi^2_{gas} \Delta p_{gas-only}
         \end{align*}
        </li>
-       <li class="fragment" data-fragment-index="2">
+       <li class="fragment">
         The two phase multiplier $\Phi^2$
         is calculated from
     semi-empirical expressions, such as
@@ -604,7 +589,7 @@
       \end{cases}
         \end{align*}
        </li>
-       <li class="fragment" data-fragment-index="3">
+       <li class="fragment">
         We can now calculate expressions for the pressure drop in
     two-phase flow. The full procedure is
         <ul>
@@ -666,7 +651,7 @@
      <section>
       <figure>
        <div class="center">
-        <img src="img/offshore_platforms.jpg" style="width:100%;"/>
+        <img src="img/offshore_platforms.jpg" width="1229" height="768" style="height:100%;"/>
        </div>
        <figcaption>
         Offshore platform depths.
@@ -727,30 +712,22 @@
        </li>
        <li class="fragment" data-fragment-index="2">
         This is not realistic as the gas phase usually
-        <b>bypasses</b>
-        the liquid phase (in segregated flows, not so much in
-    bubble or plug flows).
+        <b>bypasses</b> the liquid phase in segregated flows (but this
+        is not a bad approach for bubble or plug flows!).
        </li>
        <li class="fragment" data-fragment-index="3">
-        For example, consider the two-phase laminar plate flow in
-    Tutorial 9 (and setting $1=L$,
-        $2=G$
-        ):
-        \begin{multline*}
-        \frac{\dot{V}_1}{\dot{V}_2} = -
-      \frac{3\mu_2}{\mu_1}\frac{H^3}{h^3}
-      \left[(1+A_1)\left(1-\frac{h}{H}\right)
-        -\frac{A_1}{2}\left(1-\frac{h^2}{H^2}\right)
-        -\frac{1}{3}\left(1-\frac{h^3}{H^3}\right)
-      \right]
-      \\
-      \times
-      \left[1+A_1\frac{3}{2}\frac{H}{h}\right]^{-1}
-        \end{multline*}
-       </li>
-       <li class="fragment" data-fragment-index="4">
-        Except in simple cases like the one above, we usually need
-    to resort to empirical expressions for the hold-up.
+         For example, consider the two-phase laminar plate flow in
+	the tutorials:
+         \begin{multline*}
+         \frac{\dot{V}_1}{\dot{V}_2} = -
+	 \frac{3\mu_2}{\mu_1}\frac{H^3}{h^3}
+	 \left[(1+A_1)\left(1-\frac{h}{H}\right)
+         -\frac{A_1}{2}\left(1-\frac{h^2}{H^2}\right)
+         -\frac{1}{3}\left(1-\frac{h^3}{H^3}\right)
+	 \right]
+	 \times
+	 \left[1+A_1\frac{3}{2}\frac{H}{h}\right]^{-1}
+         \end{multline*}
        </li>
       </ul>
      </section>
@@ -798,13 +775,13 @@
         It should now be obvious why annular flow is desirable in
     many cases as it yields the lowest pressure drop in vertical flow.
         <div class="center">
-         <object data="img/annular_flow_multi.svg" type="image/svg+xml">
+         <object data="img/annular_flow_multi.svg" type="image/svg+xml" style="width:100%">
          </object>
         </div>
        </li>
        <li class="fragment" data-fragment-index="1">
         The liquid hold-up is at a minimum and so is the density
-    which gives the minimum hydrostatic pressure loss.
+	which gives the minimum hydrostatic pressure loss.
        </li>
       </ul>
      </section>
@@ -812,9 +789,9 @@
       <ul>
        <li>
         The liquid hold-up is also proportional to the cross
-    sectional area of the pipe occupied by fluid.
+	sectional area of the pipe occupied by fluid.
         <div class="center">
-         <object data="img/hold_up_area.svg" type="image/svg+xml">
+         <object data="img/hold_up_area.svg" type="image/svg+xml" style="width:50%">
          </object>
         </div>
        </li>
@@ -868,7 +845,8 @@
      </section>
     </section>
     <section>
-     <section data-menu-title="Learning Objectives">
+      <section data-menu-title="Learning Objectives">
+	<h3>Learning objectives</h3>
       <ul>
        <li>
         Flow pattern maps, which patterns there are an which ones
