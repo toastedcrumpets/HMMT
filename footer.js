@@ -42,13 +42,14 @@ head.load("../reveal.js/js/reveal.js", function() {
 	    84: function() { Recorder.fetchTTS(); } 	// press 't' to fetch TTS audio files		 
 	},
 	menu: {
-	    titleSelector:'',
+	    loadIcons:false,
+	    titleSelector:'WILLNOTFINDTITLES',
 	    markers: true,
 	    hideMissingTitles: true,
 	    themes: false,
 	    transitions: false,
 	    custom: [
-		{ title: 'Lectures', icon: '<i class="fa fa-external-link"></i>', src: 'toc.html' },
+		{ title: 'Lectures', icon: '<i class="fa fa-graduation-cap"></i>', src: 'toc.html' },
 	    ]
 	},
 	chalkboard: { // font-awesome.min.css must be available
