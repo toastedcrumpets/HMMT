@@ -42,12 +42,13 @@
          <li class="fragment">
            For example, for the flow of a fluid between two plates
            (top-right), we ignore the direction into the plane (the
-           problem is now 2D).
+           problem is now 2D), then we assume the flow doesn't change
+           in the $x$-direction (now a 1D problem).
          </li>
          <li class="fragment">
-           And for problems with an axis of symmetry, such as annular
-           flow (bottom-right) we can ignore the rotational component
-           ($\theta$).
+           For problems with an axis of symmetry, such as annular
+           flow (bottom-right) we can often ignore the rotational component
+           ($\theta$) and axial component ($z$).
          </li>
         </ul>
        </div>
@@ -300,8 +301,7 @@
           In cylindrical coordinates, we have a rotation
         $\theta$
           about the axis
-          $\boldsymbol{z}$
-          :
+          $\boldsymbol{z}$:
           \begin{align*}
           \boldsymbol{r} &amp;= \left[r, \theta, z\right]
           \end{align*}
@@ -356,24 +356,26 @@
        <div style="flex: 1 1 calc(100% * 0.61);">
         <ul>
          <li>
-           If we don't want them to
+           If we don't want the basic operations to
            change<sup class="footnotemark">1</sup>, the position
            vector may be defined as follows:
 
-	   \begin{align} \boldsymbol{r}=\left[r_r, 
-           r_\theta, r_z\right] \end{align}
+	   \begin{align} \boldsymbol{r}=r_r\,\hat{\boldsymbol{r}}+ r_\theta\,\hat{\boldsymbol{\theta}} + r_z\,\hat{\boldsymbol{z}}
+	   \end{align}
 	 </li>
 	 <li>
-	   $r_\theta\neq\theta$, but instead is distance of the vector
-           $\boldsymbol{r}$ projected along the unit vector
-           $\hat{\boldsymbol{\theta}}$ illustrated in the diagram.
+	   You should note that $r_\theta\neq\theta$, but instead is
+           distance of the vector $\boldsymbol{r}$ projected along the
+           unit vector $\hat{\boldsymbol{\theta}}$ illustrated in the
+           diagram.
          </li>
          <li class="fragment">
-           This is not convenient for us to work in, so we have to
-           make a choice, either use a consistent and convenient
-           definition of the operations (and an inconvenient
-           definition of the vector components), or changing
-           definitions of the operations and a consistent and
+           It is not particularly convenient to work with this
+           coordinate frame as $\hat{\theta}$ and $\hat{r}$ depend on
+           your coordinates, so we have to make a choice, either use a
+           consistent and convenient definition of the operations (and
+           an inconvenient definition of the vector components), or
+           changing definitions of the operations and a consistent and
            convenient vector components.
          </li>
          <li class="fragment">
@@ -399,7 +401,8 @@
 	  $\boldsymbol{r}\cdot\boldsymbol{r}=r_r^2+r_\theta^2+r_z^2$
 	  which are inconsistent if ${r}_r=r$, ${r}_\theta=\theta$,
 	  and $r_z=z$, thus the usual definition of the dot product
-	  does not apply.
+	  does not apply when $\boldsymbol{r}$ is represented as
+	  $\left[r,\,\theta,\,z\right]$.
        </div>
       </div>
      </section>
@@ -473,12 +476,17 @@
         \end{align*}
        </li>
        <li class="fragment">
-         It should be clear that many vector/matrix operations change
+         I'm trying to drive home that vector/matrix operations change
 	 if you try to carry them out in different coordinate systems!
        </li>
        <li class="fragment">
          We will learn how to carry out operations in rectangular
-	 coordinates and rely on look-up tables after that.
+	 coordinates and rely on look-up tables after that<sup class="footnotemark">1</sup>.
+	 <div class="footnote-container">
+	   <div>
+             <sup class="footnotemark">1</sup> If you want to understand the link, and enjoy mathematics, take a look at the math appendix to Transport Phenomena by Bird, Stewart, and Lightfoot.
+	   </div>
+	 </div>
        </li>
       </ul>
      </section>
@@ -627,7 +635,7 @@
         So he said just forget to write the sum there if the index
     is repeated!
         \begin{align*}
-        a_i b_i\equiv\sum_{i=x,y,z} a_i b_i
+        \boldsymbol{a}\cdot\boldsymbol{b}=\sum_{i=x,y,z} a_i b_i\equiv a_i b_i
         \end{align*}
        </li>
       </ul>
@@ -653,8 +661,7 @@
        </li>
        <li class="fragment">
         The index $i$
-        is not repeated, so we know that it is a
-    vector.
+        is not repeated, so we know that we have the choice to pick its value, thus there are three separate values here, i.e., this is a vector.
        </li>
        <li class="fragment">
         What about vector addition?
@@ -663,14 +670,11 @@
         \end{align*}
        </li>
        <li class="fragment">
-        As the index $i$
-        is not repeated within a
+         A small extension is needed here: Indices are only summed
+        over if they are repeated within a
         <i>
-         single
-      term
-        </i>
-        of the expression, its a vector result and there is no
-    implicit sum.
+         single multiplicative term</i>.  Thus the above result is a
+        vector and there is no implicit sum (as expected for the sum of two vectors).
        </li>
        <li class="fragment">
         If we want the $x$
@@ -710,12 +714,9 @@
         \end{align*}
        </li>
        <li class="fragment">
-        As the $j$
-        index is free (only appears once in every
-    term), it means this result is a vector, and the components are
-    obtained by setting
-        $j=x,y,z$
-        !
+        As the $j$ index is free (only appears once in a
+        multiplicative term), it means this result is a vector, and
+        the components are obtained by setting $j=x,y,z$ !
        </li>
       </ul>
      </section>
@@ -826,7 +827,7 @@
        </li>
        <li class="fragment">
         Fortunately, we will not need to use this operation often
-    in this course (1 occurrence last year).
+    in this course (1 occurrence, not on an exam).
        </li>
       </ul>
      </section>
@@ -912,7 +913,7 @@
        <li class="fragment">
         So if you're standing on a slope, and calculate the vector
     $\nabla altitude$
-        , it is a bearing (2D direction) in the direction of uphill.
+        , it is a vector in the direction of uphill with a length proportional to the gradient.
        </li>
       </ul>
      </section>
