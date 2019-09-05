@@ -371,12 +371,13 @@
          </li>
          <li class="fragment">
            It is not particularly convenient to work with this
-           coordinate frame as $\hat{\theta}$ and $\hat{r}$ depend on
-           your coordinates, so we have to make a choice, either use a
-           consistent and convenient definition of the operations (and
-           an inconvenient definition of the vector components), or
-           changing definitions of the operations and a consistent and
-           convenient vector components.
+           coordinate frame as $\hat{\bm{\theta}}$ and $\hat{\bm{r}}$
+           ALSO depend on your coordinates, so we have to make a
+           choice, either use a consistent and convenient definition
+           of the operations (and an inconvenient definition of the
+           vector components), or changing definitions of the
+           operations and a consistent and convenient vector
+           components.
          </li>
          <li class="fragment">
            In this course, we take the engineering approach and derive
@@ -397,14 +398,96 @@
       <div class="footnote-container">
        <div>
          <sup class="footnotemark">1</sup> To prove that basic
-	  operations change, consider the units of each term of
-	  $\boldsymbol{r}\cdot\boldsymbol{r}=r_r^2+r_\theta^2+r_z^2$
-	  which are inconsistent if ${r}_r=r$, ${r}_\theta=\theta$,
-	  and $r_z=z$, thus the usual definition of the dot product
+	  operations MUST change, consider the units of each term of
+	  $\boldsymbol{r}\cdot\boldsymbol{r}=r_r^2+r_\theta^2+r_z^2$. Units
+	  of terms that are added together must have the same units
+	  but they are inconsistent if ${r}_r=r$ (length), ${r}_\theta=\theta$ (angle),
+	  and $r_z=z$ (length), thus the usual definition of the dot product
 	  does not apply when $\boldsymbol{r}$ is represented as
 	  $\left[r,\,\theta,\,z\right]$.
        </div>
       </div>
+     </section>
+     <section>
+       <b>Cartesian/Rectangular coordinates (from the exam datasheet)</b><br/><span style="font-size:0.8em">
+	 where $s$ is a scalar, $\bm{v}$ is a vector, and $\bm{\tau}$ is a tensor.
+\begin{align*}
+  \nabla s = \nabla_i s &= \left[\frac{\partial\,s}{\partial x},\,
+  \frac{\partial\,s}{\partial y},\, \frac{\partial\,s}{\partial z}\right]
+  \\
+  \nabla^2 s = \nabla_i\nabla_i s &=\frac{\partial^2\,s}{\partial x^2} +
+  \frac{\partial^2\,s}{\partial y^2}+ \frac{\partial^2\,s}{\partial z^2}
+  \\
+  \nabla\cdot\bm{v} =\nabla_i v_i &= \frac{\partial\,v_x}{\partial x} +
+  \frac{\partial\,v_y}{\partial y}+ \frac{\partial\,v_z}{\partial z}
+  \\
+  \nabla \cdot \bm{\tau} &= \nabla_i\, \tau_{ij}
+  \\
+  \left[\nabla \cdot \bm{\tau}\right]_x &= \frac{\partial\,\tau_{xx}}{\partial x} +
+  \frac{\partial\, \tau_{yx}}{\partial y} + \frac{\partial\, \tau_{zx}}{\partial z}
+  \\
+  \left[\nabla \cdot \bm{\tau}\right]_y &= \frac{\partial\,\tau_{xy}}{\partial x} +
+  \frac{\partial\, \tau_{yy}}{\partial y} + \frac{\partial\, \tau_{zy}}{\partial z}
+  \\
+  \left[\nabla \cdot \bm{\tau}\right]_z &= \frac{\partial\,\tau_{xz}}{\partial x} +
+  \frac{\partial\, \tau_{yz}}{\partial y} + \frac{\partial\, \tau_{zz}}{\partial z}
+  \\
+  \bm{v}\cdot \nabla \bm{v} &= v_i\,\nabla_i\,v_j
+  \\
+  \left[\bm{v}\cdot \nabla \bm{v}\right]_x &= v_x\frac{\partial\,v_x}{\partial x} + v_y\frac{\partial\,v_x}{\partial y} +v_z\frac{\partial\,v_x}{\partial z}
+  \\
+  \left[\bm{v}\cdot \nabla \bm{v}\right]_y &= v_x\frac{\partial\,v_y}{\partial x} + v_y\frac{\partial\,v_y}{\partial y} +v_z\frac{\partial\,v_y}{\partial z}
+  \\
+  \left[\bm{v}\cdot \nabla \bm{v}\right]_z &= v_x\frac{\partial\,v_z}{\partial x} + v_y\frac{\partial\,v_z}{\partial y} +v_z\frac{\partial\,v_z}{\partial z}
+       \end{align*}
+       </span>
+     </section>
+     <section>
+       <b>Cylindrical coordinates (from the exam datasheet)</b><br/>
+       where $s$ is a scalar, $\bm{v}$ is a vector, and $\bm{\tau}$ is a
+tensor. All expressions involving $\bm{\tau}$ are for symmetrical
+$\bm{\tau}$ only.<span style="font-size:0.8em">
+\begin{align*}
+  \nabla s &= \left[\frac{\partial\,s}{\partial r},\,
+    \frac{1}{r}\frac{\partial\,s}{\partial \theta},\,
+    \frac{\partial\,s}{\partial z}\right]
+  \\
+  \nabla^2 s &=\frac{1}{r}\frac{\partial}{\partial
+    r}\left(r\frac{\partial s}{\partial r}\right) +
+  \frac{1}{r^2}\frac{\partial^2\,s}{\partial \theta^2}+
+  \frac{\partial^2\,s}{\partial z^2}
+  \\
+  \nabla\cdot\bm{v} &= \frac{1}{r}\frac{\partial}{\partial r}\left(r\,
+    v_r\right) + \frac{1}{r}\frac{\partial\,v_\theta}{\partial
+    \theta}+ \frac{\partial\,v_z}{\partial z}
+  \\
+  \left[\nabla \cdot \bm{\tau}\right]_r &=
+  \frac{1}{r}\frac{\partial}{\partial r}\left(r\,\tau_{rr}\right) +
+  \frac{1}{r}\frac{\partial\, \tau_{r\theta}}{\partial \theta} -
+  \frac{1}{r} \tau_{\theta\theta} + \frac{\partial\,
+    \tau_{rz}}{\partial z}
+  \\
+  \left[\nabla \cdot \bm{\tau}\right]_\theta &=
+  \frac{1}{r}\frac{\partial \tau_{\theta\theta}}{\partial \theta} +
+  \frac{\partial\, \tau_{r\theta}}{\partial r} + \frac{2}{r}
+  \tau_{r\theta} + \frac{\partial\, \tau_{\theta z}}{\partial z}
+  \\
+  \left[\nabla \cdot \bm{\tau}\right]_z &= \frac{1}{r}\frac{\partial
+  }{\partial r}\left(r\,\tau_{rz}\right) + \frac{1}{r}\frac{\partial
+    \tau_{\theta z}}{\partial\theta} + \frac{\partial\, \tau_{z
+      z}}{\partial z}
+  \\
+  \left[\bm{v}\cdot \nabla \bm{v}\right]_r &= v_r \frac{\partial
+    v_r}{\partial r} + \frac{v_\theta}{r}\frac{\partial v_r}{\partial
+    \theta} - \frac{v_\theta^2}{r}+v_z\frac{\partial v_r}{\partial z}
+  \\
+  \left[\bm{v}\cdot \nabla \bm{v}\right]_\theta &=
+  v_r \frac{\partial v_\theta}{\partial r} + \frac{v_\theta}{r}\frac{\partial v_\theta}{\partial \theta} + \frac{v_r\,v_\theta}{r} + v_z \frac{\partial v_\theta}{\partial z}
+  \\
+  \left[\bm{v}\cdot \nabla \bm{v}\right]_z &=
+  v_r \frac{\partial v_z}{\partial r} + \frac{v_\theta}{r}\frac{\partial v_z}{\partial \theta}+v_z \frac{\partial v_z}{\partial z}
+\end{align*}
+       </span>
      </section>
      <section data-menu-title="Operations">
       <h3>
@@ -412,15 +495,15 @@
       </h3>
       <div style="display:flex;align-items:center;">
        <div style="flex: 1 1 calc(100% * 0.61);">
-        <ul>
-         <li>
-          So far, we've covered what vectors are and their
-          representations.
-         </li>
+         <ul>
+	   <li >
+	     Hopefully the past two slides scared you enough that
+	     you're motivated to learn about vector operations and what
+	     they mean :-P
+	   </li>
          <li class="fragment">
-           Now we need to define some operations or mathematics for
-           them (and discuss how they change in different
-           coordinates).
+           So lets define some vector operations/mathematics for them and
+           discuss how they change in different coordinates.
          </li>
         </ul>
        </div>
@@ -443,31 +526,31 @@
         We write the magnitude (or length) of a vector,
 	$\boldsymbol{r}$, as $\left|\boldsymbol{r}\right|$.
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="1">
          How we actually calculate it depends on the coordinate
 	 system used.
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="2">
         For example, in a
         <b>
          rectangular coordinate system</b>,
-	we use a 3D version of Pythagoras' theorem:
+	we use a 3D version of Pythagoras' theorem<sup class="footnotemark">1</sup>:
 	
         \begin{align*}
         \boldsymbol{r} &amp;= \left[x,y,z\right] &amp;
 	\left|\boldsymbol{r}\right| &amp;= \sqrt{x^2+y^2+z^2}
         \end{align*}
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="3">
         In a
         <b>cylindrical coordinate system</b> (using the simple
-	coordinate definition), we again apply Pythagoras' theorem:
-	
+	coordinate definition), we again apply Pythagoras' theorem but
+	only to the dimensions with units of length:
         \begin{align*}
         \boldsymbol{r} &amp;= \left[r, \theta, z\right] &amp; \left|\boldsymbol{r}\right| &amp;= \sqrt{r^2 + z^2}
         \end{align*}
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="4">
          In a <b>spherical coordinate system</b>, only one component
          has units of length and we have:
 
@@ -475,20 +558,30 @@
         \boldsymbol{r} &amp;= \left[r, \theta, \phi\right] &amp; \left|\boldsymbol{r}\right| &amp;= r
         \end{align*}
        </li>
-       <li class="fragment">
-         I'm trying to drive home that vector/matrix operations change
-	 if you try to carry them out in different coordinate systems!
+       <li class="fragment" data-fragment-index="5">
+         I don't want you to derive these, I'm just driving home that you need to be careful about your coordinate systems!
        </li>
-       <li class="fragment">
+       <li class="fragment" data-fragment-index="6">
          We will learn how to carry out operations in rectangular
-	 coordinates and rely on look-up tables after that<sup class="footnotemark">1</sup>.
-	 <div class="footnote-container">
-	   <div>
-             <sup class="footnotemark">1</sup> If you want to understand the link, and enjoy mathematics, take a look at the math appendix to Transport Phenomena by Bird, Stewart, and Lightfoot.
-	   </div>
-	 </div>
+	 coordinates and rely on look-up tables after that<sup class="footnotemark">2</sup>.
        </li>
       </ul>
+      <div class="footnote-container">
+	<div class="fragment" data-fragment-index="2">
+          <sup class="footnotemark">1</sup> The proof is very
+          simple/elegant, just consider the length in two of the
+          dimensions, then rotate so that the diagonal is one of your
+          triangle sides along with another, as-yet unconsidered,
+          dimension. Repeated application of the 2D pythagoras theorem
+          gives you the N-dimensional generalisation.
+	</div>
+	<div class="fragment" data-fragment-index="6">
+	  <sup class="footnotemark">2</sup> If you are not satisfied
+	  and want to understand this properly or simply enjoy
+	  mathematics, take a look at the math appendix to Transport
+	  Phenomena by Bird, Stewart, and Lightfoot.
+	</div>
+      </div>
      </section>
      <section>
       <h3>
@@ -557,6 +650,12 @@
       a_z \end{matrix}\right] \cdot \left[ \begin{matrix} b_x \\ b_y \\
       b_z \end{matrix}\right] =  a_x b_x + a_y b_y +a_z b_z
         \end{align*}
+       <li class="fragment">
+	 It gives the product of the angle between two vectors and
+	 their lengths, but physically it is often used to measure one
+	 vector against another. E.g., $\bm{a}\cdot\hat{\bm{b}}$ is
+	 actually the length of $\vec{a}$ in the direction of
+	 $\hat{\vec{b}}$!
        </li>
       </ul>
      </section>
@@ -574,6 +673,10 @@
         \end{matrix}
       \right]
         \end{align*}
+	
+	This operation appears once in the momentum balance equation,
+	unfortunately that equation is used all the time. We'll talk
+	about its physical meaning later when its introduced.
        </li>
        <li class="fragment">
         These are enough vector notation basics to get us started,
@@ -826,8 +929,10 @@
         </div>
        </li>
        <li class="fragment">
-        Fortunately, we will not need to use this operation often
-    in this course (1 occurrence, not on an exam).
+        Fortunately, we will not need to use this operation often in
+	this course (1 occurrence, not on an exam). I'm just putting it
+	here for completeness (yes, you will get a lot of extra
+	information during this course, you need to learn to filter or get interested!).
        </li>
       </ul>
      </section>
@@ -990,7 +1095,7 @@
     </a>
    </div>
    <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({ TeX: { extensions: ["cancel.js"] }});
+    MathJax.Hub.Config({ TeX: { extensions: ["cancel.js"], Macros: { bm: ["{\\boldsymbol #1}",1], } }});
    </script>
    <script src="footer.js">
    </script>
