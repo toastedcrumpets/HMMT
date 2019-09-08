@@ -1,499 +1,553 @@
 <!doctype html>
 <html lang="en">
-    <head>
-	<meta charset="utf-8">
-	<title>Heat, Mass, and Momentum Transfer</title>
-	<meta name="description" content="Heat Mass and Momentum Transfer notes">
-	<meta name="author" content="Marcus Bannerman <m.bannerman@gmail.com">
-	<meta name="apple-mobile-web-app-capable" content="yes" />
-	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-	<script src="../reveal.js/lib/js/head.min.js" data-headjs-load="header.js"></script>
-	<script>
-	 var audiofiles = '01-introduction-audio/';
-	</script>
-    </head>
-    <body>
-	<div class="reveal">
-	    <div class="slides">
-		<section>
-		    <section>
-			<h2>Course organisation</h2>
-			<p>
-			    (audio controls are at the bottom)
-			</p>
-		    </section>
-		    <section>
-			<h3>Lecture schedule (see <a href="http://www.abdn.ac.uk/mytimetable">MyTimetable</a>): </h3>
-			<ul>
-			    <li>
-				<b> Weeks 7-14: Momentum and Heat Transfer</b>
-				<ul>
-				    <li>
-					Three lectures per week.
-				    </li>
-				    <li>
-					One tutorial session per week.
-				    </li>
-				    <li>
-					Weekly online test (20% of final mark) released Monday 8am, due following Monday 8am.
-				    </li>
-				    <li>
-					First test has already been released!
-				    </li>
-				</ul>
-			    </li>
-			    <li class="fragment">
-				<b> Weeks 15-17: Mass Transfer</b>
-				<ul>
-				    <li>
-					Course ends for Mechanical
-					Engineering students (10 credits).
-				    </li>
-				    <li>
-					Rooms may change due to the
-					reduced class sizes.
-				    </li>
-				</ul>
-			    </li>
-			    <li class="fragment">
-				<b>Exam (80% of final mark)</b>:
-				<ul>
-				    <li> EX3030: 5 questions in 3 hours, one of which is multiple choice.</li>
-				    <li> EM40JN: 3 questions in 2 hours.</li>
-				</ul>
-			    </li>
-			</ul>
-		    </section>
-		    <section>
-			<h3>Tutorial format:</h3>
-			<ul>
-			    <li>
-				The tutorial questions are made from class
-				examples and past exam questions.
-				<ul>
-				    <li>
-					60+ questions, 100+ pages (with solutions)
-				    </li>
-				</ul>
-			    </li>
-			    <li class="fragment">
-				Only a small number of questions are
-				recommended for you to attempt each
-				week, the rest are additional practice
-				or examples of particular applications
-				for you to review.</li>
-			    <li class="fragment">
-				Regularly attempt the questions
-				without solutions. Don't fool yourself
-				about your own understanding.</li>
-			    <li class="fragment">
-				Tutorial sessions are there for
-				support. They are useless if you don't
-				participate.</li>
-			    <li class="fragment">
-				Attempt to solve the assigned questions in
-				advance, then come and ask about what you
-				didn't understand. Feel free to help each
-				other, we're in this together!
-			    </li>
-			    <li class="fragment">
-				Attendance is mandatory for regulatory
-				reasons, so we may as well make the
-				best of it. Turn up prepared!</li>
-			</ul>
-		    </section>
-		    <section>
-			<h3>Weekly test</h3>
-			<ul>
-			    <li>Random selection of questions, all multiple choice.</li>
-			    <li>One hour time-limit to complete the tests. Save answers regularly.</li>
-			    <li>Only one attempt is allowed.</li>
-			    <li>Solutions for the test are not available.</li>
-			</ul>
-		    </section>
-		    <section>
-			<h3>Support</h3>
-			<ul>
-			    <li>
-				All communication will be provided through MyAberdeen:
-				<ul>
-				    <li>
-					Course announcements, lecture slides, room changes, and
-					coursework submission.
-				    </li>
-				</ul>
-			    </li>
-			    <li>
-				In case of problems the primary contact for the course is me:<br/>
-				Dr. M. N. Campbell Bannerman<br/>
-				Room 266, Fraser Nobel Building<br/>
-				Email: m.campbellbannerman@abdn.ac.uk<br/>
-				Tel: 01224 274480
-			    </li>
-			</ul>
-		    </section>
-		    <section>
-			<h3>Course text books</h3> 
-			<ul>
-			    <li>   <b>R. B. Bird, W. E. Stewart, E. N. Lightfoot,
-				&ldquo;Transport Phenomena&rdquo;</b><br/>
-				The <a href="http://amzn.eu/fqbUtHc">cheap
-				international paperback version</a> is
-				fine, but the library has lots of copies
-				so you don't have to buy it. There's also
-				a new &ldquo;Introductory&rdquo; version.</li>
-			    <li>   Coulson and Richardson's Chemical Engineering:
-				<ul>
-				    <li>
-					<b>Volume 1, &ldquo;Fluid Flow, Heat Transfer and Mass Transfer.&rdquo;</b><br/>
-					<a href="http://www.myilibrary.com/?id=94356">Available Online.</a> Mainly
-					covers the results of this course
-					and its applications.
-				    </li>
-				</ul>
-			    </li>
-			    <li>
-				<b>C. J. Geankoplis, &ldquo;Transport processes and unit operations&rdquo;</b><br/>
-				Leads nicely onto the follow-on course, separation processes 1.
-			    </li>
-			</ul>
-		    </section>
-		</section>
-		<section>
-		    <section>
-			<h2>Introduction</h2>
-		    </section>
-		    <section>
-			<ul>
-			    <li>
-				Engineering is the translation of the
-				real world into mathematics.</li>
-			    <li>
-			      This has to be done to gain certainty
-			      about design, anything else is
-			      guesswork.</li>
-			    <li class="fragment">
-				We do this informally all the time:
-				<ul>
-				    <li>
-					<b>Q:</b> How long will it take to drive to
-					Edinburgh which is 128 miles away?					
-				    </li>
-				    <li class="fragment"><b>A:</b> Assuming
-					we drive at $60~\text{MPH}$, it
-					will take
-					$S/V=128/60\approx2~\text{h}$.</li>
-				</ul>
-			    </li>
-			    <li class="fragment">
-				The essence of good engineering is
-				choosing the right approximations,
-				making sure you overdesign and not
-				underdesign (i.e., don't choose
-				$70~\text{MPH}$, low-ball your
-				velocity estimate to make sure you're
-				early).</li>
-			    <li class="fragment">
-				Design is never-ending, you can always
-				improve it (i.e., account for
-				traffic, weather, etc.)</li>
-			    <li class="fragment">
-				You will need experience to help you
-				decide what are acceptable
-				approximations.</li>
-			    <li class="fragment">
-			      Many models/approximations start off
-				algebraic like above but as you add
-				complexity they become
-				differential. This course gives you
-				experience in solving differential
-				types of systems.
-			    </li>
-			</ul>
-		    </section>
-		    <section>
-			<ul>
-			    <li><b>Q:</b> A skydiver has lept from a
-				plane, what is their terminal velocity and
-				how do they approach it?</li>
-			    <li class="fragment">
-				Assume from experience that drag
-				forces are of the form
-				$F^{drag}=k\,v^2$ where $k$ is a
-				drag coefficient.
-			    </li>
-			    <li class="fragment">
-				We already know from experience that Newton's law applies,
-				\begin{align*}
-				F = m\,a = m\frac{{\rm d} v}{{\rm d} t} = F^{gravity}+F^{drag}\\
-				\frac{1}{g+\frac{k}{m}\,v^2}\frac{{\rm d} v}{{\rm d} t} = 1\\
-				v = \sqrt{g\,m\,k^{-1}}\tanh\left(t\sqrt{g\,k\,m^{-1}}\right)=\sqrt{g\,m\,k^{-1}}\frac{1-e^{-2\,t\sqrt{g\,k\,m^{-1}}}}{1+e^{-2\,t\sqrt{g\,k\,m^{-1}}}}
-				\end{align*}
-			    </li>
-			    <li class="fragment">
-				Differential equations are required
-				here (and in most engineering
-				problems) and they will test your math
-				knowledge!</li>
-			    <li class="fragment">
-				In this course, the problems are
-				selected to test only a limited (but
-				non-trivial) range of mathematics. You
-				will need to practice the covered
-				maths, and future courses will expand
-				on this!</li>
-			</ul>
-		    </section>
-		    <section>
-			<ul>
-			    <li>
-				A large part of this course will be
-				setting up the differential equations.</li>
-			    <li class="fragment">
-				There are too many systems out there
-				to cover this in general, so why <b>Heat</b>, <b> Mass</b>, and
-				<b> Momentum</b> in particular?
-				<ul>
-				    <li class="fragment">
-					They have very similar properties,
-					they all <b>flow</b> and <b>conduct</b>/<b>diffuse</b>.
-				    </li>
-				    <li class="fragment">
-					This is because they are
-					the <b>conserved
-					quantities</b> of a
-					system.<br/> The only way the
-					amount can change is via
-					transport (why this course is
-					sometimes called <em>transport
-					phenomena</em>). They do not
-					rapidly change or fluctuate
-					but move from regions of high
-					concentration to low
-					concentration.</li>
-				    <li class="fragment">
-				      <b>(Not assessed):</b> According to
-				      <a href="https://en.wikipedia.org/wiki/Noether%27s_theorem">Noether's
-				      theorem</a>, conserved
-				      quantities correspond to
-				      symmetry in the underlying
-				      physics (<em>equations</em>).
-				      <ul>
-					<li class="fragment">
-					  Linear momentum and energy
-					  are conserved due to
-					  translational symmetry.
-					</li>
-					<li class="fragment">
-					  Angular momentum is conserved due to rotational symmetry.
-					</li>
-					<li class="fragment">
-					  Mass is NOT always
-					  conserved, because its just
-					  another form of energy.
-					  \begin{align*} E = m\,c^2
-					  \end{align*} But we will not
-					  deal with nuclear processes
-					  (or we assume they are slow
-					  enough) so we can consider
-					  mass conserved over the
-					  timescales we are interested
-					  in.
-					</li>
-					<li class="fragment">
-					  Time symmetry, where it
-					  exists, tells you entropy is
-					  conserved.
-					</li>
-				      </ul>
-				    </li>
-				</ul>
-			    </li>
-			</ul>
-		    </section>
-		    <section>
-			<div style="display:flex;align-items:center;">
-			    <div style="flex: 0 0 60%;">
-				<ul>
-				    <li>
-					Almost every engineering
-					system centers around the <b>transport</b> of
-					momentum, heat, and mass.
-				    </li>
-				    <li class="fragment">
-					These systems may utilise <b>one</b> or <b> all</b> of
-					these modes of transport to achieve a
-					desired effect.
-				    </li>
-				    <li class="fragment">
-					For example, nuclear reactors need
-					effective <b>heat transport</b> to
-					cool and extract energy from the
-					fission reaction.</li>
-				    <li class="fragment">
-					But understanding the heat transfer
-					will also require understanding the
-					mass transfer of coolant, resulting
-					from a <b> transport of momentum</b>.
-				    </li>
-				    <li class="fragment">
-					Mass can also transfer via diffusion
-					through the walls, but we'd be
-					designing to minimise this particular transport.
-				    </li>
-				</ul>
-			    </div>
-			    <div style="flex:1;">
-				<img src="img/Submarine_reactor.jpg" width="566" height="564" style="width:100%;"></img>
-			    </div>
-			</div>
-		    </section>
-		    <section>
-			<div style="display:flex;align-items:center;">
-			    <div style="flex: 0 0 60%;">
-				<ul>
-				    <li>
-					To perform our jobs as Engineers, we need to be able
-					<b> generate equations</b> that describe all of the modes of
-					<b> any</b> relevant system.
-				    </li>
-				    <li class="fragment">
-					We need to be able to generate
-					analytical or semi-empirical
-					expressions (design equations)
-					that tell use how the system
-					will behave.
-				    </li>
-				    <li class="fragment">
-					For example, we need to know how high the driving
-					pressure drop must be to cool the nuclear reactor as a
-					function of reactor dimensions.
-				    </li>
-				    <li class="fragment">
-					We need to know how the thickness of the containment
-					walls will affect (slow) the heat transfer.
-				    </li>
-				    <li class="fragment">
-					How can we obtain these design equations?
-				    </li>
-				</ul>
-			    </div>
-			    <div style="flex:1;">
-				<img src="img/Submarine_reactor.jpg" width="566" height="564" style="width:100%;"></img>
-			    </div>
-			</div>
-		    </section>
-		    <section>
-			<ul>
-			    <li>
-				You should already be familiar of some of the simple ways
-				in which we can treat transport phenomena from your earlier
-				courses.
-			    </li>
-			    <li>
-				For conduction of heat, we use the
-				integral form of Fourier's law.
-				\begin{align*} Q &= U\,A\,\Delta
-				T\end{align*}
-			    </li>
-			    <li>
-				The problem with this expression is its only valid for
-				very simple systems (like a flat wall).
-			    </li>
-			    <li>
-				However, as its name suggests, it is the integrated form of
-				<b> differential form of Fourier's law</b>.
-				\begin{align*} q &= -k\frac{dT}{dx}\end{align*}
-			    </li>
-			    <li>
-				We should be able to take the more general differential
-				form and apply it to any heat transfer problem...
-			    </li>
-			</ul>
-		    </section>
-		    <section>
-			<ul>
-			    <li>   We also need to approach heat transfer problems through
-				Energy balances.
-				\begin{align*} (Q_{in} - Q_{out})\Delta t &= m\,C_P\Delta T\end{align*}
-			    </li>
-			    <li>   Again, this is just an integrated form of a <b>
-				differential energy balance</b>:
-				\begin{align*} q_{in} - q_{out} &= \rho\,C_P \frac{dT}{dt}\end{align*}
-			    </li>
-			    <b> Transport phenomena</b> is the study of using <i>differential</i> constitutive relationships (e.g., Fourier's law))
-			    and <i>differential</i> balances to generate engineering
-			    expressions for any system.
-			    </li>
-			</ul>
-		    </section>
-		    <section>
-			<ul>
-			    <li>
-				It's important to note that <b>transport
-				phenomena</b> is
-				more general than heat transfer.
-			    </li>
-			    <li>   You should be familiar with the transport equations of
-				basic fluid flow.
-			    </li>
-			    <li>   For example, Bernoulli's equation is an energy balance of
-				a flow:
-				\begin{align*}\frac{1}{2}\rho\,v^2 + p - \rho\,g\,h\end{align*}
-				\begin{align*}E_{kinetic} + E_{pressure} + E_\text{grav. potential}\end{align*}
-			    </li>
-			    <li>   And there is the Hagen-Poiseuille equation for flow in a
-				pipe, relating the volumetric flow-rate, $\dot{V}$, to the
-				pressure drop, $\Delta p$.
-				\begin{align*}
-				\dot{V}_z= -\pi\frac{\Delta p}{L}\frac{R^4}{8\,\mu}
-				\end{align*}
-			    </li>
-			</ul>
-		    </section>
-		    <section>
-			<ul>
-			    <li>   Later in the course, we will show that Bernoulli's
-				equation can be derived from a more general momentum balance
-				equation:
-				\begin{align*}
-				\frac{\partial \boldsymbol{v}}{\partial t} &= -\boldsymbol{v}\cdot\nabla \boldsymbol{v}
-				+ \rho^{-1}\nabla\cdot\boldsymbol{\tau} - \rho^{-1}\nabla p + \boldsymbol{g}
-				\end{align*}
-			    </li>
-			    <li>   If we then use a <i>constitutive relation</i> for momentum, such as Newton's law of
-				viscosity:
-				
-				\begin{align*}
-				\tau_{xy} = -\mu \frac{\partial v_x}{\partial y}
-				\end{align*}
-				we can then derive the Hagen-Poiseuille expression for flow in
-				pipes.
-			    </li>
-			    <li>   Again, we can combine a constitutive relationship
-				(Newton's law of viscosity) with a differential balance (momentum
-				balance) to solve flow problems using the study of <b>Transport
-				Phenomena</b>.
-			    </li>
-			</ul>
-		    </section>
-		    <section>
-			<p>
-			  Analytical results of <b> Transport
-			    Phenomena</b> are usually limited to
-			    simple geometries and problems:
-			</p>
-			<object type="image/svg+xml" data="img/transport_phenomena.svg" width="80%" >
-			    Your browser does not support SVG
-			</object>
-		    </section>
-		    <section>
-			<ul>
-			    <li>
-				Boiling liquids are an example of a complex heat
-				transfer and multiphase flow problems:
-				<img src="img/boiling.jpg" style="width:30%;margin:auto;display:block"></img>
+  <head>
+    <meta charset="utf-8">
+    <title>Heat, Mass, and Momentum Transfer</title>
+    <meta name="description" content="Heat Mass and Momentum Transfer notes">
+    <meta name="author" content="Marcus Bannerman <m.bannerman@gmail.com">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <script src="../reveal.js/lib/js/head.min.js" data-headjs-load="header.js"></script>
+    <script>
+      var audiofiles = '01-introduction-audio/';
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+	<section>
+	  <section data-menu-title="Intro to me">
+	    <p>
+	      <b>An introduction to me and my research</b><br/> All
+	      (my) research leads to DynamO, an event-driven particle
+	      simulation package...
+	    </p>
+	    <img src="img/dynamo.svg" style="width:65%">
+	  </section>
+	  <section>
+	    <ul >
+	      <li>
+		Direct application of DynamO to simulate real
+		<b>granular-damper systems</b> in microgravity (2009-2011).
+		<video autoplay width="30%" loop controls muted style="display:inline-block; vertical-align: middle;">
+		  <source data-src="videos/zeroG.mp4" type="video/mp4" />
+		</video>
+		<video autoplay width="60%" loop controls muted style="display:inline-block;vertical-align: middle;">
+		  <source data-src="videos/Gran_damper.mp4" type="video/mp4" />
+		</video>
+	      </li>
+	    </ul>
+	  </section>
+	  <section>
+	    <ul>
+	      <li><img src="img/KilnTrials.jpg" style="width:40%; float:right;" >
+		<b>Green concrete project</b> (£3.3M, GORD, 2012-16) <br/>(&euro;420k, Nanocem, 2019-22).</li>
+	      <li>
+		High-temperature cement kiln models and thermodynamics.
+	      </li>
+	      <li>
+		Trial productions of $\approx 1$ tonne of novel
+		sulfur-based cement.</li>
+	      <li>
+		Computer Algebra Library for thermodynamics, now
+		powers general potentials within DynamO.<br/>
+		<img src="img/CementTrials2.jpg" style="width:50%">
+	      </li>
+	    </ul>
+	  </section>
+	  <section>
+	    <video autoplay width="80%" loop controls muted style="display:inline-block">
+	      <source data-src="videos/levitation.mp4" type="video/mp4" />
+	    </video>
+	    <ul>
+	      <li>
+		<b>Accoustic levitation granular devices</b> (UG level 4 project 2017-current).
+	      </li>
+	      <li>
+		FPGAs used in the levitator are also the only
+		opportunity to accelerate/parallelise event-driven
+		techniques.
+	      </li>
+	    </ul>
+	  </section>
+	</section>
+	<section>
+	  <section data-menu-title="Intro: Course organisation">
+	    <h2>An introduction to the course: Organisation</h2>
+	  </section>
+	  <section>
+	    <h3>Lecture schedule (see <a href="http://www.abdn.ac.uk/mytimetable">MyTimetable</a>): </h3>
+	    <ul>
+	      <li>
+		<b> Weeks 7-14: Momentum and Heat Transfer</b>
+		<ul>
+		  <li>
+		    Three lectures per week.
+		  </li>
+		  <li>
+		    One tutorial session per week.
+		  </li>
+		  <li>
+		    Weekly online test (20% of final mark) released Monday 8am, due following Monday 8am.
+		  </li>
+		  <li>
+		    First test has already been released!
+		  </li>
+		</ul>
+	      </li>
+	      <li class="fragment">
+		<b> Weeks 15-17: Mass Transfer</b>
+		<ul>
+		  <li>
+		    Course ends for Mechanical
+		    Engineering students (10 credits).
+		  </li>
+		  <li>
+		    Rooms may change due to the
+		    reduced class sizes.
+		  </li>
+		</ul>
+	      </li>
+	      <li class="fragment">
+		<b>Exam (80% of final mark)</b>:
+		<ul>
+		  <li> EX3030: 5 questions in 3 hours, one of which is multiple choice.</li>
+		  <li> EM40JN: 3 questions in 2 hours.</li>
+		</ul>
+	      </li>
+	    </ul>
+	  </section>
+	  <section>
+	    <h3>Tutorial format:</h3>
+	    <ul>
+	      <li>
+		The tutorial questions are made from class
+		examples and past exam questions.
+		<ul>
+		  <li>
+		    60+ questions, 100+ pages (with solutions)
+		  </li>
+		</ul>
+	      </li>
+	      <li class="fragment">
+		Only a small number of questions are
+		recommended for you to attempt each
+		week, the rest are additional practice
+		or examples of particular applications
+		for you to review.</li>
+	      <li class="fragment">
+		Regularly attempt the questions
+		without solutions. Don't fool yourself
+		about your own understanding.</li>
+	      <li class="fragment">
+		Tutorial sessions are there for
+		support. They are useless if you don't
+		participate.</li>
+	      <li class="fragment">
+		Attempt to solve the assigned questions in
+		advance, then come and ask about what you
+		didn't understand. Feel free to help each
+		other, we're in this together!
+	      </li>
+	      <li class="fragment">
+		Attendance is mandatory for regulatory
+		reasons, so we may as well make the
+		best of it. Turn up prepared!</li>
+	    </ul>
+	  </section>
+	  <section>
+	    <h3>Weekly test</h3>
+	    <ul>
+	      <li>Random selection of questions, all multiple choice.</li>
+	      <li>One hour time-limit to complete the tests. Save answers regularly.</li>
+	      <li>Only one attempt is allowed.</li>
+	      <li>Solutions for the test are not available.</li>
+	    </ul>
+	  </section>
+	  <section>
+	    <h3>Support</h3>
+	    <ul>
+	      <li>
+		All communication will be provided through MyAberdeen:
+		<ul>
+		  <li>
+		    Course announcements, lecture slides, room changes, and
+		    coursework submission.
+		  </li>
+		</ul>
+	      </li>
+	      <li>
+		In case of problems the primary contact for the course is me:<br/>
+		Dr. M. N. Campbell Bannerman<br/>
+		Room 266, Fraser Nobel Building<br/>
+		Email: m.campbellbannerman@abdn.ac.uk<br/>
+		Tel: 01224 274480
+	      </li>
+	    </ul>
+	  </section>
+	  <section>
+	    <h3>Course text books</h3> 
+	    <ul>
+	      <li><b>R. B. Bird, W. E. Stewart, E. N. Lightfoot,
+		  &ldquo;Transport Phenomena&rdquo;</b><br/>
+		The <a href="http://amzn.eu/fqbUtHc">cheap
+		  international paperback version</a> is
+		fine, but the library has lots of copies
+		so you don't have to buy it. There's also
+		a new &ldquo;Introductory&rdquo; version.</li>
+	      <li>   Coulson and Richardson's Chemical Engineering:
+		<ul>
+		  <li>
+		    <b>Volume 1, &ldquo;Fluid Flow, Heat Transfer and Mass Transfer.&rdquo;</b><br/>
+		    <a href="http://www.myilibrary.com/?id=94356">Available Online.</a> Mainly
+		    covers the results of this course
+		    and its applications.
+		  </li>
+		</ul>
+	      </li>
+	      <li>
+		<b>C. J. Geankoplis, &ldquo;Transport processes and unit operations&rdquo;</b><br/>
+		Leads nicely onto the follow-on course, separation processes 1.
+	      </li>
+	    </ul>
+	  </section>
+	</section>
+	<section>
+	  <section data-menu-title="Intro: Course content">
+	    <h2>An introduction to the course: Content</h2>
+	  </section>
+	  <section>
+	    <ul>
+	      <li>
+		Engineering is the translation of the
+		real world into mathematics.</li>
+	      <li>
+		This has to be done to gain certainty
+		about design, anything else is
+		guesswork.</li>
+	      <li class="fragment">
+		We do this informally all the time:
+		<ul>
+		  <li>
+		    <b>Q:</b> How long will it take to drive to
+		    Edinburgh which is 128 miles away?					
+		  </li>
+		  <li class="fragment"><b>A:</b> Assuming
+		    we drive at $60~\text{MPH}$, it
+		    will take
+		    $S/V=128/60\approx2~\text{h}$.</li>
+		</ul>
+	      </li>
+	      <li class="fragment">
+		The essence of good engineering is
+		choosing the right approximations,
+		making sure you overdesign and not
+		underdesign (i.e., don't choose
+		$70~\text{MPH}$, low-ball your
+		velocity estimate to make sure you're
+		early).</li>
+	      <li class="fragment">
+		Design is never-ending, you can always
+		improve it (i.e., account for
+		traffic, weather, etc.)</li>
+	      <li class="fragment">
+		You will need experience to help you
+		decide what are acceptable
+		approximations.</li>
+	      <li class="fragment">
+		Many models/approximations start off
+		algebraic like above but as you add
+		complexity they become
+		differential. This course gives you
+		experience in solving differential
+		types of systems.
+	      </li>
+	    </ul>
+	  </section>
+	  <section>
+	    <ul>
+	      <li><b>Q:</b> A skydiver has lept from a
+		plane, what is their terminal velocity and
+		how do they approach it?</li>
+	      <li class="fragment">
+		Assume from experience that drag
+		forces are of the form
+		$F^{drag}=k\,v^2$ where $k$ is a
+		drag coefficient.
+	      </li>
+	      <li class="fragment">
+		We already know from experience that Newton's law applies,
+		\begin{align*}
+		F = m\,a = m\frac{{\rm d} v}{{\rm d} t} = F^{gravity}+F^{drag}\\
+		\frac{1}{g+\frac{k}{m}\,v^2}\frac{{\rm d} v}{{\rm d} t} = 1\\
+		v = \sqrt{g\,m\,k^{-1}}\tanh\left(t\sqrt{g\,k\,m^{-1}}\right)=\sqrt{g\,m\,k^{-1}}\frac{1-e^{-2\,t\sqrt{g\,k\,m^{-1}}}}{1+e^{-2\,t\sqrt{g\,k\,m^{-1}}}}
+		\end{align*}
+	      </li>
+	      <li class="fragment">
+		Differential equations are required
+		here (and in most engineering
+		problems) and they will test your math
+		knowledge!</li>
+	      <li class="fragment">
+		In this course, the problems are
+		selected to test only a limited (but
+		non-trivial) range of mathematics. You
+		will need to practice the covered
+		maths, and future courses will expand
+		on this!</li>
+	    </ul>
+	  </section>
+	  <section>
+	    <ul>
+	      <li>
+		A large part of this course will be
+		setting up the differential equations.</li>
+	      <li class="fragment">
+		There are too many systems out there
+		to cover this in general, so why <b>Heat</b>, <b> Mass</b>, and
+		<b> Momentum</b> in particular?
+		<ul>
+		  <li class="fragment">
+		    They have very similar properties,
+		    they all <b>flow</b> and <b>conduct</b>/<b>diffuse</b>.
+		  </li>
+		  <li class="fragment">
+		    This is because they are
+		    the <b>conserved
+		      quantities</b> of a
+		    system.<br/> The only way the
+		    amount can change is via
+		    transport (why this course is
+		    sometimes called <em>transport
+		      phenomena</em>). They do not
+		    rapidly change or fluctuate
+		    but move from regions of high
+		    concentration to low
+		    concentration.</li>
+		  <li class="fragment">
+		    <b>(Not assessed):</b> According to
+		    <a href="https://en.wikipedia.org/wiki/Noether%27s_theorem">Noether's
+		      theorem</a>, conserved
+		    quantities correspond to
+		    symmetry in the underlying
+		    physics (<em>equations</em>).
+		    <ul>
+		      <li class="fragment">
+			Linear momentum and energy
+			are conserved due to
+			translational symmetry.
+		      </li>
+		      <li class="fragment">
+			Angular momentum is conserved due to rotational symmetry.
+		      </li>
+		      <li class="fragment">
+			Mass is NOT always
+			conserved, because its just
+			another form of energy.
+			\begin{align*} E = m\,c^2
+			\end{align*} But we will not
+			deal with nuclear processes
+			(or we assume they are slow
+			enough) so we can consider
+			mass conserved over the
+			timescales we are interested
+			in.
+		      </li>
+		      <li class="fragment">
+			Time symmetry, where it
+			exists, tells you entropy is
+			conserved.
+		      </li>
+		    </ul>
+		  </li>
+		</ul>
+	      </li>
+	    </ul>
+	  </section>
+	  <section>
+	    <div style="display:flex;align-items:center;">
+	      <div style="flex: 0 0 60%;">
+		<ul>
+		  <li>
+		    Almost every engineering
+		    system centers around the <b>transport</b> of
+		    momentum, heat, and mass.
+		  </li>
+		  <li class="fragment">
+		    These systems may utilise <b>one</b> or <b> all</b> of
+		    these modes of transport to achieve a
+		    desired effect.
+		  </li>
+		  <li class="fragment">
+		    For example, nuclear reactors need
+		    effective <b>heat transport</b> to
+		    cool and extract energy from the
+		    fission reaction.</li>
+		  <li class="fragment">
+		    But understanding the heat transfer
+		    will also require understanding the
+		    mass transfer of coolant, resulting
+		    from a <b> transport of momentum</b>.
+		  </li>
+		  <li class="fragment">
+		    Mass can also transfer via diffusion
+		    through the walls, but we'd be
+		    designing to minimise this particular transport.
+		  </li>
+		</ul>
+	      </div>
+	      <div style="flex:1;">
+		<img src="img/Submarine_reactor.jpg" width="566" height="564" style="width:100%;"></img>
+	      </div>
+	    </div>
+	  </section>
+	  <section>
+	    <div style="display:flex;align-items:center;">
+	      <div style="flex: 0 0 60%;">
+		<ul>
+		  <li>
+		    To perform our jobs as Engineers, we need to be able
+		    <b> generate equations</b> that describe all of the modes of
+		    <b> any</b> relevant system.
+		  </li>
+		  <li class="fragment">
+		    We need to be able to generate
+		    analytical or semi-empirical
+		    expressions (design equations)
+		    that tell use how the system
+		    will behave.
+		  </li>
+		  <li class="fragment">
+		    For example, we need to know how high the driving
+		    pressure drop must be to cool the nuclear reactor as a
+		    function of reactor dimensions.
+		  </li>
+		  <li class="fragment">
+		    We need to know how the thickness of the containment
+		    walls will affect (slow) the heat transfer.
+		  </li>
+		  <li class="fragment">
+		    How can we obtain these design equations?
+		  </li>
+		</ul>
+	      </div>
+	      <div style="flex:1;">
+		<img src="img/Submarine_reactor.jpg" width="566" height="564" style="width:100%;"></img>
+	      </div>
+	    </div>
+	  </section>
+	  <section>
+	    <ul>
+	      <li>
+		You should already be familiar of some of the simple ways
+		in which we can treat transport phenomena from your earlier
+		courses.
+	      </li>
+	      <li>
+		For conduction of heat, we use the
+		integral form of Fourier's law.
+		\begin{align*} Q &= U\,A\,\Delta
+		T\end{align*}
+	      </li>
+	      <li>
+		The problem with this expression is its only valid for
+		very simple systems (like a flat wall).
+	      </li>
+	      <li>
+		However, as its name suggests, it is the integrated form of
+		<b> differential form of Fourier's law</b>.
+		\begin{align*} q &= -k\frac{dT}{dx}\end{align*}
+	      </li>
+	      <li>
+		We should be able to take the more general differential
+		form and apply it to any heat transfer problem...
+	      </li>
+	    </ul>
+	  </section>
+	  <section>
+	    <ul>
+	      <li>   We also need to approach heat transfer problems through
+		Energy balances.
+		\begin{align*} (Q_{in} - Q_{out})\Delta t &= m\,C_P\Delta T\end{align*}
+	      </li>
+	      <li>   Again, this is just an integrated form of a <b>
+		  differential energy balance</b>:
+		\begin{align*} q_{in} - q_{out} &= \rho\,C_P \frac{dT}{dt}\end{align*}
+	      </li>
+	      <li>
+		<b> Transport phenomena</b> is the study of using <i>differential</i> constitutive relationships (e.g., Fourier's law)
+		and <i>differential</i> balances to generate engineering
+		expressions for any system.
+	      </li>
+	    </ul>
+	  </section>
+	  <section>
+	    <ul>
+	      <li>
+		It's important to note that <b>transport
+		  phenomena</b> is
+		more general than heat transfer.
+	      </li>
+	      <li>   You should be familiar with the transport equations of
+		basic fluid flow.
+	      </li>
+	      <li>   For example, Bernoulli's equation is an energy balance of
+		a flow:
+		\begin{align*}\frac{1}{2}\rho\,v^2 + p - \rho\,g\,h\end{align*}
+		\begin{align*}E_{kinetic} + E_{pressure} + E_\text{grav. potential}\end{align*}
+	      </li>
+	      <li>   And there is the Hagen-Poiseuille equation for flow in a
+		pipe, relating the volumetric flow-rate, $\dot{V}$, to the
+		pressure drop, $\Delta p$.
+		\begin{align*}
+		\dot{V}_z= -\pi\frac{\Delta p}{L}\frac{R^4}{8\,\mu}
+		\end{align*}
+	      </li>
+	    </ul>
+	  </section>
+	  <section>
+	    <ul>
+	      <li>   Later in the course, we will show that Bernoulli's
+		equation can be derived from a more general momentum balance
+		equation:
+		\begin{align*}
+		\frac{\partial \boldsymbol{v}}{\partial t} &= -\boldsymbol{v}\cdot\nabla \boldsymbol{v}
+		+ \rho^{-1}\nabla\cdot\boldsymbol{\tau} - \rho^{-1}\nabla p + \boldsymbol{g}
+		\end{align*}
+	      </li>
+	      <li>   If we then use a <i>constitutive relation</i> for momentum, such as Newton's law of
+		viscosity:
+		
+		\begin{align*}
+		\tau_{xy} = -\mu \frac{\partial v_x}{\partial y}
+		\end{align*}
+		we can then derive the Hagen-Poiseuille expression for flow in
+		pipes.
+	      </li>
+	      <li>   Again, we can combine a constitutive relationship
+		(Newton's law of viscosity) with a differential balance (momentum
+		balance) to solve flow problems using the study of <b>Transport
+		  Phenomena</b>.
+	      </li>
+	    </ul>
+	  </section>
+	  <section>
+	    <p>
+	      Analytical results of <b> Transport
+		Phenomena</b> are usually limited to
+	      simple geometries and problems:
+	    </p>
+	    <object type="image/svg+xml" data="img/transport_phenomena.svg" width="80%" >
+	      Your browser does not support SVG
+	    </object>
+	  </section>
+	  <section>
+	    <ul>
+	      <li>
+		Boiling liquids are an example of a complex heat
+		transfer and multiphase flow problems:
+		<img src="img/boiling.jpg" style="width:30%;margin:auto;display:block"></img>
 			    </li
 			    <li>
 				We will need <b> empirical expressions</b>

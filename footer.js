@@ -66,7 +66,7 @@ head.load("../reveal.js/js/reveal.js", function() {
 	]);
 	revealopts.audio = {
 	    prefix: audiofiles,
-	    autoplay:true,
+	    autoplay:false,
 	};
     }
 	
