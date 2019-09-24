@@ -6,7 +6,6 @@ if (window.location.search.match( /print-pdf/gi ))
 else
     link.href = '../reveal.js/css/print/paper.css';
 document.getElementsByTagName( 'head' )[0].appendChild( link );
-
 head.load("../reveal.js/js/reveal.js", function() {
     var revealopts = {
 	//This width and height allows printing to pdf at A4 and is slightly widescreen to give the best all round size
@@ -17,17 +16,12 @@ head.load("../reveal.js/js/reveal.js", function() {
 	backgroundTransition: 'fade',
 	pdfMaxPagesPerSlide: 1,
 	controls:false,
-	math: {
-	    mathjax: '../MathJax/MathJax.js',
-	    config: 'TeX-AMS_SVG-full'
-	},
 	dependencies: [
 	    // Cross-browser shim that fully implements classList - https://github.com/eligrey/classList.js/
 	    { src: '../reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
 	    // Syntax highlight for <code> elements
 	    { src: '../reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
 	    // MathJax
-	    { src: '../reveal.js/plugin/math/math.js', async: true},
 	    { src: '../reveal.js-plugins/chalkboard/chalkboard.js'},
 	    { src: '../reveal.js-plugins/menu/menu.js'},
 	],
@@ -72,10 +66,31 @@ head.load("../reveal.js/js/reveal.js", function() {
 	
     Reveal.initialize(revealopts);
 
+    head.load("../MathJax/MathJax.js?config=TeX-AMS_SVG-full", function() {
+	//Set up mathjax
+	MathJax.Hub.Config({
+	    messageStyle: 'none',
+	    tex2jax: {
+		inlineMath: [['$','$'],['\\(','\\)']] ,
+		skipTags: ['script','noscript','style','textarea','pre']
+	    },
+	    skipStartupTypeset: true
+	});
 
-    if (window.location.search.match( /print-pdf/gi ))
-	window.print();
-})
+	// Typeset followed by an immediate reveal.js layout since
+	// the typesetting process could affect slide height
+	MathJax.Hub.Queue( [ 'Typeset', MathJax.Hub ] );
+	MathJax.Hub.Queue( Reveal.layout );
+
+	if (window.location.search.match( /print-pdf/gi ))
+	    MathJax.Hub.Queue([function () { window.print(); }]);
+	
+	// Reprocess equations in slides when they turn visible
+	Reveal.addEventListener( 'slidechanged', function( event ) {
+	    MathJax.Hub.Queue( [ 'Typeset', MathJax.Hub, event.currentSlide ] );
+	} );
+    });
+});
 
 //var toc = $('.tableofcontents');
 //if (toc.length) {
