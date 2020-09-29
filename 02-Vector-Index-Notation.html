@@ -370,7 +370,7 @@
          </li>
          <li class="fragment">
            It is not particularly convenient to work with this
-           coordinate frame as $\hat{\bm{\theta}}$ and $\hat{\bm{r}}$
+           coordinate frame as $\hat{\boldsymbol{\theta}}$ and $\hat{\boldsymbol{r}}$
            ALSO depend on your coordinates, so we have to make a
            choice, either use a consistent and convenient definition
            of the operations (and an inconvenient definition of the
@@ -385,7 +385,7 @@
          </li>
         </ul>
        </div>
-       <div style="flex: 1 1 calc(100% * 0.41);">
+       <div style="flex: 1 1 calc(100% * 0.31);">
         <figure>
          <div class="center">
           <object data="img/cylindrical_coords.svg" type="image/svg+xml" width="100%">
@@ -396,7 +396,7 @@
       </div>
       <div class="footnote-container">
        <div>
-         <sup class="footnotemark">1</sup> To prove that basic
+         <sup class="footnotemark">1</sup> <b>Dimensional Analysis</b>: To prove that basic
 	  operations MUST change, consider the units of each term of
 	  $\boldsymbol{r}\cdot\boldsymbol{r}=r_r^2+r_\theta^2+r_z^2$. Units
 	  of terms that are added together must have the same units
@@ -498,7 +498,7 @@ $\bm{\tau}$ only.<span style="font-size:0.8em">
 	   <li >
 	     Hopefully the past two slides scared you enough that
 	     you're motivated to learn about vector operations and what
-	     they mean :-P
+	     they mean.
 	   </li>
          <li class="fragment">
            So lets define some vector operations/mathematics for them and
@@ -517,9 +517,6 @@ $\bm{\tau}$ only.<span style="font-size:0.8em">
       </div>
      </section>
      <section>
-      <h3>
-       Magnitude
-      </h3>
       <ul>
        <li>
         We write the magnitude (or length) of a vector,
@@ -552,17 +549,14 @@ $\bm{\tau}$ only.<span style="font-size:0.8em">
        <li class="fragment" data-fragment-index="4">
          In a <b>spherical coordinate system</b>, only one component
          has units of length and we have:
-
         \begin{align*}
         \boldsymbol{r} &amp;= \left[r, \theta, \phi\right] &amp; \left|\boldsymbol{r}\right| &amp;= r
         \end{align*}
        </li>
        <li class="fragment" data-fragment-index="5">
-         I don't want you to derive these, I'm just driving home that you need to be careful about your coordinate systems!
-       </li>
-       <li class="fragment" data-fragment-index="6">
-         We will learn how to carry out operations in rectangular
-	 coordinates and rely on look-up tables after that<sup class="footnotemark">2</sup>.
+         I don't want you to derive these, I'm just driving home that
+         you need to be careful about your coordinate systems!  We
+         will rely on look-up tables to keep us straight<sup class="footnotemark">2</sup>.
        </li>
       </ul>
       <div class="footnote-container">
@@ -574,13 +568,19 @@ $\bm{\tau}$ only.<span style="font-size:0.8em">
           dimension. Repeated application of the 2D pythagoras theorem
           gives you the N-dimensional generalisation.
 	</div>
-	<div class="fragment" data-fragment-index="6">
+	<div class="fragment" data-fragment-index="5">
 	  <sup class="footnotemark">2</sup> If you are not satisfied
 	  and want to understand this properly or simply enjoy
 	  mathematics, take a look at the math appendix to Transport
 	  Phenomena by Bird, Stewart, and Lightfoot.
 	</div>
       </div>
+     </section>
+     <section>
+       <h3>Humerous interlude</h3>
+       <p>
+	 A mathmatician, a physicist, and an engineer were each given the same red rubber ball and told to find the volume. The mathmatician carefully measured the diameter and evaluated a triple integral. The physicist filled a beaker with water, put the ball in the water, and measured the total displacement. The engineer looked up the model and serial numbers in his red-rubber-ball table.
+       </p>
      </section>
      <section>
       <h3>
