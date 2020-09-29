@@ -14,6 +14,9 @@ loadScripts = function (script_urls, script_callback) {
 
 loadScripts([
   "../reveal.js/dist/reveal.js",
+  "../reveal.js-plugins/audio-slideshow/plugin.js",
+  "../reveal.js-plugins/audio-slideshow/recorder.js",
+  "../reveal.js-plugins/audio-slideshow/RecordRTC.js",
   "../reveal.js/plugin/highlight/highlight.js",
   "../reveal.js/plugin/search/search.js",
   "../reveal.js/plugin/notes/notes.js",
@@ -35,18 +38,10 @@ loadScripts([
 		  RevealSearch,
 		  RevealNotes,
 		  RevealMath,
-		  RevealMenu
+		  RevealMenu,
+		  RevealAudioSlideshow,
+		  RevealAudioRecorder
 		],
-		keyboard: {
-		  67: function() { RevealChalkboard.toggleNotesCanvas() },	// toggle chalkboard when 'c' is pressed
-		  66: function() { RevealChalkboard.toggleChalkboard() },	// toggle chalkboard when 'b' is pressed
-		  46: function() { RevealChalkboard.clear() },	// clear chalkboard when 'DEL' is pressed
-		  8:  function() { RevealChalkboard.reset() },	// reset all chalkboard data when 'BACKSPACE' is pressed
-		  68: function() { RevealChalkboard.download() },	// downlad chalkboard drawing when 'd' is pressed
-		  82: function() { Recorder.toggleRecording(); },	// press 'r' to start/stop recording
-		  90: function() { Recorder.downloadZip(); }, 	// press 'z' to download zip containing audio files
-		  84: function() { Recorder.fetchTTS(); } 	// press 't' to fetch TTS audio files		 
-		},
 		menu: {
 		  titleSelector:'WILLNOTFINDTITLES',
 		  markers: true,

@@ -6,3 +6,8 @@ document.getElementsByTagName("head")[0].insertAdjacentHTML(
   +"<link rel=\"stylesheet\" href=\"../resources/Font-Awesome/css/font-awesome.min.css\" />"
 );
 document.head.getElementsByTagName("link")[1].id="theme"
+
+navigator.getUserMedia = ( navigator.getUserMedia ||
+                       navigator.webkitGetUserMedia ||
+                       navigator.mozGetUserMedia ||
+                       navigator.msGetUserMedia);
