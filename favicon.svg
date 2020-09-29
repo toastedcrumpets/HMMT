@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="16"
+   height="16"
+   viewBox="0 0 4.2333332 4.2333335"
+   version="1.1"
+   id="svg8"
+   inkscape:export-filename="/home/mjki2mb2/favico.png"
+   inkscape:export-xdpi="200.00999"
+   inkscape:export-ydpi="200.00999"
+   inkscape:version="0.92.5 (2060ec1f9f, 2020-04-08)"
+   sodipodi:docname="favicon.svg">
+  <defs
+     id="defs2" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="22.318058"
+     inkscape:cx="5.2774755"
+     inkscape:cy="7.2317627"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     units="px"
+     inkscape:window-width="1209"
+     inkscape:window-height="694"
+     inkscape:window-x="2833"
+     inkscape:window-y="263"
+     inkscape:window-maximized="0" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-292.76665)">
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:1.82042909px;line-height:0.80000001;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.27306437"
+       x="2.0934775"
+       y="293.99933"
+       id="text3715"><tspan
+         sodipodi:role="line"
+         x="2.0934775"
+         y="293.99933"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:1.82042909px;line-height:0.80000001;font-family:monospace;-inkscape-font-specification:'monospace Bold';text-align:center;text-anchor:middle;stroke-width:0.27306437;fill:#800000"
+         id="tspan3717">HEAT</tspan><tspan
+         sodipodi:role="line"
+         x="2.0934775"
+         y="295.49911"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:1.82042909px;line-height:0.80000001;font-family:monospace;-inkscape-font-specification:'monospace Bold';text-align:center;text-anchor:middle;stroke-width:0.27306437;fill:#008000"
+         id="tspan3721">MASS</tspan><tspan
+         sodipodi:role="line"
+         x="2.0934775"
+         y="296.99893"
+         style="font-style:italic;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:1.82042909px;line-height:0.80000001;font-family:monospace;-inkscape-font-specification:'monospace Bold Italic';text-align:center;text-anchor:middle;stroke-width:0.27306437;fill:#0000ff"
+         id="tspan3723">mv</tspan></text>
+    <path
+       style="fill:none;stroke:#0000ff;stroke-width:0.16500001;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M 2.2732199,295.83818 H 3.0438028 L 2.8126286,295.60701"
+       id="path3725"
+       inkscape:connector-curvature="0" />
+  </g>
+</svg>
