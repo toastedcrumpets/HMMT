@@ -66,6 +66,19 @@ loadScripts([
 		  TeX: { extensions: ["cancel.js"] }
 		}
 	      };
+
+	      if (!(typeof(audiofiles) === 'undefined')) {
+		//We have audio files, load the plugins
+		revealopts.plugins = revealopts.plugins.concat([
+		  RevealAudioSlideshow,
+		  RevealAudioRecorder
+		]);
+		revealopts.audio = {
+		  prefix: audiofiles,
+		  autoplay:true,
+		}
+	      }
+
 	      
 	      Reveal.initialize(revealopts);
 });
