@@ -58,7 +58,7 @@ loadScripts([
 			      toggleNotesButton: { left: "130px" },
 		},
 		math : {
-		  //config: "TeX-AMS_HTML-full",
+		  config: "TeX-AMS_SVG-full",
 		  tex2jax: {
 		    inlineMath: [['$','$'],['\\(','\\)']] ,
 		    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
