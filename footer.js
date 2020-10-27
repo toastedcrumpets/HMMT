@@ -63,11 +63,12 @@ loadScripts([
 		    inlineMath: [['$','$'],['\\(','\\)']] ,
 		    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
 		  },
-		  TeX: {
-		    extensions: ["cancel.js"],
-		    Macros: {
-		      bm: ["\\boldsymbol{#1}",1]
-		    },
+		    TeX: {
+			packages: {'[-]': ['require', 'autoload']},
+			extensions: ["cancel.js", "color.js"],
+			Macros: {
+			    bm: ["\\boldsymbol{#1}",1]
+			},
 		  },
 		}
 	      };
