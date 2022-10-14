@@ -90,10 +90,9 @@ loadScripts([
 	    }
 	}
 
-	
 	Reveal.initialize(revealopts);
-    }
-	   );
+}
+);
 
 //var toc = $('.tableofcontents');
 //if (toc.length) {
