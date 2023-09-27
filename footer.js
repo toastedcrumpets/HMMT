@@ -37,7 +37,7 @@ loadScripts([
 	    transition: 'fade',
 	    backgroundTransition: 'fade',
 	    pdfMaxPagesPerSlide: 1,
-	    controls:false,
+	    controls:true,
 	    plugins: [
 		RevealHighlight,
 		RevealSearch,
