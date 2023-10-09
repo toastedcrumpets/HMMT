@@ -1,722 +1,729 @@
 <!DOCTYPE html>
 <html lang="en">
- <head>
-  <meta charset="utf-8"/>
+
+<head>
+  <meta charset="utf-8" />
   <title>
-   Heat, Mass, and Momentum Transfer
+    Heat, Mass, and Momentum Transfer
   </title>
-  <meta content="Heat Mass and Momentum Transfer notes" name="description"/>
-  <meta content="Marcus Bannerman &lt;m.bannerman@gmail.com" name="author"/>
-  <meta content="yes" name="apple-mobile-web-app-capable"/>
-  <meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"/>
-  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui" name="viewport"/>
+  <meta content="Heat Mass and Momentum Transfer notes" name="description" />
+  <meta content="Marcus Bannerman &lt;m.bannerman@gmail.com" name="author" />
+  <meta content="yes" name="apple-mobile-web-app-capable" />
+  <meta content="black-translucent" name="apple-mobile-web-app-status-bar-style" />
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui"
+    name="viewport" />
   <script src="header.js"></script>
- </head>
- <body>
+</head>
+
+<body>
   <div class="reveal">
-   <div class="slides">
-    <section>
-     <section>
-      <h2>
-       Example: Pipe Flow
-      </h2>
-      <div class="center">
-      </div>
-     </section>
-    </section>
-    <section>
-     <section data-menu-title="Review">
-      <ul>
-       <li>
-        We have covered two examples of rectangular flow:
-        <figure>
-         <div class="center">
-          <object data="img/film-flow-4.svg" type="image/svg+xml" width="70%">
-          </object>
-         </div>
-         <div class="center">
-          <object data="img/flow_in_a_channel.svg" type="image/svg+xml" width="70%">
-          </object>
-         </div>
-        </figure>
-       </li>
-      </ul>
-     </section>
-     <section>
-      <ul>
-       <li>
-        And we've generalised to other coordinate systems by
-    defining the actions of the gradient operator in cylindrical and
-    spherical coordinates:
-        \begin{align*}
-        \boldsymbol{v} &amp;=\begin{bmatrix}v_x, &amp; v_y, &amp; v_z\end{bmatrix} = \begin{bmatrix}v_r, &amp; v_\theta, &amp; v_z\end{bmatrix} =\begin{bmatrix}v_r, &amp; v_\theta, &amp; v_\phi\end{bmatrix}
-      \\
-      \nabla s &amp;=
-      \begin{bmatrix}
-        \frac{\partial  s}{\partial x}, &amp;
-        \frac{\partial  s}{\partial y}, &amp;
-        \frac{\partial  s}{\partial z}
-      \end{bmatrix}
-      =
-      \begin{bmatrix}
-        \frac{\partial  s}{\partial r}, &amp;
-        \frac{1}{r} \frac{\partial  s}{\partial \theta}, &amp;
-        \frac{\partial  s}{\partial z}
-      \end{bmatrix}
-      =
-      \begin{bmatrix}
-        \frac{\partial s}{\partial r}, &amp; \frac{1}{r} \frac{\partial s}{\partial \theta} &amp;
-        \frac{1}{r\sin\theta}\frac{\partial s}{\partial \phi}
-      \end{bmatrix}
-      \\
-      \nabla \cdot \boldsymbol{v} &amp;= 
-      \frac{\partial v_x}{\partial x}  + \frac{\partial v_y}{\partial y}  +\frac{\partial v_z}{\partial z}
-      \\
-      &amp;=\frac{1}{r}\frac{\partial  r v_r}{\partial r}  +
-      \frac{1}{r} \frac{\partial  v_\theta}{\partial \theta}  + \frac{\partial  v_z}{\partial z}
-      \\
-      &amp;=\frac{1}{r^2}\frac{\partial  r^2 v_r}{\partial r}
-      + \frac{1}{r\sin\theta} \frac{\partial
-         v_\theta \sin\theta}{\partial \theta}  +
-      \frac{1}{r\sin\theta}\frac{\partial v_\phi}{\partial \phi}
-      \\
-      … &amp;= …
-        \end{align*}
-       </li>
-       <li class="fragment" data-fragment-index="1">
-        Lets work through an example in cylindrical coordinates…
-       </li>
-      </ul>
-     </section>
-    </section>
-    <section>
-     <section data-menu-title="Flow in a Pipe">
-      <figure>
-       <div class="center">
-        <object data="img/pipe_flow_cyl.svg" type="image/svg+xml" width="80%">
-        </object>
-       </div>
-      </figure>
-      <ul>
-       <li>
-        Chemical engineers are often called “glorified
-    plumbers,” one of the largest concerns in the petroleum
-    industries today is
-        <b>flow assurance</b>, and, somewhat
-    flippantly, we can say that pipe-flow is the fundamental
-    unit-operation.
-       </li>
-       <li class="fragment" data-fragment-index="1">
-        Whenever we pump liquids or gases or both through pipes,
-    we need to know what the pressure loss is for specified flow
-    properties (i.e., pressure drop, diameter, density, viscosity).
-       </li>
-       <li class="fragment" data-fragment-index="2">
-        We also need to know about
-        <b>
-         Reynolds numbers
-        </b>
-        and the
-    onset of
-        <b>turbulent flow</b>.
-       </li>
-       <li class="fragment" data-fragment-index="3">
-        Today we will derive the equation used to describe laminar
-    pipe-flow, the
-        <b>
-         Hagen-Poiseuille
-        </b>
-        equation.
-       </li>
-       <li class="fragment" data-fragment-index="4">
-        Later in the course, we will extend our treatment to
-        <b>
-         non-newtonian fluids
-        </b>
-        and
-        <b>turbulence</b>!
-       </li>
-      </ul>
-     </section>
-     <section data-menu-title="Coordinates and Boundary Conditions">
-      <figure>
-       <div class="center">
-        <object data="img/pipe_flow_cyl.svg" type="image/svg+xml" width="80%">
-        </object>
-       </div>
-      </figure>
-      <ul>
-       <li>
-        Let's take the simplest example of pipe-flow, such as
-        <b>
-         steady-state
-        </b>
-        ,
-        <b>
-         laminar
-        </b>
-        , and
-        <b>
-         incompressible
-        </b>
-        flow in a
-    pipe.
-       </li>
-       <li class="fragment" data-fragment-index="1">
-        Following the last lectures discussion on
-        <b>
-         symmetry
-        </b>
-        ,
-    we should place our cylindrical coordinate system so that the
-        $\hat{\boldsymbol{z}}$
-        axis is aligned with the
-        <b>
-         axis of symmetry
-        </b>
-        (see figure).
-       </li>
-       <li class="fragment" data-fragment-index="2">
-        We can then immediately see that our first boundary condition is the
-    no-slip condition at the pipe wall ($r=R$
-        ):
-        \begin{align*}
-        \boldsymbol{v}(r=R) &amp;= \boldsymbol{0}
-        \end{align*}
-       </li>
-       <li class="fragment" data-fragment-index="3">
-        This is much more convenient than trying to define it in
-        <b>
-         Cartesian
-        </b>
-        coordinates.
-       </li>
-      </ul>
-     </section>
-     <section>
-      <figure>
-       <div class="center">
-        <object data="img/pipe_flow_cyl.svg" type="image/svg+xml" width="80%">
-        </object>
-       </div>
-      </figure>
-      <ul>
-       <li>
-        The second boundary condition arises from the axis of
-        <b>
-         symmetry
-        </b>
-        in the centre of the pipe. Here the stresses in the
-        $r$
-        and
-        $\theta$
-        directions are zero.
-        \begin{align*}
-        \tau_{ij}(r=0) &amp;= 0 &amp; \text{where $i$,$j\in[r,\theta] $}
-        \end{align*}
-       </li>
-       <li class="fragment" data-fragment-index="1">
-        If the flow doesn't vary in the $\hat{\boldsymbol{z}}$
-        direction
-    (we will prove it doesn't in a moment), then all stresses will be zero on the axis of symmetry
-        \begin{align*}
-        \boldsymbol{\tau}(r=0) &amp;= \boldsymbol{0}
-        \end{align*}
-       </li>
-      </ul>
-     </section>
-     <section data-menu-title="Continuity Equation">
-      <ul>
-       <li>
-        Starting with the
-        <b>
-         continuity equation,
-        </b>
-        if we assume
-	the flow is
-        <b>
-         incompressible
-        </b>
-        then the density is constant and
-    we have the standard result:
-        \begin{align*}
-        \cancelto{0}{\frac{\partial \rho}{\partial t}} - \nabla \cdot \rho\boldsymbol{v} &amp;= 0\\
-      \nabla \cdot \boldsymbol{v} &amp;= 0
-        \end{align*}
-       </li>
-       <li class="fragment" data-fragment-index="1">
-        As we're in cylindrical coordinates, we must look up the
-    result of the gradient operator in cylindrical coordinates:
-        \begin{align*}
-        \nabla \cdot \boldsymbol{v}
-      &amp;=\frac{1}{r}\frac{\partial  r v_r}{\partial r}  +
-      \frac{1}{r} \frac{\partial  v_\theta}{\partial \theta}  + \frac{\partial  v_z}{\partial z}
-        \end{align*}
-       </li>
-       <li class="fragment" data-fragment-index="2">
-        We can then use this in the equation above to get the mass
-    balance for our current system:
-        \begin{align*}
-        \frac{1}{r}\frac{\partial  r v_r}{\partial r} + \frac{1}{r}
-      \frac{\partial  v_\theta}{\partial \theta} + \frac{\partial
-         v_z}{\partial z} = 0
-        \end{align*}
-       </li>
-       <li class="fragment" data-fragment-index="3">
-        In the previous examples, we deleted most of the terms by
-    assuming that the flow velocity is only non-zero in one
-    direction. What is the reasoning behind this?
-       </li>
-      </ul>
-     </section>
-     <section data-menu-title="Well-Developed Flow">
-      <figure>
-       <div class="center">
-        <object data="img/pipe_flow_cyl.svg" type="image/svg+xml" width="80%">
-        </object>
-       </div>
-      </figure>
-      <ul>
-       <li>
-        If we assume that the flow is laminar, what else do we
-    have to assume to say that $v_\theta=0$
-        ,
-        $v_r=0$
-        ?
-       </li>
-       <li class="fragment" data-fragment-index="1">
-        If a flow is laminar, this implies that
-        <b>
-         viscous
-      forces
-        </b>
-        dominate the flow.
-       </li>
-       <li class="fragment" data-fragment-index="2">
-        This means that, if there is no unapposed driving-force in
-    a direction, eventually the flow will slow to zero.
-       </li>
-       <li class="fragment" data-fragment-index="3">
-        Lets look at an example of
-        <b>
-         developing flow
-        </b>
-        …
-       </li>
-      </ul>
-     </section>
-     <section>
-      <figure>
-       <div class="center">
-        <object data="img/developing_flow.svg" type="image/svg+xml" width="70%">
-        </object>
-       </div>
-      </figure>
-      <ul>
-       <li>
-        Consider pressure-driven flow entering a long pipeline.
-       </li>
-       <li class="fragment" data-fragment-index="1">
-        At first, the
-        <b>
-         inertia
-        </b>
-        of the flow causes the flow to
-    appear turbulent, with flow in all directions.
-       </li>
-       <li class="fragment" data-fragment-index="2">
-        After a sufficient distance, viscous forces dampen the
-    flow until it reaches the
-        <b>
-         well-developed
-        </b>
-        flow profile.
-       </li>
-       <li class="fragment" data-fragment-index="3">
-        If the flow was turbulent, interial forces are always
-    stronger than viscous forces and the flow never settles, but with
-    laminar flow we can expect a well-developed flow profile to appear.
-       </li>
-      </ul>
-     </section>
-     <section>
-      <figure>
-       <div class="center">
-        <object data="img/pipe_flow_cyl.svg" type="image/svg+xml" width="80%">
-        </object>
-       </div>
-      </figure>
-      <ul>
-       <li>
-        So, if this flow is laminar, and we're far enough from the
-    pipe entry, we can assume it is well-developed flow.
-       </li>
-       <li class="fragment" data-fragment-index="1">
-        This implies that $v_\theta=0$
-        and
-        $v_r=0$
-        , taking another
-    look at the continuity equation we have:
-        \begin{align*}
-        \frac{1}{r} \frac{\partial r \cancelto{0}{v_r}}{\partial r}+
-      \frac{1}{r} \frac{\partial \cancelto{0}{v_\theta}}{\partial \theta}
-      + \frac{\partial v_z}{\partial z} &amp;=0\\
-      \frac{\partial v_z}{\partial z} &amp;= 0
-        \end{align*}
-       </li>
-       <li class="fragment" data-fragment-index="2">
-        Again, we have that if we assume the flow is
-        <b>
-         incompressible
-        </b>
-        ,
-        <b>
-         laminar
-        </b>
-        and
-        <i>
-        </i>
-        <b>
-         well-developed
-        </b>
-        , we
-    find the velocity profile will not vary along the pipe.
-       </li>
-      </ul>
-     </section>
-     <section>
-      <figure>
-       <div class="center">
-        <object data="img/pipe_flow_cyl.svg" type="image/svg+xml" width="80%">
-        </object>
-       </div>
-      </figure>
-      <ul>
-       <li>
-        In summary, we have the following boundary conditions:
-        \begin{align*}
-        \boldsymbol{v}(r=R) &amp;= \boldsymbol{0} &amp;  \boldsymbol{\tau}(r=0) &amp;= \boldsymbol{0}
-        \end{align*}
-       </li>
-       <li class="fragment" data-fragment-index="1">
-        As the flow is
-        <b>
-         laminar
-        </b>
-        and
-        <b>
-         well-developed
-        </b>
-        , the
-    flow perpendicular to the axis is zero:
-        \begin{align*}
-        v_r &amp;= 0 &amp;  v_\theta &amp;= 0
-        \end{align*}
-       </li>
-       <li class="fragment" data-fragment-index="2">
-        Although the axial flow velocity is non-zero, $v_z\neq 0$
-        ,
-    we know from the continuity equation its
-        $z$
-        -derivative is zero:
-        \begin{align*}
-        \frac{\partial v_z}{\partial z} = 0
-        \end{align*}
-       </li>
-       <li class="fragment" data-fragment-index="3">
-        Lets solve the Cauchy momentum equation for the stress
-    profile…
-       </li>
-      </ul>
-     </section>
-     <section data-menu-title="Cauchy Momentum Equation">
-      <ul>
-       <li>
-        Starting with the full Cauchy momentum equation:
-        \begin{align*}
-        \rho\frac{\partial\boldsymbol{v}}{\partial t} &amp;= -\rho\boldsymbol{v}\cdot
-      \nabla\boldsymbol{v} - \nabla\cdot\boldsymbol{\tau} - \nabla p + \rho \boldsymbol{g}
-        \end{align*}
-       </li>
-       <li class="fragment" data-fragment-index="1">
-        If the flow is
-        <b>
-         steady state,
-        </b>
-        the time derivate is
-	zero and we have:
-        \begin{align*}
-        \rho \boldsymbol{v}\cdot\nabla \boldsymbol{v} = -\nabla\cdot\boldsymbol{\tau} - \nabla p
-	+ \rho \boldsymbol{g}
-        \end{align*}
-       </li>
-       <li class="fragment" data-fragment-index="2">
-        As the flow is
-        <b>
-         well developed
-        </b>
-        we know we're only
-    interested in
-        $\boldsymbol{v}_z$
-        (the other dimensions are either
-    hydrostatic head or a statement that certain stresses are zero).
-       </li>
-       <li class="fragment" data-fragment-index="3">
-        Selecting the $z$
-        component, we have
-        \begin{align*}
-        \rho[\boldsymbol{v}\cdot\nabla \boldsymbol{v}]_z = -[\nabla\cdot\boldsymbol{\tau}]_z - [\nabla p]_z +
-      \rho g_z
-        \end{align*}
-       </li>
-       <li class="fragment" data-fragment-index="4">
-        Looking up these terms one by one, we have:
-        \begin{align*}
-        [\boldsymbol{v}\cdot\nabla \boldsymbol{v}]_z = v_r \frac{\partial v_z}{\partial r} + \frac{v_\theta}{r}\frac{\partial v_z}{\partial \theta} + v_z \frac{\partial v_z}{\partial z}
-        \end{align*}
-       </li>
-       <li class="fragment" data-fragment-index="5">
-        But we have $v_r=v_\theta=0$
-        , and the continuity equation
-    states
-        $\frac{\partial v_z}{\partial z} = 0$
-        so this whole term is
-    zero, giving us:
-        \begin{align*}
-        -[\nabla\cdot\boldsymbol{\tau}]_z = [\nabla p]_z -
-      \rho g_z
-        \end{align*}
-       </li>
-      </ul>
-     </section>
-     <section>
-      \begin{align*}
-      -[\nabla\cdot\boldsymbol{\tau}]_z = [\nabla p]_z - \rho g_z
-      \end{align*}
-      <ul>
-       <li>
-        Which terms of the stress are non-zero? Expanding we have:
-        \begin{align}
-        \left[\nabla \cdot \boldsymbol{\tau}\right]_z &amp;= \frac{1}{r}\frac{\partial
-      }{\partial r}\left(r \tau_{rz}\right) + \frac{1}{r}\frac{\partial
-        \tau_{\theta z}}{\partial\theta} + \frac{\partial  \tau_{z
-          z}}{\partial z}
-        \end{align}
-       </li>
-       <li class="fragment" data-fragment-index="1">
-        We know that $\partial/\partial \theta$
-        is zero as the
-    problem is rotationally symmetric in
-        $\theta$
-        (no transport in the
-    direction of symmetry, so
-        $\nabla_\theta v_z = 0$
-        ). We also know
-    that
-        $\tau_{zz}$
-        is zero as the velocity does not change in the
-        $z$
-        direction (
-        $\partial v_z/\partial z=0$
-        ).
-       </li>
-       <li class="fragment" data-fragment-index="2">
-        Therefore, the only non-zero element of the stress term is
-    when $i=r$
-        , leaving us with the final equation:
-        \begin{align*}
-        -\frac{1}{r}\frac{\partial }{\partial r}\left(r \tau_{rz}\right)
-      = \frac{\partial p}{\partial z} - \rho g_z
-        \end{align*}
-       </li>
-      </ul>
-     </section>
-     <section data-menu-title="Stress Profile">
-      \begin{align*}
-      -\frac{1}{r}\frac{\partial }{\partial r}\left(r \tau_{rz}\right)
-    = \frac{\partial p}{\partial z} - \rho g_z
-      \end{align*}
-      <ul>
-       <li>
-        First, we note that the stress, gravity, and density are
-    independent of the pressure or $z$
-        component. This means we can
-    perform the integration over
-        $p$
-        and
-        $z$
-        , treating everything else
-    as a constant term.
-        \begin{align*}
-        \frac{\partial p}{\partial z} &amp;= -\frac{1}{r} \frac{\partial  r \tau_{rz}}{\partial r} + \rho g_z\\
-      \int_{p_0}^{p_L}{\rm d}p &amp;= \int^L_0 \left(-\frac{1}{r} \frac{\partial  r \tau_{rz}}{\partial r} + \rho g_z \right){\rm d z}\\
-      -\frac{1}{r} \frac{\partial  r \tau_{rz}}{\partial r}
-      &amp;= \frac{\Delta p}{L} - \rho g_z
-        \end{align*}
-        where
-        $L$
-        is the pipe length and
-        $\Delta p=p_L-p_0$
-        is the pressure drop
-    over the length of the pipe.
-       </li>
-       <li class="fragment" data-fragment-index="1">
-        We can perform the integration with respect to $r$
-        to
-    yield:
-        \begin{align*}
-        \tau_{rz} = \left(\rho g_z - \frac{\Delta p}{L}\right)\frac{r}{2} + \frac{C}{r}
-        \end{align*}
-       </li>
-      </ul>
-     </section>
-     <section>
-      \begin{align*}
-      \tau_{rz} = \left(\rho g_z - \frac{\Delta p}{L}\right)\frac{r}{2} + \frac{C}{r}
-      \end{align*}
-      <ul>
-       <li>
-        The symmetry boundary condition and incompressible nature
-    of the flow causes all stresses to be zero in the middle of the
-    pipe $\boldsymbol{\tau}(r=0)=\boldsymbol{0}$
-        .
-       </li>
-       <li class="fragment" data-fragment-index="1">
-        But regardless of the boundary condition, we can see that
-    we must set $C=0$
-        to simply have a finite stress in the middle of
-    the pipe!
-       </li>
-       <li class="fragment" data-fragment-index="2">
-        We don't actually need the symmetry boundary condition to
-    see this, but its a reinforcement of our decision to set
-    $C=0$
-        . Giving us the stress profile in the pipe:
-        \begin{align*}
-        \tau_{rz} = \left(\rho g_z - \frac{\Delta p}{L}\right)\frac{r}{2}
-        \end{align*}
-       </li>
-       <li class="fragment" data-fragment-index="3">
-        We can now calculate the velocity profile in the
-    pipe…
-       </li>
-      </ul>
-     </section>
-     <section data-menu-title="Velocity Profile">
-      \begin{align*}
-      \tau_{rz} = \left(\rho g_z - \frac{\Delta p}{L}\right)\frac{r}{2}
-      \end{align*}
-      <ul>
-       <li>
-        Looking up the definition of the stress in our table, we
-    have:
-        \begin{align*}
-        \tau_{rz} = \tau_{zr} = -\mu\left(\frac{\partial v_r}{\partial z} + \frac{\partial v_z}{\partial r}\right)
-        \end{align*}
-       </li>
-       <li class="fragment" data-fragment-index="1">
-        As $v_r=0$
-        , this simplifies, and inserting it into the stress balance (top) we have:
-        \begin{align*}
-        \tau_{rz} = -\mu \frac{\partial v_z}{\partial r} =
-      \left(\rho g_z-\frac{\Delta p}{L}\right)\frac{r}{2}
-        \end{align*}
-       </li>
-      </ul>
-     </section>
-     <section>
-      \begin{align*}
-      -\mu \frac{\partial v_z}{\partial r} =
-    \left(\rho g_z-\frac{\Delta p}{L}\right)\frac{r}{2}
-      \end{align*}
-      <ul>
-       <li>
-        Performing the integration, we have
-        \begin{align*}
-        v_z = \left(\frac{\Delta p}{L}-\rho g_z\right)\frac{r^2}{4 \mu} + C
-        \end{align*}
-       </li>
-       <li class="fragment" data-fragment-index="1">
-        As the velocity on the wall is zero, $v_z(r=R)=0$
-        , we can determine the constant and write
-        \begin{align*}
-        v_z = \left(\frac{-\Delta p}{L} +
-        \rho g_z\right)\frac{R^2 - r^2}{4 \mu}
-        \end{align*}
-       </li>
-      </ul>
-     </section>
-     <section data-menu-title="Flow Properties">
-      \begin{align*}
-      v_z = \left(\frac{-\Delta p}{L} +
-      \rho g_z\right)\frac{R^2 - r^2}{4 \mu}
-      \end{align*}
-      <ul>
-       <li>
-        We can now determine interesting properties, such as the
-    maximum velocity
-        \begin{align*}
-        v_z^{max} = \left(\frac{-\Delta p}{L} + \rho g_z\right)\frac{R^2}{4 \mu}
-        \end{align*}
-       </li>
-       <li class="fragment" data-fragment-index="1">
-        Or the volumetric flow
-        \begin{align*}
-        \dot{V}_z &amp;= \int_0^R\int_0^{2\pi} v_z  r {\rm d}\theta  {\rm d}r\\
-      &amp;= \pi\left(\frac{-\Delta p}{L} +
-        \rho g_z\right)\frac{R^4}{8 \mu}
-        \end{align*}
-        (the extra
-        $r$
-        factor appears as it is the differential area of
-    the
-        $\theta r$
-        surface,
-        $A_{\theta r}=r \delta\theta \delta r$
-        ).
-       </li>
-       <li class="fragment" data-fragment-index="2">
-        This is a famous expression known as the
-        <b>
-         Hagen-Poiseuille
-        </b>
-        equation. It relates the flow rate to the
-    pressure drop in a pipe for
-        <b>
-         laminar
-        </b>
-        ,
-        <b>
-         well-developed
-        </b>
-        ,
-        <b>
-         Newtonian
-        </b>
-        flows.
-       </li>
-      </ul>
-     </section>
-    </section>
-    <section>
-      <section data-menu-title="Learning Objectives">
-	<h3>Learning Objectives</h3>
-      <ul>
-       <li>
-        The definition of well-developed flow.
-       </li>
-       <li class="fragment" data-fragment-index="1">
-        Reviewed calculating flow properties.
-       </li>
-       <li class="fragment" data-fragment-index="2">
-        How to solve the problem of fluid flow in a pipe and how
-    to derive the Hagen-Poiseuille equation.
-       </li>
-      </ul>
-     </section>
-    </section>
-   </div>
-   <script src="footer.js"></script>
+    <div class="slides">
+      <section>
+        <section>
+          <h2>
+            Example: Pipe Flow
+          </h2>
+          <div class="center">
+          </div>
+        </section>
+      </section>
+      <section>
+        <section data-menu-title="Review">
+          <ul>
+            <li>
+              We have covered two examples of rectangular flow:
+              <figure>
+                <div class="center">
+                  <object data="img/film-flow-4.svg" type="image/svg+xml" width="70%">
+                  </object>
+                </div>
+                <div class="center">
+                  <object data="img/flow_in_a_channel.svg" type="image/svg+xml" width="70%">
+                  </object>
+                </div>
+              </figure>
+            </li>
+          </ul>
+        </section>
+        <section>
+          <ul>
+            <li>
+              And we've generalised to other coordinate systems by
+              defining the actions of the gradient operator in cylindrical and
+              spherical coordinates:
+              \begin{align*}
+              \boldsymbol{v} &amp;=\begin{bmatrix}v_x, &amp; v_y, &amp; v_z\end{bmatrix} = \begin{bmatrix}v_r, &amp;
+              v_\theta, &amp; v_z\end{bmatrix} =\begin{bmatrix}v_r, &amp; v_\theta, &amp; v_\phi\end{bmatrix}
+              \\
+              \nabla s &amp;=
+              \begin{bmatrix}
+              \frac{\partial  s}{\partial x}, &amp;
+              \frac{\partial  s}{\partial y}, &amp;
+              \frac{\partial  s}{\partial z}
+              \end{bmatrix}
+              =
+              \begin{bmatrix}
+              \frac{\partial  s}{\partial r}, &amp;
+              \frac{1}{r} \frac{\partial  s}{\partial \theta}, &amp;
+              \frac{\partial  s}{\partial z}
+              \end{bmatrix}
+              =
+              \begin{bmatrix}
+              \frac{\partial s}{\partial r}, &amp; \frac{1}{r} \frac{\partial s}{\partial \theta} &amp;
+              \frac{1}{r\sin\theta}\frac{\partial s}{\partial \phi}
+              \end{bmatrix}
+              \\
+              \nabla \cdot \boldsymbol{v} &amp;=
+              \frac{\partial v_x}{\partial x} + \frac{\partial v_y}{\partial y} +\frac{\partial v_z}{\partial z}
+              \\
+              &amp;=\frac{1}{r}\frac{\partial  r v_r}{\partial r} +
+              \frac{1}{r} \frac{\partial  v_\theta}{\partial \theta} + \frac{\partial  v_z}{\partial z}
+              \\
+              &amp;=\frac{1}{r^2}\frac{\partial  r^2 v_r}{\partial r}
+              + \frac{1}{r\sin\theta} \frac{\partial
+               v_\theta \sin\theta}{\partial \theta} +
+              \frac{1}{r\sin\theta}\frac{\partial v_\phi}{\partial \phi}
+              \\
+              … &amp;= …
+              \end{align*}
+            </li>
+            <li class="fragment" data-fragment-index="1">
+              Lets work through an example in cylindrical coordinates…
+            </li>
+          </ul>
+        </section>
+      </section>
+      <section>
+        <section data-menu-title="Flow in a Pipe">
+          <figure>
+            <div class="center">
+              <object data="img/pipe_flow_cyl.svg" type="image/svg+xml" width="80%">
+              </object>
+            </div>
+          </figure>
+          <ul>
+            <li>
+              Chemical engineers are often called “glorified
+              plumbers,” one of the largest concerns in the petroleum
+              industries today is
+              <b>flow assurance</b>, and, somewhat
+              flippantly, we can say that pipe-flow is the fundamental
+              unit-operation.
+            </li>
+            <li class="fragment" data-fragment-index="1">
+              Whenever we pump liquids or gases or both through pipes,
+              we need to know what the pressure loss is for specified flow
+              properties (i.e., pressure drop, diameter, density, viscosity).
+            </li>
+            <li class="fragment" data-fragment-index="2">
+              We also need to know about
+              <b>
+                Reynolds numbers
+              </b>
+              and the
+              onset of
+              <b>turbulent flow</b>.
+            </li>
+            <li class="fragment" data-fragment-index="3">
+              Today we will derive the equation used to describe laminar
+              pipe-flow, the
+              <b>
+                Hagen-Poiseuille
+              </b>
+              equation.
+            </li>
+            <li class="fragment" data-fragment-index="4">
+              Later in the course, we will extend our treatment to
+              <b>
+                non-newtonian fluids
+              </b>
+              and
+              <b>turbulence</b>!
+            </li>
+          </ul>
+        </section>
+        <section data-menu-title="Coordinates and Boundary Conditions">
+          <figure>
+            <div class="center">
+              <object data="img/pipe_flow_cyl.svg" type="image/svg+xml" width="80%">
+              </object>
+            </div>
+          </figure>
+          <ul>
+            <li>
+              Let's take the simplest example of pipe-flow, such as
+              <b>
+                steady-state
+              </b>
+              ,
+              <b>
+                laminar
+              </b>
+              , and
+              <b>
+                incompressible
+              </b>
+              flow in a
+              pipe.
+            </li>
+            <li class="fragment" data-fragment-index="1">
+              Following the last lectures discussion on
+              <b>
+                symmetry
+              </b>
+              ,
+              we should place our cylindrical coordinate system so that the
+              $\hat{\boldsymbol{z}}$
+              axis is aligned with the
+              <b>
+                axis of symmetry
+              </b>
+              (see figure).
+            </li>
+            <li class="fragment" data-fragment-index="2">
+              We can then immediately see that our first boundary condition is the
+              no-slip condition at the pipe wall ($r=R$
+              ):
+              \begin{align*}
+              \boldsymbol{v}(r=R) &amp;= \boldsymbol{0}
+              \end{align*}
+            </li>
+            <li class="fragment" data-fragment-index="3">
+              This is much more convenient than trying to define it in
+              <b>
+                Cartesian
+              </b>
+              coordinates.
+            </li>
+          </ul>
+        </section>
+        <section>
+          <figure>
+            <div class="center">
+              <object data="img/pipe_flow_cyl.svg" type="image/svg+xml" width="80%">
+              </object>
+            </div>
+          </figure>
+          <ul>
+            <li>
+              The second boundary condition arises from the axis of
+              <b>
+                symmetry
+              </b>
+              in the centre of the pipe. Here the stresses in the
+              $r$
+              and
+              $\theta$
+              directions are zero.
+              \begin{align*}
+              \tau_{ij}(r=0) &amp;= 0 &amp; \text{where $i$,$j\in[r,\theta] $}
+              \end{align*}
+            </li>
+            <li class="fragment" data-fragment-index="1">
+              If the flow doesn't vary in the $\hat{\boldsymbol{z}}$
+              direction
+              (we will prove it doesn't in a moment), then all stresses will be zero on the axis of symmetry
+              \begin{align*}
+              \boldsymbol{\tau}(r=0) &amp;= \boldsymbol{0}
+              \end{align*}
+            </li>
+          </ul>
+        </section>
+        <section data-menu-title="Continuity Equation">
+          <ul>
+            <li>
+              Starting with the
+              <b>
+                continuity equation,
+              </b>
+              if we assume
+              the flow is
+              <b>
+                incompressible
+              </b>
+              then the density is constant and
+              we have the standard result:
+              \begin{align*}
+              \cancelto{0}{\frac{\partial \rho}{\partial t}} - \nabla \cdot \rho\boldsymbol{v} &amp;= 0\\
+              \nabla \cdot \boldsymbol{v} &amp;= 0
+              \end{align*}
+            </li>
+            <li class="fragment" data-fragment-index="1">
+              As we're in cylindrical coordinates, we must look up the
+              result of the gradient operator in cylindrical coordinates:
+              \begin{align*}
+              \nabla \cdot \boldsymbol{v}
+              &amp;=\frac{1}{r}\frac{\partial  r v_r}{\partial r} +
+              \frac{1}{r} \frac{\partial  v_\theta}{\partial \theta} + \frac{\partial  v_z}{\partial z}
+              \end{align*}
+            </li>
+            <li class="fragment" data-fragment-index="2">
+              We can then use this in the equation above to get the mass
+              balance for our current system:
+              \begin{align*}
+              \frac{1}{r}\frac{\partial  r v_r}{\partial r} + \frac{1}{r}
+              \frac{\partial  v_\theta}{\partial \theta} + \frac{\partial
+               v_z}{\partial z} = 0
+              \end{align*}
+            </li>
+            <li class="fragment" data-fragment-index="3">
+              In the previous examples, we deleted most of the terms by
+              assuming that the flow velocity is only non-zero in one
+              direction. What is the reasoning behind this?
+            </li>
+          </ul>
+        </section>
+        <section data-menu-title="Well-Developed Flow">
+          <figure>
+            <div class="center">
+              <object data="img/pipe_flow_cyl.svg" type="image/svg+xml" width="80%">
+              </object>
+            </div>
+          </figure>
+          <ul>
+            <li>
+              If we assume that the flow is laminar, what else do we
+              have to assume to say that $v_\theta=0$
+              ,
+              $v_r=0$
+              ?
+            </li>
+            <li class="fragment" data-fragment-index="1">
+              If a flow is laminar, this implies that
+              <b>
+                viscous
+                forces
+              </b>
+              dominate the flow.
+            </li>
+            <li class="fragment" data-fragment-index="2">
+              This means that, if there is no unapposed driving-force in
+              a direction, eventually the flow will slow to zero.
+            </li>
+            <li class="fragment" data-fragment-index="3">
+              Lets look at an example of
+              <b>
+                developing flow
+              </b>
+              …
+            </li>
+          </ul>
+        </section>
+        <section>
+          <figure>
+            <div class="center">
+              <object data="img/developing_flow.svg" type="image/svg+xml" width="70%">
+              </object>
+            </div>
+          </figure>
+          <ul>
+            <li>
+              Consider pressure-driven flow entering a long pipeline.
+            </li>
+            <li class="fragment" data-fragment-index="1">
+              At first, the
+              <b>
+                inertia
+              </b>
+              of the flow causes the flow to
+              appear turbulent, with flow in all directions.
+            </li>
+            <li class="fragment" data-fragment-index="2">
+              After a sufficient distance, viscous forces dampen the
+              flow until it reaches the
+              <b>
+                well-developed
+              </b>
+              flow profile.
+            </li>
+            <li class="fragment" data-fragment-index="3">
+              If the flow was turbulent, interial forces are always
+              stronger than viscous forces and the flow never settles, but with
+              laminar flow we can expect a well-developed flow profile to appear.
+            </li>
+          </ul>
+        </section>
+        <section>
+          <figure>
+            <div class="center">
+              <object data="img/pipe_flow_cyl.svg" type="image/svg+xml" width="80%">
+              </object>
+            </div>
+          </figure>
+          <ul>
+            <li>
+              So, if this flow is laminar, and we're far enough from the
+              pipe entry, we can assume it is well-developed flow.
+            </li>
+            <li class="fragment" data-fragment-index="1">
+              This implies that $v_\theta=0$
+              and
+              $v_r=0$
+              , taking another
+              look at the continuity equation we have:
+              \begin{align*}
+              \frac{1}{r} \frac{\partial r \cancelto{0}{v_r}}{\partial r}+
+              \frac{1}{r} \frac{\partial \cancelto{0}{v_\theta}}{\partial \theta}
+              + \frac{\partial v_z}{\partial z} &amp;=0\\
+              \frac{\partial v_z}{\partial z} &amp;= 0
+              \end{align*}
+            </li>
+            <li class="fragment" data-fragment-index="2">
+              Again, we have that if we assume the flow is
+              <b>
+                incompressible
+              </b>
+              ,
+              <b>
+                laminar
+              </b>
+              and
+              <i>
+              </i>
+              <b>
+                well-developed
+              </b>
+              , we
+              find the velocity profile will not vary along the pipe.
+            </li>
+          </ul>
+        </section>
+        <section>
+          <figure>
+            <div class="center">
+              <object data="img/pipe_flow_cyl.svg" type="image/svg+xml" width="70%">
+              </object>
+            </div>
+          </figure>
+          <ul>
+            <li>
+              In summary, we have the following boundary conditions:
+              \begin{align*}
+              \boldsymbol{v}(r=R) &amp;= \boldsymbol{0} &amp; \boldsymbol{\tau}(r=0) &amp;= \boldsymbol{0}
+              \end{align*}
+            </li>
+            <li class="fragment" data-fragment-index="1">
+              As the flow is
+              <b>
+                laminar
+              </b>
+              and
+              <b>
+                well-developed
+              </b>
+              , the
+              flow perpendicular to the axis is zero:
+              \begin{align*}
+              v_r &amp;= 0 &amp; v_\theta &amp;= 0
+              \end{align*}
+            </li>
+            <li class="fragment" data-fragment-index="2">
+              Although the axial flow velocity is non-zero, $v_z\neq 0$
+              ,
+              we know from the continuity equation its
+              $z$
+              -derivative is zero:
+              \begin{align*}
+              \frac{\partial v_z}{\partial z} = 0
+              \end{align*}
+            </li>
+            <li class="fragment" data-fragment-index="3">
+              Lets solve the Cauchy momentum equation for the stress
+              profile…
+            </li>
+          </ul>
+        </section>
+        <section data-menu-title="Cauchy Momentum Equation">
+          <ul>
+            <li>
+              Starting with the full Cauchy momentum equation:
+              \begin{align*}
+              \rho\frac{\partial\boldsymbol{v}}{\partial t} &amp;= -\rho\boldsymbol{v}\cdot
+              \nabla\boldsymbol{v} - \nabla\cdot\boldsymbol{\tau} - \nabla p + \rho \boldsymbol{g}
+              \end{align*}
+            </li>
+            <li class="fragment" data-fragment-index="1">
+              If the flow is
+              <b>
+                steady state,
+              </b>
+              the time derivate is
+              zero and we have:
+              \begin{align*}
+              \rho \boldsymbol{v}\cdot\nabla \boldsymbol{v} = -\nabla\cdot\boldsymbol{\tau} - \nabla p
+              + \rho \boldsymbol{g}
+              \end{align*}
+            </li>
+            <li class="fragment" data-fragment-index="2">
+              As the flow is
+              <b>
+                well developed
+              </b>
+              we know we're only
+              interested in
+              $\boldsymbol{v}_z$
+              (the other dimensions are either
+              hydrostatic head or a statement that certain stresses are zero).
+            </li>
+            <li class="fragment" data-fragment-index="3">
+              Selecting the $z$
+              component, we have
+              \begin{align*}
+              \rho[\boldsymbol{v}\cdot\nabla \boldsymbol{v}]_z = -[\nabla\cdot\boldsymbol{\tau}]_z - [\nabla p]_z +
+              \rho g_z
+              \end{align*}
+            </li>
+            <li class="fragment" data-fragment-index="4">
+              Looking up these terms one by one, we have:
+              \begin{align*}
+              [\boldsymbol{v}\cdot\nabla \boldsymbol{v}]_z = v_r \frac{\partial v_z}{\partial r} +
+              \frac{v_\theta}{r}\frac{\partial v_z}{\partial \theta} + v_z \frac{\partial v_z}{\partial z}
+              \end{align*}
+            </li>
+            <li class="fragment" data-fragment-index="5">
+              But we have $v_r=v_\theta=0$
+              , and the continuity equation
+              states
+              $\frac{\partial v_z}{\partial z} = 0$
+              so this whole term is
+              zero, giving us:
+              \begin{align*}
+              -[\nabla\cdot\boldsymbol{\tau}]_z = [\nabla p]_z -
+              \rho g_z
+              \end{align*}
+            </li>
+          </ul>
+        </section>
+        <section>
+          \begin{align*}
+          -[\nabla\cdot\boldsymbol{\tau}]_z = [\nabla p]_z - \rho g_z
+          \end{align*}
+          <ul>
+            <li>
+              Which terms of the stress are non-zero? Expanding we have:
+              \begin{align}
+              \left[\nabla \cdot \boldsymbol{\tau}\right]_z &amp;= \frac{1}{r}\frac{\partial
+              }{\partial r}\left(r \tau_{rz}\right) + \frac{1}{r}\frac{\partial
+              \tau_{\theta z}}{\partial\theta} + \frac{\partial  \tau_{z
+              z}}{\partial z}
+              \end{align}
+            </li>
+            <li class="fragment" data-fragment-index="1">
+              We know that $\partial/\partial \theta$
+              is zero as the
+              problem is rotationally symmetric in
+              $\theta$
+              (no transport in the
+              direction of symmetry, so
+              $\nabla_\theta v_z = 0$
+              ). We also know
+              that
+              $\tau_{zz}$
+              is zero as the velocity does not change in the
+              $z$
+              direction (
+              $\partial v_z/\partial z=0$
+              ).
+            </li>
+            <li class="fragment" data-fragment-index="2">
+              Therefore, the only non-zero element of the stress term is
+              when $i=r$
+              , leaving us with the final equation:
+              \begin{align*}
+              -\frac{1}{r}\frac{\partial }{\partial r}\left(r \tau_{rz}\right)
+              = \frac{\partial p}{\partial z} - \rho g_z
+              \end{align*}
+            </li>
+          </ul>
+        </section>
+        <section data-menu-title="Stress Profile">
+          \begin{align*}
+          -\frac{1}{r}\frac{\partial }{\partial r}\left(r \tau_{rz}\right)
+          = \frac{\partial p}{\partial z} - \rho g_z
+          \end{align*}
+          <ul>
+            <li>
+              First, we note that the stress, gravity, and density are
+              independent of the pressure or $z$
+              component. This means we can
+              perform the integration over
+              $p$
+              and
+              $z$
+              , treating everything else
+              as a constant term.
+              \begin{align*}
+              \frac{\partial p}{\partial z} &amp;= -\frac{1}{r} \frac{\partial  r \tau_{rz}}{\partial r} + \rho g_z\\
+              \int_{p_0}^{p_L}{\rm d}p &amp;= \int^L_0 \left(-\frac{1}{r} \frac{\partial  r \tau_{rz}}{\partial r} +
+              \rho g_z \right){\rm d z}\\
+              -\frac{1}{r} \frac{\partial  r \tau_{rz}}{\partial r}
+              &amp;= \frac{\Delta p}{L} - \rho g_z
+              \end{align*}
+              where
+              $L$
+              is the pipe length and
+              $\Delta p=p_L-p_0$
+              is the pressure drop
+              over the length of the pipe.
+            </li>
+            <li class="fragment" data-fragment-index="1">
+              We can perform the integration with respect to $r$
+              to
+              yield:
+              \begin{align*}
+              \tau_{rz} = \left(\rho g_z - \frac{\Delta p}{L}\right)\frac{r}{2} + \frac{C}{r}
+              \end{align*}
+            </li>
+          </ul>
+        </section>
+        <section>
+          \begin{align*}
+          \tau_{rz} = \left(\rho g_z - \frac{\Delta p}{L}\right)\frac{r}{2} + \frac{C}{r}
+          \end{align*}
+          <ul>
+            <li>
+              The symmetry boundary condition and incompressible nature
+              of the flow causes all stresses to be zero in the middle of the
+              pipe $\boldsymbol{\tau}(r=0)=\boldsymbol{0}$
+              .
+            </li>
+            <li class="fragment" data-fragment-index="1">
+              But regardless of the boundary condition, we can see that
+              we must set $C=0$
+              to simply have a finite stress in the middle of
+              the pipe!
+            </li>
+            <li class="fragment" data-fragment-index="2">
+              We don't actually need the symmetry boundary condition to
+              see this, but its a reinforcement of our decision to set
+              $C=0$
+              . Giving us the stress profile in the pipe:
+              \begin{align*}
+              \tau_{rz} = \left(\rho g_z - \frac{\Delta p}{L}\right)\frac{r}{2}
+              \end{align*}
+            </li>
+            <li class="fragment" data-fragment-index="3">
+              We can now calculate the velocity profile in the
+              pipe…
+            </li>
+          </ul>
+        </section>
+        <section data-menu-title="Velocity Profile">
+          \begin{align*}
+          \tau_{rz} = \left(\rho g_z - \frac{\Delta p}{L}\right)\frac{r}{2}
+          \end{align*}
+          <ul>
+            <li>
+              Looking up the definition of the stress in our table, we
+              have:
+              \begin{align*}
+              \tau_{rz} = \tau_{zr} = -\mu\left(\frac{\partial v_r}{\partial z} + \frac{\partial v_z}{\partial r}\right)
+              \end{align*}
+            </li>
+            <li class="fragment" data-fragment-index="1">
+              As $v_r=0$
+              , this simplifies, and inserting it into the stress balance (top) we have:
+              \begin{align*}
+              \tau_{rz} = -\mu \frac{\partial v_z}{\partial r} =
+              \left(\rho g_z-\frac{\Delta p}{L}\right)\frac{r}{2}
+              \end{align*}
+            </li>
+          </ul>
+        </section>
+        <section>
+          \begin{align*}
+          -\mu \frac{\partial v_z}{\partial r} =
+          \left(\rho g_z-\frac{\Delta p}{L}\right)\frac{r}{2}
+          \end{align*}
+          <ul>
+            <li>
+              Performing the integration, we have
+              \begin{align*}
+              v_z = \left(\frac{\Delta p}{L}-\rho g_z\right)\frac{r^2}{4 \mu} + C
+              \end{align*}
+            </li>
+            <li class="fragment" data-fragment-index="1">
+              As the velocity on the wall is zero, $v_z(r=R)=0$
+              , we can determine the constant and write
+              \begin{align*}
+              v_z = \left(\frac{-\Delta p}{L} +
+              \rho g_z\right)\frac{R^2 - r^2}{4 \mu}
+              \end{align*}
+            </li>
+          </ul>
+        </section>
+        <section data-menu-title="Flow Properties">
+          \begin{align*}
+          v_z = \left(\frac{-\Delta p}{L} +
+          \rho g_z\right)\frac{R^2 - r^2}{4 \mu}
+          \end{align*}
+          <ul>
+            <li>
+              We can now determine interesting properties, such as the
+              maximum velocity
+              \begin{align*}
+              v_z^{max} = \left(\frac{-\Delta p}{L} + \rho g_z\right)\frac{R^2}{4 \mu}
+              \end{align*}
+            </li>
+            <li class="fragment" data-fragment-index="1">
+              Or the volumetric flow
+              \begin{align*}
+              \dot{V}_z &amp;= \int_0^R\int_0^{2\pi} v_z  r {\rm d}\theta  {\rm d}r\\
+              &amp;= \pi\left(\frac{-\Delta p}{L} +
+              \rho g_z\right)\frac{R^4}{8 \mu}
+              \end{align*}
+              (the extra
+              $r$
+              factor appears as it is the differential area of
+              the
+              $\theta r$
+              surface,
+              $A_{\theta r}=r \delta\theta \delta r$
+              ).
+            </li>
+            <li class="fragment" data-fragment-index="2">
+              This is a famous expression known as the
+              <b>
+                Hagen-Poiseuille
+              </b>
+              equation. It relates the flow rate to the
+              pressure drop in a pipe for
+              <b>
+                laminar
+              </b>
+              ,
+              <b>
+                well-developed
+              </b>
+              ,
+              <b>
+                Newtonian
+              </b>
+              flows.
+            </li>
+          </ul>
+        </section>
+      </section>
+      <section>
+        <section data-menu-title="Learning Objectives">
+          <h3>Learning Objectives</h3>
+          <ul>
+            <li>
+              The definition of well-developed flow.
+            </li>
+            <li class="fragment" data-fragment-index="1">
+              Reviewed calculating flow properties.
+            </li>
+            <li class="fragment" data-fragment-index="2">
+              How to solve the problem of fluid flow in a pipe and how
+              to derive the Hagen-Poiseuille equation.
+            </li>
+          </ul>
+        </section>
+      </section>
+    </div>
+    <script src="footer.js"></script>
   </div>
- </body>
+</body>
+
 </html>
