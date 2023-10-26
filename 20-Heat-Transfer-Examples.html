@@ -120,6 +120,7 @@
 		iii)
 		Explain why you observe a maximum in the heat transfer
 		rate.
+		<br/>
 		<i>There is a maximum in the heat transfer rate as, at first, the
 		  resistance to convection decreases faster than the resistance to
 		  conduction increases. Eventually the conduction resistance
@@ -138,10 +139,10 @@
 		  \left(\frac{1}{r_{ins.}\,k} - \frac{1}{r_{ins.}^2\,h}\right)
 		  \end{align*}
 		  This derivative is zero when
-		  $\left(1/(r_{ins.}\,k) - 1/(r_{ins.}^2\,h)\right)=0$
+		  $\left(1/(r_{ins.}\,k) - 1/(r_{ins.}^2\,h)\right)=0$.
 		  Rearranging for the critical insulation radius gives $r_c = k/h$.
 		  In this case the critical radius is
-		  $r_c=0.18/5=0.036$~m or 3.6~cm.</i>
+		  $r_c=0.18/5=0.036$ m or 3.6 cm.</i>
 	      </li>
 	    </ol>
 	  </section>
@@ -328,8 +329,8 @@
 		</table>
 		<i>\begin{align*}
 		  \text{Gr}&amp;=\frac{g \rho^2 \beta\left(T_w-T_\infty\right)
-		  L^3}{\mu^2}\\
-		  &amp;=\frac{9.81\times1.225^2\times311^{-1}(60-15)1.5^3}{\left(1.827\times 10^{-5}\right)^2}\\
+		  L^3}{\mu^2}
+		  =\frac{9.81\times1.225^2\times311^{-1}(60-15)1.5^3}{\left(1.827\times 10^{-5}\right)^2}\\
 		  &amp;\approx2.15\times10^{10}
 		  \end{align*}
 		  Converting
@@ -340,76 +341,39 @@
 		  \begin{align*}
 		  \text{Pr}=\frac{\mu C_p}{k}=\frac{1.827\times10^{-5}\times1.007\times10^3}{0.026}\approx0.71
 		  \end{align*}
-		  The Rayleigh number is then
-		  \begin{align*}
-		  \text{Ra}=\text{Pr} \text{Gr}=0.71\times2.15\times10^{10}\approx1.53\times10^{10}
-		  \end{align*}
+		  The Rayleigh number is then $\text{Ra}=\text{Pr} \text{Gr}=0.71\times2.15\times10^{10}\approx1.53\times10^{10}$.
 		  Looking in the data sheet, this corresponds to the following
-		  expression for the Nusselt number
-		  \begin{align*}
-		  \text{Nu}=0.13\left(\text{Ra}\right)^{1/3}=0.13\times\left(1.53\times10^{10}\right)^{1/3}\approx323
-		  \end{align*}
+		  expression for the Nusselt number,
+		  $\text{Nu}=0.13\left(\text{Ra}\right)^{1/3}=0.13\times\left(1.53\times10^{10}\right)^{1/3}\approx323$.
+		  <br/>
 		  This gives a heat transfer coefficient of
 		  \begin{align*}
 		  h = \frac{\text{Nu} k}{L}=\frac{323\times0.026}{1.5}\approx5.60 \text{W/m${}^2$K}
 		  \end{align*}
+		  </i>
+		  </li>
+		  </ol>
+		  </section>
+		<section>
+		<i>
 		  The convective heat transfer is then
 		  \begin{align*}
 		  Q_{conv.}=h A \left(T_{wall}-T_\infty\right)=5.60\times1.5\times12\left(60-15\right)=4.536 \text{kW}
 		  \end{align*}
-		  The natural convective heat transfer is relatively large
-		  compared to the total radiant heat transfer (
-		  $8000$
-		  W),
-		  therefore iterations are needed to determine the true surface
-		  temperature.</i>
-	      </li>
+		</i>
 	      <li>
 		Discuss how you might improve the accuracy of the
 		calculations, and what the effect of setting the car in motion
-		will be.
-		<i>The accuracy may be improved by finding a better approximation
-		  for the car surface for the convection calculations,
-		  specifying realistic emissivities for the car surface, and
-		  solving for the radiation and convection fluxes
-		  simultaneously.
-
-		  If the car is set in motion, the natural convection will
-		  become a forced convection, greatly increasing the heat
-		  transfer rate of this mode. It is likely that this will cause
-		  the car surface to significantly cool.</i>
-	      </li>
-	    </ol>
-	  </section>
-	  <section>
-	    <ol>
-	      <li>
-		ii)
-		<i>This gives a heat transfer coefficient of
-		  \begin{align*}
-		  h = \frac{\text{Nu} k}{L}=\frac{323\times0.026}{1.5}\approx5.60 \text{W/m${}^2$K}
-		  \end{align*}
-		  The convective heat transfer is then
-		  \begin{align*}
-		  Q_{conv.}=h A \left(T_{wall}-T_\infty\right)=5.60\times1.5\times12\left(60-15\right)=4.536 \text{kW}
-		  \end{align*}
-		  The natural convective heat transfer is relatively large
-		  compared to the total radiant heat transfer (
-		  $8$
-		  kW),
-		  therefore iterations are needed to determine the true surface
-		  temperature.</i>
-	      </li>
-	    </ol>
-	  </section>
-	  <section>
-	    <ol>
-	      <li>
-		iii)
-		Discuss how you might improve the accuracy of the
-		calculations, and what the effect of setting the car in motion
-		will be.
-		<i>The accuracy may be improved by finding a better approximation
+		will be. <br/>
+		<i>
+			The natural convective heat transfer ($4536$ W) is relatively large
+			compared to the total radiant heat transfer (
+			$8000$
+			W),
+			therefore iterations are needed to determine the true surface
+			temperature.
+	
+			The accuracy may be improved by finding a better approximation
 		  for the car surface for the convection calculations,
 		  specifying realistic emissivities for the car surface, and
 		  solving for the radiation and convection fluxes
