@@ -32,15 +32,14 @@ loadScripts([
 				RevealMenu
 			],
 			menu: {
-				titleSelector: 'WILLNOTFINDTITLES',
-				markers: false,
-				hideMissingTitles: false,
-				themes: false,
-				transitions: false,
-				custom: [
-					{ title: 'Lectures', icon: '<i class="fa fa-graduation-cap"></i>', src: 'toc.html' },
-				],
-				delayInit: false
+			    hideMissingTitles: false,
+			    themesPath: false,
+			    transitions: false,
+			    custom: [
+				{ title: 'Lectures', icon: '<i class="fa fa-graduation-cap"></i>', src: 'toc.html' },
+			    ],
+			    sticky: true,
+			    titleSelector: ''
 			},
 			math: {
 				config: "TeX-AMS_SVG-full",
@@ -57,7 +56,10 @@ loadScripts([
 				},
 			},
 			url: 'https://marcusbannerman.co.uk/HMMT',
-			view: 'scroll',
+		    view: 'scroll', // Make it one long page
+		    // Fixes for print-pdf mode
+		    pdfSeparateFragments: false, // In print mode, stop fragments doing their thing
+		    pdfMaxPagesPerSlide: 1,
 		};
 
 	Reveal.initialize(revealopts);
