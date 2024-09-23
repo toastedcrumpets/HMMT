@@ -56,7 +56,7 @@ loadScripts([
 				},
 			},
 			url: 'https://marcusbannerman.co.uk/HMMT',
-		    view: 'scroll', // Make it one long page
+		    //view: 'scroll', // Make it one long page
 		    // Fixes for print-pdf mode
 		    pdfSeparateFragments: false, // In print mode, stop fragments doing their thing
 		    pdfMaxPagesPerSlide: 1,
