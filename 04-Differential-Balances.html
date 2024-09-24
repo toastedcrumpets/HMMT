@@ -49,20 +49,22 @@
             : \begin{align*}
             \textrm{INPUT}-\textrm{OUTPUT}+\textrm{GENERATION}=\textrm{ACCUMULATION}
             \end{align*}
-            <div class="fragment" data-fragment-index="1">
+            <ul class="fragment">
+                <li>
               This equation can be used to study the dynamics of any
-              “slow”/low-fluctuation quantity, such as
+              &ldquo;slow&rdquo;/low-fluctuation quantity, such as
+              </li>
               <ul>
-                <li class="fragment" data-fragment-index="2">
+                <li>
                   Mass/Concentration.
                 </li>
-                <li class="fragment" data-fragment-index="3">Momentum.</li>
-                <li class="fragment" data-fragment-index="4">Energy/Heat.</li>
-                <li class="fragment" data-fragment-index="5">
+                <li>Momentum.</li>
+                <li>Energy/Heat.</li>
+                <li>
                   Money/Investment.
                 </li>
               </ul>
-            </div>
+            </ul>
           </section>
           <section>
             \begin{align*}
@@ -70,7 +72,7 @@
             \end{align*}
             <ul>
               <li>
-                In EG2002 Process Engineering, you will have applied the balance
+                In your course on Process Engineering, you will have applied the balance
                 equation to understand the flow of material and energy through
                 process equipment and entire plants.
               </li>
@@ -135,7 +137,7 @@
                 <object
                   data="img/LMTD.svg"
                   type="image/svg+xml"
-                  width="100%"
+                  width="80%"
                 ></object>
               </div>
             </figure>
@@ -227,6 +229,7 @@
                   \begin{align*} \frac{\partial f}{\partial x} &amp;=
                   \lim_{\Delta x\to 0}\frac{f(x+\Delta x)-f(x)}{\Delta x}
                   \end{align*}
+                  We use a better definition later...
                 </div>
               </li>
             </ul>
@@ -240,8 +243,6 @@
             </div>
           </section>
           <section>
-            \begin{align*} \frac{B(t+\Delta t) - B(t)}{\Delta t} &amp;= I B
-            \end{align*}
             <ul>
               <li>
                 Taking the limit of $\Delta t\to0$ , we have \begin{align*}
@@ -353,11 +354,10 @@
                 J_B(x)=J_B(x,t)$
               </li>
               <li class="fragment" data-fragment-index="1">
-                Dividing both sides by $A \Delta x \Delta t$ (
-                <b> the control volume and time </b>
-                ) yields: \begin{align*} -\frac{J_B(x+\Delta x)-J_B(x)}{\Delta
-                x}+\sigma_B(x) &amp;= \frac{c_B(t+\Delta t) - c_B(t)}{\Delta t}
-                \end{align*}
+                Dividing both sides by $A \Delta x \Delta t$ (<b>the control
+                volume and time</b>) yields: \begin{align*} -\frac{J_B(x+\Delta
+                x)-J_B(x)}{\Delta x}+\sigma_B(x) &amp;= \frac{c_B(t+\Delta t) -
+                c_B(t)}{\Delta t} \end{align*}
               </li>
               <li class="fragment" data-fragment-index="2">
                 Taking the limit as $\Delta x\to 0$ and $\Delta t\to 0$ gives
@@ -410,27 +410,32 @@
           </section>
           <section>
             Proceeding as before, balancing all of the fluxes and the generation
-            term, we have: \begin{align*} \Delta x  \Delta y  &amp;\Delta z
-            \left(c_B\left(t+\Delta T\right) - c_B\left(t\right)\right) \\
+            term, we have: 
+            <span style="font-size:90%">
+            \begin{align*} 
+            \Delta x  \Delta y  &amp;\Delta z\left(c_B\left(t+\Delta T\right) - c_B\left(t\right)\right)\\
             &amp;= \Delta t \Delta y  \Delta z  J_{B,x}(x,y,z,t) -\Delta
-            t \Delta y  \Delta z  J_{B,x}(x+\Delta x,y,z,t)\\% &amp;+ \Delta
-            t \Delta x \Delta z  J_{B,y}(x,y,z,t) - \Delta t \Delta x  \Delta z 
-            J_{B,y}(x,y+\Delta y,z,t)\\% &amp;+ \Delta t \Delta x \Delta y 
-            J_{B,z}(x,y,z,t) - \Delta t \Delta x  \Delta y  J_{B,z}(x,y,z+\Delta
-            z,t)\\% &amp;+ \sigma_B  \Delta x  \Delta y  \Delta z \Delta t
+            t \Delta y  \Delta z  J_{B,x}(x+\Delta x,y,z,t)\\ 
+            &amp;+ \Delta t \Delta x \Delta z  J_{B,y}(x,y,z,t) - \Delta t \Delta x  \Delta z 
+            J_{B,y}(x,y+\Delta y,z,t)\\
+            &amp;+ \Delta t \Delta x \Delta y J_{B,z}(x,y,z,t) - \Delta t \Delta x  \Delta y  J_{B,z}(x,y,z+\Delta
+            z,t)\\
+            &amp;+ \sigma_B  \Delta x  \Delta y  \Delta z \Delta t
             \end{align*}
+            </span>
             <div class="fragment" data-fragment-index="1">
               Dividing by the control volume ( $\Delta V=\Delta x  \Delta y 
               \Delta z$ ) and time ( $\Delta t$ ) we have:
             </div>
-            <div class="fragment" data-fragment-index="2">
+            <div class="fragment" data-fragment-index="2" style="font-size:90%">
               \begin{align*} \frac{c_B(t+\Delta t) - c_B(t)}{\Delta t} =
               &amp;-\left[\frac{J_{B,x}(x+\Delta
-              x,y,z,t)-J_{B,x}(x,y,z,t)}{\Delta x}\right]\\%
+              x,y,z,t)-J_{B,x}(x,y,z,t)}{\Delta x}\right]\\
               &amp;-\left[\frac{J_{B,y}(x,y+\Delta
-              y,z,t)-J_{B,y}(x,y,z,t)}{\Delta y}\right] \\%
+              y,z,t)-J_{B,y}(x,y,z,t)}{\Delta y}\right] \\
               &amp;-\left[\frac{J_{B,z}(x,y,z+\Delta
-              z,t)-J_{B,z}(x,y,z,t)}{\Delta z}\right] \\% &amp;+\sigma_B
+              z,t)-J_{B,z}(x,y,z,t)}{\Delta z}\right] \\
+               &amp;+\sigma_B
               \end{align*}
             </div>
             <div class="fragment" data-fragment-index="3">
