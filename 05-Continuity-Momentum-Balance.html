@@ -105,9 +105,8 @@
         <b>
          diffusive
         </b>
-        mass flux, but we assume that we are dealing
-      with pure fluids where diffusion processes do not apply. We will
-      come back to this later in diffusion.
+        mass flux, but we can ignore it in pure fluids where diffusion processes do not apply. We will
+      add this back in later when studying mixtures in diffusion.
        </div>
       </div>
      </section>
@@ -147,9 +146,10 @@
         \begin{align*}
         \nabla\cdot \boldsymbol{v} = 0
         \end{align*}
+        I'll prove this now using index notation.
        </li>
        <li class="fragment" data-fragment-index="1">
-        This is an important result in fluid flow, the
+        This is an important result in fluid flow, the so-called
         <b>
          divergence
         </b>
@@ -426,8 +426,7 @@
        </li>
        <li class="fragment" data-fragment-index="2">
         It didn't appear in the continuity equation as we're not
-    considering mixtures (yet) but mass diffusion (AKA
-        <b>diffusion</b>) will be introduced later.
+    considering mixtures (yet) but <b>diffusion</b> in mixtures will be introduced later.
        </li>
        <li class="fragment" data-fragment-index="3">
         The diffusion of momentum in fluids arises from
@@ -435,7 +434,7 @@
     “blocks” of fluid sliding past each other:
         <figure>
          <div class="center">
-          <object data="img/viscosity_friction.svg" type="image/svg+xml" width="90%">
+          <object data="img/viscosity_friction.svg" type="image/svg+xml" width="80%">
           </object>
          </div>
         </figure>
@@ -682,7 +681,7 @@
       <ul>
        <li>
         In brief, if we take the following vector calculus
-    identity:
+    identity (which I don't prove, but you <a href="https://math.stackexchange.com/questions/467924/vector-calculus-identities-using-differential-forms/501237#501237">can find here</a>):
         \begin{align*}
         \boldsymbol{a}\cdot\nabla\boldsymbol{a} &amp;= \frac{1}{2} \nabla \boldsymbol{a}^2 - \boldsymbol{a}
       \times \left[\nabla\times\boldsymbol{a}\right]
@@ -773,6 +772,9 @@
       \text{constant}
         \end{align*}
        </li>
+       <li class="fragment" data-fragment-index="2">
+        Now we can actually do something real!
+        </li>
       </ul>
      </section>
     </section>
