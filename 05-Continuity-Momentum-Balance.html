@@ -16,12 +16,10 @@
   <div class="reveal">
    <div class="slides">
     <section>
-     <section>
-      <h2>
+     <section data-background-iframe="https://paveldogreat.github.io/WebGL-Fluid-Simulation/" data-background-interactive>
+      <h2 style="color:white">
        Continuity and Momentum Balance Equations
       </h2>
-      <div class="center">
-      </div>
      </section>
     </section>
     <section>
@@ -661,9 +659,8 @@
     least slightly familiar from your use of a version of it.
        </li>
        <li class="fragment" data-fragment-index="2">
-        If we assume $\boldsymbol{\tau}=0$
-        , the equation becomes the
-    equation of motion for inviscid (non-viscous) flow.
+        If we assume $\boldsymbol{\tau}=0$, the equation becomes the
+    equation of motion for inviscid flow.
        </li>
        <li class="fragment" data-fragment-index="3">
         What other equation do you know that applies to fluids
@@ -686,30 +683,30 @@
         \boldsymbol{a}\cdot\nabla\boldsymbol{a} &amp;= \frac{1}{2} \nabla \boldsymbol{a}^2 - \boldsymbol{a}
       \times \left[\nabla\times\boldsymbol{a}\right]
         \end{align*}
-        and assume inviscid flow, we can obtain the following from the
-    Cauchy momentum equation:
+        and assume inviscid flow (no viscosity so $\boldsymbol{\tau}=\boldsymbol{0}$), we can obtain the following from the
+        Cauchy momentum equation:
         \begin{align*}
-        \rho\frac{\partial\boldsymbol{v}}{\partial t} &amp;= -\frac{1}{2}\rho\nabla
-      \boldsymbol{v}^2 -\rho\boldsymbol{v}\times\left[\nabla\times\boldsymbol{v}\right] - \nabla p + \rho \boldsymbol{g}
+        \rho\frac{\partial\boldsymbol{v}}{\partial t} &amp;= -\frac{1}{2}\rho\,\nabla\,\boldsymbol{v}^2 -\rho\,\boldsymbol{v}\times\left[\nabla\times\boldsymbol{v}\right] - \nabla p + \rho \boldsymbol{g}
         \end{align*}
        </li>
        <li class="fragment" data-fragment-index="1">
         If we assume that the fluid is
-        <b>irrotational</b>, this is
-	expressed mathematically as
-        $\nabla \times \boldsymbol{v}=\boldsymbol{0}$.
+        <b>irrotational</b>, which also follows from assuming its inviscid, then $\nabla \times
+        \boldsymbol{v}=\boldsymbol{0}$ everywhere.
        </li>
        <li class="fragment" data-fragment-index="2">
-        Physically speaking, this is a statement that the fluid is
-	not being “turned” by viscous, unsteady, or external effects
-    (and we've neglected viscosity for now).
+        This is something that <a
+        href="https://farside.ph.utexas.edu/teaching/336L/Fluidhtml/node64.html">you
+        can prove with the maths you have now</a> but we don't assess in this
+        course, I'm just using it to show you what's hidden inside the cauchy momentum
+        equation...
        </li>
        <li class="fragment" data-fragment-index="3">
          Assuming irrotational ($\nabla \times \boldsymbol{v}=\boldsymbol{0}$) and
 	 incompressible flow ($\rho=\mbox{constant}$), and that gravity is
 	 a constant, we can write
          \begin{align*}
-         \rho\frac{\partial\boldsymbol{v}}{\partial t} &amp;= -\nabla\left(\frac{1}{2}\rho v^2
+         \rho\frac{\partial\boldsymbol{v}}{\partial t} &amp;= -\nabla\left(\frac{1}{2}\rho \boldsymbol{v}^2
          + p - \rho \boldsymbol{g}\cdot\boldsymbol{r}\right)
          \end{align*}
        </li>
@@ -717,12 +714,12 @@
      </section>
      <section>
       \begin{align*}
-      \rho\frac{\partial\boldsymbol{v}}{\partial t} &amp;= -\nabla\left(\frac{1}{2}\rho v^2
+      \rho\frac{\partial\boldsymbol{v}}{\partial t} &amp;= -\nabla\left(\frac{1}{2}\rho \boldsymbol{v}^2
       + p - \rho \boldsymbol{g}\cdot\boldsymbol{r}\right)
       \end{align*}
       <ul>
        <li>
-        A side note for those of you into physics, this function
+        A side note for those of you who know/remember physics, this function
     resembles the definition of a conservative force: $F=-\nabla E$
         (A
     conservative force is the gradient of an energetic potential).
@@ -732,12 +729,12 @@
     0$
         and integrating the right hand side we have
         \begin{align*}
-        \frac{1}{2}\rho v^2 + p - \rho \boldsymbol{g}\cdot\boldsymbol{r} =
+        \frac{1}{2}\rho \boldsymbol{v}^2 + p - \rho \boldsymbol{g}\cdot\boldsymbol{r} =
       \text{constant}
         \end{align*}
        </li>
        <li class="fragment" data-fragment-index="2">
-        If we neglect viscous forces and assume irrotational,
+        So, if we neglect viscous forces and assume inviscid (and thus irrotational),
     incompressible flow, the differential momentum balance reduces to
         <b>Bernoulli's equation</b>.
        </li>
@@ -764,16 +761,23 @@
       \text{(Cauchy momentum equation)}
         \end{align*}
        </li>
-       <li class="fragment" data-fragment-index="1">
-        If the fluid is incompressible, inviscid and irrotational,
-    the momentum balance reduces to Bernoulli's equation.
+       <li>
+        We also learnt that for Newtonian fluids, the stress tensor is
         \begin{align*}
-        \frac{1}{2}\rho v^2 + p - \rho \boldsymbol{g}\cdot\boldsymbol{r} =
-      \text{constant}
+        \boldsymbol{\tau}=\tau_{ij} = -\mu \left(\frac{\partial v_i}{\partial
+          r_j} + \frac{\partial v_j}{\partial r_i}\right) +
+      \delta_{ij} \mu^B \nabla\cdot\boldsymbol{v}
         \end{align*}
        </li>
+       <li class="fragment" data-fragment-index="1">
+        If the fluid is incompressible, inviscid (and thus irrotational), the
+        momentum balance reduces to Bernoulli's equation. We don't need to
+        derive it, just know that it exists inside the Cauchy momentum equation.
+        \begin{align*} \frac{1}{2}\rho \boldsymbol{v}^2 + p -
+        \rho \boldsymbol{g}\cdot\boldsymbol{r} = \text{constant} \end{align*}
+       </li>
        <li class="fragment" data-fragment-index="2">
-        Now we can actually do something real!
+        Finally, we're ready to solve a problem!
         </li>
       </ul>
      </section>
