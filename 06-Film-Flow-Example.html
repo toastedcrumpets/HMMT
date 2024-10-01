@@ -351,7 +351,7 @@
             </figure>
             <ul>
               <li>
-                As we discussed previously, this boundary condition is a
+                As discussed, this boundary condition is a
                 <b> Dirichlet </b>
                 or first-type boundary condition in the
                 <b> stress </b>
@@ -359,14 +359,14 @@
                 \begin{align*} \tau_{xy,water}(Y) = 0 \end{align*}
               </li>
               <li class="fragment">
-                However, we're interested in the velocity $\boldsymbol{v}$ and
-                (as water is a Newtonian fluid) they are related by
-                \begin{align*} \tau_{xy,water} &amp;= -\mu \left(\frac{\partial
-                v_x}{\partial y} + \frac{\partial v_y}{\partial x}\right)
-                \end{align*} Now we can assume $v_y=0$ if the flow is laminar
-                (not turblent) and we're far from any entrance/exits/side-walls
-                and their effects, then we have $\tau_{xy,water}=0$ at the
-                interface implies ${\partial v_y}/{\partial x}=0$.
+                However, we want velocity $\boldsymbol{v}$ and (as water is a
+                Newtonian fluid) they are related by \begin{align*}
+                \tau_{xy,water} &amp;= -\mu \left(\frac{\partial v_x}{\partial
+                y} + \frac{\partial v_y}{\partial x}\right) \end{align*} Now we
+                assume $v_y=0$ if the flow is laminar and we're far from any
+                entrance/exits/side-walls and their effects, then
+                $\tau_{xy,water}=0$ at the interface implies ${\partial
+                v_y}/{\partial x}=0$.
               </li>
               <li class="fragment">
                 It is now obvious that a
@@ -534,7 +534,8 @@
               </li>
               <li class="fragment">
                 Any repeated indices loop over all dimensions, but above we can
-                immediately replace $j$ with $y$, as any other value is zero!
+                immediately replace $j$ with $y$, as any other value is zero
+                thanks to the derivatives being zero!
               </li>
             </ul>
           </section>
@@ -628,8 +629,8 @@
               </li>
               <li class="fragment" data-fragment-index="1">
                 The integration constant is found using the boundary condition
-                $\tau_{xy}(Y)=0$ , therefore $C_1 =-\rho g_x Y$ and:
-                \begin{align*} \tau_{yx} = \rho g_x\left(y-Y\right) \end{align*}
+                $\tau_{xy}(Y)=0$ , therefore $C_1 =-\rho g_x Y$ and $\tau_{yx} =
+                \rho g_x\left(y-Y\right)$
               </li>
             </ul>
           </section>
@@ -719,10 +720,9 @@
             <h3>Volumetric Flow Rate</h3>
             <ul>
               <li>
-                To find the volumetric flow rate of a fluid we just have to
-                integrate the flow velocity across the flow channel.
-                \begin{align*} \dot{V}_x = \iint v_x  {\rm d}y  {\rm d}z
-                \end{align*}
+                To find the volumetric flow rate of a fluid we have to
+                integrate: \begin{align*} \dot{V}_x = \iint v_x  {\rm d}y  {\rm
+                d}z \end{align*}
               </li>
               <li class="fragment" data-fragment-index="1">
                 In the trivial case of a constant flow rate this becomes the
@@ -776,6 +776,7 @@
         </section>
         <section>
           <section data-menu-title="Learning Objectives">
+            <h2>Learning Objectives</h2>
             <ul>
               <li>
                 Understand where to place your coordinate system, and the
@@ -805,12 +806,12 @@
                 parameters:
                 <ul>
                   <li class="fragment" data-fragment-index="5">
-                    The volumetric flow rate: \begin{align*} \dot{V}_x &amp;=
-                    \iint v_x  {\rm d}A_{yz} \end{align*}
+                    The volumetric flow rate $\dot{V}_x = \iint v_x {\rm
+                    d}A_{yz}$
                   </li>
                   <li class="fragment" data-fragment-index="6">
-                    The average flow velocity: \begin{align*} \left\langle
-                    v_x\right\rangle = \frac{\dot{V}_x}{A} \end{align*}
+                    The average flow velocity: $\left\langle v_x\right\rangle =
+                    \frac{\dot{V}_x}{A}$
                   </li>
                 </ul>
               </li>
