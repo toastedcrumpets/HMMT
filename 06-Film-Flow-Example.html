@@ -46,8 +46,8 @@
                 In the previous lectures, we derived the general balance
                 equations for the mass (known as the continuity equation):
                 \begin{align*} \frac{\partial \rho}{\partial t} &amp;=
-                -\nabla\cdot \rho \boldsymbol{v} &amp; \text{(Continuity
-                equation)} \end{align*}
+                -\nabla\cdot \rho \boldsymbol{v} &amp;
+                \text{(Continuity&nbsp;equation)} \end{align*}
               </li>
               <li class="fragment" data-fragment-index="1">
                 We also derived the Cauchy momentum equation: \begin{align*}
@@ -106,6 +106,22 @@
                 layer thickness.
               </li>
             </ul>
+          </section>
+          <section>
+            <iframe
+              width="1400"
+              height="800"
+              src="https://www.youtube.com/embed/jxNM4DGBRMU?si=beS1rGmwiYShz4Y9&amp;start=542"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+            ></iframe>
+            <p>
+              The hydraulics of how this dam failed is fascinating, shows how
+              complex this flow can be.
+            </p>
           </section>
           <section data-menu-title="Placement of the Coordinate System">
             <figure>
@@ -217,9 +233,7 @@
                     <b> first-type </b>
                     BC: This is a statement of the value of a variable at some
                     boundary of the system. E.g.: \begin{align*} f(x_1) = C_1
-                    &amp;&amp; f(x_2) = C_2 \end{align*} This type is useful
-                    when dealing with constrained systems where some value is
-                    held fixed.
+                    &amp;&amp; f(x_2) = C_2 \end{align*}
                   </li>
                   <li class="fragment" data-fragment-index="3">
                     <b> Neumann </b>
@@ -253,11 +267,11 @@
               </li>
               <li class="fragment" data-fragment-index="1">
                 The bottom boundary condition for this system is known as the
-                <b> no-slip boundary condition </b>
-                . The fluid cannot slip on the plate surface and so it's
-                velocity must match that of the plate, which is zero in this
-                system. \begin{align*} \boldsymbol{v}=\boldsymbol{0} &amp; &amp;
-                \text{for $y=0$} \end{align*}
+                <b> no-slip boundary condition</b>. The fluid cannot slip on the
+                plate surface and so it's velocity must match that of the plate,
+                which is zero in this system. \begin{align*}
+                \boldsymbol{v}=\boldsymbol{0} &amp; &amp; \text{for $y=0$}
+                \end{align*}
               </li>
               <li class="fragment" data-fragment-index="2">
                 This is a
@@ -417,8 +431,8 @@
               </li>
               <li class="fragment" data-fragment-index="1">
                 Water is quite incompressible, so we can assume the density is
-                constant. Dividing by the density yields: \begin{align*} \nabla
-                \cdot \boldsymbol{v} &amp;= 0 \end{align*}
+                constant. Dividing by the density yields: $\nabla \cdot
+                \boldsymbol{v} = 0 $
               </li>
               <li class="fragment" data-fragment-index="2">
                 We will also assume the flow is laminar so there is no flow in
@@ -527,10 +541,10 @@
                 direction is zero.
               </li>
               <li class="fragment">
-                In this problem, thanks to our assumptions, nothing changes in
-                the $y$ or $z$-directions, therefore any term with a
-                $\nabla_z=\partial/\partial z$ or $\nabla_x=\partial/\partial x$
-                term is zero! Very powerful!
+                In this problem, thanks to our assumptions and the continuity
+                equation, nothing changes in the $y$ or $z$-directions,
+                therefore any term with a $\nabla_z=\partial/\partial z$ or
+                $\nabla_x=\partial/\partial x$ term is zero! Very powerful!
               </li>
               <li class="fragment">
                 Any repeated indices loop over all dimensions, but above we can
