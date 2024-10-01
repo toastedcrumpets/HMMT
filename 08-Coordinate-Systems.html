@@ -36,8 +36,8 @@
               of 50, how old is the son?
             </li>
             <li>
-              Jack is looking at anne, anne is looking at george, jack is
-              married, george is not. Is a married person looking at an
+              Jack is looking at Anne, Anne is looking at George, Jack is
+              married, George is not. Is a married person looking at an
               unmarried person?
               <ul>
                 <li>
@@ -60,21 +60,21 @@
                 In the previous lecture and the current tutorial, we are looking
                 at flow problems in rectangular coordinates:
                 <ul>
-                  <div class="fragment" data-fragment-index="1">
+                  <div class="fragment">
                     <li>
-                      (Lecture) Gravity driven flow of a film over a plate.
-                      <figure>
+                      <figure style="float: right; width: 30%">
                         <div class="center">
                           <object
                             data="img/film-flow-1.svg"
                             type="image/svg+xml"
-                            width="30%"
+                            width="100%"
                           ></object>
                         </div>
                       </figure>
+                      (Lecture) Gravity driven flow of a film over a plate.
                     </li>
                   </div>
-                  <div class="fragment" data-fragment-index="2">
+                  <div class="fragment" style="clear: both">
                     <li>
                       (Tutorial) Pressure driven flow between two plates
                       with/without a moving top plate.
@@ -83,7 +83,7 @@
                           <object
                             data="img/flow_in_a_channel.svg"
                             type="image/svg+xml"
-                            width="70%"
+                            width="60%"
                           ></object>
                         </div>
                       </figure>
@@ -217,40 +217,36 @@
           <section data-menu-title="Cylindrical Balance Equation">
             <ul>
               <li>
-                It should be obvious that the most convenient coordinates to
-                work in in this case are
-                <b> cylindrical coordinates </b>
-                .
-                <figure>
+                <figure style="float: right; width: 20%">
                   <div class="center">
                     <object
                       data="img/cylindrical_coords_only.svg"
                       type="image/svg+xml"
-                      width="None%"
+                      width="100%"
                     ></object>
                   </div>
                 </figure>
+                It should be obvious that the most convenient coordinates to
+                work in in this case are
+                <b>cylindrical coordinates</b>.
               </li>
-              <li class="fragment" data-fragment-index="1">
+              <li class="fragment">
                 And this is a general rule, if we have
                 <ul>
-                  <li class="fragment" data-fragment-index="2">
-                    <b> Translational symmetry in a plane </b>
+                  <li class="fragment">
+                    <b>Translational symmetry in a plane</b>
                     we should use
-                    <b> rectangular coordinates </b>
-                    .
+                    <b>rectangular coordinates</b>.
                   </li>
-                  <li class="fragment" data-fragment-index="3">
+                  <li class="fragment">
                     <b> Rotational symmetry about an axis </b>
                     we should use
-                    <b> cylindrical coordinates </b>
-                    .
+                    <b>cylindrical coordinates</b>.
                   </li>
-                  <li class="fragment" data-fragment-index="4">
+                  <li class="fragment">
                     <b> Rotational symmetry about a point </b>
                     we should use
-                    <b> spherical coordinates </b>
-                    .
+                    <b>spherical coordinates</b>.
                   </li>
                 </ul>
               </li>
@@ -505,8 +501,8 @@
                   <li class="fragment" data-fragment-index="2">
                     The control volume is simply the $A_{r\theta}$ times by the
                     height $\delta z$ ! \begin{align*} \delta V &amp;=
-                    A_{r\theta} \delta z\\% &amp;= r \delta
-                    r \delta\theta \delta z \end{align*}
+                    A_{r\theta} \delta z\\ &amp;= r \delta r \delta\theta \delta
+                    z \end{align*}
                   </li>
                   <li class="fragment" data-fragment-index="3">
                     We now have all of the areas and volumes we need to consider
@@ -643,33 +639,41 @@
           <section>
             <ul>
               <li>
-                Finally it is the $r$ direction's turn, here we have a special
-                case as the flux areas are different \begin{align*}
-                \text{IN}_r-\text{OUT}_r &amp;= A_{\theta z}(r) J_{B,r}(r)
-                -A_{\theta z}(r+\delta r) J_{B,r}(r+\delta r) \end{align*} where
-                $A_{\theta z}(r) = r \delta\theta \delta z$ and we have from the
-                Taylor expansion \begin{align*} J_{B,r}(r+\delta r) &amp;=
-                J_{B,r}(r) + \delta r \frac{\partial J_{B,r}(r)}{\partial r}
-                \end{align*}
+                Finally the $r$ direction, here we have a special case as the
+                flux areas are different \begin{align*} \text{IN}_r-\text{OUT}_r
+                &amp;= A_{\theta z}(r) J_{B,r}(r) -A_{\theta z}(r+\delta
+                r) J_{B,r}(r+\delta r) \end{align*} where $A_{\theta z}(r) =
+                r \delta\theta \delta z$ and we have from the Taylor expansion
+                \begin{align*} J_{B,r}(r+\delta r) &amp;= J_{B,r}(r) + \delta r
+                \frac{\partial J_{B,r}(r)}{\partial r} \end{align*}
               </li>
-              <li class="fragment" data-fragment-index="1">
+              <li class="fragment">
                 Substituting the expansion and area functions \begin{align*}
                 \text{IN}_r-\text{OUT}_r &amp;= r \delta\theta \delta z
                  J_{B,r}(r) -(r+\delta r) \delta\theta \delta z \left(J_{B,r}(r)
                 + \delta r \frac{\partial J_{B,r}(r)}{\partial r}\right)
                 \end{align*}
               </li>
-              <li class="fragment" data-fragment-index="2">
+              <li class="fragment">
                 Expanding and removing any terms where there is a $\delta r^2$
                 term gives \begin{align*} \text{IN}_r-\text{OUT}_r &amp;=
                 -\delta r \delta\theta \delta z\left(J_{B,r}(r) + r 
                 \frac{\partial J_{B,r}(r)}{\partial r}\right) \end{align*}
               </li>
-              <li class="fragment" data-fragment-index="3">
-                We can use the product rule identity that $f(x)+x f'(x) =
-                (x f(x))'$ to write the final result \begin{align*}
-                \text{IN}_r-\text{OUT}_r &amp;= -\delta\theta \delta z \delta r
-                \frac{\partial  r J_{B,r}(r)}{\partial r} \end{align*}
+            </ul>
+          </section>
+          <section>
+            <p>
+              \begin{align*} \text{IN}_r-\text{OUT}_r &amp;= -\delta
+              r \delta\theta \delta z\left(J_{B,r}(r) + r  \frac{\partial
+              J_{B,r}(r)}{\partial r}\right) \end{align*}
+            </p>
+            <ul>
+              <li>
+                We can use the product rule identity $f(x)+x f'(x) = (x f(x))'$
+                to write \begin{align*} \text{IN}_r-\text{OUT}_r &amp;=
+                -\delta\theta \delta z \delta r \frac{\partial
+                 r J_{B,r}(r)}{\partial r} \end{align*}
               </li>
             </ul>
           </section>
@@ -677,19 +681,19 @@
             <ul>
               <li>
                 Nearly done, adding that all together we have \begin{align*}
-                \text{ACCUMULATION} &amp;= \text{INPUT}_r - \text{OUTPUT}_r \\%
-                &amp;+ \text{INPUT}_\theta - \text{OUTPUT}_\theta\\% &amp;+
-                \text{INPUT}_z - \text{OUTPUT}_z \\% &amp;+ \text{GENERATION}
+                \text{ACCUMULATION} &amp;= \text{INPUT}_r - \text{OUTPUT}_r \\
+                &amp;+ \text{INPUT}_\theta - \text{OUTPUT}_\theta\\ &amp;+
+                \text{INPUT}_z - \text{OUTPUT}_z \\ &amp;+ \text{GENERATION}
                 \end{align*}
               </li>
               <li class="fragment" data-fragment-index="1">
                 Substituting in we have \begin{align*} \delta V \frac{\partial
                 c_B}{\partial t}&amp;= -\delta\theta \delta z \delta r
-                \frac{\partial  r J_{B,r}(r)}{\partial r} \\%
+                \frac{\partial  r J_{B,r}(r)}{\partial r} \\
                 &amp;-\delta{}r \delta{}z \delta\theta \frac{\partial
-                J_{B,\theta}(\theta)}{\partial \theta}\\% &amp;- r \delta
+                J_{B,\theta}(\theta)}{\partial \theta}\\ &amp;- r \delta
                 r \delta\theta \delta z \frac{\partial J_{B,z}(z)}{\partial z}
-                \\% &amp; +\delta V \sigma_B \end{align*}
+                \\ &amp; +\delta V \sigma_B \end{align*}
               </li>
               <li class="fragment" data-fragment-index="2">
                 Now we divide by the volume $\delta V = r \delta
@@ -741,19 +745,16 @@
               <li class="fragment" data-fragment-index="1">
                 If we then say the equation above
                 <b> is </b>
-                the general balance equation, but in cylindrical coordinates…
-                \begin{align*} \frac{\partial c_B}{\partial t} = -\nabla\cdot
-                \boldsymbol{J}_B + \sigma_B \end{align*}
+                the general balance equation… \begin{align*} \frac{\partial
+                c_B}{\partial t} = -\nabla\cdot \boldsymbol{J}_B + \sigma_B
+                \end{align*}
               </li>
               <li class="fragment" data-fragment-index="2">
                 We end up with a definition of the gradient/del operator dotted
-                with a vector in cylindrical coordinates (<b>Note:</b> we cannot
-                define a general $\nabla$ <b>&ldquo;vector&rdquo;</b> from this
-                comparison, only what the action of $\nabla\cdot \boldsymbol{v}$
-                is): \begin{align*} \nabla\cdot \boldsymbol{v} = \frac{1}{r}
-                \frac{\partial }{\partial r} r v_r + \frac{1}{r} \frac{\partial
-                }{\partial \theta} v_\theta + \frac{\partial}{\partial z}v_z
-                \end{align*}
+                with a vector in cylindrical coordinates: \begin{align*}
+                \nabla\cdot \boldsymbol{v} = \frac{1}{r} \frac{\partial
+                }{\partial r} r v_r + \frac{1}{r} \frac{\partial }{\partial
+                \theta} v_\theta + \frac{\partial}{\partial z}v_z \end{align*}
               </li>
             </ul>
           </section>
@@ -790,7 +791,7 @@
             <div class="footnote-container">
               <div class="fragment" data-fragment-index="2">
                 <sup class="footnotemark"> 1 </sup>
-                See Chapter A.6 of Bird, R.
+                See Chapter A.6 of Bird, R. for more info.
               </div>
             </div>
           </section>
