@@ -1,789 +1,678 @@
 <!DOCTYPE html>
 <html lang="en">
- <head>
-  <meta charset="utf-8"/>
-  <title>
-   Heat, Mass, and Momentum Transfer
-  </title>
-  <meta content="Heat Mass and Momentum Transfer notes" name="description"/>
-  <meta content="Marcus Bannerman &lt;m.bannerman@gmail.com" name="author"/>
-  <meta content="yes" name="apple-mobile-web-app-capable"/>
-  <meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"/>
-  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui" name="viewport"/>
-  <script src="header.js"></script>
- </head>
- <body>
-  <div class="reveal">
-   <div class="slides">
-    <section>
-     <section data-background-iframe="https://paveldogreat.github.io/WebGL-Fluid-Simulation/" data-background-interactive>
-      <h2 style="color:white">
-       Continuity and Momentum Balance Equations
-      </h2>
-     </section>
-    </section>
-    <section>
-     <section data-menu-title="Review">
-      <ul>
-       <li>
-        In the previous lecture, we discussed the concept of
-        <b>
-         differential balances
-        </b>
-        , and derived the general balance equation
-    for a property
-        $B$
-        \begin{align*}
-        \frac{\partial c_B}{\partial t} = -\nabla\cdot \boldsymbol{J}_B + \sigma_B
-        \end{align*}
-       </li>
-       <li class="fragment" data-fragment-index="1">
-        In this lecture we're going to generate two important
-    balance equations from this general equation, the
-        <b>continuity equation</b> (mass) and the
-        <b>Cauchy momentum equation</b>.
-       </li>
-       <li class="fragment" data-fragment-index="2">
-        Using these two equations, we will solve complex flow
-    problems over the following weeks.
-       </li>
-      </ul>
-     </section>
-    </section>
-    <section>
-     <section data-menu-title="Continuity Equation">
-      \begin{align*}
-      \frac{\partial c_B}{\partial t} = -\nabla\cdot \boldsymbol{J}_B + \sigma_B
-      \end{align*}
-      <ul>
-       <li>
-        The simplest property to study using the general balance
-    equation is the transport of mass ($B=mass$
-        ).
-       </li>
-       <li class="fragment" data-fragment-index="1">
-        The concentration of mass in a fluid is simply the
-    density, $c_{mass}=\rho$
-        .
-       </li>
-       <li class="fragment" data-fragment-index="2">
-        When a volume of fluid flows, it has a velocity $\boldsymbol{v}$
-        ;
-    therefore, using the density we can calculate the
-        <b>
-         convective
-        </b>
-        mass flux,
-        $\boldsymbol{J}_{mass}=\rho \boldsymbol{v}$
-        .
-        <sup class="footnotemark">
-         1
-        </sup>
-       </li>
-       <li class="fragment" data-fragment-index="3">
-        Excluding nuclear processes, there is no generation or
-    loss of mass in most systems, ($\sigma_{mass} = 0$
-        ).
-       </li>
-       <li class="fragment" data-fragment-index="4">
-        Thus, the differential balance for the mass is
-        \begin{align*}
-        \frac{\partial c_{mass}}{\partial t} &amp;= -\nabla\cdot
-      \boldsymbol{J}_{mass} + \cancelto{0}{\sigma_{mass}}\\%
-      \frac{\partial \rho}{\partial t} &amp;= -\nabla\cdot \rho \boldsymbol{v}
-        \end{align*}
-       </li>
-      </ul>
-      <div class="footnote-container">
-       <div class="fragment" data-fragment-index="2">
-        <sup class="footnotemark">
-         1
-        </sup>
-        There is also a
-        <b>
-         diffusive
-        </b>
-        mass flux, but we can ignore it in pure fluids where diffusion processes do not apply. We will
-      add this back in later when studying mixtures in diffusion.
-       </div>
+  <head>
+    <meta charset="utf-8" />
+    <title>Heat, Mass, and Momentum Transfer</title>
+    <meta content="Heat Mass and Momentum Transfer notes" name="description" />
+    <meta content="Marcus Bannerman &lt;m.bannerman@gmail.com" name="author" />
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta
+      content="black-translucent"
+      name="apple-mobile-web-app-status-bar-style"
+    />
+    <meta
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui"
+      name="viewport"
+    />
+    <script src="header.js"></script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <section
+            data-background-iframe="https://paveldogreat.github.io/WebGL-Fluid-Simulation/"
+            data-background-interactive
+          >
+            <h2 style="color: white">
+              Continuity and Momentum Balance Equations
+            </h2>
+          </section>
+        </section>
+        <section>
+          <section data-menu-title="Review">
+            <ul>
+              <li>
+                In the previous lecture, we discussed the concept of
+                <b> differential balances </b>
+                , and derived the general balance equation for a property $B$
+                \begin{align*} \frac{\partial c_B}{\partial t} = -\nabla\cdot
+                \boldsymbol{J}_B + \sigma_B \end{align*}
+              </li>
+              <li class="fragment" data-fragment-index="1">
+                In this lecture we're going to generate two important balance
+                equations from this general equation, the
+                <b>continuity equation</b> (mass) and the
+                <b>Cauchy momentum equation</b>.
+              </li>
+              <li class="fragment" data-fragment-index="2">
+                Using these two equations, we will solve complex flow problems
+                over the following weeks.
+              </li>
+            </ul>
+          </section>
+        </section>
+        <section>
+          <section data-menu-title="Continuity Equation">
+            \begin{align*} \frac{\partial c_B}{\partial t} = -\nabla\cdot
+            \boldsymbol{J}_B + \sigma_B \end{align*}
+            <ul>
+              <li>
+                The simplest property to study using the general balance
+                equation is the transport of mass ($B=mass$ ).
+              </li>
+              <li class="fragment" data-fragment-index="1">
+                The concentration of mass in a fluid is simply the density,
+                $c_{mass}=\rho$ .
+              </li>
+              <li class="fragment" data-fragment-index="2">
+                When a volume of fluid flows, it has a velocity $\boldsymbol{v}$
+                ; therefore, using the density we can calculate the
+                <b> convective </b>
+                mass flux, $\boldsymbol{J}_{mass}=\rho \boldsymbol{v}$ .
+                <sup class="footnotemark"> 1 </sup>
+              </li>
+              <li class="fragment" data-fragment-index="3">
+                Excluding nuclear processes, there is no generation or loss of
+                mass in most systems, ($\sigma_{mass} = 0$ ).
+              </li>
+              <li class="fragment" data-fragment-index="4">
+                Thus, the differential balance for the mass is \begin{align*}
+                \frac{\partial c_{mass}}{\partial t} &amp;= -\nabla\cdot
+                \boldsymbol{J}_{mass} + \cancelto{0}{\sigma_{mass}}\\%
+                \frac{\partial \rho}{\partial t} &amp;= -\nabla\cdot
+                \rho \boldsymbol{v} \end{align*}
+              </li>
+            </ul>
+            <div class="footnote-container">
+              <div class="fragment" data-fragment-index="2">
+                <sup class="footnotemark"> 1 </sup>
+                There is also a
+                <b> diffusive </b>
+                mass flux, but we can ignore it in pure fluids where diffusion
+                processes do not apply. We will add this back in later when
+                studying mixtures in diffusion.
+              </div>
+            </div>
+          </section>
+          <section>
+            \begin{align*} \frac{\partial \rho}{\partial t} + \nabla\cdot
+            \rho \boldsymbol{v}= 0 \end{align*}
+            <ul>
+              <li>
+                This is a well-known equation in fluid dynamics called the
+                <b> continuity equation </b>
+                .
+              </li>
+              <li class="fragment" data-fragment-index="1">
+                On its own, the continuity equation is not immediately useful;
+                however, it will help us develop the Cauchy momentum equation!
+              </li>
+              <li class="fragment" data-fragment-index="2">
+                It does produce one simple result which has applications in many
+                liquids…
+              </li>
+            </ul>
+          </section>
+          <section data-menu-title="Incompressible Fluids">
+            \begin{align*} \frac{\partial \rho}{\partial t} = -\nabla\cdot
+            \rho \boldsymbol{v} \end{align*}
+            <ul>
+              <li>
+                If the fluid is incompressible (constant $\rho$ ) the equation
+                reduces to \begin{align*} \nabla\cdot \boldsymbol{v} = 0
+                \end{align*} I'll prove this now using index notation.
+              </li>
+              <li class="fragment" data-fragment-index="1">
+                This is an important result in fluid flow, the so-called
+                <b> divergence </b>
+                of the velocity field ( $\nabla\cdot \boldsymbol{v}$ ) is zero
+                in incompressible fluids.
+              </li>
+              <li class="fragment" data-fragment-index="2">
+                Many liquids (e.g., water) are incompressible to a close
+                approximation, so we can use this result to simplify many flow
+                problems.
+              </li>
+              <li class="fragment" data-fragment-index="3">
+                We will now derive the Cauchy momentum equation to move towards
+                solutions of flow problems.
+              </li>
+            </ul>
+          </section>
+        </section>
+        <section>
+          <section data-menu-title="Cauchy Momentum Equation">
+            <ul>
+              <li>
+                Starting from the general balance equation for a property $B$ :
+                \begin{align*} \frac{\partial c_B}{\partial t} = -\nabla\cdot
+                \boldsymbol{J}_B + \sigma_B \end{align*}
+              </li>
+              <li class="fragment" data-fragment-index="1">
+                Setting $B=momentum$, we must determine what the concentration
+                ($c_{momentum}$), flux ($J_{momentum}$), and generation of
+                momentum ($\sigma_{momentum}$) terms are.
+              </li>
+              <li class="fragment" data-fragment-index="2">
+                You should note that, in general, the momentum is a vector
+                quantity ($c_B\equiv\boldsymbol{c}_{momentum}$ ).
+              </li>
+              <li class="fragment" data-fragment-index="3">
+                Therefore, the concentration and source terms must be vectors
+                too, and the flux must be a matrix
+                ($\nabla\cdot\boldsymbol{J}_{momentum}$ must give a vector
+                result $\therefore$ $\boldsymbol{J}_{momentum}$ is a tensor).
+              </li>
+              <li class="fragment" data-fragment-index="4">
+                Technically, we will be generating three differential balance
+                equations, one for each component of the momentum.
+                \begin{align*} \frac{\partial
+                \boldsymbol{c}_{momentum}}{\partial t} = -\nabla\cdot
+                \boldsymbol{J}_{momentum} + \boldsymbol{\sigma}_{momentum}
+                \end{align*}
+              </li>
+              <li class="fragment" data-fragment-index="5">
+                This derivation is quite involved and long; however, it is
+                invaluable as it will help you to understand the nature of all
+                of the terms involved.
+              </li>
+            </ul>
+          </section>
+          <section data-menu-title="Concentration">
+            \begin{align*} \frac{\partial \boldsymbol{c}_{momentum}}{\partial t}
+            = -\nabla\cdot \boldsymbol{J}_{momentum} +
+            \boldsymbol{\sigma}_{momentum} \end{align*}
+            <ul>
+              <li>
+                The momentum is simply
+                <b>mass</b>$\times$<b>velocity</b>.
+              </li>
+              <li class="fragment" data-fragment-index="1">
+                Velocity is an
+                <b> intensive </b>
+                property, it does not directly depend on the amount of fluid
+                present.
+              </li>
+              <li class="fragment" data-fragment-index="2">
+                Mass is an
+                <b> extensive </b>
+                property, it directly depends on the amount of fluid present.
+                This means it has a concentration ($c_{mass}=\rho$).
+              </li>
+              <li class="fragment" data-fragment-index="3">
+                Therefore, the concentration of momentum (or the momentum per
+                unit volume) is the
+                <b>density</b>$\times$<b>velocity</b>, or
+                $\boldsymbol{c}_{momentum}=\rho \boldsymbol{v}$.
+              </li>
+            </ul>
+          </section>
+          <section>
+            \begin{align*} \frac{\partial \rho \boldsymbol{v}}{\partial t} =
+            -\nabla\cdot \boldsymbol{J}_{momentum} +
+            \boldsymbol{\sigma}_{momentum} \end{align*}
+            <ul>
+              <li>
+                For now we will ignore the flux of momentum and skip to the
+                generation of momentum, $\boldsymbol{\sigma}_{momentum}$.
+              </li>
+              <li class="fragment" data-fragment-index="1">
+                When momentum is “generated” in a system, it is actually due to
+                external forces acting on the system, causing an
+                acceleration<sup class="footnotemark">1</sup>.
+              </li>
+              <li class="fragment" data-fragment-index="2">
+                By comparing
+                <b> Newton's equation of motion </b>
+                ( $\boldsymbol{F}=m \boldsymbol{a}$ ) to the generation term:
+                \begin{align*} \left(\frac{\partial
+                \rho \boldsymbol{v}}{\partial t}\right)_{\sigma} =
+                \boldsymbol{\sigma}_{momentum} \end{align*} we can see that
+                $\boldsymbol{\sigma}_{momentum}$ has units of force per unit
+                volume.
+              </li>
+              <li class="fragment" data-fragment-index="3">
+                The simplest force to consider is
+                <b>gravity</b>: \begin{align*}
+                \boldsymbol{\sigma}_{momentum}^{grav.} = \rho \boldsymbol{g}
+                \end{align*}
+              </li>
+            </ul>
+            <div class="footnote-container">
+              <div class="fragment" data-fragment-index="1">
+                <sup class="footnotemark"> 1 </sup>
+                Momentum is never generated, but we occasionally ignore the
+                equal and opposite force, such as the acceleration of the earth
+                caused by smaller falling object on its surface.
+              </div>
+            </div>
+          </section>
+          <section data-menu-title="Pressure">
+            <ul>
+              <li>
+                The force due to
+                <b> pressure </b>
+                differences is derived here (it can be viewed as a source term,
+                but over the volume momentum is conserved by this force)…
+              </li>
+              <li class="fragment" data-fragment-index="1">
+                Performing a pressure balance over the volume, we can determine
+                the pressure contribution:
+                <figure>
+                  <div class="center">
+                    <object
+                      data="img/pressure_balance.svg"
+                      type="image/svg+xml"
+                      width="50%"
+                    ></object>
+                  </div>
+                  <figcaption>
+                    Pressure forces in the $z$-dimension omitted for clarity.
+                    Please notice that the pressure is a scalar! The force
+                    pressure applies is always to contract the volume (inward
+                    direction).
+                  </figcaption>
+                </figure>
+              </li>
+            </ul>
+          </section>
+          <section>
+            Each force acts on one face of the control volume, so the total
+            force is the pressure multiplied by the area: \begin{align*} \Delta
+            x \Delta y \Delta z \boldsymbol{\sigma}_{momentum}^{press.} &amp;=
+            \left[\begin{matrix}\left(p(x,y,z) - p(x+\Delta x,y,z)\right)\Delta
+            y  \Delta z \\% \left(p(x,y,z) - p(x,y+\Delta y,z)\right) \Delta x
+             \Delta z \\% \left(p(x,y,z) - p(x,y,z+\Delta z)\right)\Delta x
+             \Delta y \end{matrix}\right] \end{align*} Dividing by $\Delta
+            x \Delta y \Delta z$ and taking the limit as $\Delta x\to0$ ,
+            $\Delta y\to0$ ,and $\Delta z\to0$ we obtain: \begin{align*}
+            \boldsymbol{\sigma}_{momentum}^{press.} = -\left[\begin{matrix}
+            {\partial p}/{\partial x} \\ {\partial p}/{\partial y} \\ {\partial
+            p}/{\partial z} \end{matrix}\right] = -\nabla p \end{align*}
+          </section>
+          <section data-menu-title="Convective Flux &amp; Gravity">
+            \begin{align*} \frac{\partial \rho \boldsymbol{v}}{\partial t} =
+            -\nabla\cdot \boldsymbol{J}_{momentum} - \nabla p +
+            \rho \boldsymbol{g} \end{align*}
+            <ul>
+              <li>
+                We've now determined the concentration and
+                &ldquo;generation&rdquo; terms, now on to the more complicated
+                flux terms.
+              </li>
+              <li class="fragment" data-fragment-index="1">
+                As with the mass, the flux of momentum consists of a
+                <b> convective </b>
+                term and a
+                <b> diffusive </b>
+                term. \begin{align*} \boldsymbol{J}_{momentum} =
+                \boldsymbol{J}^{conv.}_{momentum} +
+                \boldsymbol{J}^{diff.}_{momentum} \end{align*}
+              </li>
+              <li class="fragment" data-fragment-index="2">
+                The
+                <b> convective </b>
+                momentum flux is the flux of $B$ due to the bulk movement of the
+                fluid (analogous to the convective mass flux). \begin{align*}
+                \boldsymbol{J}^{conv.}_{momentum} =
+                \left(\rho \boldsymbol{v}\right)\boldsymbol{v} \end{align*}
+              </li>
+            </ul>
+            <div
+              class="mathblock fragment"
+              data-fragment-index="2"
+              style="font-size: 0.5em"
+            >
+              <h3>Math Notes: Dyadic product</h3>
+              \begin{align*} \boldsymbol{a} \boldsymbol{b} = \begin{Bmatrix}
+              a_x b_x &amp; a_x b_y &amp; a_x b_z \\ a_y b_x &amp; a_y b_y &amp;
+              a_y b_z \\ a_z b_x &amp; a_z b_y &amp; a_z b_z \end{Bmatrix} =
+              a_i b_j \end{align*}
+            </div>
+          </section>
+          <section data-menu-title="Viscous Flows">
+            <ul>
+              <li>
+                If we take all of the terms that we've derived so far, we have:
+                \begin{align*} \frac{\partial \rho \boldsymbol{v}}{\partial t} =
+                -\nabla\cdot \left(\rho \boldsymbol{v} \boldsymbol{v}\right)
+                -\nabla\cdot\boldsymbol{J}^{diff.}_{momentum} - \nabla p +
+                \rho \boldsymbol{g} \end{align*}
+              </li>
+              <li class="fragment">
+                But what is the diffusive flux? It didn't appear in the
+                continuity equation as we're not considering mixtures (yet) but
+                <b>diffusion</b> in mixtures will be introduced later.
+              </li>
+              <li class="fragment">
+                The diffusion of momentum in fluids arises from viscosity.
+                Viscosity is the fluid analogue of friction, so imagine “blocks”
+                of fluid sliding past each other:
+                <figure>
+                  <div class="center">
+                    <object
+                      data="img/viscosity_friction.svg"
+                      type="image/svg+xml"
+                      width="70%"
+                    ></object>
+                  </div>
+                </figure>
+              </li>
+              <li class="fragment">
+                Block $C$ has a
+                <b> stress </b>
+                (force per unit area) pulling it
+                <b> forward </b>
+                from block $B$, and a stress pulling it
+                <b> back </b>
+                from block $D$.
+              </li>
+              <li class="fragment">
+                The net effect of these stresses is $\tau_{xy}$.
+              </li>
+              <li class="fragment">
+                $\tau_{xy}$ is the stress in the $x$-direction caused by a
+                difference in velocities in the $y$-direction.
+              </li>
+            </ul>
+          </section>
+          <section>
+            <ul>
+              <li>
+                The diffusive momentum flux $\boldsymbol{J}_{momentum}^{diff.}$
+                contains the stresses on the fluid due to viscous forces.
+              </li>
+              <li class="fragment" data-fragment-index="1">
+                We can make a definition and state that the diffusive momentum
+                flux is equal to the
+                <b>stress tensor</b>, $\boldsymbol{\tau}$. \begin{align*}
+                \boldsymbol{J}_{momentum}^{diff.} \equiv \boldsymbol{\tau}=
+                \left[\begin{matrix} \tau_{xx} &amp; \tau_{xy} &amp; \tau_{xz}
+                \\ \tau_{yx} &amp; \tau_{yy} &amp; \tau_{yz} \\ \tau_{zx} &amp;
+                \tau_{zy} &amp; \tau_{zz} \end{matrix}\right] = \tau_{ij}
+                \end{align*}
+              </li>
+              <li class="fragment" data-fragment-index="2">
+                If an element of fluid is moving in the $x$-direction, it will:
+                <ul>
+                  <li class="fragment" data-fragment-index="3">
+                    Drag the fluid behind/ahead of it, $\tau_{xx}$.
+                  </li>
+                  <li class="fragment" data-fragment-index="4">
+                    Drag the fluid above/below it (<b>y</b>-direction),
+                    $\tau_{xy}$.
+                  </li>
+                  <li class="fragment" data-fragment-index="5">
+                    And drag the fluid either side of it (<b>z</b>-direction),
+                    $\tau_{xz}$.
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </section>
+          <section>
+            <figure>
+              <div class="center">
+                <object
+                  data="img/developing_flow_profile.svg"
+                  type="image/svg+xml"
+                  width="60%"
+                ></object>
+              </div>
+            </figure>
+            <ul>
+              <li>
+                You should know from previous courses, that for a Newtonian
+                fluid under 1D shear, the
+                <b> off-diagonal stress </b>
+                is related to the velocity difference by Newton's “law”
+                \begin{align*} \tau_{xy} = -\mu \frac{\partial v_x}{\partial y}
+                \end{align*}
+              </li>
+              <li class="fragment" data-fragment-index="1">
+                But we must generalise to 3D systems, where shear can occur in
+                any direction to give \begin{align*} \tau_{xy} = -\mu
+                \left(\frac{\partial v_x}{\partial y} + \frac{\partial
+                v_y}{\partial x}\right) \end{align*}
+              </li>
+              <li class="fragment" data-fragment-index="2">
+                But what about the
+                <b> bulk </b>
+                terms $\tau_{xx}$, $\tau_{yy}$, $\tau_{zz}$?
+              </li>
+            </ul>
+          </section>
+          <section>
+            <ul>
+              <li>
+                The bulk terms account for viscous effects when the fluid is
+                decelerating/compressing or accelerating/expanding.
+              </li>
+              <li class="fragment" data-fragment-index="1">
+                Here there is another coefficient to consider known as the
+                <b> volume </b>
+                ,
+                <b> bulk </b>
+                or
+                <b> second </b>
+                viscosity, $\mu^B$ .
+              </li>
+              <li class="fragment" data-fragment-index="2">
+                Our final expression for the stress in a Newtonian fluid is (in
+                index notation) \begin{align*} \boldsymbol{\tau}=\tau_{ij} =
+                -\mu \left(\frac{\partial v_i}{\partial r_j} + \frac{\partial
+                v_j}{\partial r_i}\right) +
+                \delta_{ij} \mu^B \nabla\cdot\boldsymbol{v} \end{align*}
+                <div class="mathblock">
+                  <h3>Math Notes</h3>
+                  $\delta_{ij}$ is the Kronecker delta function and is defined
+                  as follows \begin{align*} \delta_{ij} = \begin{cases} 1 &amp;
+                  \text{if $i=j$} \\ 0 &amp; \text{if $i\neq j$} \end{cases}
+                  \end{align*}
+                </div>
+              </li>
+              <li class="fragment" data-fragment-index="3">
+                <b> Note: </b>
+                If the flow is incompressible, we have
+                $\nabla\cdot\boldsymbol{v}=0$ and the bulk viscosity is not
+                needed (a common assumption).
+              </li>
+            </ul>
+          </section>
+          <section data-menu-title="Factoring out the Continuity Equation">
+            <ul>
+              <li>
+                Including the diffusive flux for momentum, the complete momentum
+                equation is: \begin{align*} \frac{\partial
+                \rho \boldsymbol{v}}{\partial t} = -\nabla \cdot
+                \left(\rho \boldsymbol{v} \boldsymbol{v}\right) -
+                \nabla\cdot\boldsymbol{\tau} - \nabla p + \rho \boldsymbol{g}
+                \end{align*}
+              </li>
+              <li class="fragment" data-fragment-index="1">
+                But we can simplify this equation a little using the continuity
+                equation.
+              </li>
+              <li class="fragment" data-fragment-index="2">
+                Using the normal product rule on the left side and the vector
+                product rule, $\nabla \cdot \boldsymbol{a}\boldsymbol{b} =
+                \boldsymbol{b}\nabla \cdot \boldsymbol{a} +
+                \boldsymbol{a}\cdot\nabla \boldsymbol{b}$ (see tutorial&nbsp;1)
+                on the first right hand term: \begin{align*}
+                \rho\frac{\partial\boldsymbol{v}}{\partial t}
+                +\boldsymbol{v}\frac{\partial \rho}{\partial t} &amp;=
+                -\boldsymbol{v} \nabla\cdot \left(\rho \boldsymbol{v} \right)
+                -\rho\boldsymbol{v}\cdot \nabla \boldsymbol{v} -
+                \nabla\cdot\boldsymbol{\tau} - \nabla p + \rho \boldsymbol{g}
+                \end{align*}
+              </li>
+              <li class="fragment" data-fragment-index="3">
+                We can then rearranging the equation to express and cancel the
+                continuity equation: \begin{align*}
+                \rho\frac{\partial\boldsymbol{v}}{\partial t} +
+                \boldsymbol{v}\cancelto{0}{\left(\frac{\partial \rho}{\partial
+                t} + \nabla\cdot \left(\rho \boldsymbol{v} \right)\right)}
+                &amp;= -\rho\boldsymbol{v}\cdot \nabla\boldsymbol{v} -
+                \nabla\cdot\boldsymbol{\tau} - \nabla p + \rho \boldsymbol{g}\\
+                \rho\frac{\partial\boldsymbol{v}}{\partial t} &amp;=
+                -\rho\boldsymbol{v}\cdot \nabla\boldsymbol{v} -
+                \nabla\cdot\boldsymbol{\tau} - \nabla p + \rho \boldsymbol{g}
+                \end{align*}
+              </li>
+            </ul>
+          </section>
+          <section data-menu-title="Final Result">
+            \begin{align*} \rho\frac{\partial\boldsymbol{v}}{\partial t} &amp;=
+            -\rho\boldsymbol{v}\cdot \nabla\boldsymbol{v} -
+            \nabla\cdot\boldsymbol{\tau} - \nabla p + \rho \boldsymbol{g}
+            \end{align*}
+            <ul>
+              <li>
+                At last! We've finally derived the Cauchy momentum equation.
+              </li>
+              <li class="fragment" data-fragment-index="1">
+                Although this equation is new to you, it should be at least
+                slightly familiar from your use of a version of it.
+              </li>
+              <li class="fragment" data-fragment-index="2">
+                If we assume $\boldsymbol{\tau}=0$, the equation becomes the
+                equation of motion for inviscid flow.
+              </li>
+              <li class="fragment" data-fragment-index="3">
+                What other equation do you know that applies to fluids without
+                viscous losses?
+              </li>
+            </ul>
+          </section>
+        </section>
+        <section>
+          <section data-menu-title="Inviscid, Irrotational Flow">
+            \begin{align*} \rho\frac{\partial\boldsymbol{v}}{\partial t} &amp;=
+            -\rho\boldsymbol{v}\cdot \nabla\boldsymbol{v} -
+            \nabla\cdot\boldsymbol{\tau} - \nabla p + \rho \boldsymbol{g}
+            \end{align*}
+            <ul>
+              <li>
+                In brief, if we take the following vector calculus identity
+                (proof
+                <a
+                  href="https://math.stackexchange.com/questions/467924/vector-calculus-identities-using-differential-forms/501237#501237"
+                  >here</a
+                >): \begin{align*} \boldsymbol{a}\cdot\nabla\boldsymbol{a}
+                &amp;= \frac{1}{2} \nabla \boldsymbol{a}^2 - \boldsymbol{a}
+                \times \left[\nabla\times\boldsymbol{a}\right] \end{align*} and
+                assume inviscid flow (no viscosity so
+                $\boldsymbol{\tau}=\boldsymbol{0}$), we can obtain the following
+                from the Cauchy momentum equation: \begin{align*}
+                \rho\frac{\partial\boldsymbol{v}}{\partial t} &amp;=
+                -\frac{1}{2}\rho\,\nabla\,\boldsymbol{v}^2
+                -\rho\,\boldsymbol{v}\times\left[\nabla\times\boldsymbol{v}\right]
+                - \nabla p + \rho \boldsymbol{g} \end{align*}
+              </li>
+            </ul>
+          </section>
+          <section data-menu-title="Inviscid, Irrotational Flow">
+            \begin{align*} \rho\frac{\partial\boldsymbol{v}}{\partial t} &amp;=
+            -\frac{1}{2}\rho\,\nabla\,\boldsymbol{v}^2
+            -\rho\,\boldsymbol{v}\times\left[\nabla\times\boldsymbol{v}\right] -
+            \nabla p + \rho \boldsymbol{g} \end{align*}
+            <ul>
+              <li>
+                If we assume that the fluid is
+                <b>irrotational</b>, which also follows from assuming its
+                inviscid, then $\nabla \times \boldsymbol{v}=\boldsymbol{0}$
+                everywhere.
+              </li>
+              <li class="fragment">
+                This is something that
+                <a
+                  href="https://farside.ph.utexas.edu/teaching/336L/Fluidhtml/node64.html"
+                  >you can prove with the maths you have now</a
+                >
+                but we don't assess in this course, I'm just using it to show
+                you what's hidden inside the cauchy momentum equation...
+              </li>
+              <li class="fragment">
+                Assuming irrotational ($\nabla \times
+                \boldsymbol{v}=\boldsymbol{0}$) and incompressible flow
+                ($\rho=\mbox{constant}$), and that gravity is a constant, we can
+                write \begin{align*} \rho\frac{\partial\boldsymbol{v}}{\partial
+                t} &amp;= -\nabla\left(\frac{1}{2}\rho \boldsymbol{v}^2 + p -
+                \rho \boldsymbol{g}\cdot\boldsymbol{r}\right) \end{align*}
+              </li>
+            </ul>
+          </section>
+          <section>
+            \begin{align*} \rho\frac{\partial\boldsymbol{v}}{\partial t} &amp;=
+            -\nabla\left(\frac{1}{2}\rho \boldsymbol{v}^2 + p -
+            \rho \boldsymbol{g}\cdot\boldsymbol{r}\right) \end{align*}
+            <ul>
+              <li>
+                A side note for those of you who know/remember physics, this
+                function resembles the definition of a conservative force:
+                $F=-\nabla E$ (A conservative force is the gradient of an
+                energetic potential).
+              </li>
+              <li class="fragment" data-fragment-index="1">
+                Assume the flow is at steady state $\partial/\partial t = 0$ and
+                integrating the right hand side we have \begin{align*}
+                \frac{1}{2}\rho \boldsymbol{v}^2 + p -
+                \rho \boldsymbol{g}\cdot\boldsymbol{r} = \text{constant}
+                \end{align*}
+              </li>
+              <li class="fragment" data-fragment-index="2">
+                So, if we neglect viscous forces and assume inviscid (and thus
+                irrotational), incompressible flow, the differential momentum
+                balance reduces to
+                <b>Bernoulli's equation</b>.
+              </li>
+              <li class="fragment" data-fragment-index="3">
+                This is hugely more complicated than just taking a simple energy
+                balance over the fluid, but it highlights that the continuity
+                and Cauchy momentum equation contain all of the simple results
+                you've already encountered.
+              </li>
+            </ul>
+          </section>
+        </section>
+        <section>
+          <section data-menu-title="Learning Objectives">
+            <ul>
+              <li>
+                Today, we have learnt to derive the equations for mass and
+                momentum transport: \begin{align*} \frac{\partial \rho}{\partial
+                t} &amp;= -\nabla\cdot \rho\boldsymbol{v} &amp;
+                \text{(Continuity equation)}\\%
+                \rho\frac{\partial\boldsymbol{v}}{\partial t} &amp;=
+                -\rho \boldsymbol{v}\cdot \nabla\boldsymbol{v} -
+                \nabla\cdot\boldsymbol{\tau} - \nabla p + \rho \boldsymbol{g}
+                &amp; \text{(Cauchy momentum equation)} \end{align*}
+              </li>
+              <li>
+                We also learnt that for Newtonian fluids, the stress tensor is
+                \begin{align*} \boldsymbol{\tau}=\tau_{ij} = -\mu
+                \left(\frac{\partial v_i}{\partial r_j} + \frac{\partial
+                v_j}{\partial r_i}\right) +
+                \delta_{ij} \mu^B \nabla\cdot\boldsymbol{v} \end{align*}
+              </li>
+              <li class="fragment" data-fragment-index="1">
+                If the fluid is incompressible, inviscid (and thus
+                irrotational), the momentum balance reduces to Bernoulli's
+                equation. We don't need to derive it, just know that it exists
+                inside the Cauchy momentum equation. \begin{align*}
+                \frac{1}{2}\rho \boldsymbol{v}^2 + p -
+                \rho \boldsymbol{g}\cdot\boldsymbol{r} = \text{constant}
+                \end{align*}
+              </li>
+              <li class="fragment" data-fragment-index="2">
+                Finally, we're ready to solve a problem!
+              </li>
+            </ul>
+          </section>
+        </section>
       </div>
-     </section>
-     <section>
-      \begin{align*}
-      \frac{\partial \rho}{\partial t} + \nabla\cdot \rho \boldsymbol{v}= 0
-      \end{align*}
-      <ul>
-       <li>
-        This is a well-known equation in fluid dynamics called
-    the
-        <b>
-         continuity equation
-        </b>
-        .
-       </li>
-       <li class="fragment" data-fragment-index="1">
-        On its own, the continuity equation is not immediately
-    useful; however, it will help us develop the Cauchy momentum
-    equation!
-       </li>
-       <li class="fragment" data-fragment-index="2">
-        It does produce one simple result which has applications
-    in many liquids…
-       </li>
-      </ul>
-     </section>
-     <section data-menu-title="Incompressible Fluids">
-      \begin{align*}
-      \frac{\partial \rho}{\partial t} = -\nabla\cdot \rho \boldsymbol{v}
-      \end{align*}
-      <ul>
-       <li>
-        If the fluid is incompressible (constant $\rho$
-        ) the
-    equation reduces to
-        \begin{align*}
-        \nabla\cdot \boldsymbol{v} = 0
-        \end{align*}
-        I'll prove this now using index notation.
-       </li>
-       <li class="fragment" data-fragment-index="1">
-        This is an important result in fluid flow, the so-called
-        <b>
-         divergence
-        </b>
-        of the velocity field (
-        $\nabla\cdot \boldsymbol{v}$
-        ) is zero
-    in incompressible fluids.
-       </li>
-       <li class="fragment" data-fragment-index="2">
-        Many liquids (e.g., water) are incompressible to a close
-    approximation, so we can use this result to simplify many flow
-    problems.
-       </li>
-       <li class="fragment" data-fragment-index="3">
-        We will now derive the Cauchy momentum equation to move
-    towards solutions of flow problems.
-       </li>
-      </ul>
-     </section>
-    </section>
-    <section>
-     <section data-menu-title="Cauchy Momentum Equation">
-      <ul>
-       <li>
-        Starting from the general balance equation for a property
-	$B$
-        :
-        \begin{align*}
-        \frac{\partial c_B}{\partial t} = -\nabla\cdot \boldsymbol{J}_B + \sigma_B
-        \end{align*}
-       </li>
-       <li class="fragment" data-fragment-index="1">
-        Setting $B=momentum$, we must determine what the concentration
-	($c_{momentum}$), flux ($J_{momentum}$), and generation of
-	momentum ($\sigma_{momentum}$) terms are.
-       </li>
-       <li class="fragment" data-fragment-index="2">
-        You should note that, in general, the momentum is a vector
-    quantity ($c_B\equiv\boldsymbol{c}_{momentum}$
-        ).
-       </li>
-       <li class="fragment" data-fragment-index="3">
-        Therefore, the concentration and source terms must be
-    vectors too, and the flux must be a matrix
-    ($\nabla\cdot\boldsymbol{J}_{momentum}$
-        must give a vector result
-        $\therefore$
-        $\boldsymbol{J}_{momentum}$
-        is a tensor).
-       </li>
-       <li class="fragment" data-fragment-index="4">
-        Technically, we will be generating three differential
-    balance equations, one for each component of the momentum.
-        \begin{align*}
-        \frac{\partial \boldsymbol{c}_{momentum}}{\partial t} = -\nabla\cdot \boldsymbol{J}_{momentum} +
-      \boldsymbol{\sigma}_{momentum}
-        \end{align*}
-       </li>
-       <li class="fragment" data-fragment-index="5">
-        This derivation is quite involved and long; however, it is
-    invaluable as it will help you to understand the nature of all of
-    the terms involved.
-       </li>
-      </ul>
-     </section>
-     <section data-menu-title="Concentration">
-      \begin{align*}
-      \frac{\partial \boldsymbol{c}_{momentum}}{\partial t} = -\nabla\cdot \boldsymbol{J}_{momentum} +
-    \boldsymbol{\sigma}_{momentum}
-      \end{align*}
-      <ul>
-       <li>
-        The momentum is simply
-        <b>mass</b>$\times$<b>velocity</b>.
-       </li>
-       <li class="fragment" data-fragment-index="1">
-        Velocity is an
-        <b>
-         intensive
-        </b>
-        property, it does not directly
-	depend on the amount of fluid present.
-       </li>
-       <li class="fragment" data-fragment-index="2">
-         Mass is an
-         <b>
-           extensive
-         </b>
-         property, it directly depends
-	 on the amount of fluid present. This means it has a concentration
-	 ($c_{mass}=\rho$).
-       </li>
-       <li class="fragment" data-fragment-index="3">
-        Therefore, the concentration of momentum (or the momentum
-    per unit volume) is the
-        <b>density</b>$\times$<b>velocity</b>, or
-        $\boldsymbol{c}_{momentum}=\rho \boldsymbol{v}$.
-       </li>
-      </ul>
-     </section>
-     <section>
-      \begin{align*}
-      \frac{\partial \rho \boldsymbol{v}}{\partial t} = -\nabla\cdot \boldsymbol{J}_{momentum} +
-    \boldsymbol{\sigma}_{momentum}
-      \end{align*}
-      <ul>
-       <li>
-        For now we will ignore the flux of momentum and skip to the
-	generation of momentum, $\boldsymbol{\sigma}_{momentum}$.
-       </li>
-       <li class="fragment" data-fragment-index="1">
-         When momentum is “generated” in a system, it is actually due
-	 to external forces acting on the system, causing an
-	 acceleration<sup class="footnotemark">1</sup>.
-       </li>
-       <li class="fragment" data-fragment-index="2">
-        By comparing
-        <b>
-         Newton's equation of motion
-        </b>
-        (
-        $\boldsymbol{F}=m \boldsymbol{a}$
-        ) to the generation term:
-        \begin{align*}
-        \left(\frac{\partial \rho \boldsymbol{v}}{\partial t}\right)_{\sigma} = \boldsymbol{\sigma}_{momentum}
-        \end{align*}
-        we can see that
-        $\boldsymbol{\sigma}_{momentum}$
-        has units of force per
-    unit volume.
-       </li>
-       <li class="fragment" data-fragment-index="3">
-        The simplest force to consider is
-        <b>gravity</b>:
-	
-        \begin{align*}
-        \boldsymbol{\sigma}_{momentum}^{grav.} = \rho \boldsymbol{g}
-        \end{align*}
-       </li>
-      </ul>
-      <div class="footnote-container">
-       <div class="fragment" data-fragment-index="1">
-        <sup class="footnotemark">
-         1
-        </sup>
-        Momentum is never generated, but we
-      occasionally ignore the equal and opposite force, such as the
-      acceleration of the earth caused by smaller falling object on
-      its surface.
-       </div>
-      </div>
-     </section>
-     <section data-menu-title="Pressure">
-      <ul>
-       <li>
-         The force due to
-         <b>
-           pressure
-         </b>
-         differences is derived here (it can be viewed as a source
-         term, but over the volume momentum is conserved by this
-         force)…
-       </li>
-       <li class="fragment" data-fragment-index="1">
-         Performing a pressure balance over the volume, we can
-	 determine the pressure contribution:
-         <figure>
-           <div class="center">
-             <object data="img/pressure_balance.svg" type="image/svg+xml" width="60%">
-             </object>
-           </div>
-           <figcaption>
-             Pressure forces in the $z$-dimension omitted for
-             clarity. Please notice that the pressure is a scalar! The
-             force pressure applies is always to contract the volume
-             (inward direction).
-           </figcaption>
-        </figure>
-       </li>
-      </ul>
-     </section>
-     <section>
-      Each force acts on one face of the control volume, so the total
-  force is the pressure multiplied by the area:
-      \begin{align*}
-      \Delta x \Delta y \Delta z \boldsymbol{\sigma}_{momentum}^{press.}  &amp;=
-    \left[\begin{matrix}\left(p(x,y,z) - p(x+\Delta x,y,z)\right)\Delta y
-         \Delta z \\%
-        \left(p(x,y,z) - p(x,y+\Delta y,z)\right) \Delta x  \Delta z \\%
-        \left(p(x,y,z) - p(x,y,z+\Delta z)\right)\Delta x  \Delta y
-      \end{matrix}\right]
-      \end{align*}
-      Dividing by
-      $\Delta x \Delta y \Delta z$
-      and taking the limit as
-      $\Delta x\to0$
-      ,
-      $\Delta y\to0$
-      ,and
-      $\Delta z\to0$
-      we obtain:
-      \begin{align*}
-      \boldsymbol{\sigma}_{momentum}^{press.} = -\left[\begin{matrix}
-        {\partial p}/{\partial x} \\
-        {\partial p}/{\partial y} \\
-        {\partial p}/{\partial z}
-      \end{matrix}\right] = 
-    -\nabla p
-      \end{align*}
-     </section>
-     <section data-menu-title="Convective Flux &amp; Gravity">
-      \begin{align*}
-      \frac{\partial \rho \boldsymbol{v}}{\partial t} = -\nabla\cdot \boldsymbol{J}_{momentum} - \nabla p + \rho \boldsymbol{g}
-      \end{align*}
-      <ul>
-       <li>
-         We've now determined the concentration and &ldquo;generation&rdquo;
-	 terms, now on to the more complicated flux terms.
-       </li>
-       <li class="fragment" data-fragment-index="1">
-        As with the mass, the flux of momentum consists of a
-        <b>
-         convective
-        </b>
-        term and a
-        <b>
-         diffusive
-        </b>
-        term.
-        \begin{align*}
-        \boldsymbol{J}_{momentum} = \boldsymbol{J}^{conv.}_{momentum} + \boldsymbol{J}^{diff.}_{momentum}
-        \end{align*}
-       </li>
-       <li class="fragment" data-fragment-index="2">
-        The
-        <b>
-         convective
-        </b>
-        momentum flux is the flux of
-        $B$
-        due
-    to the bulk movement of the fluid (analogous to the convective
-    mass flux).
-        \begin{align*}
-        \boldsymbol{J}^{conv.}_{momentum} = \left(\rho \boldsymbol{v}\right)\boldsymbol{v}
-        \end{align*}
-       </li>
-      </ul>
-      <div class="mathblock fragment" data-fragment-index="2">
-	<h3>Math Notes: Dyadic product</h3>
-	\begin{align*}
-	\boldsymbol{a} \boldsymbol{b} = 
-	\begin{Bmatrix}
-        a_x b_x &amp; a_x b_y &amp; a_x b_z \\
-        a_y b_x &amp; a_y b_y &amp; a_y b_z \\
-        a_z b_x &amp; a_z b_y &amp; a_z b_z
-	\end{Bmatrix} = a_i b_j
-	\end{align*}
-      </div>
-     </section>
-     <section data-menu-title="Viscous Flows">
-      <ul>
-       <li>
-        If we take all of the terms that we've derived so far, we
-    have:
-        \begin{align*}
-        \frac{\partial \rho \boldsymbol{v}}{\partial t} = -\nabla\cdot
-      \left(\rho \boldsymbol{v} \boldsymbol{v}\right)
-      -\nabla\cdot\boldsymbol{J}^{diff.}_{momentum} - \nabla p + \rho \boldsymbol{g}
-        \end{align*}
-       </li>
-       <li class="fragment" data-fragment-index="1">
-        But what is the diffusive flux?
-       </li>
-       <li class="fragment" data-fragment-index="2">
-        It didn't appear in the continuity equation as we're not
-    considering mixtures (yet) but <b>diffusion</b> in mixtures will be introduced later.
-       </li>
-       <li class="fragment" data-fragment-index="3">
-        The diffusion of momentum in fluids arises from
-    viscosity. Viscosity is the fluid analogue of friction, so imagine
-    “blocks” of fluid sliding past each other:
-        <figure>
-         <div class="center">
-          <object data="img/viscosity_friction.svg" type="image/svg+xml" width="80%">
-          </object>
-         </div>
-        </figure>
-       </li>
-       <li class="fragment" data-fragment-index="4">
-        Block $C$
-        has a
-        <b>
-         stress
-        </b>
-        (force per unit area) pulling
-	it
-        <b>
-         forward
-        </b>
-        from block
-        $B$, and a stress pulling it
-        <b>
-         back
-        </b>
-        from block
-        $D$.
-       </li>
-       <li class="fragment" data-fragment-index="5">
-        The net effect of these stresses is $\tau_{xy}$.
-       </li>
-       <li class="fragment" data-fragment-index="6">
-        $\tau_{xy}$
-        is the stress in the
-        $x$-direction caused by a
-	difference in velocities in the
-        $y$-direction.
-       </li>
-      </ul>
-     </section>
-     <section>
-      <ul>
-       <li>
-        The diffusive momentum flux $\boldsymbol{J}_{momentum}^{diff.}$
-        contains the stresses on the fluid due to viscous forces.
-       </li>
-       <li class="fragment" data-fragment-index="1">
-        We can make a definition and state that the  diffusive
-    momentum flux is equal to the
-        <b>stress tensor</b>,
-        $\boldsymbol{\tau}$.
-	
-        \begin{align*}
-        \boldsymbol{J}_{momentum}^{diff.} \equiv \boldsymbol{\tau}= \left[\begin{matrix}
-          \tau_{xx} &amp; \tau_{xy} &amp; \tau_{xz} \\%
-          \tau_{yx} &amp; \tau_{yy} &amp; \tau_{yz} \\%
-          \tau_{zx} &amp; \tau_{zy} &amp; \tau_{zz}
-        \end{matrix}\right] = \tau_{ij}
-        \end{align*}
-       </li>
-       <li class="fragment" data-fragment-index="2">
-         If an element of fluid is moving in the $x$-direction, it
-	 will:
-         <ul>
-         <li class="fragment" data-fragment-index="3">
-          Drag the fluid behind/ahead of it, $\tau_{xx}$.
-         </li>
-         <li class="fragment" data-fragment-index="4">
-          Drag the fluid above/below it (<b>y</b>-direction),
-          $\tau_{xy}$.
-         </li>
-         <li class="fragment" data-fragment-index="5">
-          And drag the fluid either side of it (<b>z</b>-direction),
-          $\tau_{xz}$.
-         </li>
-        </ul>
-       </li>
-      </ul>
-     </section>
-     <section>
-      <figure>
-       <div class="center">
-        <object data="img/developing_flow_profile.svg" type="image/svg+xml" width="60%">
-        </object>
-       </div>
-      </figure>
-      <ul>
-       <li>
-        You should know from previous courses, that for a
-    Newtonian fluid under 1D shear, the
-        <b>
-         off-diagonal stress
-        </b>
-        is
-    related to the velocity difference by Newton's “law”
-        \begin{align*}
-        \tau_{xy} = -\mu \frac{\partial v_x}{\partial y}
-        \end{align*}
-       </li>
-       <li class="fragment" data-fragment-index="1">
-        But we must generalise to 3D systems, where shear can
-    occur in any direction to give
-        \begin{align*}
-        \tau_{xy} = -\mu \left(\frac{\partial v_x}{\partial y} +
-        \frac{\partial v_y}{\partial x}\right)
-        \end{align*}
-       </li>
-       <li class="fragment" data-fragment-index="2">
-        But what about the
-        <b>
-         bulk
-        </b>
-        terms
-        $\tau_{xx}$,
-        $\tau_{yy}$,
-        $\tau_{zz}$?
-       </li>
-      </ul>
-     </section>
-     <section>
-      <ul>
-       <li>
-        The bulk terms account for viscous effects when the fluid
-    is decelerating/compressing or accelerating/expanding.
-       </li>
-       <li class="fragment" data-fragment-index="1">
-        Here there is another coefficient to consider known as the
-        <b>
-         volume
-        </b>
-        ,
-        <b>
-         bulk
-        </b>
-        or
-        <b>
-         second
-        </b>
-        viscosity,
-        $\mu^B$
-        .
-       </li>
-       <li class="fragment" data-fragment-index="2">
-        Our final expression for the stress in a Newtonian fluid
-    is (in index notation)
-        \begin{align*}
-        \boldsymbol{\tau}=\tau_{ij} = -\mu \left(\frac{\partial v_i}{\partial
-          r_j} + \frac{\partial v_j}{\partial r_i}\right) +
-      \delta_{ij} \mu^B \nabla\cdot\boldsymbol{v}
-        \end{align*}
-        <div class="mathblock">
-	  <h3>Math Notes</h3>
-          $\delta_{ij}$
-          is the Kronecker delta function and is defined as
-	  follows
-          \begin{align*}
-          \delta_{ij} = \begin{cases}
-          1 &amp; \text{if $i=j$} \\
-          0 &amp; \text{if $i\neq j$}
-          \end{cases}
-          \end{align*}
-        </div>
-       </li>
-       <li class="fragment" data-fragment-index="3">
-        <b>
-         Note:
-        </b>
-        If the flow is incompressible, we have
-        $\nabla\cdot\boldsymbol{v}=0$
-        and the bulk viscosity is not needed (a
-    common assumption).
-       </li>
-      </ul>
-     </section>
-     <section data-menu-title="Factoring out the Continuity Equation">
-      <ul>
-       <li>
-        Including the diffusive flux for momentum, the complete
-    momentum equation is:
-        \begin{align*}
-        \frac{\partial \rho \boldsymbol{v}}{\partial t} = -\nabla
-      \cdot \left(\rho \boldsymbol{v} \boldsymbol{v}\right) - \nabla\cdot\boldsymbol{\tau} -
-      \nabla p + \rho \boldsymbol{g}
-        \end{align*}
-       </li>
-       <li class="fragment" data-fragment-index="1">
-        But we can simplify this equation a little using the
-    continuity equation.
-       </li>
-       <li class="fragment" data-fragment-index="2">
-        Using the normal product rule on the left side and the
-    vector product rule, $\nabla \cdot \boldsymbol{a}\boldsymbol{b} = \boldsymbol{b}\nabla \cdot
-    \boldsymbol{a} + \boldsymbol{a}\cdot\nabla \boldsymbol{b}$
-        (see tutorial&nbsp;1) on the first
-    right hand term:
-        \begin{align*}
-        \rho\frac{\partial\boldsymbol{v}}{\partial t} +\boldsymbol{v}\frac{\partial
-        \rho}{\partial t} &amp;= -\boldsymbol{v} \nabla\cdot
-      \left(\rho \boldsymbol{v} \right) -\rho\boldsymbol{v}\cdot \nabla \boldsymbol{v} - \nabla\cdot\boldsymbol{\tau} -
-      \nabla p + \rho \boldsymbol{g}
-        \end{align*}
-       </li>
-       <li class="fragment" data-fragment-index="3">
-        We can then rearranging the equation to express and cancel
-    the continuity equation:
-        \begin{align*}
-        \rho\frac{\partial\boldsymbol{v}}{\partial t} +
-      \boldsymbol{v}\cancelto{0}{\left(\frac{\partial \rho}{\partial t} +
-          \nabla\cdot
-          \left(\rho \boldsymbol{v} \right)\right)} &amp;= -\rho\boldsymbol{v}\cdot \nabla\boldsymbol{v} - \nabla\cdot\boldsymbol{\tau} - \nabla p + \rho \boldsymbol{g}\\
-      \rho\frac{\partial\boldsymbol{v}}{\partial t} &amp;= -\rho\boldsymbol{v}\cdot \nabla\boldsymbol{v}
-      - \nabla\cdot\boldsymbol{\tau} - \nabla p + \rho \boldsymbol{g}
-        \end{align*}
-       </li>
-      </ul>
-     </section>
-     <section data-menu-title="Final Result">
-      \begin{align*}
-      \rho\frac{\partial\boldsymbol{v}}{\partial t} &amp;= -\rho\boldsymbol{v}\cdot \nabla\boldsymbol{v}
-    - \nabla\cdot\boldsymbol{\tau} - \nabla p + \rho \boldsymbol{g}
-      \end{align*}
-      <ul>
-       <li>
-        At last! We've finally derived the Cauchy momentum
-    equation.
-       </li>
-       <li class="fragment" data-fragment-index="1">
-        Although this equation is new to you, it should be at
-    least slightly familiar from your use of a version of it.
-       </li>
-       <li class="fragment" data-fragment-index="2">
-        If we assume $\boldsymbol{\tau}=0$, the equation becomes the
-    equation of motion for inviscid flow.
-       </li>
-       <li class="fragment" data-fragment-index="3">
-        What other equation do you know that applies to fluids
-    without viscous losses?
-       </li>
-      </ul>
-     </section>
-    </section>
-    <section>
-     <section data-menu-title="Inviscid, Irrotational Flow">
-      \begin{align*}
-      \rho\frac{\partial\boldsymbol{v}}{\partial t} &amp;= -\rho\boldsymbol{v}\cdot \nabla\boldsymbol{v}
-    - \nabla\cdot\boldsymbol{\tau} - \nabla p + \rho \boldsymbol{g}
-      \end{align*}
-      <ul>
-       <li>
-        In brief, if we take the following vector calculus
-    identity (which I don't prove, but you <a href="https://math.stackexchange.com/questions/467924/vector-calculus-identities-using-differential-forms/501237#501237">can find here</a>):
-        \begin{align*}
-        \boldsymbol{a}\cdot\nabla\boldsymbol{a} &amp;= \frac{1}{2} \nabla \boldsymbol{a}^2 - \boldsymbol{a}
-      \times \left[\nabla\times\boldsymbol{a}\right]
-        \end{align*}
-        and assume inviscid flow (no viscosity so $\boldsymbol{\tau}=\boldsymbol{0}$), we can obtain the following from the
-        Cauchy momentum equation:
-        \begin{align*}
-        \rho\frac{\partial\boldsymbol{v}}{\partial t} &amp;= -\frac{1}{2}\rho\,\nabla\,\boldsymbol{v}^2 -\rho\,\boldsymbol{v}\times\left[\nabla\times\boldsymbol{v}\right] - \nabla p + \rho \boldsymbol{g}
-        \end{align*}
-       </li>
-       <li class="fragment" data-fragment-index="1">
-        If we assume that the fluid is
-        <b>irrotational</b>, which also follows from assuming its inviscid, then $\nabla \times
-        \boldsymbol{v}=\boldsymbol{0}$ everywhere.
-       </li>
-       <li class="fragment" data-fragment-index="2">
-        This is something that <a
-        href="https://farside.ph.utexas.edu/teaching/336L/Fluidhtml/node64.html">you
-        can prove with the maths you have now</a> but we don't assess in this
-        course, I'm just using it to show you what's hidden inside the cauchy momentum
-        equation...
-       </li>
-       <li class="fragment" data-fragment-index="3">
-         Assuming irrotational ($\nabla \times \boldsymbol{v}=\boldsymbol{0}$) and
-	 incompressible flow ($\rho=\mbox{constant}$), and that gravity is
-	 a constant, we can write
-         \begin{align*}
-         \rho\frac{\partial\boldsymbol{v}}{\partial t} &amp;= -\nabla\left(\frac{1}{2}\rho \boldsymbol{v}^2
-         + p - \rho \boldsymbol{g}\cdot\boldsymbol{r}\right)
-         \end{align*}
-       </li>
-      </ul>
-     </section>
-     <section>
-      \begin{align*}
-      \rho\frac{\partial\boldsymbol{v}}{\partial t} &amp;= -\nabla\left(\frac{1}{2}\rho \boldsymbol{v}^2
-      + p - \rho \boldsymbol{g}\cdot\boldsymbol{r}\right)
-      \end{align*}
-      <ul>
-       <li>
-        A side note for those of you who know/remember physics, this function
-    resembles the definition of a conservative force: $F=-\nabla E$
-        (A
-    conservative force is the gradient of an energetic potential).
-       </li>
-       <li class="fragment" data-fragment-index="1">
-        Assume the flow is at steady state $\partial/\partial t =
-    0$
-        and integrating the right hand side we have
-        \begin{align*}
-        \frac{1}{2}\rho \boldsymbol{v}^2 + p - \rho \boldsymbol{g}\cdot\boldsymbol{r} =
-      \text{constant}
-        \end{align*}
-       </li>
-       <li class="fragment" data-fragment-index="2">
-        So, if we neglect viscous forces and assume inviscid (and thus irrotational),
-    incompressible flow, the differential momentum balance reduces to
-        <b>Bernoulli's equation</b>.
-       </li>
-       <li class="fragment" data-fragment-index="3">
-        This is hugely more complicated than just taking a simple
-    energy balance over the fluid, but it highlights that the
-    continuity and Cauchy momentum equation contain all of the simple
-    results you've already encountered.
-       </li>
-      </ul>
-     </section>
-    </section>
-    <section>
-     <section data-menu-title="Learning Objectives">
-      <ul>
-       <li>
-        Today, we have learnt to derive the equations for mass
-    and momentum transport:
-        \begin{align*}
-        \frac{\partial \rho}{\partial t} &amp;= -\nabla\cdot \rho\boldsymbol{v} &amp;
-      \text{(Continuity equation)}\\%
-      \rho\frac{\partial\boldsymbol{v}}{\partial t} &amp;= -\rho \boldsymbol{v}\cdot
-      \nabla\boldsymbol{v} - \nabla\cdot\boldsymbol{\tau} - \nabla p + \rho \boldsymbol{g} &amp;
-      \text{(Cauchy momentum equation)}
-        \end{align*}
-       </li>
-       <li>
-        We also learnt that for Newtonian fluids, the stress tensor is
-        \begin{align*}
-        \boldsymbol{\tau}=\tau_{ij} = -\mu \left(\frac{\partial v_i}{\partial
-          r_j} + \frac{\partial v_j}{\partial r_i}\right) +
-      \delta_{ij} \mu^B \nabla\cdot\boldsymbol{v}
-        \end{align*}
-       </li>
-       <li class="fragment" data-fragment-index="1">
-        If the fluid is incompressible, inviscid (and thus irrotational), the
-        momentum balance reduces to Bernoulli's equation. We don't need to
-        derive it, just know that it exists inside the Cauchy momentum equation.
-        \begin{align*} \frac{1}{2}\rho \boldsymbol{v}^2 + p -
-        \rho \boldsymbol{g}\cdot\boldsymbol{r} = \text{constant} \end{align*}
-       </li>
-       <li class="fragment" data-fragment-index="2">
-        Finally, we're ready to solve a problem!
-        </li>
-      </ul>
-     </section>
-    </section>
-   </div>
-   <script src="footer.js"></script>
-  </div>
- </body>
+      <script src="footer.js"></script>
+    </div>
+  </body>
 </html>

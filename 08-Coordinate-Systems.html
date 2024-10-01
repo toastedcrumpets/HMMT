@@ -1,996 +1,908 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <meta charset="utf-8" />
-  <title>
-    Heat, Mass, and Momentum Transfer
-  </title>
-  <meta content="Heat Mass and Momentum Transfer notes" name="description" />
-  <meta content="Marcus Bannerman &lt;m.bannerman@gmail.com" name="author" />
-  <meta content="yes" name="apple-mobile-web-app-capable" />
-  <meta content="black-translucent" name="apple-mobile-web-app-status-bar-style" />
-  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui"
-    name="viewport" />
-  <script src="header.js"></script>
-</head>
-
-<body>
-  <div class="reveal">
-    <div class="slides">
-      <section>
+  <head>
+    <meta charset="utf-8" />
+    <title>Heat, Mass, and Momentum Transfer</title>
+    <meta content="Heat Mass and Momentum Transfer notes" name="description" />
+    <meta content="Marcus Bannerman &lt;m.bannerman@gmail.com" name="author" />
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta
+      content="black-translucent"
+      name="apple-mobile-web-app-status-bar-style"
+    />
+    <meta
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui"
+      name="viewport"
+    />
+    <script src="header.js"></script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
         <section>
-          <h2>
-            Coordinate Systems
-          </h2>
-          <div class="center">
-          </div>
+          <section>
+            <h2>Coordinate Systems</h2>
+          </section>
         </section>
-      </section>
-      <section>
-        <section data-menu-title="Review">
+        <section>
+          <h2>Motivation</h2>
+          <p>
+            Take any of the following problems and solve them, statistically
+            speaking you will be wrong:
+          </p>
           <ul>
             <li>
-              In the previous lecture and the current tutorial, we are
-              looking at flow problems in rectangular coordinates:
+              Alex is 40 years older than his son and they have a combined age
+              of 50, how old is the son?
+            </li>
+            <li>
+              Jack is looking at anne, anne is looking at george, jack is
+              married, george is not. Is a married person looking at an
+              unmarried person?
               <ul>
-                <div class="fragment " data-fragment-index="1">
-                  <li>
-                    (Lecture) Gravity driven flow of a film over a
-                    plate.
-                    <figure>
-                      <div class="center">
-                        <object data="img/film-flow-1.svg" type="image/svg+xml" width="30%">
-                        </object>
-                      </div>
-                    </figure>
+                <li>
+                  Yes, no, or mu/無 (the question is invalid, or both yes and
+                  no, or ...)
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <p>
+            If you (the class) disagree, this shows that we need to translate
+            into maths to gain certainty, and that the translation is an art,
+            known as engineering.
+          </p>
+        </section>
+        <section>
+          <section data-menu-title="Review">
+            <ul>
+              <li>
+                In the previous lecture and the current tutorial, we are looking
+                at flow problems in rectangular coordinates:
+                <ul>
+                  <div class="fragment" data-fragment-index="1">
+                    <li>
+                      (Lecture) Gravity driven flow of a film over a plate.
+                      <figure>
+                        <div class="center">
+                          <object
+                            data="img/film-flow-1.svg"
+                            type="image/svg+xml"
+                            width="30%"
+                          ></object>
+                        </div>
+                      </figure>
+                    </li>
+                  </div>
+                  <div class="fragment" data-fragment-index="2">
+                    <li>
+                      (Tutorial) Pressure driven flow between two plates
+                      with/without a moving top plate.
+                      <figure>
+                        <div class="center">
+                          <object
+                            data="img/flow_in_a_channel.svg"
+                            type="image/svg+xml"
+                            width="70%"
+                          ></object>
+                        </div>
+                      </figure>
+                    </li>
+                  </div>
+                </ul>
+              </li>
+            </ul>
+          </section>
+          <section data-menu-title="Other Coordinate Systems">
+            <ul>
+              <li>
+                In the film flow problem we found that locating the coordinates
+                in the correct location can greatly simplify the problem.
+                <figure>
+                  <div class="center">
+                    <object
+                      data="img/film-flow-3.svg"
+                      type="image/svg+xml"
+                      width="60%"
+                    ></object>
+                  </div>
+                </figure>
+              </li>
+              <li class="fragment" data-fragment-index="1">
+                Here, there was a
+                <b> translational symmetry </b>
+                in the system, and rotating two axis of the system into this
+                plane simplified the problem (the x and z coordinates could be
+                ignored).
+              </li>
+            </ul>
+          </section>
+          <section>
+            <ul>
+              <li>
+                This is a key concept. When we try to look at a new system we
+                should identify the symmetry and locate and orientate our axis
+                to exploit this!
+              </li>
+              <li class="fragment" data-fragment-index="1">
+                But what about non-planar symmetry? For example, take fluid flow
+                in a pipe:
+                <figure>
+                  <div class="center">
+                    <object
+                      data="img/pipe_flow_pipe.svg"
+                      type="image/svg+xml"
+                      width="80%"
+                    ></object>
+                  </div>
+                </figure>
+              </li>
+              <li class="fragment" data-fragment-index="2">
+                Here we have an
+                <b> axis of symmetry </b>
+                .
+              </li>
+              <li class="fragment" data-fragment-index="3">
+                Even if we locate our
+                <b> rectangular coordinate system </b>
+                on the axis of symmetry and rotate one axis to align down the
+                symmetry axis the problem will not get simpler.
+              </li>
+            </ul>
+          </section>
+          <section>
+            <figure>
+              <div class="center">
+                <object
+                  data="img/pipe_flow_rect.svg"
+                  type="image/svg+xml"
+                  width="80%"
+                ></object>
+              </div>
+            </figure>
+            <ul>
+              <li>
+                For example, given the
+                <b> Cartesian </b>
+                coordinate system highlighted above, the boundary of the pipe
+                must be described using the equation of a circle!
+              </li>
+              <li class="fragment" data-fragment-index="1">
+                The
+                <b> no-slip condition </b>
+                has to be stated like so: \begin{align*} \boldsymbol{v}&amp;=0
+                &amp; \text{when $\sqrt{x^2 + y^2} = R$} \end{align*}
+              </li>
+              <li class="fragment" data-fragment-index="2">
+                This boundary condition is difficult to work with, its much
+                simpler to transform the system into a more convenient
+                coordinate system.
+              </li>
+            </ul>
+          </section>
+          <section>
+            <figure>
+              <div class="center">
+                <object
+                  data="img/pipe_flow_rect.svg"
+                  type="image/svg+xml"
+                  width="80%"
+                ></object>
+              </div>
+            </figure>
+            <ul>
+              <li>
+                The
+                <b> symmetry boundary condition </b>
+                is not easy to express either: \begin{align*} \tau_{ij}&amp;=0
+                &amp; \text{when $i,j\in[x,y] $ AND $x=0$ AND $y=0$}
+                \end{align*}
+              </li>
+              <li class="fragment" data-fragment-index="1">
+                This boundary condition arises as the system is symmetric about
+                and axis (there is no transport across points/lines/planes of
+                symmetry).
+              </li>
+              <li class="fragment" data-fragment-index="2">
+                We have to specify quite a few conditions on this condition to
+                make it correct.
+              </li>
+              <li class="fragment" data-fragment-index="3">
+                Lets try a more natural coordinate system…
+              </li>
+            </ul>
+          </section>
+        </section>
+        <section>
+          <section data-menu-title="Cylindrical Balance Equation">
+            <ul>
+              <li>
+                It should be obvious that the most convenient coordinates to
+                work in in this case are
+                <b> cylindrical coordinates </b>
+                .
+                <figure>
+                  <div class="center">
+                    <object
+                      data="img/cylindrical_coords_only.svg"
+                      type="image/svg+xml"
+                      width="None%"
+                    ></object>
+                  </div>
+                </figure>
+              </li>
+              <li class="fragment" data-fragment-index="1">
+                And this is a general rule, if we have
+                <ul>
+                  <li class="fragment" data-fragment-index="2">
+                    <b> Translational symmetry in a plane </b>
+                    we should use
+                    <b> rectangular coordinates </b>
+                    .
                   </li>
-                </div>
-                <div class="fragment " data-fragment-index="2">
-                  <li>
-                    (Tutorial) Pressure driven flow between two plates
-                    with/without a moving top plate.
-                    <figure>
-                      <div class="center">
-                        <object data="img/flow_in_a_channel.svg" type="image/svg+xml" width="70%">
-                        </object>
-                      </div>
-                    </figure>
+                  <li class="fragment" data-fragment-index="3">
+                    <b> Rotational symmetry about an axis </b>
+                    we should use
+                    <b> cylindrical coordinates </b>
+                    .
                   </li>
-                </div>
-              </ul>
-            </li>
-          </ul>
-        </section>
-        <section data-menu-title="Other Coordinate Systems">
-          <ul>
-            <li>
-              In the film flow problem we found that locating the
-              coordinates in the correct location can greatly simplify the
-              problem.
-              <figure>
-                <div class="center">
-                  <object data="img/film-flow-3.svg" type="image/svg+xml" width="60%">
-                  </object>
-                </div>
-              </figure>
-            </li>
-            <li class="fragment" data-fragment-index="1">
-              Here, there was a
-              <b>
-                translational symmetry
-              </b>
-              in the
-              system, and rotating two axis of the system into this plane
-              simplified the problem (the x and z coordinates could be ignored).
-            </li>
-          </ul>
+                  <li class="fragment" data-fragment-index="4">
+                    <b> Rotational symmetry about a point </b>
+                    we should use
+                    <b> spherical coordinates </b>
+                    .
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </section>
+          <section data-menu-title="Cylindrical Coordinate Systems">
+            <ul>
+              <li>
+                But how do we use cylindrical coordinates in our balance
+                equations?
+              </li>
+              <li class="fragment" data-fragment-index="1">
+                Rather than understand differential operations in curvelinear
+                coordinates properly, we just derive the general balance
+                equation in cylindrical coordinate systems and then compare the
+                results to see if we can find some pattern.
+              </li>
+              <li class="fragment" data-fragment-index="2">
+                It actually turns out that we can use our existing balance
+                equations with look-up tables, but we first must prove this!
+              </li>
+              <li class="fragment" data-fragment-index="3">
+                Just as before, we will look at creating a general balance of a
+                property $B$ over a cylindrical
+                <b>control volume</b>.
+              </li>
+              <li class="fragment" data-fragment-index="4">
+                Lets start by defining the cylindrical coordinate system
+                properly…
+              </li>
+            </ul>
+          </section>
+          <section>
+            <div style="display: flex; align-items: center">
+              <div style="flex: 1 1 calc(100% * 0.41)">
+                <figure>
+                  <div class="center">
+                    <object
+                      data="img/cylindrical_coords-partial.svg"
+                      type="image/svg+xml"
+                      width="100%"
+                    ></object>
+                  </div>
+                </figure>
+              </div>
+              <div style="flex: 1 1 calc(100% * 0.61)">
+                <ul>
+                  <li>
+                    In rectangular coordinates we can specify a point using
+                    ($x$, $y$, $z$) coordinates (this axis is highlighted on the
+                    diagram).
+                  </li>
+                  <li class="fragment" data-fragment-index="1">
+                    Note that the directions $\hat{\boldsymbol{x}}$,
+                    $\hat{\boldsymbol{y}}$, and $\hat{\boldsymbol{z}}$ are
+                    always the same.
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </section>
+          <section>
+            <div style="display: flex; align-items: center">
+              <div style="flex: 1 1 calc(100% * 0.41)">
+                <figure>
+                  <div class="center">
+                    <object
+                      data="img/cylindrical_coords_only.svg"
+                      type="image/svg+xml"
+                      width="100%"
+                    ></object>
+                  </div>
+                </figure>
+              </div>
+              <div style="flex: 1 1 calc(100% * 0.61)">
+                <ul>
+                  <li>
+                    In cylindrical coordinates, we use a radius $r$, angle
+                    $\theta$ and axial offset $z$.
+                  </li>
+                  <li class="fragment" data-fragment-index="1">
+                    Please note that the directions $\hat{\boldsymbol{r}}$ and
+                    $\hat{\boldsymbol{\theta}}$ change with position, but
+                    $\hat{\boldsymbol{z}}$ is still easy.
+                  </li>
+                  <li class="fragment" data-fragment-index="2">
+                    Therefore, to generate a balance equation we will need to
+                    consider the fluxes over a small volume from ($r$ , $\theta$
+                    , $z$ ) to ($r+\delta
+                    r$,&nbsp;$\theta+\delta\theta$,&nbsp;$z+\delta z$).
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="fragment" data-fragment-index="3">
+              <div class="mathblock">
+                <h3>Note</h3>
+                We have already assumed that $\Delta r\to0$, $\Delta\theta\to0$,
+                and $\Delta z\to0$, hence why we are not using $\Delta r$ but
+                $\delta r$ instead. This is to allow us to cancel terms which
+                are second order in any one direction.
+              </div>
+            </div>
+          </section>
+          <section data-menu-title="Cylindrical Control Volume">
+            <figure>
+              <div class="center">
+                <object
+                  data="img/cylindrical_control_vol.svg"
+                  type="image/svg+xml"
+                  width="50%"
+                ></object>
+              </div>
+            </figure>
+            <ul>
+              <li>This is the control volume for cylindrical coordinates.</li>
+              <li class="fragment" data-fragment-index="1">
+                The main difference when compared to the rectangular control
+                volume is what happens in the $r$ -direction.
+              </li>
+              <li class="fragment" data-fragment-index="2">
+                Here, the volume is in the shape of an
+                <b> arc </b>
+                !
+              </li>
+              <li class="fragment" data-fragment-index="3">
+                The length of an arc is the radius times by the angle.
+              </li>
+              <li class="fragment" data-fragment-index="4">
+                So we have an inner arc of $r\delta\theta$ and an outer arc of
+                $(r+\delta r)\delta\theta$ !
+              </li>
+              <li class="fragment" data-fragment-index="5">
+                In a moment we will look at the fluxes through these faces, so
+                we need to be careful about their areas…
+              </li>
+            </ul>
+          </section>
+          <section>
+            <div style="display: flex; align-items: center">
+              <div style="flex: 1 1 calc(100% * 0.41)">
+                <figure>
+                  <div class="center">
+                    <object
+                      data="img/cylindrical_control_faces1.svg"
+                      type="image/svg+xml"
+                      width="100%"
+                    ></object>
+                  </div>
+                </figure>
+              </div>
+              <div style="flex: 1 1 calc(100% * 0.61)">
+                <ul>
+                  <li>
+                    The $rz$ faces (highlighted in green) are the simplest faces
+                    to deal with as they are square!
+                  </li>
+                  <li class="fragment" data-fragment-index="1">
+                    The area of each of these faces is simply \begin{align*}
+                    A_{rz}=\delta{}r \delta{}z \end{align*}
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </section>
+          <section>
+            <div style="display: flex; align-items: center">
+              <div style="flex: 1 1 calc(100% * 0.41)">
+                <figure>
+                  <div class="center">
+                    <object
+                      data="img/cylindrical_control_faces2.svg"
+                      type="image/svg+xml"
+                      width="100%"
+                    ></object>
+                  </div>
+                </figure>
+              </div>
+              <div style="flex: 1 1 calc(100% * 0.61)">
+                <ul>
+                  <li>
+                    The $\theta z$ faces are a curved, and so have an area equal
+                    to the arc length times the height.
+                  </li>
+                  <li class="fragment" data-fragment-index="1">
+                    This means the inner and outer areas differ! \begin{align*}
+                    A_{\theta z}(r)&amp;=r \delta\theta \delta z\\ A_{\theta
+                    z}(r+\delta r)&amp;=(r+\delta r)\delta\theta \delta z
+                    \end{align*}
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </section>
+          <section>
+            <figure>
+              <div class="center">
+                <object
+                  data="img/cylindrical_control_faces3.svg"
+                  type="image/svg+xml"
+                  width="70%"
+                ></object>
+              </div>
+            </figure>
+            <ul>
+              <li>
+                The $r\theta$ face areas are equal to the difference of two
+                <b> sectors </b>
+                .
+              </li>
+              <li class="fragment" data-fragment-index="1">
+                The expression for the area is \begin{align*} A_{r\theta} &amp;=
+                \frac{1}{2}\left((r+\delta r)^2 - r^2\right)\delta\theta =
+                \frac{1}{2}\left(2 r \delta r + \delta r^2\right)\delta\theta
+                \end{align*}
+              </li>
+              <li class="fragment" data-fragment-index="2">
+                However, we've already assumed that $\delta r\to 0$ precisely
+                for this part of the derivation.
+              </li>
+              <li class="fragment" data-fragment-index="3">
+                The rule is that any differential difference terms which are
+                second order are so small they will go to zero!
+              </li>
+            </ul>
+          </section>
+          <section>
+            <div style="display: flex; align-items: center">
+              <div style="flex: 1 1 calc(100% * 0.41)">
+                <figure>
+                  <div class="center">
+                    <object
+                      data="img/cylindrical_control_faces4.svg"
+                      type="image/svg+xml"
+                      width="100%"
+                    ></object>
+                  </div>
+                </figure>
+              </div>
+              <div style="flex: 1 1 calc(100% * 0.61)">
+                <ul>
+                  <li>
+                    This means that the area of this face is \begin{align*}
+                    A_{r\theta} &amp;= = \frac{1}{2}\left(2 r \delta r +
+                    \cancelto{0}{\delta r^2}\right)\delta\theta = r \delta
+                    r \delta\theta \end{align*}
+                  </li>
+                  <li class="fragment" data-fragment-index="1">
+                    We've solved for the areas of each face, but what about the
+                    control volume?
+                  </li>
+                  <li class="fragment" data-fragment-index="2">
+                    The control volume is simply the $A_{r\theta}$ times by the
+                    height $\delta z$ ! \begin{align*} \delta V &amp;=
+                    A_{r\theta} \delta z\\% &amp;= r \delta
+                    r \delta\theta \delta z \end{align*}
+                  </li>
+                  <li class="fragment" data-fragment-index="3">
+                    We now have all of the areas and volumes we need to consider
+                    for the cylindrical balance!
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </section>
+          <section>
+            <div style="display: flex; align-items: center">
+              <div style="flex: 1 1 calc(100% * 0.25)">
+                <figure>
+                  <div class="center">
+                    <object
+                      data="img/cylindrical_fluxes.svg"
+                      type="image/svg+xml"
+                      width="100%"
+                    ></object>
+                  </div>
+                </figure>
+              </div>
+              <div style="flex: 1 1 calc(100% * 0.75)">
+                <ul>
+                  <li>
+                    Before we can perform our balances, we must note that we
+                    have already taken the limit that our differential elements
+                    go to zero.
+                  </li>
+                  <li class="fragment" data-fragment-index="1">
+                    This means we can no longer use the definition of the first
+                    derivative \begin{align*} \frac{\partial f}{\partial x}
+                    &amp;= \lim_{\Delta x\to 0}\frac{f(x+\Delta x)-f(x)}{\Delta
+                    x} \end{align*} as we cannot take the limit twice!
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </section>
+          <section>
+            <ul>
+              <li>
+                However, lets take look at the Taylor expansion of a flux
+                \begin{align*} J_{B,x}(x+\Delta x) &amp;= J_{B,x}(x) + \Delta x
+                \frac{\partial J_{B,x}(x)}{\partial x}+\frac{\Delta x^2}{2}
+                \frac{\partial^2 J_{B,x}(x)}{\partial x^2}+… \end{align*}
+              </li>
+              <li class="fragment" data-fragment-index="1">
+                As we take the limit $\Delta x\to 0$, we find that eventually
+                only the linear terms survive \begin{align*} J_{B,x}(x+\delta x)
+                &amp;= J_{B,x}(x) + \delta x \frac{\partial J_{B,x}(x)}{\partial
+                x} \end{align*} As before, all of the $\delta x^2$ terms (and
+                higher) will go to zero as they are extremely small.
+              </li>
+              <li class="fragment" data-fragment-index="2">
+                We now have a relationship to give us the definition of a
+                gradient in terms of differential changes: \begin{align*}
+                \frac{J_{B,x}(x+\delta x) - J_{B,x}(x)}{\delta x} &amp;=
+                \frac{\partial J_{B,x}(x)}{\partial x} \end{align*}
+              </li>
+            </ul>
+          </section>
+          <section>
+            <div style="display: flex; align-items: center">
+              <div style="flex: 1 1 calc(100% * 0.25)">
+                <figure>
+                  <div class="center">
+                    <object
+                      data="img/cylindrical_fluxes_theta.svg"
+                      type="image/svg+xml"
+                      width="100%"
+                    ></object>
+                  </div>
+                </figure>
+              </div>
+              <div style="flex: 1 1 calc(100% * 0.75)">
+                <ul>
+                  <li>
+                    Lets start with $J_{B,\theta}$ , we have from our flux in
+                    and out \begin{align*} \text{IN}_\theta-\text{OUT}_\theta
+                    &amp;=
+                    A_{rz}\left[J_{B,\theta}(\theta)-J_{B,\theta}(\theta+\delta\theta)\right]
+                    \end{align*} and we have from the Taylor expansion
+                    \begin{align*} J_{B,\theta}(\theta+\delta \theta) &amp;=
+                    J_{B,\theta}(\theta) + \delta \theta \frac{\partial
+                    J_{B,\theta}(\theta)}{\partial \theta} \end{align*}
+                  </li>
+                  <li class="fragment" data-fragment-index="1">
+                    Substituting the expansion in and cancelling we have
+                    \begin{align*} \text{IN}_\theta-\text{OUT}_\theta &amp;= -
+                    A_{rz} \delta\theta \frac{\partial
+                    J_{B,\theta}(\theta)}{\partial \theta}\\ &amp;=
+                    -\delta{}r \delta{}z \delta\theta \frac{\partial
+                    J_{B,\theta}(\theta)}{\partial \theta} \end{align*}
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </section>
+          <section>
+            <div style="display: flex; align-items: center">
+              <div style="flex: 1 1 calc(100% * 0.25)">
+                <figure>
+                  <div class="center">
+                    <object
+                      data="img/cylindrical_fluxes_z.svg"
+                      type="image/svg+xml"
+                      width="100%"
+                    ></object>
+                  </div>
+                </figure>
+              </div>
+              <div style="flex: 1 1 calc(100% * 0.75)">
+                <ul>
+                  <li>
+                    Next is the $z$ direction, we have \begin{align*}
+                    \text{IN}_z-\text{OUT}_z &amp;=
+                    A_{r\theta}\left[J_{B,z}(z)-J_{B,z}(z+\delta z)\right]
+                    \end{align*} and we have from the Taylor expansion
+                    \begin{align*} J_{B,z}(z+\delta z) &amp;= J_{B,z}(z) +
+                    \delta z \frac{\partial J_{B,z}(z)}{\partial z} \end{align*}
+                  </li>
+                  <li class="fragment" data-fragment-index="1">
+                    Substituting the expansion in and cancelling we have
+                    \begin{align*} \text{IN}_z-\text{OUT}_z &amp;= -
+                    A_{r\theta} \delta z \frac{\partial J_{B,z}(z)}{\partial
+                    z}\\ &amp;= -r \delta r \delta\theta \delta z \frac{\partial
+                    J_{B,z}(z)}{\partial z} \end{align*}
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </section>
+          <section>
+            <ul>
+              <li>
+                Finally it is the $r$ direction's turn, here we have a special
+                case as the flux areas are different \begin{align*}
+                \text{IN}_r-\text{OUT}_r &amp;= A_{\theta z}(r) J_{B,r}(r)
+                -A_{\theta z}(r+\delta r) J_{B,r}(r+\delta r) \end{align*} where
+                $A_{\theta z}(r) = r \delta\theta \delta z$ and we have from the
+                Taylor expansion \begin{align*} J_{B,r}(r+\delta r) &amp;=
+                J_{B,r}(r) + \delta r \frac{\partial J_{B,r}(r)}{\partial r}
+                \end{align*}
+              </li>
+              <li class="fragment" data-fragment-index="1">
+                Substituting the expansion and area functions \begin{align*}
+                \text{IN}_r-\text{OUT}_r &amp;= r \delta\theta \delta z
+                 J_{B,r}(r) -(r+\delta r) \delta\theta \delta z \left(J_{B,r}(r)
+                + \delta r \frac{\partial J_{B,r}(r)}{\partial r}\right)
+                \end{align*}
+              </li>
+              <li class="fragment" data-fragment-index="2">
+                Expanding and removing any terms where there is a $\delta r^2$
+                term gives \begin{align*} \text{IN}_r-\text{OUT}_r &amp;=
+                -\delta r \delta\theta \delta z\left(J_{B,r}(r) + r 
+                \frac{\partial J_{B,r}(r)}{\partial r}\right) \end{align*}
+              </li>
+              <li class="fragment" data-fragment-index="3">
+                We can use the product rule identity that $f(x)+x f'(x) =
+                (x f(x))'$ to write the final result \begin{align*}
+                \text{IN}_r-\text{OUT}_r &amp;= -\delta\theta \delta z \delta r
+                \frac{\partial  r J_{B,r}(r)}{\partial r} \end{align*}
+              </li>
+            </ul>
+          </section>
+          <section>
+            <ul>
+              <li>
+                Nearly done, adding that all together we have \begin{align*}
+                \text{ACCUMULATION} &amp;= \text{INPUT}_r - \text{OUTPUT}_r \\%
+                &amp;+ \text{INPUT}_\theta - \text{OUTPUT}_\theta\\% &amp;+
+                \text{INPUT}_z - \text{OUTPUT}_z \\% &amp;+ \text{GENERATION}
+                \end{align*}
+              </li>
+              <li class="fragment" data-fragment-index="1">
+                Substituting in we have \begin{align*} \delta V \frac{\partial
+                c_B}{\partial t}&amp;= -\delta\theta \delta z \delta r
+                \frac{\partial  r J_{B,r}(r)}{\partial r} \\%
+                &amp;-\delta{}r \delta{}z \delta\theta \frac{\partial
+                J_{B,\theta}(\theta)}{\partial \theta}\\% &amp;- r \delta
+                r \delta\theta \delta z \frac{\partial J_{B,z}(z)}{\partial z}
+                \\% &amp; +\delta V \sigma_B \end{align*}
+              </li>
+              <li class="fragment" data-fragment-index="2">
+                Now we divide by the volume $\delta V = r \delta
+                r \delta\theta \delta z$ to yield…
+              </li>
+            </ul>
+          </section>
+          <section>
+            \begin{align*} \frac{\partial c_B}{\partial t}&amp;= -\frac{1}{r}
+            \frac{\partial  r J_{B,r}(r)}{\partial r}-\frac{1}{r} \frac{\partial
+            J_{B,\theta}(\theta)}{\partial \theta} - \frac{\partial
+            J_{B,z}(z)}{\partial z} +\sigma_B \end{align*}
+            <ul>
+              <li>
+                Voila! The general balance equation in cylindrical coordinates.
+              </li>
+              <li class="fragment" data-fragment-index="1">
+                Generating this balance equation is quite difficult; however, we
+                don't have to repeat this to generate the momentum and mass
+                balance.
+              </li>
+              <li class="fragment" data-fragment-index="2">
+                What we would like to have, is have the cylindrical and
+                rectangular (and spherical) balance equations in a more general
+                form which doesn't take as much work to obtain each time.
+              </li>
+              <li class="fragment" data-fragment-index="3">
+                In an ideal world we would like them to be the same!
+                \begin{align*} \frac{\partial c_B}{\partial t} = -\nabla\cdot
+                \boldsymbol{J}_B + \sigma_B \end{align*}
+              </li>
+            </ul>
+          </section>
+          <section>
+            \begin{align*} \frac{\partial c_B}{\partial t}&amp;= -\frac{1}{r}
+            \frac{\partial  r J_{B,r}(r)}{\partial r}-\frac{1}{r} \frac{\partial
+            J_{B,\theta}(\theta)}{\partial \theta} - \frac{\partial
+            J_{B,z}(z)}{\partial z} +\sigma_B \end{align*}
+            <ul>
+              <li>
+                If we look at the flux in cylindrical coordinates, we can be
+                consider it to be a vector of the form \begin{align*}
+                \boldsymbol{J}_B=\begin{bmatrix} J_{B,r},&amp;
+                J_{B,\theta},&amp; J_{B,z} \end{bmatrix} \end{align*} (Note that
+                these are the fluxes in the $\hat{\boldsymbol{r}}$,
+                $\hat{\boldsymbol{\theta}}$, and $\hat{\boldsymbol{z}}$
+                directions, see the initial lecture on vectors).
+              </li>
+              <li class="fragment" data-fragment-index="1">
+                If we then say the equation above
+                <b> is </b>
+                the general balance equation, but in cylindrical coordinates…
+                \begin{align*} \frac{\partial c_B}{\partial t} = -\nabla\cdot
+                \boldsymbol{J}_B + \sigma_B \end{align*}
+              </li>
+              <li class="fragment" data-fragment-index="2">
+                We end up with a definition of the gradient/del operator dotted
+                with a vector in cylindrical coordinates (<b>Note:</b> we cannot
+                define a general $\nabla$ <b>&ldquo;vector&rdquo;</b> from this
+                comparison, only what the action of $\nabla\cdot \boldsymbol{v}$
+                is): \begin{align*} \nabla\cdot \boldsymbol{v} = \frac{1}{r}
+                \frac{\partial }{\partial r} r v_r + \frac{1}{r} \frac{\partial
+                }{\partial \theta} v_\theta + \frac{\partial}{\partial z}v_z
+                \end{align*}
+              </li>
+            </ul>
+          </section>
+          <section>
+            \begin{align*} \frac{\partial c_B}{\partial t} = -\nabla\cdot
+            \boldsymbol{J}_B + \sigma_B \end{align*}
+            <ul>
+              <li>
+                This is a fundamental goal of vector notation, it is to become
+                <b>independent of the coordinate system</b>!
+              </li>
+              <li class="fragment" data-fragment-index="1">
+                This means we do not have to re-derive the continuity equation
+                or the momentum balance equation, we only need to take the
+                general equations \begin{align*} \frac{\partial \rho}{\partial
+                t} &amp;= -\nabla\cdot \rho \boldsymbol{v}\\ \frac{\partial
+                \boldsymbol{v}}{\partial t} &amp;= -\boldsymbol{v}\cdot\nabla
+                \boldsymbol{v} - \rho^{-1}\nabla\cdot\boldsymbol{\tau} -
+                \rho^{-1}\nabla p + \boldsymbol{g} \end{align*}
+              </li>
+              <li class="fragment" data-fragment-index="2">
+                And use the cylindrical definition of each of these
+                scalar/vector/tensor operations<sup class="footnotemark">1</sup
+                >: \begin{align*} \boldsymbol{v} &amp;= \begin{bmatrix} v_r,
+                &amp; v_\theta, &amp; v_z \end{bmatrix} &amp; \nabla s &amp;=
+                \begin{bmatrix} \frac{\partial  s}{\partial r}, &amp;
+                \frac{1}{r} \frac{\partial  s}{\partial \theta}, &amp;
+                \frac{\partial  s}{\partial z} \end{bmatrix} \\ \nabla \cdot
+                \boldsymbol{v} &amp;= \frac{1}{r}\frac{\partial  r v_r}{\partial
+                r} + \frac{1}{r} \frac{\partial  v_\theta}{\partial \theta} +
+                \frac{\partial  v_z}{\partial z} &amp; …&amp;= … \end{align*}
+              </li>
+            </ul>
+            <div class="footnote-container">
+              <div class="fragment" data-fragment-index="2">
+                <sup class="footnotemark"> 1 </sup>
+                See Chapter A.6 of Bird, R.
+              </div>
+            </div>
+          </section>
         </section>
         <section>
-          <ul>
-            <li>
-              This is a key concept. When we try to look at a new system
-              we should identify the symmetry and locate and orientate our axis
-              to exploit this!
-            </li>
-            <li class="fragment" data-fragment-index="1">
-              But what about non-planar symmetry? For example, take
-              fluid flow in a pipe:
-              <figure>
-                <div class="center">
-                  <object data="img/pipe_flow_pipe.svg" type="image/svg+xml" width="80%"></object>
-                </div>
-              </figure>
-            </li>
-            <li class="fragment" data-fragment-index="2">
-              Here we have an
-              <b>
-                axis of symmetry
-              </b>
-              .
-            </li>
-            <li class="fragment" data-fragment-index="3">
-              Even if we locate our
-              <b>
-                rectangular coordinate system
-              </b>
-              on the axis of symmetry and rotate one axis to align down the
-              symmetry axis the problem will not get simpler.
-            </li>
-          </ul>
+          <section data-menu-title="Spherical Coordinates">
+            <div style="display: flex; align-items: center">
+              <div style="flex: 1 1 calc(100% * 0.51)">
+                <figure>
+                  <div class="center">
+                    <object
+                      data="img/spherical_coords.svg"
+                      type="image/svg+xml"
+                      width="100%"
+                    ></object>
+                  </div>
+                </figure>
+              </div>
+              <div style="flex: 1 1 calc(100% * 0.51)">
+                <ul>
+                  <li>A quick note about spherical coordinates.</li>
+                  <li class="fragment" data-fragment-index="1">
+                    In a spherical geometry our coordinates are specified by a
+                    radius $r$ , and two angles $\theta$ , $\phi$ .
+                  </li>
+                  <li class="fragment" data-fragment-index="2">
+                    You can derive the balance equation in
+                    <b> exactly </b>
+                    the same way as for the cylindrical coordinates.
+                  </li>
+                  <li class="fragment" data-fragment-index="3">
+                    We won't do this here as it is slightly more complicated
+                    than the cylinder, we'll just take the result.
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </section>
+          <section>
+            <ul>
+              <li>
+                Our definitions of a vector and the gradient operator in
+                spherical coordinates are \begin{align*} \boldsymbol{v}&amp;=
+                \begin{bmatrix} v_r, &amp; v_\theta, &amp; v_\phi \end{bmatrix}
+                \\ \nabla s &amp;= \begin{bmatrix} \frac{\partial s}{\partial
+                r}, &amp; \frac{1}{r} \frac{\partial s}{\partial \theta} &amp;
+                \frac{1}{r\sin\theta}\frac{\partial s}{\partial \phi}
+                \end{bmatrix} \\ \nabla\cdot \boldsymbol{v} &amp;=
+                \frac{1}{r^2}\frac{\partial  r^2 v_r}{\partial r} +
+                \frac{1}{r\sin\theta} \frac{\partial
+                 v_\theta \sin\theta}{\partial \theta} +
+                \frac{1}{r\sin\theta}\frac{\partial v_\phi}{\partial \phi} \\ …
+                &amp;=… \end{align*}
+              </li>
+              <li class="fragment" data-fragment-index="1">
+                All of this information (and more) is provided in the exam and
+                tutorial datasheet.
+              </li>
+            </ul>
+            <div class="mathblock fragment" data-fragment-index="1">
+              <h3>Course notes</h3>
+              For more information on vector calculus, in particular how to
+              rigorously derive the results of applying the del operator to
+              expressions by consideration of the basis unit vectors, take a
+              look at Appendix A in BSL, the primary textbook for this course.
+            </div>
+          </section>
         </section>
         <section>
-          <figure>
-            <div class="center">
-              <object data="img/pipe_flow_rect.svg" type="image/svg+xml" width="80%">
-              </object>
-            </div>
-          </figure>
-          <ul>
-            <li>
-              For example, given the
-              <b>
-                Cartesian
-              </b>
-              coordinate system
-              highlighted above, the boundary of the pipe must be described
-              using the equation of a circle!
-            </li>
-            <li class="fragment" data-fragment-index="1">
-              The
-              <b>
-                no-slip condition
-              </b>
-              has to be stated like so:
-              \begin{align*}
-              \boldsymbol{v}&amp;=0 &amp; \text{when $\sqrt{x^2 + y^2} = R$}
-              \end{align*}
-            </li>
-            <li class="fragment" data-fragment-index="2">
-              This boundary condition is difficult to work with, its
-              much simpler to transform the system into a more convenient
-              coordinate system.
-            </li>
-          </ul>
+          <section data-menu-title="Learning Objectives">
+            <h3>Learning objectives</h3>
+            <ul>
+              <li>
+                The
+                <b> vector </b>
+                continuity equation and momentum balance equation are the same
+                in all coordinate systems \begin{align*} \frac{\partial
+                \rho}{\partial t} &amp;=- \nabla\cdot \rho \boldsymbol{v}\\
+                \frac{\partial \boldsymbol{v}}{\partial t} &amp;=
+                -\boldsymbol{v}\cdot\nabla \boldsymbol{v} -
+                \rho^{-1}\nabla\cdot\boldsymbol{\tau} - \rho^{-1}\nabla p +
+                \boldsymbol{g} \end{align*}
+              </li>
+              <li class="fragment" data-fragment-index="1">
+                The definition of a vector and the gradient operator changes
+                depending on the coordinate system
+                <ul>
+                  <li class="fragment" data-fragment-index="2">
+                    For rectangular/Cartesian coordinates we have two
+                    definitions, from which all operations are easily derived:
+                    \begin{align*} \boldsymbol{v} &amp;= \begin{bmatrix} v_x,
+                    &amp; v_y, &amp; v_z \end{bmatrix}&amp; \nabla &amp;=
+                    \begin{bmatrix} \frac{\partial }{\partial x}, &amp;
+                    \frac{\partial }{\partial y}, &amp; \frac{\partial
+                    }{\partial z} \end{bmatrix} \end{align*}
+                  </li>
+                  <li class="fragment" data-fragment-index="3">
+                    For curvilinear coordinates, its more complicated, each
+                    operation involving one or more gradient operators $\nabla$
+                    has a different definition due to the dependence of the
+                    directions of the coordinate system on the position.
+                  </li>
+                  <li class="fragment" data-fragment-index="4">
+                    For these terms, we use look up tables of expressions.
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </section>
         </section>
-        <section>
-          <figure>
-            <div class="center">
-              <object data="img/pipe_flow_rect.svg" type="image/svg+xml" width="80%">
-              </object>
-            </div>
-          </figure>
-          <ul>
-            <li>
-              The
-              <b>
-                symmetry boundary condition
-              </b>
-              is not easy to
-              express either:
-              \begin{align*}
-              \tau_{ij}&amp;=0 &amp; \text{when $i,j\in[x,y] $ AND $x=0$ AND $y=0$}
-              \end{align*}
-            </li>
-            <li class="fragment" data-fragment-index="1">
-              This boundary condition arises as the system is symmetric
-              about and axis (there is no transport across points/lines/planes
-              of symmetry).
-            </li>
-            <li class="fragment" data-fragment-index="2">
-              We have to specify quite a few conditions on this
-              condition to make it correct.
-            </li>
-            <li class="fragment" data-fragment-index="3">
-              Lets try a more natural coordinate system…
-            </li>
-          </ul>
-        </section>
-      </section>
-      <section>
-        <section data-menu-title="Cylindrical Balance Equation">
-          <ul>
-            <li>
-              It should be obvious that the most convenient coordinates
-              to work in in this case are
-              <b>
-                cylindrical coordinates
-              </b>
-              .
-              <figure>
-                <div class="center">
-                  <object data="img/cylindrical_coords_only.svg" type="image/svg+xml" width="None%">
-                  </object>
-                </div>
-              </figure>
-            </li>
-            <li class="fragment" data-fragment-index="1">
-              And this is a general rule, if we have
-              <ul>
-                <li class="fragment" data-fragment-index="2">
-                  <b>
-                    Translational symmetry in a plane
-                  </b>
-                  we should use
-                  <b>
-                    rectangular coordinates
-                  </b>
-                  .
-                </li>
-                <li class="fragment" data-fragment-index="3">
-                  <b>
-                    Rotational symmetry about an axis
-                  </b>
-                  we should use
-                  <b>
-                    cylindrical coordinates
-                  </b>
-                  .
-                </li>
-                <li class="fragment" data-fragment-index="4">
-                  <b>
-                    Rotational symmetry about a point
-                  </b>
-                  we should use
-                  <b>
-                    spherical
-                    coordinates
-                  </b>
-                  .
-                </li>
-              </ul>
-            </li>
-          </ul>
-        </section>
-        <section data-menu-title="Cylindrical Coordinate Systems">
-          <ul>
-            <li>
-              But how do we use cylindrical coordinates in our balance
-              equations?
-            </li>
-            <li class="fragment" data-fragment-index="1">
-              Rather than understand differential operations in curvelinear
-              coordinates properly, we just derive the general balance
-              equation in cylindrical coordinate systems and then compare
-              the results to see if we can find some pattern.
-            </li>
-            <li class="fragment" data-fragment-index="2">
-              It actually turns out that we can use our existing balance
-              equations with look-up tables, but we first must prove this!
-            </li>
-            <li class="fragment" data-fragment-index="3">
-              Just as before, we will look at creating a general balance
-              of a property $B$
-              over a cylindrical
-              <b>control volume</b>.
-            </li>
-            <li class="fragment" data-fragment-index="4">
-              Lets start by defining the cylindrical coordinate system
-              properly…
-            </li>
-          </ul>
-        </section>
-        <section>
-          <div style="display:flex;align-items:center;">
-            <div style="flex: 1 1 calc(100% * 0.41);">
-              <figure>
-                <div class="center">
-                  <object data="img/cylindrical_coords-partial.svg" type="image/svg+xml" width="100%">
-                  </object>
-                </div>
-              </figure>
-            </div>
-            <div style="flex: 1 1 calc(100% * 0.61);">
-              <ul>
-                <li>
-                  In rectangular coordinates we can specify a point using
-                  ($x$,
-                  $y$,
-                  $z$) coordinates (this axis is highlighted on the diagram).
-                </li>
-                <li class="fragment" data-fragment-index="1">
-                  Note that the directions $\hat{\boldsymbol{x}}$,
-                  $\hat{\boldsymbol{y}}$, and
-                  $\hat{\boldsymbol{z}}$ are always the same.
-                </li>
-              </ul>
-            </div>
-          </div>
-        </section>
-        <section>
-          <div style="display:flex;align-items:center;">
-            <div style="flex: 1 1 calc(100% * 0.41);">
-              <figure>
-                <div class="center">
-                  <object data="img/cylindrical_coords_only.svg" type="image/svg+xml" width="100%">
-                  </object>
-                </div>
-              </figure>
-            </div>
-            <div style="flex: 1 1 calc(100% * 0.61);">
-              <ul>
-                <li>
-                  In cylindrical coordinates, we use a radius $r$, angle
-                  $\theta$ and axial offset $z$.
-                </li>
-                <li class="fragment" data-fragment-index="1">
-                  Please note that the directions $\hat{\boldsymbol{r}}$ and
-                  $\hat{\boldsymbol{\theta}}$ change with position, but
-                  $\hat{\boldsymbol{z}}$ is still easy.
-                </li>
-                <li class="fragment" data-fragment-index="2">
-                  Therefore, to generate a balance equation we will need to
-                  consider the fluxes over a small volume from ($r$ , $\theta$
-                  , $z$ ) to ($r+\delta r$,&nbsp;$\theta+\delta\theta$,&nbsp;$z+\delta z$).
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div class="fragment " data-fragment-index="3">
-            <div class="mathblock">
-              <h3>Note</h3> We have already assumed that $\Delta r\to0$,
-              $\Delta\theta\to0$, and $\Delta z\to0$, hence why we are not
-              using $\Delta r$ but $\delta r$ instead. This is to allow us
-              to cancel terms which are second order in any one direction.
-            </div>
-          </div>
-        </section>
-        <section data-menu-title="Cylindrical Control Volume">
-          <figure>
-            <div class="center">
-              <object data="img/cylindrical_control_vol.svg" type="image/svg+xml" width="50%">
-              </object>
-            </div>
-          </figure>
-          <ul>
-            <li>
-              This is the control volume for cylindrical coordinates.
-            </li>
-            <li class="fragment" data-fragment-index="1">
-              The main difference when compared to the rectangular
-              control volume is what happens in the $r$
-              -direction.
-            </li>
-            <li class="fragment" data-fragment-index="2">
-              Here, the volume is in the shape of an
-              <b>
-                arc
-              </b>
-              !
-            </li>
-            <li class="fragment" data-fragment-index="3">
-              The length of an arc is the radius times by the angle.
-            </li>
-            <li class="fragment" data-fragment-index="4">
-              So we have an inner arc of $r\delta\theta$
-              and an outer
-              arc of
-              $(r+\delta r)\delta\theta$
-              !
-            </li>
-            <li class="fragment" data-fragment-index="5">
-              In a moment we will look at the fluxes through these
-              faces, so we need to be careful about their areas…
-            </li>
-          </ul>
-        </section>
-        <section>
-          <div style="display:flex;align-items:center;">
-            <div style="flex: 1 1 calc(100% * 0.41);">
-              <figure>
-                <div class="center">
-                  <object data="img/cylindrical_control_faces1.svg" type="image/svg+xml" width="100%">
-                  </object>
-                </div>
-              </figure>
-            </div>
-            <div style="flex: 1 1 calc(100% * 0.61);">
-              <ul>
-                <li>
-                  The $rz$
-                  faces (highlighted in green) are the simplest
-                  faces to deal with as they are square!
-                </li>
-                <li class="fragment" data-fragment-index="1">
-                  The area of each of these faces is simply
-                  \begin{align*}
-                  A_{rz}=\delta{}r \delta{}z
-                  \end{align*}
-                </li>
-              </ul>
-            </div>
-          </div>
-        </section>
-        <section>
-          <div style="display:flex;align-items:center;">
-            <div style="flex: 1 1 calc(100% * 0.41);">
-              <figure>
-                <div class="center">
-                  <object data="img/cylindrical_control_faces2.svg" type="image/svg+xml" width="100%">
-                  </object>
-                </div>
-              </figure>
-            </div>
-            <div style="flex: 1 1 calc(100% * 0.61);">
-              <ul>
-                <li>
-                  The $\theta z$
-                  faces are a curved, and so have an area
-                  equal to the arc length times the height.
-                </li>
-                <li class="fragment" data-fragment-index="1">
-                  This means the inner and outer areas differ!
-                  \begin{align*}
-                  A_{\theta z}(r)&amp;=r \delta\theta \delta z\\
-                  A_{\theta z}(r+\delta r)&amp;=(r+\delta r)\delta\theta \delta z
-                  \end{align*}
-                </li>
-              </ul>
-            </div>
-          </div>
-        </section>
-        <section>
-          <figure>
-            <div class="center">
-              <object data="img/cylindrical_control_faces3.svg" type="image/svg+xml" width="70%">
-              </object>
-            </div>
-          </figure>
-          <ul>
-            <li>
-              The $r\theta$
-              face areas are equal to the difference of
-              two
-              <b>
-                sectors
-              </b>
-              .
-            </li>
-            <li class="fragment" data-fragment-index="1">
-              The expression for the area is
-              \begin{align*}
-              A_{r\theta} &amp;= \frac{1}{2}\left((r+\delta r)^2 -
-              r^2\right)\delta\theta
-              = \frac{1}{2}\left(2 r \delta r + \delta r^2\right)\delta\theta
-              \end{align*}
-            </li>
-            <li class="fragment" data-fragment-index="2">
-              However, we've already assumed that $\delta r\to 0$
-              precisely for this part of the derivation.
-            </li>
-            <li class="fragment" data-fragment-index="3">
-              The rule is that any differential difference terms which
-              are second order are so small they will go to zero!
-            </li>
-          </ul>
-        </section>
-        <section>
-          <div style="display:flex;align-items:center;">
-            <div style="flex: 1 1 calc(100% * 0.41);">
-              <figure>
-                <div class="center">
-                  <object data="img/cylindrical_control_faces4.svg" type="image/svg+xml" width="100%">
-                  </object>
-                </div>
-              </figure>
-            </div>
-            <div style="flex: 1 1 calc(100% * 0.61);">
-              <ul>
-                <li>
-                  This means that the area of this face is
-                  \begin{align*}
-                  A_{r\theta} &amp;= = \frac{1}{2}\left(2 r \delta r +
-                  \cancelto{0}{\delta r^2}\right)\delta\theta = r \delta
-                  r \delta\theta
-                  \end{align*}
-                </li>
-                <li class="fragment" data-fragment-index="1">
-                  We've solved for the areas of each face, but what
-                  about the control volume?
-                </li>
-                <li class="fragment" data-fragment-index="2">
-                  The control volume is simply the $A_{r\theta}$
-                  times
-                  by the height
-                  $\delta z$
-                  !
-                  \begin{align*}
-                  \delta V &amp;= A_{r\theta} \delta z\\%
-                  &amp;= r \delta r \delta\theta \delta z
-                  \end{align*}
-                </li>
-                <li class="fragment" data-fragment-index="3">
-                  We now have all of the areas and volumes we need to
-                  consider for the cylindrical balance!
-                </li>
-              </ul>
-            </div>
-          </div>
-        </section>
-        <section>
-          <div style="display:flex;align-items:center;">
-            <div style="flex: 1 1 calc(100% * 0.25);">
-              <figure>
-                <div class="center">
-                  <object data="img/cylindrical_fluxes.svg" type="image/svg+xml" width="100%">
-                  </object>
-                </div>
-              </figure>
-            </div>
-            <div style="flex: 1 1 calc(100% * 0.75);">
-              <ul>
-                <li>
-                  Before we can perform our balances, we must note that we
-                  have already taken the limit that our differential elements go to
-                  zero.
-                </li>
-                <li class="fragment" data-fragment-index="1">
-                  This means we can no longer use the definition of the
-                  first derivative
-                  \begin{align*}
-                  \frac{\partial f}{\partial x} &amp;= \lim_{\Delta x\to
-                  0}\frac{f(x+\Delta x)-f(x)}{\Delta x}
-                  \end{align*}
-                  as we cannot take the limit twice!
-                </li>
-              </ul>
-            </div>
-          </div>
-        </section>
-        <section>
-          <ul>
-            <li>
-              However, lets take look at the Taylor expansion of a flux
-              \begin{align*}
-              J_{B,x}(x+\Delta x) &amp;= J_{B,x}(x) + \Delta x \frac{\partial J_{B,x}(x)}{\partial
-              x}+\frac{\Delta x^2}{2} \frac{\partial^2 J_{B,x}(x)}{\partial x^2}+…
-              \end{align*}
-            </li>
-            <li class="fragment" data-fragment-index="1">
-              As we take the limit $\Delta x\to 0$,
-              we find that eventually only the linear terms survive
-              \begin{align*}
-              J_{B,x}(x+\delta x) &amp;= J_{B,x}(x) + \delta x \frac{\partial J_{B,x}(x)}{\partial
-              x}
-              \end{align*}
-              As before, all of the
-              $\delta x^2$
-              terms (and higher) will go to
-              zero as they are extremely small.
-            </li>
-            <li class="fragment" data-fragment-index="2">
-              We now have a relationship to give us the definition of a
-              gradient in terms of differential changes:
-              \begin{align*}
-              \frac{J_{B,x}(x+\delta x) - J_{B,x}(x)}{\delta x} &amp;= \frac{\partial J_{B,x}(x)}{\partial
-              x}
-              \end{align*}
-            </li>
-          </ul>
-        </section>
-        <section>
-          <div style="display:flex;align-items:center;">
-            <div style="flex: 1 1 calc(100% * 0.25);">
-              <figure>
-                <div class="center">
-                  <object data="img/cylindrical_fluxes_theta.svg" type="image/svg+xml" width="100%">
-                  </object>
-                </div>
-              </figure>
-            </div>
-            <div style="flex: 1 1 calc(100% * 0.75);">
-              <ul>
-                <li>
-                  Lets start with $J_{B,\theta}$
-                  , we have from our flux in
-                  and out
-                  \begin{align*}
-                  \text{IN}_\theta-\text{OUT}_\theta &amp;=
-                  A_{rz}\left[J_{B,\theta}(\theta)-J_{B,\theta}(\theta+\delta\theta)\right]
-                  \end{align*}
-                  and we have from the Taylor expansion
-                  \begin{align*}
-                  J_{B,\theta}(\theta+\delta \theta) &amp;= J_{B,\theta}(\theta) +
-                  \delta \theta \frac{\partial J_{B,\theta}(\theta)}{\partial
-                  \theta}
-                  \end{align*}
-                </li>
-                <li class="fragment" data-fragment-index="1">
-                  Substituting the expansion in and cancelling we have
-                  \begin{align*}
-                  \text{IN}_\theta-\text{OUT}_\theta &amp;=
-                  - A_{rz} \delta\theta \frac{\partial J_{B,\theta}(\theta)}{\partial \theta}\\
-                  &amp;= -\delta{}r \delta{}z \delta\theta \frac{\partial J_{B,\theta}(\theta)}{\partial \theta}
-                  \end{align*}
-                </li>
-              </ul>
-            </div>
-          </div>
-        </section>
-        <section>
-          <div style="display:flex;align-items:center;">
-            <div style="flex: 1 1 calc(100% * 0.25);">
-              <figure>
-                <div class="center">
-                  <object data="img/cylindrical_fluxes_z.svg" type="image/svg+xml" width="100%">
-                  </object>
-                </div>
-              </figure>
-            </div>
-            <div style="flex: 1 1 calc(100% * 0.75);">
-              <ul>
-                <li>
-                  Next is the $z$
-                  direction, we have
-                  \begin{align*}
-                  \text{IN}_z-\text{OUT}_z &amp;=
-                  A_{r\theta}\left[J_{B,z}(z)-J_{B,z}(z+\delta z)\right]
-                  \end{align*}
-                  and we have from the Taylor expansion
-                  \begin{align*}
-                  J_{B,z}(z+\delta z) &amp;= J_{B,z}(z) + \delta z \frac{\partial
-                  J_{B,z}(z)}{\partial z}
-                  \end{align*}
-                </li>
-                <li class="fragment" data-fragment-index="1">
-                  Substituting the expansion in and cancelling we have
-                  \begin{align*}
-                  \text{IN}_z-\text{OUT}_z &amp;=
-                  - A_{r\theta} \delta z \frac{\partial J_{B,z}(z)}{\partial z}\\
-                  &amp;= -r \delta r \delta\theta \delta z \frac{\partial J_{B,z}(z)}{\partial z}
-                  \end{align*}
-                </li>
-              </ul>
-            </div>
-          </div>
-        </section>
-        <section>
-          <ul>
-            <li>
-              Finally it is the $r$
-              direction's turn, here we have a
-              special case as the flux areas are different
-              \begin{align*}
-              \text{IN}_r-\text{OUT}_r &amp;= A_{\theta z}(r) J_{B,r}(r)
-              -A_{\theta z}(r+\delta r) J_{B,r}(r+\delta r)
-              \end{align*}
-              where
-              $A_{\theta z}(r) = r \delta\theta \delta z$
-              and we have
-              from the Taylor expansion
-              \begin{align*}
-              J_{B,r}(r+\delta r) &amp;= J_{B,r}(r) + \delta r \frac{\partial
-              J_{B,r}(r)}{\partial r}
-              \end{align*}
-            </li>
-            <li class="fragment" data-fragment-index="1">
-              Substituting the expansion and area functions
-              \begin{align*}
-              \text{IN}_r-\text{OUT}_r &amp;= r \delta\theta \delta z
-               J_{B,r}(r) -(r+\delta r) \delta\theta \delta
-              z \left(J_{B,r}(r) + \delta r \frac{\partial
-              J_{B,r}(r)}{\partial r}\right)
-              \end{align*}
-            </li>
-            <li class="fragment" data-fragment-index="2">
-              Expanding and removing any terms where there is a $\delta
-              r^2$
-              term gives
-              \begin{align*}
-              \text{IN}_r-\text{OUT}_r &amp;= -\delta r \delta\theta \delta
-              z\left(J_{B,r}(r) + r  \frac{\partial J_{B,r}(r)}{\partial r}\right)
-              \end{align*}
-            </li>
-            <li class="fragment" data-fragment-index="3">
-              We can use the product rule identity that $f(x)+x f'(x) =
-              (x f(x))'$
-              to write the final result
-              \begin{align*}
-              \text{IN}_r-\text{OUT}_r &amp;= -\delta\theta \delta z \delta r
-              \frac{\partial  r J_{B,r}(r)}{\partial r}
-              \end{align*}
-            </li>
-          </ul>
-        </section>
-        <section>
-          <ul>
-            <li>
-              Nearly done, adding that all together we have
-              \begin{align*}
-              \text{ACCUMULATION} &amp;= \text{INPUT}_r - \text{OUTPUT}_r \\%
-              &amp;+ \text{INPUT}_\theta - \text{OUTPUT}_\theta\\%
-              &amp;+ \text{INPUT}_z - \text{OUTPUT}_z \\%
-              &amp;+ \text{GENERATION}
-              \end{align*}
-            </li>
-            <li class="fragment" data-fragment-index="1">
-              Substituting in we have
-              \begin{align*}
-              \delta V \frac{\partial c_B}{\partial
-              t}&amp;= -\delta\theta \delta z \delta r \frac{\partial
-               r J_{B,r}(r)}{\partial r} \\%
-              &amp;-\delta{}r \delta{}z \delta\theta \frac{\partial
-              J_{B,\theta}(\theta)}{\partial \theta}\\%
-              &amp;- r \delta r \delta\theta \delta z \frac{\partial
-              J_{B,z}(z)}{\partial z} \\%
-              &amp; +\delta V \sigma_B
-              \end{align*}
-            </li>
-            <li class="fragment" data-fragment-index="2">
-              Now we divide by the volume $\delta V = r \delta
-              r \delta\theta \delta z$
-              to yield…
-            </li>
-          </ul>
-        </section>
-        <section>
-          \begin{align*}
-          \frac{\partial c_B}{\partial t}&amp;= -\frac{1}{r} \frac{\partial 
-          r J_{B,r}(r)}{\partial r}-\frac{1}{r} \frac{\partial
-          J_{B,\theta}(\theta)}{\partial \theta} - \frac{\partial
-          J_{B,z}(z)}{\partial z} +\sigma_B
-          \end{align*}
-          <ul>
-            <li>
-              Voila! The general balance equation in cylindrical
-              coordinates.
-            </li>
-            <li class="fragment" data-fragment-index="1">
-              Generating this balance equation is quite difficult;
-              however, we don't have to repeat this to generate the momentum and
-              mass balance.
-            </li>
-            <li class="fragment" data-fragment-index="2">
-              What we would like to have, is have the cylindrical and
-              rectangular (and spherical) balance equations in a more general
-              form which doesn't take as much work to obtain each time.
-            </li>
-            <li class="fragment" data-fragment-index="3">
-              In an ideal world we would like them to be the same!
-              \begin{align*}
-              \frac{\partial c_B}{\partial t} = -\nabla\cdot \boldsymbol{J}_B + \sigma_B
-              \end{align*}
-            </li>
-          </ul>
-        </section>
-        <section>
-          \begin{align*}
-          \frac{\partial c_B}{\partial t}&amp;= -\frac{1}{r} \frac{\partial 
-          r J_{B,r}(r)}{\partial r}-\frac{1}{r} \frac{\partial
-          J_{B,\theta}(\theta)}{\partial \theta} - \frac{\partial
-          J_{B,z}(z)}{\partial z} +\sigma_B
-          \end{align*}
-          <ul>
-            <li>
-              If we look at the flux in cylindrical coordinates, we can
-              be consider it to be a vector of the form
-              \begin{align*}
-              \boldsymbol{J}_B=\begin{bmatrix}
-              J_{B,r},&amp; J_{B,\theta},&amp; J_{B,z}
-              \end{bmatrix}
-              \end{align*}
-
-              (Note that these are the fluxes in the $\hat{\boldsymbol{r}}$,
-              $\hat{\boldsymbol{\theta}}$, and $\hat{\boldsymbol{z}}$
-              directions, see the initial lecture on vectors).
-            </li>
-            <li class="fragment" data-fragment-index="1">
-              If we then say the equation above
-              <b>
-                is
-              </b>
-              the general
-              balance equation, but in cylindrical coordinates…
-              \begin{align*}
-              \frac{\partial c_B}{\partial t} = -\nabla\cdot \boldsymbol{J}_B + \sigma_B
-              \end{align*}
-            </li>
-            <li class="fragment" data-fragment-index="2">
-              We end up with a definition of the gradient/del operator
-              dotted with a vector in cylindrical coordinates (<b>Note:</b> we
-              cannot define a general $\nabla$
-              <b>&ldquo;vector&rdquo;</b> from this comparison, only what the action of $\nabla\cdot \boldsymbol{v}$
-              is):
-              \begin{align*}
-              \nabla\cdot \boldsymbol{v} =
-              \frac{1}{r} \frac{\partial }{\partial r} r v_r +
-              \frac{1}{r} \frac{\partial }{\partial \theta} v_\theta +
-              \frac{\partial}{\partial z}v_z
-              \end{align*}
-            </li>
-          </ul>
-        </section>
-        <section>
-          \begin{align*}
-          \frac{\partial c_B}{\partial t} = -\nabla\cdot \boldsymbol{J}_B + \sigma_B
-          \end{align*}
-          <ul>
-            <li>
-              This is a fundamental goal of vector notation, it is to
-              become
-              <b>independent of the coordinate system</b>!
-            </li>
-            <li class="fragment" data-fragment-index="1">
-              This means we do not have to re-derive the continuity
-              equation or the momentum balance equation, we only need to take
-              the general equations
-              \begin{align*}
-              \frac{\partial \rho}{\partial t} &amp;= -\nabla\cdot \rho \boldsymbol{v}\\
-              \frac{\partial \boldsymbol{v}}{\partial t} &amp;= -\boldsymbol{v}\cdot\nabla \boldsymbol{v}
-              - \rho^{-1}\nabla\cdot\boldsymbol{\tau} - \rho^{-1}\nabla p + \boldsymbol{g}
-              \end{align*}
-            </li>
-            <li class="fragment" data-fragment-index="2">
-              And use the cylindrical definition of each of these
-              scalar/vector/tensor operations<sup class="footnotemark">1</sup>:
-              \begin{align*}
-              \boldsymbol{v} &amp;=
-              \begin{bmatrix}
-              v_r, &amp; v_\theta, &amp; v_z
-              \end{bmatrix}
-              &amp;
-              \nabla s &amp;=
-              \begin{bmatrix}
-              \frac{\partial  s}{\partial r}, &amp;
-              \frac{1}{r} \frac{\partial  s}{\partial \theta}, &amp;
-              \frac{\partial  s}{\partial z}
-              \end{bmatrix}
-              \\
-              \nabla \cdot \boldsymbol{v} &amp;= \frac{1}{r}\frac{\partial  r v_r}{\partial r} +
-              \frac{1}{r} \frac{\partial  v_\theta}{\partial \theta} + \frac{\partial  v_z}{\partial z}
-              &amp;
-              …&amp;= …
-              \end{align*}
-            </li>
-          </ul>
-          <div class="footnote-container">
-            <div class="fragment" data-fragment-index="2">
-              <sup class="footnotemark">
-                1
-              </sup>
-              See Chapter A.6 of Bird,
-              R.
-            </div>
-          </div>
-        </section>
-      </section>
-      <section>
-        <section data-menu-title="Spherical Coordinates">
-          <div style="display:flex;align-items:center;">
-            <div style="flex: 1 1 calc(100% * 0.51);">
-              <figure>
-                <div class="center">
-                  <object data="img/spherical_coords.svg" type="image/svg+xml" width="100%">
-                  </object>
-                </div>
-              </figure>
-            </div>
-            <div style="flex: 1 1 calc(100% * 0.51);">
-              <ul>
-                <li>
-                  A quick note about spherical coordinates.
-                </li>
-                <li class="fragment" data-fragment-index="1">
-                  In a spherical geometry our coordinates are specified
-                  by a radius $r$
-                  , and two angles
-                  $\theta$
-                  ,
-                  $\phi$
-                  .
-                </li>
-                <li class="fragment" data-fragment-index="2">
-                  You can derive the balance equation in
-                  <b>
-                    exactly
-                  </b>
-                  the
-                  same way as for the cylindrical coordinates.
-                </li>
-                <li class="fragment" data-fragment-index="3">
-                  We won't do this here as it is slightly more complicated
-                  than the cylinder, we'll just take the result.
-                </li>
-              </ul>
-            </div>
-          </div>
-        </section>
-        <section>
-          <ul>
-            <li>
-              Our definitions of a vector and the gradient operator in
-              spherical coordinates are
-              \begin{align*}
-              \boldsymbol{v}&amp;=
-              \begin{bmatrix}
-              v_r, &amp; v_\theta, &amp; v_\phi
-              \end{bmatrix}
-              \\
-              \nabla s &amp;=
-              \begin{bmatrix}
-              \frac{\partial s}{\partial r}, &amp; \frac{1}{r} \frac{\partial
-              s}{\partial \theta} &amp;
-              \frac{1}{r\sin\theta}\frac{\partial s}{\partial \phi}
-              \end{bmatrix}
-              \\
-              \nabla\cdot \boldsymbol{v} &amp;=
-              \frac{1}{r^2}\frac{\partial  r^2 v_r}{\partial r}
-              + \frac{1}{r\sin\theta} \frac{\partial
-               v_\theta \sin\theta}{\partial \theta} +
-              \frac{1}{r\sin\theta}\frac{\partial v_\phi}{\partial \phi}
-              \\
-              … &amp;=…
-              \end{align*}
-            </li>
-            <li class="fragment" data-fragment-index="1">
-              All of this information (and more) is provided in the exam
-              and tutorial datasheet.
-            </li>
-          </ul>
-          <div class="mathblock fragment" data-fragment-index="1">
-            <h3>Course notes</h3> For more information on vector calculus,
-            in particular how to rigorously derive the results of applying
-            the del operator to expressions by consideration of the basis
-            unit vectors, take a look at Appendix A in BSL, the primary
-            textbook for this course.
-          </div>
-        </section>
-      </section>
-      <section>
-        <section data-menu-title="Learning Objectives">
-          <h3>Learning objectives</h3>
-          <ul>
-            <li>
-              The
-              <b>
-                vector
-              </b>
-              continuity equation and momentum balance
-              equation are the same in all coordinate systems
-              \begin{align*}
-              \frac{\partial \rho}{\partial t} &amp;=- \nabla\cdot \rho \boldsymbol{v}\\
-              \frac{\partial \boldsymbol{v}}{\partial t} &amp;= -\boldsymbol{v}\cdot\nabla \boldsymbol{v}
-              - \rho^{-1}\nabla\cdot\boldsymbol{\tau} - \rho^{-1}\nabla p + \boldsymbol{g}
-              \end{align*}
-            </li>
-            <li class="fragment" data-fragment-index="1">
-              The definition of a vector and the gradient operator
-              changes depending on the coordinate system
-              <ul>
-                <li class="fragment" data-fragment-index="2">
-                  For rectangular/Cartesian coordinates we have two
-                  definitions, from which all operations are easily derived:
-                  \begin{align*}
-                  \boldsymbol{v} &amp;=
-                  \begin{bmatrix}
-                  v_x, &amp; v_y, &amp; v_z
-                  \end{bmatrix}&amp;
-                  \nabla &amp;=
-                  \begin{bmatrix}
-                  \frac{\partial }{\partial x}, &amp;
-                  \frac{\partial }{\partial y}, &amp;
-                  \frac{\partial }{\partial z}
-                  \end{bmatrix}
-                  \end{align*}
-                </li>
-                <li class="fragment" data-fragment-index="3">
-                  For curvilinear coordinates, its more complicated, each
-                  operation involving one or more gradient operators $\nabla$
-                  has
-                  a different definition due to the dependence of the directions
-                  of the coordinate system on the position.
-                </li>
-                <li class="fragment" data-fragment-index="4">
-                  For these terms, we use look up tables of expressions.
-                </li>
-              </ul>
-            </li>
-          </ul>
-        </section>
-      </section>
+      </div>
+      <script src="footer.js"></script>
     </div>
-    <script src="footer.js"></script>
-  </div>
-</body>
-
+  </body>
 </html>
