@@ -1,1114 +1,1105 @@
 <!DOCTYPE html>
 <html lang="en">
- <head>
-  <meta charset="utf-8"/>
-  <title>
-   Heat, Mass, and Momentum Transfer
-  </title>
-  <meta content="Heat Mass and Momentum Transfer notes" name="description"/>
-  <meta content="Marcus Bannerman &lt;m.bannerman@gmail.com" name="author"/>
-  <meta content="yes" name="apple-mobile-web-app-capable"/>
-  <meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"/>
-  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui" name="viewport"/>
-  <script src="header.js"></script>
- </head>
- <body>
-  <div class="reveal">
-   <div class="slides">
-    <section>
-     <section>
-      <h2>
-       Introduction to Natural Convection and Radiation
-      </h2>
-      <div class="center">
+  <head>
+    <meta charset="utf-8" />
+    <title>Heat, Mass, and Momentum Transfer</title>
+    <meta content="Heat Mass and Momentum Transfer notes" name="description" />
+    <meta content="Marcus Bannerman &lt;m.bannerman@gmail.com" name="author" />
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta
+      content="black-translucent"
+      name="apple-mobile-web-app-status-bar-style"
+    />
+    <meta
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui"
+      name="viewport"
+    />
+    <script src="header.js"></script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <section>
+            <h2>Introduction to Natural Convection and Radiation</h2>
+            <iframe
+              src="https://commons.wikimedia.org/wiki/File:Schlieren_imaging_system_-_first_try.ogv?embedplayer=yes"
+              width="1400"
+              height="800"
+              frameborder="0"
+              loading="lazy"
+              allow="autoplay; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+            <p>
+              <a
+                href="https://commons.wikimedia.org/wiki/File:Schlieren_imaging_system_-_first_try.ogv"
+                >Jan Žegklitz</a
+              >,
+              <a href="https://creativecommons.org/licenses/by/3.0">CC BY 3.0</a
+              >, via Wikimedia Commons
+            </p>
+          </section>
+        </section>
+        <section>
+          <section data-menu-title="Review">
+            <ul>
+              <li>
+                In the previous lectures, we revised the general heat flux
+                equation, and that layers (series) of heat transfer resistance
+                may be summed. \begin{align*} Q &amp;= U A \Delta T =
+                \frac{\Delta T}{R_{total}}\\ R_{total} &amp;= R_1 + R_2 + …\\
+                &amp;= 1/U_1 A_1 + 1/U_2 A_2 + … \end{align*}
+              </li>
+              <li class="fragment" data-fragment-index="1">
+                We covered
+                <b>conduction</b>
+                and derived the conductive heat transfer resistances in a plate
+                and in a pipe from the heat equation. \begin{align*} R_{plate}
+                &amp;= \frac{X}{k A}&amp; R_{pipe} &amp;=
+                \frac{\ln\left(\frac{R_o}{R_i}\right)}{2 \pi L k} \end{align*}
+              </li>
+              <li class="fragment" data-fragment-index="2">
+                We also covered
+                <b>forced convection</b>, and revised that we have relationships
+                for the heat transfer coefficient $h$ \begin{align*}
+                h&amp;=\frac{k \text{Nu}}{L} &amp; \text{Nu} &amp;\approx
+                C \text{Re}^m \text{Pr}^n \end{align*}
+              </li>
+              <li class="fragment" data-fragment-index="3">
+                We'll now take a look at convection in more detail.
+              </li>
+            </ul>
+          </section>
+        </section>
+        <section>
+          <section data-menu-title="Convection">
+            <ul>
+              <li>
+                If there are analytical expressions for convection coefficients
+                exist, they arise from the study of
+                <b>boundary layers</b>.
+                <figure>
+                  <div class="center">
+                    <object
+                      data="img/boundary_layer.svg"
+                      type="image/svg+xml"
+                      width="80%"
+                    ></object>
+                  </div>
+                </figure>
+              </li>
+              <li class="fragment" data-fragment-index="1">
+                A boundary layer is the zone near a thermal/momentum/mass
+                disturbance in the flow. One example is flow past a plate
+                (above).
+              </li>
+              <li class="fragment" data-fragment-index="2">
+                Obviously, it is the transport processes close to the surface
+                which control the overall transport.
+              </li>
+              <li class="fragment" data-fragment-index="3">
+                The most successful study of these boundary layers comes about
+                from
+                <b>von Kármán integral analysis</b>, which is based on the work
+                we've studied so far.
+              </li>
+              <li class="fragment" data-fragment-index="4">
+                We won't perform these analyses here (they are covered in 4th
+                year fluids), but understanding the connection to the behaviour
+                near to the surface will be vital in
+                <b>convective</b>
+                heat transfer, including
+                <b>boiling</b>
+                heat transfer.
+              </li>
+            </ul>
+          </section>
+          <section data-menu-title="Dimensionless Numbers">
+            <ul>
+              <li>
+                In forced convection, there are several dimensionless numbers
+                which we use to classify the flow and heat transfer.
+              </li>
+              <li class="fragment" data-fragment-index="1">
+                First, we have the Nusselt number, which is just the
+                dimensionless form of the heat transfer coefficient.
+                \begin{align*} \text{Nu} = \frac{h L}{k} \end{align*}
+              </li>
+              <li class="fragment" data-fragment-index="2">
+                It is a ratio of convective heat transfer to conduction in a
+                fluid layer of thickness $L$.
+              </li>
+              <li class="fragment" data-fragment-index="3">
+                <b>Dimensional analysis</b>
+                tells us the Nusselt number $\text{Nu}$ must be a function of
+                dimensionless numbers. \begin{align*} \text{Nu} =
+                f\left(\text{Re},\text{Pr},…\right) \end{align*}
+              </li>
+              <li class="fragment" data-fragment-index="4">
+                <b>Dimensionless numbers</b>
+                are very powerful in characterising all transport problems and
+                each describes some balance of two transport phenomena
+                forces/mechanisms.
+              </li>
+            </ul>
+          </section>
+          <section>
+            <ul>
+              <li>
+                To characterise the type of flow (or flow regime) the fluid is
+                in, we use the Reynolds number. \begin{align*}
+                \text{Re}=\frac{\rho \left\langle v\right\rangle D}{\mu}
+                \end{align*} where $D$ is some characteristic length.
+              </li>
+              <li class="fragment" data-fragment-index="1">
+                It's important to remember that the Reynolds number is a ratio
+                of the
+                <b>inertial</b>
+                and
+                <b>viscous</b>
+                stresses.
+              </li>
+              <li class="fragment" data-fragment-index="2">
+                We will later find that the definition of $\text{Re}$ can
+                strongly depending on the
+                <b>geometry</b>
+                (e.g., annulus) and the
+                <b>viscous behaviour</b>
+                (e.g., power-law).
+              </li>
+              <li class="fragment" data-fragment-index="3">
+                Unfortunately, as the Nusselt number (and therefore $h$ ) is a
+                function of the Reynolds number, it is also highly dependent on
+                the geometry/flow and we must be very careful when selecting our
+                <b>empirical</b>
+                expressions for $h$.
+              </li>
+            </ul>
+          </section>
+          <section>
+            <ul>
+              <li>
+                But what about the
+                <b>Prandtl number</b>? \begin{align*}
+                \text{Pr}=\frac{C_p \mu}{k}=\frac{\nu}{\alpha} \end{align*}
+                where $\alpha=k\,c_p^{-1}\,\rho^{-1}$ is the thermal
+                diffusivity.
+              </li>
+              <li class="fragment" data-fragment-index="1">
+                The Prandtl number is also a ratio of two phenomena, the
+                <b>momentum diffusivity</b>
+                (viscosity) and the
+                <b>thermal diffusivity</b>
+                (thermal conductivity).
+              </li>
+              <li class="fragment" data-fragment-index="2">
+                <i>Unlike</i>
+                the Reynolds or Nusselt numbers, the Prandtl number is only a
+                function of the fluid properties and does not change depending
+                on the flow geometry.
+              </li>
+              <li class="fragment" data-fragment-index="3">
+                It is a measure of the relative thickness of the momentum and
+                thermal boundary layers.
+              </li>
+              <li class="fragment" data-fragment-index="4">
+                Lets take a look at boundary layers for heat and momentum
+                transfer…
+              </li>
+            </ul>
+          </section>
+          <section>
+            <figure>
+              <div class="center">
+                <object
+                  data="img/thermal_vs_momentum_boundary_layer.svg"
+                  type="image/svg+xml"
+                  width="80%"
+                ></object>
+              </div>
+              <figcaption>
+                A comparison of the thermal and momentum boundary layers. The
+                lines mark where the driving force is 1% of the surface value.
+                The Prandtl number is related to the relative thickness of the
+                flow $\delta$ and thermal $\delta_T$ boundary layers.
+              </figcaption>
+            </figure>
+            <ul>
+              <li>
+                Consider the system above. Flow passes a stationary plate which
+                is at a higher temperature than the bulk fluid.
+              </li>
+              <li class="fragment" data-fragment-index="1">
+                This system is an idealisation of the
+                <b>forced convection</b>
+                problem.
+              </li>
+              <li class="fragment" data-fragment-index="2">
+                The
+                <b>bulk properties</b>
+                of the fluid have a subscript $\infty$, to denote that they are
+                the values an infinite distance from the disturbance/plate.
+              </li>
+              <li class="fragment" data-fragment-index="3">
+                Most of the transport occurs near the plate, and dotted lines
+                are used to indicate the extent of the boundary layer (where the
+                driving force (temperature/velocity difference from bulk) is
+                above 1%).
+              </li>
+            </ul>
+          </section>
+          <section>
+            <figure>
+              <div class="center">
+                <object
+                  data="img/thermal_vs_momentum_boundary_layer.svg"
+                  type="image/svg+xml"
+                  width="80%"
+                ></object>
+              </div>
+              <figcaption>
+                A comparison of the thermal and momentum boundary layers. The
+                lines mark where the driving force is 1% of the surface value.
+                The Prandtl number is related to the relative thickness of the
+                flow $\delta$ and thermal $\delta_T$ boundary layers.
+              </figcaption>
+            </figure>
+            <ul>
+              <li>
+                The thickness of the layers, $\delta$ and $\delta_T$, are
+                measures of the strength of each mode of the transport.
+              </li>
+              <li class="fragment" data-fragment-index="1">
+                If the layer is small, then the transport of the property is
+                strongly limited.
+              </li>
+            </ul>
+          </section>
+          <section>
+            <figure>
+              <div class="center">
+                <object
+                  data="img/thermal_vs_momentum_boundary_layer.svg"
+                  type="image/svg+xml"
+                  width="80%"
+                ></object>
+              </div>
+            </figure>
+            <ul>
+              <li>
+                In laminar flow with constant wall temperature, low flow
+                velocity and a high Prandtl number $\text{Pr}&gt;0.7$, we can
+                solve the boundary layer conduction problem (using von Kármán
+                integral analysis) to obtain \begin{align*}
+                \frac{\delta_T}{\delta} &amp;=
+                \left(\frac{13}{14}\right)^{1/3}\text{Pr}^{-1/3}&amp;
+                \text{Pr}&amp;=\frac{C_p \mu}{k}=\frac{\nu}{\alpha} \end{align*}
+              </li>
+              <li class="fragment" data-fragment-index="1">
+                This shows that a Prandtl number $\text{Pr}\approx0.7$ implies
+                the boundary layers are similar in size and $\text{Pr}&gt;0.7$
+                implies the thermal layer is smaller than the momentum layer
+                (and is the limiting process).
+              </li>
+            </ul>
+          </section>
+          <section>
+            <figure>
+              <div class="center">
+                <object
+                  data="img/thermal_vs_momentum_boundary_layer.svg"
+                  type="image/svg+xml"
+                  width="80%"
+                ></object>
+              </div>
+            </figure>
+            <ul>
+              <li>
+                So, we now know what the Prandtl number is, a comparison of
+                momentum and thermal transport.
+              </li>
+              <li class="fragment" data-fragment-index="1">
+                Just as we characterise the flow from laminar to turbulent at a
+                Reynolds number of $\text{Re} \approx 2000$.
+              </li>
+              <li class="fragment" data-fragment-index="2">
+                We can characterise a transition from strong conductive transfer
+                for $\text{Pr}\ll 1$ to strong convective transfer for
+                $\text{Pr}\gg 1$.
+              </li>
+              <li class="fragment">
+                The high Prandtl number limit is interesting, as we have high
+                viscosity (nice laminar systems) with low thermal conductivity,
+                thus only the boundary layer is important.
+              </li>
+            </ul>
+          </section>
+          <section
+            data-menu-title="Where to Evaluate Dimensionless Variables At"
+          >
+            <figure>
+              <div class="center">
+                <object
+                  data="img/thermal_vs_momentum_boundary_layer.svg"
+                  type="image/svg+xml"
+                  width="80%"
+                ></object>
+              </div>
+            </figure>
+            <ul>
+              <li>
+                When we want to calculate the Nusselt number for forced
+                convection heat transfer, we need to evaluate the Reynolds
+                number and the Prandtl number for the flow.
+              </li>
+              <li class="fragment" data-fragment-index="1">
+                But at what conditions do we calculate the viscosity, thermal
+                conductivity, and density at for these parameters? They all
+                depend on temperature, so which temperature do we use?
+              </li>
+              <li class="fragment" data-fragment-index="2">
+                The wall conditions? The bulk conditions? Somewhere in-between?
+              </li>
+            </ul>
+          </section>
+          <section>
+            <figure>
+              <div class="center">
+                <object
+                  data="img/thermal_vs_momentum_boundary_layer.svg"
+                  type="image/svg+xml"
+                  width="80%"
+                ></object>
+              </div>
+            </figure>
+            <ul>
+              <li>
+                It is also clear from the diagram above that the conditions
+                change along the plate! What distance away and along the plate
+                do we evaluate the properties at?
+              </li>
+              <li class="fragment" data-fragment-index="1">
+                There is no fundamentally right answer here, but all of the
+                empirical expressions in the literature have been worked out
+                using a consistent choice.
+              </li>
+            </ul>
+          </section>
+          <section>
+            <figure>
+              <div class="center">
+                <object
+                  data="img/thermal_vs_momentum_boundary_layer.svg"
+                  type="image/svg+xml"
+                  width="80%"
+                ></object>
+              </div>
+              <figcaption>
+                A comparison of the thermal and momentum boundary layers. The
+                Prandtl number is related to the relative thickness of the flow
+                $\delta$ and thermal $\delta_T$ boundary layers.
+              </figcaption>
+            </figure>
+            <ul>
+              <li>
+                If we have a large open system, the
+                <b>film temperature</b>, defined as the arithmetic mean of the
+                wall and bulk temperature is used by experimentalists to
+                evaluate the dimensionless numbers. \begin{align*} T_f =
+                (T_w+T_\infty)/2 \end{align*}
+              </li>
+              <li class="fragment" data-fragment-index="1">
+                But for a closed system like a pipe the
+                <b>bulk temperature</b>
+                is used \begin{align*} T_b = (T_{fluid,in}+T_{fluid,out})/2
+                \end{align*}
+              </li>
+            </ul>
+          </section>
+          <section data-menu-title="Reynolds Analogy">
+            <ul>
+              <li>Some final notes on forced convection heat transfer.</li>
+              <li class="fragment" data-fragment-index="1">
+                For a isothermal wall, with a laminar flow and with a high
+                Prandtl number (boundary important only), we can obtain an
+                analytic expression for the Nusselt number \begin{align*}
+                \text{Nu} &amp;\approx 0.332 \text{Re}^{1/2} \text{Pr}^{1/3}
+                &amp; \text{Pr}\ge 0.6 \end{align*}
+              </li>
+              <li class="fragment" data-fragment-index="2">
+                We can see this expression is proportional to $\text{Pr}^{1/3}$,
+                which is proportional to the thermal boundary layer size, and
+                has a limitation to near the crossover point at
+                $\text{Pr}\approx 0.7$.
+              </li>
+              <li class="fragment" data-fragment-index="3">
+                However, this expression is only valid in the limits stated
+                above. We need other expressions for different systems.
+              </li>
+              <li class="fragment" data-fragment-index="4">
+                According to dimensional analysis, we need some function of the
+                Reynolds number and the Prandtl number: \begin{align*} \text{Nu}
+                = f\left(\text{Re},  \text{Pr}\right) \end{align*}
+              </li>
+              <li class="fragment" data-fragment-index="5">
+                One idea is to use the well developed concepts for turbulent
+                momentum transfer (Reynolds numbers, friction factors, moody
+                charts) and to try to apply it to heat transfer using some
+                relation involving the Prandtl number…
+              </li>
+            </ul>
+          </section>
+          <section>
+            <ul>
+              <li>
+                If we assume that momentum and heat are transported at the same
+                rate ($\text{Pr}\approx 0.7\approx 1$ ), we can find that for
+                turbulent fluid flow in a pipe with heat transport we have
+                \begin{align*} \text{St}=\frac{\text{Nu}}{\text{Re} \text{Pr}}
+                \approx \frac{C_f}{2} \end{align*}
+              </li>
+              <li class="fragment" data-fragment-index="1">
+                Which is known as the
+                <b>Reynolds analogy</b>
+                for pipe flow.
+              </li>
+              <li class="fragment" data-fragment-index="2">
+                This expression allows you to use a Moody chart to predict heat
+                transfer coefficients for turbulent flows!
+              </li>
+              <li class="fragment" data-fragment-index="3">
+                This expression also defines the Stanton number $\text{St}$,
+                which is another dimensionless number which gives a ratio of the
+                heat transferred into a fluid and its thermal capacity.
+              </li>
+              <li class="fragment" data-fragment-index="4">
+                Unfortunately, this simple expression is only useful for a
+                limited range of flows ($\text{Pr}\approx 1$, no drag profile),
+                but the concept has been extended…
+              </li>
+            </ul>
+          </section>
+          <section>
+            <ul>
+              <li>
+                A highly accurate empirical expression developed by Petukhov can
+                yield results to within $6$ % to 10% for well-developed
+                turbulent flows in smooth pipes \begin{align*} \text{Nu} \approx
+                \frac{(C_f/2)
+                \text{Re} \text{Pr}}{1.07+12.7(C_f/2)^{1/2}\left(\text{Pr}^{2/3}
+                -1\right)}\left(\frac{\mu_b}{\mu_w}\right)^{0.14} \end{align*}
+              </li>
+              <li class="fragment" data-fragment-index="1">
+                The promise of better accuracy is a good incentive for the use
+                of this equation, as the other expressions written here have up
+                to $\pm 25\%$ error.
+              </li>
+              <li class="fragment" data-fragment-index="2">
+                But this equation also has a limited range of applicability, we
+                need large books of tested equations to ensure that we have a
+                high confidence in our design!
+              </li>
+            </ul>
+          </section>
+          <section>
+            <ul>
+              <li>
+                Now, a general note on the form of these expressions for the
+                heat transfer coefficient.
+              </li>
+              <li class="fragment" data-fragment-index="1">
+                For the many difficult cases involving turbulent flow, a simple
+                power law expression may be fitted to experimental data.
+                \begin{align*} \text{Nu} \approx C\,\text{Re}^m\,\text{Pr}^n
+                \end{align*}
+              </li>
+              <li class="fragment" data-fragment-index="2">
+                The power law is chosen not only because it is similar to the
+                laminar result, but also as it is relatively straightforward to
+                fit to experimental data (much like the Power-Law viscous model
+                from the dimensional analysis lecture).
+              </li>
+            </ul>
+          </section>
+          <section data-menu-title="Standard Expressions">
+            <ul>
+              <li>
+                For well-developed turbulent flow in smooth pipes, a very
+                popular expression is given by Sieder and Tate. \begin{align*}
+                \text{Nu}_{turbulent} \approx
+                0.023 \text{Re}^{0.8} \text{Pr}^{1/3}
+                \left(\frac{\mu}{\mu_{wall}}\right)^{0.14} \end{align*} where
+                everything should be estimated at the bulk conditions, except
+                $\mu_w$ which should be estimated at the wall conditions.
+              </li>
+              <li class="fragment" data-fragment-index="1">
+                This is often used along with the analytic expression for
+                laminar flow to provide estimates for the heat transfer
+                coefficient \begin{align*} \text{Nu}_{laminar} \approx
+                0.332 \text{Re}^{1/2} \text{Pr}^{1/3} \end{align*}
+              </li>
+              <li class="fragment" data-fragment-index="2">
+                However, these are the equations with possibly large ($\pm25\%$)
+                errors, and are only valid for developed flows.
+              </li>
+            </ul>
+          </section>
+        </section>
+        <section>
+          <section data-menu-title="Natural Convection">
+            <div style="display: flex; align-items: center">
+              <div style="flex: 1 1 calc(100% * 0.41)">
+                <figure>
+                  <div class="center">
+                    <object
+                      data="img/heated_wall.svg"
+                      type="image/svg+xml"
+                      width="100%"
+                    ></object>
+                  </div>
+                </figure>
+              </div>
+              <div style="flex: 1 1 calc(100% * 0.61)">
+                <ul>
+                  <li>
+                    Let's move on to
+                    <b>natural convection</b>.
+                  </li>
+                  <li class="fragment" data-fragment-index="1">
+                    Consider a vertical plate, which is maintained at a higher
+                    temperature than the surrounding air.
+                  </li>
+                  <li class="fragment" data-fragment-index="2">
+                    Thanks to the flow due to convection, we will again have a
+                    boundary layer problem!
+                  </li>
+                  <li class="fragment" data-fragment-index="3">
+                    The analysis will be similar as for forced convection, but
+                    we must determine an alternative Reynolds-like dimensionless
+                    parameter for convective flow.
+                  </li>
+                  <li class="fragment" data-fragment-index="4">
+                    This parameter must somehow contain the convective flow
+                    velocity.
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </section>
+          <section data-menu-title="Grashof Number">
+            <div style="display: flex; align-items: center">
+              <div style="flex: 1 1 calc(100% * 0.41)">
+                <figure>
+                  <iframe
+                    src="https://commons.wikimedia.org/wiki/File:Convection_currents_in_a_beaker_of_water.webm?embedplayer=yes"
+                    width="1024"
+                    height="768"
+                    frameborder="0"
+                    loading="lazy"
+                    allow="autoplay; picture-in-picture"
+                    allowfullscreen
+                  ></iframe>
+                  <figcaption>
+                    <a
+                      href="https://commons.wikimedia.org/wiki/File:Convection_currents_in_a_beaker_of_water.webm"
+                      >ScienceCOLA</a
+                    >,
+                    <a href="https://creativecommons.org/licenses/by/3.0"
+                      >CC BY 3.0</a
+                    >, via Wikimedia Commons
+                  </figcaption>
+                </figure>
+              </div>
+              <div style="flex: 1 1 calc(100% * 0.61)">
+                <ul>
+                  <li>
+                    Convection occurs due to a change in the density of the
+                    fluid/air when it is heated/cooled.
+                  </li>
+                  <li class="fragment" data-fragment-index="1">
+                    When the air changes density, buoyancy effects cause the
+                    lighter air to rise and cooler heavier air will flow in to
+                    replace it.
+                  </li>
+                  <li class="fragment" data-fragment-index="2">
+                    The amount a fluid changes its density in response to a
+                    change in temperature is given by the thermal expansion
+                    coefficient \begin{align*} \beta = \frac{1}{V}
+                    \frac{\partial V}{\partial T} \end{align*}
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </section>
+          <section>
+            <div style="display: flex; align-items: center">
+              <div style="flex: 1 1 calc(100% * 0.41)">
+                <figure>
+                  <div class="center">
+                    <object
+                      data="img/heated_wall.svg"
+                      type="image/svg+xml"
+                      width="100%"
+                    ></object>
+                  </div>
+                </figure>
+              </div>
+              <div style="flex: 1 1 calc(100% * 0.61)">
+                <ul>
+                  <li>
+                    For an ideal gas, we have \begin{align*} \beta_{ideal} =
+                    \frac{1}{T} \end{align*}
+                  </li>
+                  <li class="fragment" data-fragment-index="1">
+                    To a rough approximation, the change in volume due to the
+                    wall heating is given by \begin{align*}
+                    \beta\left(T_w-T_\infty\right) L^3 \end{align*} where $L$ is
+                    the characteristic length of the system (wall height in this
+                    case).
+                  </li>
+                  <li class="fragment" data-fragment-index="2">
+                    The buoyancy force on this volume is given by \begin{align*}
+                    g \rho \beta\left(T_w-T_\infty\right) L^3 \end{align*}
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </section>
+          <section>
+            <div style="display: flex; align-items: center">
+              <div style="flex: 1 1 calc(100% * 0.41)">
+                <figure>
+                  <div class="center">
+                    <object
+                      data="img/heated_wall.svg"
+                      type="image/svg+xml"
+                      width="100%"
+                    ></object>
+                  </div>
+                </figure>
+              </div>
+              <div style="flex: 1 1 calc(100% * 0.61)">
+                <ul>
+                  <li>
+                    We can make this expression dimensionless using the
+                    viscosity \begin{align*}
+                    \text{Gr}=\frac{g \rho^2 \beta\left(T_w-T_\infty\right)
+                    L^3}{\mu^2} \end{align*}
+                  </li>
+                  <li class="fragment" data-fragment-index="1">
+                    We have derived the
+                    <b>Grashof number</b>
+                    for natural convective flow on a vertical wall.
+                  </li>
+                  <li class="fragment" data-fragment-index="2">
+                    This is a ratio of the buoyancy forces and the viscous
+                    forces in the system, and is the analog of the Reynolds
+                    number in forced flows.
+                  </li>
+                  <li class="fragment" data-fragment-index="3">
+                    Natural convection flows also transition to turbulent flows
+                    once the Grashof number reaches a critical value of about
+                    $\text{Gr}\approx 4\times10^8$.
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </section>
+          <section
+            data-menu-title="Natural Convection Heat Transfer Coefficient"
+          >
+            <h3>Natural Convection Heat Transfer Coefficient</h3>
+            <div style="display: flex; align-items: center">
+              <div style="flex: 1 1 calc(100% * 0.61)">
+                <figure>
+                  <div class="center">
+                    <img src="img/table.png" style="width: 100%" />
+                  </div>
+                </figure>
+              </div>
+              <div style="flex: 1 1 calc(100% * 0.41)">
+                <ul>
+                  <li>
+                    In general, over years of experiments it has been found that
+                    the heat transfer coefficient for natural convection are
+                    also fitted by a power law! \begin{align*}
+                    \text{Nu}=C\left(\text{Gr} \text{Pr}\right)^m \end{align*}
+                  </li>
+                  <li class="fragment" data-fragment-index="1">
+                    The coefficients for a wide range of geometries are given in
+                    the table on the left, taken from “Heat Transfer,” by J.P.
+                    Holman.
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </section>
+          <section>
+            <ul>
+              <li>
+                The previous expression for $\text{Nu}$ is only valid for large
+                systems (e.g., insulation on a pipe, or reactor), not for small
+                systems (e.g., pot of boiling liquid).
+              </li>
+              <li class="fragment" data-fragment-index="1">
+                The values for the coefficients in the previous table can only
+                be directly used for a vertical cylinder in the case that the
+                diameter is much greater than the thickness of the boundary
+                layer.
+              </li>
+              <li class="fragment" data-fragment-index="2">
+                Luckily, the boundary layer thickness is on the order of a few
+                mm, so this is generally true.
+              </li>
+              <li class="fragment" data-fragment-index="3">
+                The criterion for this is expressed in terms of the Grashof
+                number. \begin{align*} \frac{D}{L} \ge
+                \frac{35}{\text{Gr}^{1/4}} \end{align*}
+              </li>
+              <li class="fragment" data-fragment-index="4">
+                If this is not true, the Nusselt number must be corrected by a
+                factor $F$ to account for the curvature, given by \begin{align*}
+                F=1.3\left[(L/D)/\text{Gr}_D\right]^{1/4}+1.0 \end{align*}
+              </li>
+            </ul>
+          </section>
+        </section>
+        <section>
+          <section data-menu-title="Radiation">
+            <h3>Radiation</h3>
+            <div style="display: flex; align-items: center">
+              <div style="flex: 1 1 calc(100% * 0.41)">
+                <figure>
+                  <div class="center">
+                    <a
+                      title="Rabatakeu, CC BY-SA 3.0
+                    &lt;https://creativecommons.org/licenses/by-sa/3.0&gt;, via
+                    Wikimedia Commons"
+                      href="https://commons.wikimedia.org/wiki/File:FourSolaire1.JPG"
+                      ><img
+                        width="1024"
+                        alt="FourSolaire1"
+                        src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/FourSolaire1.JPG/1024px-FourSolaire1.JPG?20080902132042"
+                    /></a>
+                  </div>
+                  <figcaption>
+                    The Odeillo Solar Furnace. CNRS laboratory can achieve
+                    &gt;2500°C in a few seconds with 1MW of power focussed into
+                    a 40cm diameter spot.
+                    <br /><br />
+                    <a
+                      href="https://commons.wikimedia.org/wiki/File:FourSolaire1.JPG"
+                      >Rabatakeu</a
+                    >,
+                    <a href="https://creativecommons.org/licenses/by-sa/3.0"
+                      >CC BY-SA 3.0</a
+                    >, via Wikimedia Commons
+                  </figcaption>
+                </figure>
+              </div>
+              <div style="flex: 1 1 calc(100% * 0.61)">
+                <ul>
+                  <li>
+                    All surfaces emit electromagnetic radiation at a wide range
+                    of frequencies.
+                  </li>
+                  <li class="fragment" data-fragment-index="1">
+                    The distribution of frequencies depends on the temperature
+                    of the material, and the energy of the radiation depends on
+                    the frequency.
+                  </li>
+                  <li class="fragment" data-fragment-index="2">
+                    Using quantum-statistical thermodynamics, it was found that
+                    the total energy emitted per unit area is equal to
+                    \begin{align*} e_{b,radiation}=\sigma T^4 \end{align*} where
+                    $\sigma=5.669\times10^{-8}$ W /m ${}^2$ K ${}^4$.
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </section>
+          <section>
+            <div style="display: flex; align-items: center">
+              <div style="flex: 1 1 calc(100% * 0.41)">
+                <figure>
+                  <div class="center">
+                    <object
+                      data="img/radiation2.svg"
+                      type="image/svg+xml"
+                      width="100%"
+                    ></object>
+                  </div>
+                </figure>
+              </div>
+              <div style="flex: 1 1 calc(100% * 0.61)">
+                <ul>
+                  <li>
+                    $e_b$ is known as the
+                    <i>blackbody radiation</i>, as it is the radiative heat
+                    emitted by the perfect radiator (the perfect black body).
+                  </li>
+                  <li class="fragment">
+                    The blackness of an object is related to how much radiation
+                    it will absorbed and emit.
+                  </li>
+                  <li class="fragment">
+                    Objects appear black to the eye absorb all of the visible
+                    spectrum, but a true black body absorbs all frequencies.
+                  </li>
+                  <li class="fragment">
+                    Candle black/soot is very black for visible light at 95%
+                    absorbtion.
+                  </li>
+                  <li class="fragment">
+                    But the eye is not always a good judge of blackness. Snow
+                    and ice are essentially black for long-wavelength thermal
+                    radiation.
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </section>
+          <section>
+            <div style="display: flex; align-items: center">
+              <div style="flex: 1 1 calc(100% * 0.41)">
+                <figure>
+                  <div class="center">
+                    <object
+                      data="img/radiation3.svg"
+                      type="image/svg+xml"
+                      width="100%"
+                    ></object>
+                  </div>
+                </figure>
+              </div>
+              <div style="flex: 1 1 calc(100% * 0.61)">
+                <ul>
+                  <li>
+                    To take account of this varying level of blackness, we use a
+                    characteristic called the
+                    <b>emissivity</b>
+                    $\varepsilon$.
+                  </li>
+                  <li class="fragment" data-fragment-index="1">
+                    This is a ratio of the effectiveness of a surface to
+                    absorbing and emitting thermal radiation, relative to an
+                    ideal black body and its value is in the range of
+                    $0\le\varepsilon\le1$
+                  </li>
+                  <li class="fragment" data-fragment-index="2">
+                    Typical values of the emissivity range from 0.7-0.9.
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </section>
+          <section>
+            <div style="display: flex; align-items: center">
+              <div style="flex: 1 1 calc(100% * 0.41)">
+                <figure>
+                  <div class="center">
+                    <object
+                      data="img/radiation4.svg"
+                      type="image/svg+xml"
+                      width="100%"
+                    ></object>
+                  </div>
+                </figure>
+              </div>
+              <div style="flex: 1 1 calc(100% * 0.61)">
+                <ul>
+                  <li>
+                    Objects which are emitting thermal radiation, are also
+                    receiving it from their surroundings.
+                  </li>
+                  <li class="fragment" data-fragment-index="1">
+                    We then need a balance between the two radiative fluxes.
+                    \begin{align*} Q_{radiative} = \sigma F  A_w  \varepsilon
+                    \left(T^4_\infty -T^4_w\right) \end{align*}
+                  </li>
+                  <li class="fragment" data-fragment-index="2">
+                    The value $F$ is known as the shape factor. It is
+                    proportional to the area of the surroundings and is a
+                    function of the geometry.
+                  </li>
+                  <li class="fragment" data-fragment-index="3">
+                    However, if the surroundings are large, it can be shown that
+                    the shape factor limits towards $F\to1$. \begin{align*}
+                    Q_{radiative} \to \sigma  A_w  \varepsilon \left(T^4_\infty
+                    -T^4_w\right) \end{align*}
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </section>
+          <section>
+            <div style="display: flex; align-items: center">
+              <div style="flex: 1 1 calc(100% * 0.41)">
+                <figure>
+                  <div class="center">
+                    <object
+                      data="img/radiation4.svg"
+                      type="image/svg+xml"
+                      width="100%"
+                    ></object>
+                  </div>
+                </figure>
+              </div>
+              <div style="flex: 1 1 calc(100% * 0.61)">
+                <ul>
+                  <li>
+                    The final part of radiative heat transfer is to note that we
+                    can define a radiation heat transfer coefficient $h_f$,
+                    using the definition \begin{align*} \frac{Q_{radiative}}{A}
+                    &amp;= h_{radiative}\left(T_\infty - T_w\right)\\ &amp;=
+                    \varepsilon \sigma \left(T_\infty^4 - T_w^4\right)
+                    \end{align*}
+                  </li>
+                  <li class="fragment" data-fragment-index="1">
+                    Rearranging to find $h_{radiative}$, we obtain
+                    \begin{align*} h_{radiative} = \varepsilon \sigma
+                    \left(T_\infty^2 + T_w^2\right)\left(T_\infty + T_w\right)
+                    \end{align*}
+                  </li>
+                  <li class="fragment" data-fragment-index="2">
+                    We can now study radiative and convective heat transfer at
+                    the same time by combining our transfer coefficients
+                    \begin{align*} Q_{r+c} =
+                    A_w\left(h+h_{radiative}\right)\left(T_\infty - T_w\right)
+                    \end{align*}
+                  </li>
+                  <li class="fragment" data-fragment-index="3">
+                    Note that these terms add linearly! They are not additional
+                    resistances in series (like the insulated brick problem),
+                    but they are parallel thermal transport processes!
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </section>
+        </section>
+        <section>
+          <section data-menu-title="Example: Thermometer in a Room">
+            <h3>Example: Thermometer in a Room</h3>
+            <figure>
+              <div class="center">
+                <object
+                  data="img/thermometer.svg"
+                  type="image/svg+xml"
+                  width="70%"
+                ></object>
+              </div>
+            </figure>
+            <ul>
+              <li>Consider a thermometer placed in a room.</li>
+              <li class="fragment" data-fragment-index="1">
+                The walls of the house are poorly insulated and the internal
+                surface is at a temperature of $5^\circ$ C.
+              </li>
+              <li class="fragment" data-fragment-index="2">
+                Due to central heating the thermometer reads a temperature of
+                $20^\circ$ C.
+              </li>
+              <li class="fragment" data-fragment-index="3">
+                What is the real temperature of the air? Does radiation matter
+                here?
+              </li>
+            </ul>
+          </section>
+          <section>
+            <figure>
+              <div class="center">
+                <object
+                  data="img/thermometer.svg"
+                  type="image/svg+xml"
+                  width="70%"
+                ></object>
+              </div>
+            </figure>
+            <ul>
+              <li>
+                The two heat transfer mechanisms acting on the thermometer are
+                convection and radiation.
+              </li>
+              <li class="fragment" data-fragment-index="1">
+                At steady state, the heat gained/lost by convection must equal
+                the heat lost/gained by convection. \begin{align*}
+                Q_{conv.}&amp;=-Q_{rad.}\\ h A_t\left(T_{air}-T_t\right) &amp;=
+                -\sigma \varepsilon_t A_t\left(T_{wall}^4-T^4_t\right)
+                \end{align*}
+              </li>
+              <li class="fragment" data-fragment-index="2">
+                (We assume the radiation to/from the air is negligible compared
+                to the radiation to/from the wall.)
+              </li>
+            </ul>
+          </section>
+          <section>
+            \begin{align*} h A_t\left(T_{air}-T_t\right) =
+            \sigma \varepsilon_t A_t\left(T_{wall}^4-T^4_t\right) \end{align*}
+            <ul>
+              <li>
+                A rough estimate of a convective heat transfer coefficient is
+                $h\approx10$ W/m ${}^2$ K.
+              </li>
+              <li class="fragment" data-fragment-index="1">
+                The emissivity of common materials ranges from
+                $\varepsilon\approx 0.6$ to 0.9, so lets take a worse-case value
+                of $\varepsilon\approx0.9$.
+              </li>
+              <li class="fragment" data-fragment-index="2">
+                Solving for the air temperature difference, we have
+                \begin{align*} T_{air} - T_{T} &amp;=
+                \sigma \varepsilon_t\left(T_{wall}^4-T^4_t\right) / h\\ &amp;=
+                5.67\times10^{-8}\times0.9\times\left(293^4-278^4\right) / 10\\
+                &amp;\approx 7.13^\circ\text{C} \end{align*}
+              </li>
+              <li class="fragment" data-fragment-index="3">
+                The air is actually $7^\circ$C warmer than the thermometer's
+                reading!
+              </li>
+            </ul>
+          </section>
+        </section>
+        <section>
+          <section data-menu-title="Learning Objectives">
+            <h3>Learning objectives</h3>
+            <ul>
+              <li>
+                We have learnt about the numerous expressions for the
+                coefficient of heat transfer for
+                <b>forced convection</b>
+                and for
+                <b>natural convection</b>.
+              </li>
+              <li class="fragment" data-fragment-index="1">
+                We have learnt about the analog of the Reynolds number for
+                natural convection, called the Grashof number. \begin{align*}
+                \text{Gr}=\frac{g \rho^2 \beta\left(T_w-T_\infty\right)
+                L^3}{\mu^2} \end{align*}
+              </li>
+              <li class="fragment" data-fragment-index="2">
+                We have learnt about radiative heat transfer, and found that for
+                an object in large surroundings we have \begin{align*}
+                Q_{convective} \to \sigma  A_w  \varepsilon \left(T_\infty
+                -T_w\right) \end{align*}
+              </li>
+              <li class="fragment" data-fragment-index="3">
+                We have also defined a radiative heat transfer coefficient
+                \begin{align*} h_{radiative} = \varepsilon \sigma
+                \left(T_\infty^2 + T_w^2\right)\left(T_\infty + T_w\right)
+                \end{align*}
+              </li>
+              <li class="fragment" data-fragment-index="4">
+                The example covered has shown that radiative heat transfer is
+                very significant even for small temperatures.
+              </li>
+            </ul>
+          </section>
+        </section>
       </div>
-     </section>
-    </section>
-    <section>
-     <section data-menu-title="Review">
-      <ul>
-       <li>
-        In the previous lectures, we revised the general heat flux
-    equation, and that layers (series) of heat transfer resistance may
-    be summed.
-        \begin{align*}
-        Q &amp;= U A \Delta T = \frac{\Delta T}{R_{total}}\\
-      R_{total} &amp;= R_1 + R_2 + …\\
-      &amp;= 1/U_1 A_1 + 1/U_2 A_2 + …
-        \end{align*}
-       </li>
-       <li class="fragment" data-fragment-index="1">
-        We covered
-        <b>conduction</b>
-        and derived the conductive
-    heat transfer resistances in a plate and in a pipe from the heat
-    equation.
-        \begin{align*}
-        R_{plate} &amp;= \frac{X}{k A}&amp; R_{pipe} &amp;=
-      \frac{\ln\left(\frac{R_o}{R_i}\right)}{2 \pi L k}
-        \end{align*}
-       </li>
-       <li class="fragment" data-fragment-index="2">
-        We also covered
-        <b>forced convection</b>, and revised that
-    we have relationships for the heat transfer coefficient
-        $h$
-        \begin{align*}
-        h&amp;=\frac{k \text{Nu}}{L} &amp; \text{Nu} &amp;\approx C \text{Re}^m \text{Pr}^n
-        \end{align*}
-       </li>
-       <li class="fragment" data-fragment-index="3">
-        We'll now take a look at convection in more detail.
-       </li>
-      </ul>
-     </section>
-    </section>
-    <section>
-     <section data-menu-title="Convection">
-      <ul>
-       <li>
-        If there are analytical expressions for convection
-    coefficients exist, they arise from the study of
-        <b>boundary
-      layers</b>.
-        <figure>
-         <div class="center">
-          <object data="img/boundary_layer.svg" type="image/svg+xml" width="80%">
-          </object>
-         </div>
-        </figure>
-       </li>
-       <li class="fragment" data-fragment-index="1">
-        A boundary layer is the zone near a thermal/momentum/mass
-    disturbance in the flow. One example is flow past a plate (above).
-       </li>
-       <li class="fragment" data-fragment-index="2">
-        Obviously, it is the transport processes close to the
-    surface which control the overall transport.
-       </li>
-       <li class="fragment" data-fragment-index="3">
-        The most successful study of these boundary layers comes
-    about from
-        <b>von Kármán integral analysis</b>, which is based
-    on the work we've studied so far.
-       </li>
-       <li class="fragment" data-fragment-index="4">
-        We won't perform these analyses here (they are covered in 4th
-    year fluids), but understanding the connection to the behaviour
-    near to the surface will be vital in
-        <b>convective</b>
-        heat transfer, including
-        <b>boiling</b>
-        heat
-    transfer.
-       </li>
-      </ul>
-     </section>
-     <section data-menu-title="Dimensionless Numbers">
-      <ul>
-       <li>
-        In forced convection, there are several dimensionless
-    numbers which we use to classify the flow and heat transfer.
-       </li>
-       <li class="fragment" data-fragment-index="1">
-        First, we have the Nusselt number, which is just the
-    dimensionless form of the heat transfer coefficient.
-        \begin{align*}
-        \text{Nu} = \frac{h L}{k}
-        \end{align*}
-       </li>
-       <li class="fragment" data-fragment-index="2">
-        It is a ratio of convective heat transfer to conduction in
-    a fluid layer of thickness $L$.
-       </li>
-       <li class="fragment" data-fragment-index="3">
-        <b>Dimensional analysis</b>
-        tells us the Nusselt number
-        $\text{Nu}$
-        must be a function of dimensionless numbers.
-        \begin{align*}
-        \text{Nu} = f\left(\text{Re},\text{Pr},…\right)
-        \end{align*}
-       </li>
-       <li class="fragment" data-fragment-index="4">
-        <b>Dimensionless numbers</b>
-        are very powerful in
-    characterising all transport problems and each describes some
-    balance of two transport phenomena forces/mechanisms.
-       </li>
-      </ul>
-     </section>
-     <section>
-      <ul>
-       <li>
-        To characterise the type of flow (or flow regime) the
-    fluid is in, we use the Reynolds number.
-        \begin{align*}
-        \text{Re}=\frac{\rho \left\langle v\right\rangle D}{\mu}
-        \end{align*}
-        where
-        $D$
-        is some characteristic length.
-       </li>
-       <li class="fragment" data-fragment-index="1">
-        It's important to remember that the Reynolds number is a
-    ratio of the
-        <b>inertial</b>
-        and
-        <b>viscous</b>
-        stresses.
-       </li>
-       <li class="fragment" data-fragment-index="2">
-        We will later find that the definition of $\text{Re}$
-        can
-    strongly depending on the
-        <b>geometry</b>
-        (e.g., annulus) and the
-        <b>viscous behaviour</b>
-        (e.g., power-law).
-       </li>
-       <li class="fragment" data-fragment-index="3">
-        Unfortunately, as the Nusselt number (and therefore $h$
-        )
-    is a function of the Reynolds number, it is also highly dependent
-    on the geometry/flow and we must be very careful when selecting
-    our
-        <b>empirical</b>
-        expressions for
-        $h$.
-       </li>
-      </ul>
-     </section>
-     <section>
-      <ul>
-       <li>
-        But what about the
-        <b>Prandtl number</b>?
-        \begin{align*}
-        \text{Pr}=\frac{C_p \mu}{k}=\frac{\nu}{\alpha}
-        \end{align*}
-	where $\alpha=k\,c_p^{-1}\,\rho^{-1}$ is the thermal diffusivity.
-       </li>
-       <li class="fragment" data-fragment-index="1">
-        The Prandtl number is also a ratio of two phenomena, the
-        <b>momentum diffusivity</b>
-        (viscosity) and the
-        <b>thermal
-      diffusivity</b>
-        (thermal conductivity).
-       </li>
-       <li class="fragment" data-fragment-index="2">
-        <i>Unlike</i>
-        the Reynolds or Nusselt numbers, the Prandtl
-    number is only a function of the fluid properties and does not
-    change depending on the flow geometry.
-       </li>
-       <li class="fragment" data-fragment-index="3">
-        It is a measure of the relative thickness of the momentum
-    and thermal boundary layers.
-       </li>
-       <li class="fragment" data-fragment-index="4">
-        Lets take a look at boundary layers for heat and momentum
-    transfer…
-       </li>
-      </ul>
-     </section>
-     <section>
-      <figure>
-       <div class="center">
-        <object data="img/thermal_vs_momentum_boundary_layer.svg" type="image/svg+xml" width="80%">
-        </object>
-       </div>
-       <figcaption>
-        A comparison of the thermal and momentum boundary
-      layers. The lines mark where the driving force is 1% of the
-      surface value. The Prandtl number is related to the relative
-      thickness of the flow
-        $\delta$
-        and thermal
-        $\delta_T$
-        boundary
-      layers.
-       </figcaption>
-      </figure>
-      <ul>
-       <li>
-        Consider the system above. Flow passes a stationary plate
-    which is at a higher temperature than the bulk fluid.
-       </li>
-       <li class="fragment" data-fragment-index="1">
-        This system is an idealisation of the
-        <b>forced
-      convection</b>
-        problem.
-       </li>
-       <li class="fragment" data-fragment-index="2">
-        The
-        <b>bulk properties</b>
-        of the fluid have a subscript
-        $\infty$, to denote that they are the values an infinite distance
-    from the disturbance/plate.
-       </li>
-       <li class="fragment" data-fragment-index="3">
-        Most of the transport occurs near the plate, and dotted
-    lines are used to indicate the extent of the boundary layer (where
-    the driving force (temperature/velocity difference from bulk) is
-    above 1%).
-       </li>
-      </ul>
-     </section>
-     <section>
-      <figure>
-       <div class="center">
-        <object data="img/thermal_vs_momentum_boundary_layer.svg" type="image/svg+xml" width="80%">
-        </object>
-       </div>
-       <figcaption>
-        A comparison of the thermal and momentum boundary
-      layers. The lines mark where the driving force is 1% of the
-      surface value. The Prandtl number is related to the relative
-      thickness of the flow
-        $\delta$
-        and thermal
-        $\delta_T$
-        boundary
-      layers.
-       </figcaption>
-      </figure>
-      <ul>
-       <li>
-        The thickness of the layers, $\delta$
-        and
-        $\delta_T$, are
-    measures of the strength of each mode of the transport.
-       </li>
-       <li class="fragment" data-fragment-index="1">
-        If the layer is small, then the transport of the property
-    is strongly limited.
-       </li>
-      </ul>
-     </section>
-     <section>
-      <figure>
-       <div class="center">
-        <object data="img/thermal_vs_momentum_boundary_layer.svg" type="image/svg+xml" width="80%">
-        </object>
-       </div>
-      </figure>
-      <ul>
-       <li>
-        In laminar flow with constant wall temperature, low flow
-    velocity and a high Prandtl number $\text{Pr}&gt;0.7$, we can solve
-    the boundary layer conduction problem (using von Kármán
-    integral analysis) to obtain
-        \begin{align*}
-        \frac{\delta_T}{\delta} &amp;= \left(\frac{13}{14}\right)^{1/3}\text{Pr}^{-1/3}&amp;
-        \text{Pr}&amp;=\frac{C_p \mu}{k}=\frac{\nu}{\alpha}
-        \end{align*}
-       </li>
-       <li class="fragment" data-fragment-index="1">
-        This shows that a Prandtl number $\text{Pr}\approx0.7$
-        implies the boundary layers are similar in size and
-        $\text{Pr}&gt;0.7$
-        implies the thermal layer is smaller than the
-    momentum layer (and is the limiting process).
-       </li>
-      </ul>
-     </section>
-     <section>
-      <figure>
-       <div class="center">
-        <object data="img/thermal_vs_momentum_boundary_layer.svg" type="image/svg+xml" width="80%">
-        </object>
-       </div>
-      </figure>
-      <ul>
-       <li>
-        So, we now know what the Prandtl number is, a comparison
-    of momentum and thermal transport.
-       </li>
-       <li class="fragment" data-fragment-index="1">
-        Just as we characterise the flow from laminar to turbulent
-    at a Reynolds number of $\text{Re} \approx 2000$.
-       </li>
-       <li class="fragment" data-fragment-index="2">
-         We can characterise a transition from strong conductive
-	 transfer for $\text{Pr}\ll 1$
-         to strong convective transfer for
-         $\text{Pr}\gg 1$.
-       </li>
-       <li class="fragment">
-	 The high Prandtl number limit is interesting, as we have high
-	 viscosity (nice laminar systems) with low thermal
-	 conductivity, thus only the boundary layer is important.
-       </li>
-      </ul>
-     </section>
-     <section data-menu-title="Where to Evaluate Dimensionless Variables At">
-      <figure>
-       <div class="center">
-        <object data="img/thermal_vs_momentum_boundary_layer.svg" type="image/svg+xml" width="80%">
-        </object>
-       </div>
-      </figure>
-      <ul>
-       <li>
-        When we want to calculate the Nusselt number for forced
-    convection heat transfer, we need to evaluate the Reynolds number
-    and the Prandtl number for the flow.
-       </li>
-       <li class="fragment" data-fragment-index="1">
-        But at what conditions do we calculate the viscosity,
-    thermal conductivity, and density at for these parameters? They
-    all depend on temperature, so which temperature do we use?
-       </li>
-       <li class="fragment" data-fragment-index="2">
-        The wall conditions? The bulk conditions? Somewhere
-    in-between?
-       </li>
-      </ul>
-     </section>
-     <section>
-      <figure>
-       <div class="center">
-        <object data="img/thermal_vs_momentum_boundary_layer.svg" type="image/svg+xml" width="80%">
-        </object>
-       </div>
-      </figure>
-      <ul>
-       <li>
-        It is also clear from the diagram above that the
-    conditions change along the plate! What distance away and along
-    the plate do we evaluate the properties at?
-       </li>
-       <li class="fragment" data-fragment-index="1">
-        There is no fundamentally right answer here, but all of
-    the empirical expressions in the literature have been worked out
-    using a consistent choice.
-       </li>
-      </ul>
-     </section>
-     <section>
-      <figure>
-       <div class="center">
-        <object data="img/thermal_vs_momentum_boundary_layer.svg" type="image/svg+xml" width="80%">
-        </object>
-       </div>
-       <figcaption>
-        A comparison of the thermal and momentum boundary
-      layers. The Prandtl number is related to the relative thickness
-      of the flow
-        $\delta$
-        and thermal
-        $\delta_T$
-        boundary layers.
-       </figcaption>
-      </figure>
-      <ul>
-       <li>
-        If we have a large open system, the
-        <b>film
-      temperature</b>, defined as the arithmetic mean of the wall and
-    bulk temperature is used by experimentalists to evaluate the
-    dimensionless numbers.
-        \begin{align*}
-        T_f = (T_w+T_\infty)/2
-        \end{align*}
-       </li>
-       <li class="fragment" data-fragment-index="1">
-        But for a closed system like a pipe the
-        <b>bulk
-      temperature</b>
-        is used
-        \begin{align*}
-        T_b = (T_{fluid,in}+T_{fluid,out})/2
-        \end{align*}
-       </li>
-      </ul>
-     </section>
-     <section data-menu-title="Reynolds Analogy">
-      <ul>
-       <li>
-        Some final notes on forced convection heat transfer.
-       </li>
-       <li class="fragment" data-fragment-index="1">
-        For a isothermal wall, with a laminar flow and with a high
-	Prandtl number (boundary important only), we can obtain an analytic
-	expression for the Nusselt number \begin{align*} \text{Nu}
-	&amp;\approx 0.332 \text{Re}^{1/2} \text{Pr}^{1/3} &amp;
-	\text{Pr}\ge 0.6 \end{align*}
-       </li>
-       <li class="fragment" data-fragment-index="2">
-        We can see this expression is proportional to
-    $\text{Pr}^{1/3}$, which is proportional to the thermal boundary
-    layer size, and has a limitation to near the crossover point at $\text{Pr}\approx 0.7$.
-       </li>
-       <li class="fragment" data-fragment-index="3">
-        However, this expression is only valid in the limits
-    stated above. We need other expressions for different systems.
-       </li>
-       <li class="fragment" data-fragment-index="4">
-        According to dimensional analysis, we need some function
-    of the Reynolds number and the Prandtl number:
-        \begin{align*}
-        \text{Nu} = f\left(\text{Re},  \text{Pr}\right)
-        \end{align*}
-       </li>
-       <li class="fragment" data-fragment-index="5">
-        One idea is to use the well developed concepts for
-    turbulent momentum transfer (Reynolds numbers, friction factors,
-    moody charts) and to try to apply it to heat transfer using some
-    relation involving the Prandtl number…
-       </li>
-      </ul>
-     </section>
-     <section>
-      <ul>
-       <li>
-        If we assume that momentum and heat are transported at the
-    same rate ($\text{Pr}\approx 0.7\approx 1$
-        ), we can find that for turbulent
-    fluid flow in a pipe with heat transport we have
-        \begin{align*}
-        \text{St}=\frac{\text{Nu}}{\text{Re} \text{Pr}} \approx
-      \frac{C_f}{2}
-        \end{align*}
-       </li>
-       <li class="fragment" data-fragment-index="1">
-        Which is known as the
-        <b>Reynolds analogy</b>
-        for pipe
-    flow.
-       </li>
-       <li class="fragment" data-fragment-index="2">
-        This expression allows you to use a Moody chart to predict
-    heat transfer coefficients for turbulent flows!
-       </li>
-       <li class="fragment" data-fragment-index="3">
-        This expression also defines the Stanton number
-    $\text{St}$, which is another dimensionless number which gives a
-    ratio of the heat transferred into a fluid and its thermal
-    capacity.
-       </li>
-       <li class="fragment" data-fragment-index="4">
-        Unfortunately, this simple expression is only useful for a
-    limited range of flows ($\text{Pr}\approx 1$, no drag profile),
-    but the concept has been extended…
-       </li>
-      </ul>
-     </section>
-     <section>
-      <ul>
-       <li>
-        A highly accurate empirical expression developed by
-    Petukhov can yield results to within $6$
-        % to 10% for
-    well-developed turbulent flows in smooth pipes
-        \begin{align*}
-        \text{Nu} \approx \frac{(C_f/2)
-        \text{Re} \text{Pr}}{1.07+12.7(C_f/2)^{1/2}\left(\text{Pr}^{2/3}
-          -1\right)}\left(\frac{\mu_b}{\mu_w}\right)^{0.14}
-        \end{align*}
-       </li>
-       <li class="fragment" data-fragment-index="1">
-        The promise of better accuracy is a good incentive for the
-    use of this equation, as the other expressions written here have
-    up to $\pm 25\%$
-        error.
-       </li>
-       <li class="fragment" data-fragment-index="2">
-        But this equation also has a limited range of
-    applicability, we need large books of tested equations to ensure
-    that we have a high confidence in our design!
-       </li>
-      </ul>
-     </section>
-     <section>
-      <ul>
-       <li>
-        Now, a general note on the form of these expressions for
-    the heat transfer coefficient.
-       </li>
-       <li class="fragment" data-fragment-index="1">
-        For the many difficult cases involving turbulent flow, a
-    simple power law expression may be fitted to experimental data.
-        \begin{align*}
-        \text{Nu} \approx C\,\text{Re}^m\,\text{Pr}^n
-        \end{align*}
-       </li>
-       <li class="fragment" data-fragment-index="2">
-         The power law is chosen not only because it is similar to the
-	 laminar result, but also as it is relatively straightforward
-	 to fit to experimental data (much like the Power-Law viscous
-	 model, see the next lecture on dimensional analysis).
-       </li>
-      </ul>
-     </section>
-     <section data-menu-title="Standard Expressions">
-      <ul>
-       <li>
-        For well-developed turbulent flow in smooth pipes, a very
-    popular expression is given by Sieder and Tate.
-        \begin{align*}
-        \text{Nu}_{turbulent} \approx 0.023 \text{Re}^{0.8} \text{Pr}^{1/3} \left(\frac{\mu}{\mu_{wall}}\right)^{0.14}
-        \end{align*}
-        where everything should be estimated at the bulk conditions,
-    except
-        $\mu_w$
-        which should be estimated at the wall conditions.
-       </li>
-       <li class="fragment" data-fragment-index="1">
-        This is often used along with the analytic expression for
-    laminar flow to provide estimates for the heat transfer
-    coefficient
-        \begin{align*}
-        \text{Nu}_{laminar} \approx 0.332 \text{Re}^{1/2} \text{Pr}^{1/3}
-        \end{align*}
-       </li>
-       <li class="fragment" data-fragment-index="2">
-        However, these are the equations with possibly large
-    ($\pm25\%$) errors, and are only valid for developed flows.
-       </li>
-      </ul>
-     </section>
-    </section>
-    <section>
-     <section data-menu-title="Natural Convection">
-      <div style="display:flex;align-items:center;">
-       <div style="flex: 1 1 calc(100% * 0.41);">
-        <figure>
-         <div class="center">
-          <object data="img/heated_wall.svg" type="image/svg+xml" width="100%">
-          </object>
-         </div>
-        </figure>
-       </div>
-       <div style="flex: 1 1 calc(100% * 0.61);">
-        <ul>
-         <li>
-          Let's move on to
-          <b>natural convection</b>.
-         </li>
-         <li class="fragment" data-fragment-index="1">
-          Consider a vertical plate, which is maintained at a
-        higher temperature than the surrounding air.
-         </li>
-         <li class="fragment" data-fragment-index="2">
-          Thanks to the flow due to convection, we will again
-        have a boundary layer problem!
-         </li>
-         <li class="fragment" data-fragment-index="3">
-          The analysis will be similar as for forced convection,
-        but we must determine an alternative Reynolds-like
-        dimensionless parameter for convective flow.
-         </li>
-         <li class="fragment" data-fragment-index="4">
-          This parameter must somehow contain the convective
-        flow velocity.
-         </li>
-        </ul>
-       </div>
-      </div>
-     </section>
-     <section data-menu-title="Grashof Number">
-      <div style="display:flex;align-items:center;">
-       <div style="flex: 1 1 calc(100% * 0.41);">
-        <figure>
-         <div class="center">
-          <object data="img/heated_wall.svg" type="image/svg+xml" width="100%">
-          </object>
-         </div>
-        </figure>
-       </div>
-       <div style="flex: 1 1 calc(100% * 0.61);">
-        <ul>
-         <li>
-          Convection occurs due to a change in the density of
-        the fluid/air when it is heated/cooled.
-         </li>
-         <li class="fragment" data-fragment-index="1">
-          When the air changes density, buoyancy effects cause
-        the lighter air to rise and cooler heavier air will flow in to
-        replace it.
-         </li>
-         <li class="fragment" data-fragment-index="2">
-          The amount a gas changes its density in response to a
-        change in temperature is given by the thermal expansion
-        coefficient
-          \begin{align*}
-          \beta = \frac{1}{V} \frac{\partial V}{\partial T}
-          \end{align*}
-         </li>
-        </ul>
-       </div>
-      </div>
-     </section>
-     <section>
-      <div style="display:flex;align-items:center;">
-       <div style="flex: 1 1 calc(100% * 0.41);">
-        <figure>
-         <div class="center">
-          <object data="img/heated_wall.svg" type="image/svg+xml" width="100%">
-          </object>
-         </div>
-        </figure>
-       </div>
-       <div style="flex: 1 1 calc(100% * 0.61);">
-        <ul>
-         <li>
-          For an ideal gas, we have
-          \begin{align*}
-          \beta_{ideal} = \frac{1}{T}
-          \end{align*}
-         </li>
-         <li class="fragment" data-fragment-index="1">
-          To a rough approximation, the change in volume due to
-        the wall heating is given by
-          \begin{align*}
-          \beta\left(T_w-T_\infty\right) L^3
-          \end{align*}
-          where
-          $L$
-          is the characteristic length of the system (wall
-        height in this case).
-         </li>
-         <li class="fragment" data-fragment-index="2">
-          The buoyancy force on this volume is given by
-          \begin{align*}
-          g \rho \beta\left(T_w-T_\infty\right) L^3
-          \end{align*}
-         </li>
-        </ul>
-       </div>
-      </div>
-     </section>
-     <section>
-      <div style="display:flex;align-items:center;">
-       <div style="flex: 1 1 calc(100% * 0.41);">
-        <figure>
-         <div class="center">
-          <object data="img/heated_wall.svg" type="image/svg+xml" width="100%">
-          </object>
-         </div>
-        </figure>
-       </div>
-       <div style="flex: 1 1 calc(100% * 0.61);">
-        <ul>
-         <li>
-          We can make this expression dimensionless using the
-        viscosity
-          \begin{align*}
-          \text{Gr}=\frac{g \rho^2 \beta\left(T_w-T_\infty\right)
-            L^3}{\mu^2}
-          \end{align*}
-         </li>
-         <li class="fragment" data-fragment-index="1">
-          We have derived the
-          <b>Grashof number</b>
-          for natural
-        convective flow on a vertical wall.
-         </li>
-         <li class="fragment" data-fragment-index="2">
-          This is a ratio of the buoyancy forces and the viscous
-        forces in the system, and is the analog of the Reynolds number
-        in forced flows.
-         </li>
-         <li class="fragment" data-fragment-index="3">
-          Natural convection flows also transition to turbulent
-        flows once the Grashof number reaches a critical value of
-        about $\text{Gr}\approx 4\times10^8$.
-         </li>
-        </ul>
-       </div>
-      </div>
-     </section>
-     <section data-menu-title="Natural Convection Heat Transfer Coefficient">
-      <div style="display:flex;align-items:center;">
-       <div style="flex: 1 1 calc(100% * 0.61);">
-        <figure>
-         <div class="center">
-          <img src="img/table.png" style="width:100%;"/>
-         </div>
-        </figure>
-       </div>
-       <div style="flex: 1 1 calc(100% * 0.41);">
-        <ul>
-         <li>
-          In general, over years of experiments it has been
-        found that the heat transfer coefficient for natural
-        convection are also fitted by a power law!
-          \begin{align*}
-          \text{Nu}=C\left(\text{Gr} \text{Pr}\right)^m
-          \end{align*}
-         </li>
-         <li class="fragment" data-fragment-index="1">
-          The coefficients for a wide range of geometries are
-        given in the table on the left, taken from “Heat Transfer,”
-        by J.P. Holman.
-         </li>
-        </ul>
-       </div>
-      </div>
-     </section>
-     <section>
-      <ul>
-       <li>
-        The previous expression for $\text{Nu}$
-        is only valid for
-      large systems (e.g., insulation on a pipe, or reactor), not for
-      small systems (e.g., pot of boiling liquid).
-       </li>
-       <li class="fragment" data-fragment-index="1">
-        The values for the coefficients in the previous table can
-    only be directly used for a vertical cylinder in the case that the
-    diameter is much greater than the thickness of the boundary layer.
-       </li>
-       <li class="fragment" data-fragment-index="2">
-        Luckily, the boundary layer thickness is on the order of a
-    few mm, so this is generally true.
-       </li>
-       <li class="fragment" data-fragment-index="3">
-        The criterion for this is expressed in terms of the
-    Grashof number.
-        \begin{align*}
-        \frac{D}{L} \ge \frac{35}{\text{Gr}^{1/4}}
-        \end{align*}
-       </li>
-       <li class="fragment" data-fragment-index="4">
-        If this is not true, the Nusselt number must be
-    corrected by a factor $F$
-        to account for the curvature, given by
-        \begin{align*}
-        F=1.3\left[(L/D)/\text{Gr}_D\right]^{1/4}+1.0
-        \end{align*}
-       </li>
-      </ul>
-     </section>
-    </section>
-    <section>
-     <section data-menu-title="Radiation">
-      <div style="display:flex;align-items:center;">
-       <div style="flex: 1 1 calc(100% * 0.41);">
-        <figure>
-         <div class="center">
-          <object data="img/radiation.svg" type="image/svg+xml" width="100%">
-          </object>
-         </div>
-        </figure>
-       </div>
-       <div style="flex: 1 1 calc(100% * 0.61);">
-        <ul>
-         <li>
-          All surfaces emit electromagnetic radiation at a wide
-        range of frequencies.
-         </li>
-         <li class="fragment" data-fragment-index="1">
-          The distribution of frequencies depends on the
-        temperature of the material, and the energy of the radiation
-        depends on the frequency.
-         </li>
-         <li class="fragment" data-fragment-index="2">
-          Using quantum-statistical thermodynamics, it was found
-        that the total energy emitted per unit area is equal to
-          \begin{align*}
-          e_{b,radiation}=\sigma T^4
-          \end{align*}
-          where
-          $\sigma=5.669\times10^{-8}$
-          W /m
-          ${}^2$
-          K
-          ${}^4$.
-         </li>
-        </ul>
-       </div>
-      </div>
-     </section>
-     <section>
-      <div style="display:flex;align-items:center;">
-       <div style="flex: 1 1 calc(100% * 0.41);">
-        <figure>
-         <div class="center">
-          <object data="img/radiation2.svg" type="image/svg+xml" width="100%">
-          </object>
-         </div>
-        </figure>
-       </div>
-       <div style="flex: 1 1 calc(100% * 0.61);">
-        <ul>
-         <li>
-          $e_b$
-          is known as the
-          <i>blackbody radiation</i>, as it
-        is the radiative heat emitted by the perfect radiator (the
-        perfect black body).
-         </li>
-         <li class="fragment" data-fragment-index="1">
-          The blackness of an object is related to how much
-        radiation it will absorbed and emit.
-         </li>
-         <li class="fragment" data-fragment-index="2">
-          Objects appear black to the eye absorb all of the
-        visible spectrum, but a true black body absorbs all
-        frequencies.
-         </li>
-         <li class="fragment" data-fragment-index="3">
-          The eye is not always a good judge of blackness. Snow
-        and ice are essentially black for long-wavelength thermal
-        radiation.
-         </li>
-        </ul>
-       </div>
-      </div>
-     </section>
-     <section>
-      <div style="display:flex;align-items:center;">
-       <div style="flex: 1 1 calc(100% * 0.41);">
-        <figure>
-         <div class="center">
-          <object data="img/radiation3.svg" type="image/svg+xml" width="100%">
-          </object>
-         </div>
-        </figure>
-       </div>
-       <div style="flex: 1 1 calc(100% * 0.61);">
-        <ul>
-         <li>
-          To take account of this varying level of blackness, we
-        use a characteristic called the
-          <b>emissivity</b>
-          $\varepsilon$.
-         </li>
-         <li class="fragment" data-fragment-index="1">
-          This is a ratio of the effectiveness of a surface to
-        absorbing and emitting thermal radiation, relative to an ideal
-        black body and its value is in the range of $0\le\varepsilon\le1$
-         </li>
-         <li class="fragment" data-fragment-index="2">
-          Typical values of the emissivity range from 0.7-0.9.
-         </li>
-        </ul>
-       </div>
-      </div>
-     </section>
-     <section>
-      <div style="display:flex;align-items:center;">
-       <div style="flex: 1 1 calc(100% * 0.41);">
-        <figure>
-         <div class="center">
-          <object data="img/radiation4.svg" type="image/svg+xml" width="100%">
-          </object>
-         </div>
-        </figure>
-       </div>
-       <div style="flex: 1 1 calc(100% * 0.61);">
-        <ul>
-         <li>
-          Objects which are emitting thermal radiation, are also
-        receiving it from their surroundings.
-         </li>
-         <li class="fragment" data-fragment-index="1">
-          We then need a balance between the two radiative
-        fluxes.
-          \begin{align*}
-          Q_{radiative} = \sigma F  A_w  \varepsilon \left(T^4_\infty -T^4_w\right)
-          \end{align*}
-         </li>
-         <li class="fragment" data-fragment-index="2">
-          The value $F$
-          is known as the shape factor. It is
-        proportional to the area of the surroundings and is a function
-        of the geometry.
-         </li>
-         <li class="fragment" data-fragment-index="3">
-          However, if the surroundings are large, it can be
-        shown that the shape factor limits towards $F\to1$.
-          \begin{align*}
-          Q_{radiative} \to \sigma  A_w  \varepsilon \left(T^4_\infty -T^4_w\right)
-          \end{align*}
-         </li>
-        </ul>
-       </div>
-      </div>
-     </section>
-     <section>
-      <div style="display:flex;align-items:center;">
-       <div style="flex: 1 1 calc(100% * 0.41);">
-        <figure>
-         <div class="center">
-          <object data="img/radiation4.svg" type="image/svg+xml" width="100%">
-          </object>
-         </div>
-        </figure>
-       </div>
-       <div style="flex: 1 1 calc(100% * 0.61);">
-        <ul>
-         <li>
-          The final part of radiative heat transfer is to note
-        that we can define a radiation heat transfer coefficient
-        $h_f$, using the definition
-          \begin{align*}
-          \frac{Q_{radiative}}{A} &amp;= h_{radiative}\left(T_\infty -
-            T_w\right)\\ &amp;= \varepsilon \sigma \left(T_\infty^4 -
-            T_w^4\right)
-          \end{align*}
-         </li>
-         <li class="fragment" data-fragment-index="1">
-          Rearranging to find $h_{radiative}$, we obtain
-          \begin{align*}
-          h_{radiative} = \varepsilon \sigma \left(T_\infty^2 +
-            T_w^2\right)\left(T_\infty + T_w\right)
-          \end{align*}
-         </li>
-         <li class="fragment" data-fragment-index="2">
-          We can now study radiative and convective heat
-        transfer at the same time by combining our transfer
-        coefficients
-          \begin{align*}
-          Q_{r+c} = A_w\left(h+h_{radiative}\right)\left(T_\infty - T_w\right)
-          \end{align*}
-         </li>
-         <li class="fragment" data-fragment-index="3">
-          Note that these terms add linearly! They are not
-        additional resistances in series (like the insulated brick
-        problem), but they are parallel thermal transport processes!
-         </li>
-        </ul>
-       </div>
-      </div>
-     </section>
-    </section>
-    <section>
-     <section data-menu-title="Example: Thermometer in a Room">
-      <figure>
-       <div class="center">
-        <object data="img/thermometer.svg" type="image/svg+xml" width="70%">
-        </object>
-       </div>
-      </figure>
-      <ul>
-       <li>
-        Consider a thermometer placed in a room.
-       </li>
-       <li class="fragment" data-fragment-index="1">
-        The walls of the house are poorly insulated and the internal surface
-    is at a temperature of $5^\circ$
-        C.
-       </li>
-       <li class="fragment" data-fragment-index="2">
-        Due to central heating the thermometer reads a temperature
-    of $20^\circ$
-        C.
-       </li>
-       <li class="fragment" data-fragment-index="3">
-        What is the real temperature of the air? Does radiation matter here?
-       </li>
-      </ul>
-     </section>
-     <section>
-      <figure>
-       <div class="center">
-        <object data="img/thermometer.svg" type="image/svg+xml" width="70%">
-        </object>
-       </div>
-      </figure>
-      <ul>
-       <li>
-        The two heat transfer mechanisms acting on the thermometer are
-    convection and radiation.
-       </li>
-       <li class="fragment" data-fragment-index="1">
-        At steady state, the heat gained/lost by convection must
-    equal the heat lost/gained by convection.
-        \begin{align*}
-        Q_{conv.}&amp;=-Q_{rad.}\\
-      h A_t\left(T_{air}-T_t\right) &amp;=
-      -\sigma \varepsilon_t A_t\left(T_{wall}^4-T^4_t\right)
-        \end{align*}
-       </li>
-       <li class="fragment" data-fragment-index="2">
-        (We assume the radiation to/from the air is negligible
-    compared to the radiation to/from the wall.)
-       </li>
-      </ul>
-     </section>
-     <section>
-      \begin{align*}
-      h A_t\left(T_{air}-T_t\right) =
-      \sigma \varepsilon_t A_t\left(T_{wall}^4-T^4_t\right)
-      \end{align*}
-      <ul>
-       <li>
-        A rough estimate of a convective heat transfer coefficient
-    is $h\approx10$
-        W/m
-        ${}^2$
-        K.
-       </li>
-       <li class="fragment" data-fragment-index="1">
-        The emissivity of common materials ranges from
-    $\varepsilon\approx 0.6$
-        to 0.9, so lets take a worse-case value
-    of
-        $\varepsilon\approx0.9$.
-       </li>
-       <li class="fragment" data-fragment-index="2">
-        Solving for the air temperature difference, we have
-        \begin{align*}
-        T_{air} - T_{T} &amp;= \sigma \varepsilon_t\left(T_{wall}^4-T^4_t\right) / h\\
-      &amp;= 5.67\times10^{-8}\times0.9\times\left(293^4-278^4\right) / 10\\
-      &amp;\approx 7.13^\circ\text{C}
-        \end{align*}
-       </li>
-       <li class="fragment" data-fragment-index="3">
-         The air is actually $7^\circ$C warmer than the thermometer's
-    reading!
-       </li>
-      </ul>
-     </section>
-    </section>
-    <section>
-      <section data-menu-title="Learning Objectives">
-	<h3>Learning objectives</h3>
-      <ul>
-       <li>
-        We have learnt about the numerous expressions for the
-    coefficient of heat transfer for
-        <b>forced convection</b>
-        and for
-        <b>natural convection</b>.
-       </li>
-       <li class="fragment" data-fragment-index="1">
-        We have learnt about the analog of the Reynolds number for
-    natural convection, called the Grashof number.
-        \begin{align*}
-        \text{Gr}=\frac{g \rho^2 \beta\left(T_w-T_\infty\right)
-        L^3}{\mu^2}
-        \end{align*}
-       </li>
-       <li class="fragment" data-fragment-index="2">
-        We have learnt about radiative heat transfer, and found
-    that for an object in large surroundings we have
-        \begin{align*}
-        Q_{convective} \to \sigma  A_w  \varepsilon \left(T_\infty -T_w\right)
-        \end{align*}
-       </li>
-       <li class="fragment" data-fragment-index="3">
-        We have also defined a radiative heat transfer coefficient
-        \begin{align*}
-        h_{radiative} = \varepsilon \sigma \left(T_\infty^2 +
-        T_w^2\right)\left(T_\infty + T_w\right)
-        \end{align*}
-       </li>
-       <li class="fragment" data-fragment-index="4">
-        The example covered has shown that radiative heat transfer
-    is very significant even for small temperatures.
-       </li>
-      </ul>
-     </section>
-    </section>
-   </div>
-  </div>
-  <script src="footer.js"></script>
- </body>
+    </div>
+    <script src="footer.js"></script>
+  </body>
 </html>

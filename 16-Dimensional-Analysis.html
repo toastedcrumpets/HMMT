@@ -57,9 +57,9 @@
               <li class="fragment" data-fragment-index="1">
                 We covered
                 <b>conduction</b>
-                and derived the conductive heat transfer resistances in a plate
-                and in a pipe from the heat equation. \begin{align*} R_{plate}
-                &amp;= \frac{X}{k A}&amp; R_{pipe} &amp;=
+                and derived the conductive resistances in a plate/pipe from the
+                heat equation. \begin{align*} R_{plate} &amp;=
+                \frac{X}{k A}&amp; R_{pipe} &amp;=
                 \frac{\ln\left(\frac{R_o}{R_i}\right)}{2 \pi L k} \end{align*}
               </li>
               <li class="fragment" data-fragment-index="2">
@@ -86,6 +86,7 @@
         </section>
         <section>
           <section data-menu-title="Motivation for Dimensional Analysis">
+            <h3>Motivation for dimensional analysis</h3>
             <ul>
               <li>
                 You should already be interested in dimensional analysis from
@@ -110,7 +111,7 @@
                   <object
                     data="img/annular_flow.svg"
                     type="image/svg+xml"
-                    width="70%"
+                    width="60%"
                   ></object>
                 </div>
               </li>
@@ -183,35 +184,36 @@
             </ul>
           </section>
           <section data-menu-title="The Natural Units?">
+            <h3>The Natural Units?</h3>
             <div style="display: flex; align-items: center">
               <div style="flex: 1 1 calc(100% * 0.651)">
                 <ul>
                   <li>We simply have to ask, what are the units of nature?</li>
-                  <li class="fragment" data-fragment-index="1">
+                  <li class="fragment">
                     The simple answer is that units are a totally artificial
                     scale we use to measure reality by and nature has no use for
                     them. That's why there are so many unit systems, they're
                     artificial constructions.
                   </li>
-                  <li class="fragment" data-fragment-index="2">
+                  <li class="fragment">
                     Although
                     <b>SI units</b>
                     are the standard unit system, it is just a convenient system
                     and not particularly special or more “natural” in some
                     fundamental way.
                   </li>
-                  <li class="fragment" data-fragment-index="3">
+                  <li class="fragment">
                     <b
                       >Physical phenomenon must be independent of the unit
                       systems used to measure them</b
                     >.
                   </li>
-                  <li class="fragment" data-fragment-index="4">
+                  <li class="fragment">
                     If natural processes can be described by equations, these
                     equations must somehow eliminate units from playing any
                     role, thus…
                   </li>
-                  <li class="fragment" data-fragment-index="5">
+                  <li class="fragment">
                     <b>Dimensionless units are the natural unit system.</b>
                   </li>
                 </ul>
@@ -231,6 +233,7 @@
         </section>
         <section>
           <section data-menu-title="Dimensional Analysis">
+            <h3>Dimensional Analysis</h3>
             <div style="display: flex; align-items: center">
               <div style="flex: 1 1 calc(100% * 0.751)">
                 <ul>
@@ -293,8 +296,8 @@
                     unit.
                   </li>
                   <li class="fragment" data-fragment-index="2">
-                    For example, in a pipe of radius $R$, we often use the
-                    dimensionless variable $r/R$, where $R$ is the unit length.
+                    For example, in a pipe of radius $R,$ we often use the
+                    dimensionless variable $r/R,$ where $R$ is the unit length.
                   </li>
                 </ul>
               </div>
@@ -322,21 +325,21 @@
                     We need to choose a length, mass, and time scale for the
                     pendulum.
                   </li>
-                  <li class="fragment" data-fragment-index="1">
+                  <li class="fragment">
                     The unit length of the system can be the length of the
                     pendulum $L=l$, and the unit mass can be it's mass, $M=m$.
                   </li>
-                  <li class="fragment" data-fragment-index="2">
+                  <li class="fragment">
                     We can then get a unit of time from the gravitational
                     constant \begin{align*} T = \sqrt{l/g} \end{align*}
                   </li>
-                  <li class="fragment" data-fragment-index="3">
+                  <li class="fragment">
                     Inserting these into the expression above, we have
                     \begin{align*} \frac{t}{\sqrt{l/g}} = f\left(\frac{l}{l}, 
                     \frac{m}{m}, \frac{g l}{l g}\right) = f\left(1,  1, 
                     1\right) \end{align*}
                   </li>
-                  <li class="fragment" data-fragment-index="4">
+                  <li class="fragment">
                     The unknown function is now a constant!
                   </li>
                 </ul>
@@ -426,7 +429,7 @@
               </li>
             </ul>
           </section>
-          <section>
+          <section style="font-size: 0.9em">
             \begin{align*} \frac{h \Theta T^3}{M} = f\left(\frac{d}{L}, 
             \frac{\mu T L}{M},  \frac{k T^3 \Theta}{M L},  \frac{T\left\langle v
             \right\rangle}{L},  \frac{\rho L^3}{M}, 
@@ -484,9 +487,13 @@
             \text{Pr}\right) \end{align*}
             <ul>
               <li>
-                One of the “known” expressions for Nusselt number is
-                \begin{align*} \text{Nu} &amp;\approx C \text{Re}^m \text{Pr}^n
-                \end{align*}
+                One of the “known”/engineering expressions for the Nusselt
+                number is \begin{align*} \text{Nu} &amp;\approx C \text{Re}^m
+                \text{Pr}^n \end{align*} This power-law form is used a lot in
+                engineering as you can plot it on log-log paper and the slope
+                gives you the values of $m$ and $n$ while the intercept is $C$.
+                \begin{align*} \ln\text{Nu} &amp;\approx \ln C+ m\ln \text{Re} +
+                n\ln\text{Pr} \end{align*}
               </li>
               <li class="fragment" data-fragment-index="1">
                 Although dimensional analysis has not been able to show us the
@@ -502,30 +509,31 @@
                 Hopefully this can convince you of the importance of
                 dimensionless numbers and the power of dimensional analysis.
               </li>
-              <li class="fragment" data-fragment-index="4">
-                There is one last example to convince you of its utility.
-              </li>
             </ul>
           </section>
           <section data-menu-title="The General Approach: Nuclear Tests">
+            <h3>The General Approach: Nuclear Tests</h3>
             <div style="display: flex; align-items: center">
               <div style="flex: 1 1 calc(100% * 0.61)">
                 <ul>
                   <li>
+                    There is one last example to convince you of its utility.
+                  </li>
+                  <li class="fragment">
                     The first nuclear test was carried out in 1945, and was
                     called the “trinity” nuclear test. It had the same
                     conceptual design as the device detonated over Nagasaki.
                   </li>
-                  <li class="fragment" data-fragment-index="1">
+                  <li class="fragment">
                     When the photographic data of the trinity test was released
                     in 1950 (after a successful Russian test), G. I. Taylor
                     published a paper where he estimated the bomb's yield.
                   </li>
-                  <li class="fragment" data-fragment-index="2">
+                  <li class="fragment">
                     His result (although it has some minor errors) correctly
                     predicted the magnitude as 18 kilotons of TNT.
                   </li>
-                  <li class="fragment" data-fragment-index="3">
+                  <li class="fragment">
                     Dimensional analysis allowed him to calculate this result.
                   </li>
                 </ul>
@@ -665,8 +673,12 @@
                 \left(\frac{578}{S}\right)^5 \end{align*}
               </li>
               <li class="fragment" data-fragment-index="2">
-                If we assume the constant term is approximately $S\approx1$ we
-                get: \begin{align*} e \approx 578^5 \approx
+                If we assume the constant term is approximately $S\approx1$
+                (actual proof
+                <a href="https://doi.org/10.1017/dce.2024.9"
+                  >is way more complicated here</a
+                >, but we could just use a &ldquo;known&rdquo; explosion to
+                calibrate it) we get: \begin{align*} e \approx 578^5 \approx
                 64\times10^{12} \text{J} = 64 \text{TJ} \end{align*}
               </li>
               <li class="fragment" data-fragment-index="3">
@@ -681,6 +693,7 @@
         </section>
         <section>
           <section data-menu-title="Learning Objectives">
+            <h3>Learning Objectives</h3>
             <ul>
               <li>
                 The importance of dimensionless properties and variables is
