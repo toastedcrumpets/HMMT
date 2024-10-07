@@ -29,6 +29,7 @@
         </section>
         <section>
           <section data-menu-title="Review">
+            <h3>Review</h3>
             <ul>
               <li>
                 In the previous lecture, we derived the general energy balance
@@ -37,21 +38,15 @@
                 \nabla_i(\tau_{ij} v_j) - \nabla_i(p v_i) + \sigma_{energy}
                 \end{align*}
               </li>
-              <li class="fragment" data-fragment-index="1">
-                We defined the Laplace operator $\nabla^2$ , and
+              <li class="fragment">
+                We defined the Laplace operator $\nabla^2$, and
                 <b>
-                  noted its special definitions in different coordinate systems </b
+                  noted its special definitions in different coordinate
+                  systems</b
                 >!
               </li>
-              <li class="fragment" data-fragment-index="2">
-                We also defined Fourier's law of conduction: \begin{align*}
-                \boldsymbol{q} = -k \nabla T \end{align*}
-              </li>
-              <li class="fragment" data-fragment-index="3">
-                And
-                <b> noted it's definitions in different coordinate systems </b>
-                :
-                <figure>
+              <li class="fragment">
+                <figure style="float: right; width: 50%">
                   <table style="border-collapse: collapse">
                     <tr>
                       <td>Rectangular</td>
@@ -87,20 +82,31 @@
                     Fourier's Law in all coordinate systems
                   </figcaption>
                 </figure>
+
+                We also defined Fourier's law of conduction: \begin{align*}
+                \boldsymbol{q} = -k \nabla T \end{align*} and
+                <b
+                  >noted it's definitions in different coordinate systems (see
+                  right).</b
+                >
               </li>
-              <li class="fragment" data-fragment-index="4">
-                We will now take a look at using these equations in a manner
-                similar to the Cauchy momentum equation.
+              <li class="fragment">
+                We will now take a look at using these equations in heat
+                transfer, just like we did for flow problems and the Cauchy
+                momentum equation.
               </li>
             </ul>
           </section>
         </section>
         <section>
           <section data-menu-title="Simplifying the Energy Balance">
+            <h3>
+              Simplifying the Energy Balance by removing the Cauchy equation
+            </h3>
             <ul>
               <li>
-                Before we continue, we will simplify the energy balance
-                equation. \begin{align*} \rho\frac{\partial e}{\partial t}
+                Before we continue, we will simplify the energy balance equation
+                a bit more. \begin{align*} \rho\frac{\partial e}{\partial t}
                 &amp;= - \rho v_i \nabla_i e - \nabla_i q_i -
                 \nabla_i(\tau_{ij} v_j) - \nabla_i(p v_i) + \sigma_{energy}
                 \end{align*}
@@ -154,10 +160,13 @@
              \nabla_j U - \nabla_i q_i - \tau_{ji} \nabla_j v_i - p \nabla_i v_i
             +\sigma_{energy} \end{align*}
             <ul>
-              <li>This is as far as we can go while remaining exact.</li>
+              <li>
+                This is as far as we can go while remaining &ldquo;exact&rdquo;
+                (we ignored gravity, but we've ignored many forms of energy).
+              </li>
               <li class="fragment" data-fragment-index="1">
-                But, if we are in a liquid or solid, we can state that the
-                internal energy has little or no pressure dependence
+                However, there is a useful assumption if we are in a liquid or
+                solid, the internal energy has little or no pressure dependence
                 \begin{align*} {\rm d}U = C_p  {\rm d}T +
                 \cancelto{0}{\left(\frac{\partial U}{\partial p}\right)_T {\rm
                 d} P} \end{align*}
@@ -181,6 +190,7 @@
           <section
             data-menu-title="Example: Conduction in an Electrically Heated Wire"
           >
+            <h3>Example: Conduction in an Electrically Heated Wire</h3>
             <div style="display: flex; align-items: center">
               <div style="flex: 1 1 calc(100% * 0.25)">
                 <figure>
@@ -539,9 +549,32 @@
               </li>
             </ul>
           </section>
+          <section>
+            <h3>Real systems</h3>
+            <ul>
+              <li>
+                An annulus is closer to the real case for wires used in modern
+                electricity pylons!
+              </li>
+            </ul>
+            <figure>
+              <img src="img/PylonWires.png" style="width: 60%" />
+              <figcaption>
+                Old wires (left) used steel cores for strength, but aluminium
+                for low-weight conductivity. New wires have fibreglass or
+                carbon-fibre cores for higher strength to allow more weight for
+                trapezoidal aluminium conductors, reducing losses and increasing
+                capacity. Figure taken from
+                <a src="https://haas.berkeley.edu/wp-content/uploads/WP343.pdf"
+                  >this paper</a
+                >.
+              </figcaption>
+            </figure>
+          </section>
         </section>
         <section>
           <section data-menu-title="Example: Spherical Nuclear Fuel">
+            <h3>Example: Spherical Nuclear Fuel</h3>
             <div style="display: flex; align-items: center">
               <div style="flex: 1 1 calc(100% * 0.51)">
                 <figure>
@@ -642,7 +675,7 @@
               </li>
               <li class="fragment" data-fragment-index="3">
                 Choosing spherical coordinates, we assume due to symmetry that
-                only the radial flux is important ($q_\theta=q_\phi=0$ ), and we
+                only the radial flux is important ($q_\theta=q_\phi=0$), and we
                 have \begin{align*} \frac{1}{r^2}\frac{\partial}{\partial
                 r}\left(r^2  q_r\right) +
                 \frac{1}{r\sin\theta}\frac{\partial}{\partial
@@ -924,6 +957,7 @@
         </section>
         <section>
           <section data-menu-title="Learning Objectives">
+            <h3>Learning Objectives</h3>
             <ul>
               <li>
                 The general energy balance equation is: \begin{align*}
