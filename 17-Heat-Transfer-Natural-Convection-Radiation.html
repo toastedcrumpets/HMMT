@@ -23,12 +23,13 @@
           <section>
             <h2>Introduction to Natural Convection and Radiation</h2>
             <iframe
-              src="https://commons.wikimedia.org/wiki/File:Schlieren_imaging_system_-_first_try.ogv?embedplayer=yes"
               width="1400"
               height="800"
+              src="https://www.youtube.com/embed/doxDOlwEblg?si=S_HQqXFRiJy7khOw"
+              title="YouTube video player"
               frameborder="0"
-              loading="lazy"
-              allow="autoplay; picture-in-picture"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
               allowfullscreen
             ></iframe>
             <p>
@@ -51,7 +52,7 @@
                 \frac{\Delta T}{R_{total}}\\ R_{total} &amp;= R_1 + R_2 + …\\
                 &amp;= 1/U_1 A_1 + 1/U_2 A_2 + … \end{align*}
               </li>
-              <li class="fragment" data-fragment-index="1">
+              <li class="fragment">
                 We covered
                 <b>conduction</b>
                 and derived the conductive heat transfer resistances in a plate
@@ -59,14 +60,13 @@
                 &amp;= \frac{X}{k A}&amp; R_{pipe} &amp;=
                 \frac{\ln\left(\frac{R_o}{R_i}\right)}{2 \pi L k} \end{align*}
               </li>
-              <li class="fragment" data-fragment-index="2">
+              <li class="fragment">
                 We also covered
                 <b>forced convection</b>, and revised that we have relationships
-                for the heat transfer coefficient $h$ \begin{align*}
-                h&amp;=\frac{k \text{Nu}}{L} &amp; \text{Nu} &amp;\approx
-                C \text{Re}^m \text{Pr}^n \end{align*}
+                for the heat transfer coefficient $h=\frac{k \text{Nu}}{L}$ and
+                $\text{Nu}\approx C \text{Re}^m \text{Pr}^n$.
               </li>
-              <li class="fragment" data-fragment-index="3">
+              <li class="fragment">
                 We'll now take a look at convection in more detail.
               </li>
             </ul>
@@ -84,7 +84,7 @@
                     <object
                       data="img/boundary_layer.svg"
                       type="image/svg+xml"
-                      width="80%"
+                      width="70%"
                     ></object>
                   </div>
                 </figure>
@@ -215,7 +215,7 @@
                 <object
                   data="img/thermal_vs_momentum_boundary_layer.svg"
                   type="image/svg+xml"
-                  width="80%"
+                  width="70%"
                 ></object>
               </div>
               <figcaption>
@@ -392,7 +392,7 @@
                 <object
                   data="img/thermal_vs_momentum_boundary_layer.svg"
                   type="image/svg+xml"
-                  width="80%"
+                  width="70%"
                 ></object>
               </div>
               <figcaption>
@@ -714,7 +714,11 @@
               <div style="flex: 1 1 calc(100% * 0.61)">
                 <figure>
                   <div class="center">
-                    <img src="img/table.png" style="width: 100%" />
+                    <img
+                      src="img/table.png"
+                      style="width: 100%"
+                      alt="The table of heat transfer coefficients for natural convection"
+                    />
                   </div>
                 </figure>
               </div>
@@ -820,45 +824,41 @@
             </div>
           </section>
           <section>
-            <div style="display: flex; align-items: center">
-              <div style="flex: 1 1 calc(100% * 0.41)">
-                <figure>
-                  <div class="center">
-                    <object
-                      data="img/radiation2.svg"
-                      type="image/svg+xml"
-                      width="100%"
-                    ></object>
-                  </div>
-                </figure>
-              </div>
-              <div style="flex: 1 1 calc(100% * 0.61)">
-                <ul>
-                  <li>
-                    $e_b$ is known as the
-                    <i>blackbody radiation</i>, as it is the radiative heat
-                    emitted by the perfect radiator (the perfect black body).
-                  </li>
-                  <li class="fragment">
-                    The blackness of an object is related to how much radiation
-                    it will absorbed and emit.
-                  </li>
-                  <li class="fragment">
-                    Objects appear black to the eye absorb all of the visible
-                    spectrum, but a true black body absorbs all frequencies.
-                  </li>
-                  <li class="fragment">
-                    Candle black/soot is very black for visible light at 95%
-                    absorbtion.
-                  </li>
-                  <li class="fragment">
-                    But the eye is not always a good judge of blackness. Snow
-                    and ice are essentially black for long-wavelength thermal
-                    radiation.
-                  </li>
-                </ul>
-              </div>
-            </div>
+            <figure>
+              <iframe
+                width="1000"
+                height="500"
+                src="https://www.youtube.com/embed/Psvo_XEc784?si=IisV8T95ZKXkMagR"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen
+              ></iframe>
+            </figure>
+            <ul>
+              <li>
+                $e_b$ is known as the
+                <i>blackbody radiation</i>, as it is the radiative heat emitted
+                by the perfect radiator (the perfect black body).
+              </li>
+              <li class="fragment">
+                The blackness of an object is related to how much radiation it
+                will absorbed and emit.
+              </li>
+              <li class="fragment">
+                Objects appear black to the eye absorb all of the visible
+                spectrum, but a true black body absorbs all frequencies.
+              </li>
+              <li class="fragment">
+                Candle black/soot is very black for visible light at 95%
+                absorbtion.
+              </li>
+              <li class="fragment">
+                But the eye is not always a good judge of blackness. Snow and
+                ice are essentially black for long-wavelength thermal radiation.
+              </li>
+            </ul>
           </section>
           <section>
             <div style="display: flex; align-items: center">
@@ -925,7 +925,7 @@
                   </li>
                   <li class="fragment" data-fragment-index="3">
                     However, if the surroundings are large, it can be shown that
-                    the shape factor limits towards $F\to1$. \begin{align*}
+                    the shape factor limits towards $F\to1.$ \begin{align*}
                     Q_{radiative} \to \sigma  A_w  \varepsilon \left(T^4_\infty
                     -T^4_w\right) \end{align*}
                   </li>
@@ -935,7 +935,7 @@
           </section>
           <section>
             <div style="display: flex; align-items: center">
-              <div style="flex: 1 1 calc(100% * 0.41)">
+              <div style="flex: 1 1 calc(100% * 0.31)">
                 <figure>
                   <div class="center">
                     <object
@@ -946,7 +946,7 @@
                   </div>
                 </figure>
               </div>
-              <div style="flex: 1 1 calc(100% * 0.61)">
+              <div style="flex: 1 1 calc(100% * 0.71)">
                 <ul>
                   <li>
                     The final part of radiative heat transfer is to note that we
@@ -987,7 +987,7 @@
                 <object
                   data="img/thermometer.svg"
                   type="image/svg+xml"
-                  width="70%"
+                  width="60%"
                 ></object>
               </div>
             </figure>
@@ -1013,7 +1013,7 @@
                 <object
                   data="img/thermometer.svg"
                   type="image/svg+xml"
-                  width="70%"
+                  width="60%"
                 ></object>
               </div>
             </figure>
@@ -1073,25 +1073,24 @@
                 and for
                 <b>natural convection</b>.
               </li>
-              <li class="fragment" data-fragment-index="1">
+              <li class="fragment">
                 We have learnt about the analog of the Reynolds number for
-                natural convection, called the Grashof number. \begin{align*}
+                natural convection, called the Grashof number, \begin{align*}
                 \text{Gr}=\frac{g \rho^2 \beta\left(T_w-T_\infty\right)
-                L^3}{\mu^2} \end{align*}
+                L^3}{\mu^2}. \end{align*}
               </li>
-              <li class="fragment" data-fragment-index="2">
-                We have learnt about radiative heat transfer, and found that for
-                an object in large surroundings we have \begin{align*}
-                Q_{convective} \to \sigma  A_w  \varepsilon \left(T_\infty
-                -T_w\right) \end{align*}
+              <li class="fragment">
+                We found that for radiation of an object in large surroundings
+                we have, \begin{align*} Q_{convective} \to \sigma  A_w 
+                \varepsilon \left(T_\infty -T_w\right). \end{align*}
               </li>
-              <li class="fragment" data-fragment-index="3">
-                We have also defined a radiative heat transfer coefficient
+              <li class="fragment">
+                We have also defined a radiative heat transfer coefficient,
                 \begin{align*} h_{radiative} = \varepsilon \sigma
-                \left(T_\infty^2 + T_w^2\right)\left(T_\infty + T_w\right)
+                \left(T_\infty^2 + T_w^2\right)\left(T_\infty + T_w\right).
                 \end{align*}
               </li>
-              <li class="fragment" data-fragment-index="4">
+              <li class="fragment">
                 The example covered has shown that radiative heat transfer is
                 very significant even for small temperatures.
               </li>
