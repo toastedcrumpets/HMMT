@@ -39,7 +39,7 @@
           <section data-menu-title="Review">
             <ul>
               <li>
-                In previous lectures we derived and applied the mass balance
+                \\ In previous lectures we derived and applied the mass balance
                 equation, AKA the continuity equation. \begin{align*}
                 \frac{\partial \rho}{\partial t} &amp;=- \nabla\cdot
                 \rho \boldsymbol{v} \end{align*}
@@ -612,12 +612,12 @@
                 There is a final set of terms that we have neglected in our
                 derivation so far.
               </li>
-              <li class="fragment" data-fragment-index="1">
+              <li class="fragment">
                 These terms account for the
                 <b> work </b>
                 performed by the fluid.
               </li>
-              <li class="fragment" data-fragment-index="2">
+              <li class="fragment">
                 Work was originally defined in 1824 by Sadi Carnot:
                 <div class="mathblock">
                   <h3>Reflections on the Motive Power of Fire</h3>
@@ -630,15 +630,19 @@
                   </b>
                 </div>
               </li>
-              <li class="fragment" data-fragment-index="3">
+              <li class="fragment">
                 Little has changed, aside from a clarification of weight versus
                 force.
               </li>
 
-              <li class="fragment" data-fragment-index="4">
+              <li class="fragment">
                 The rate of work generation is then a force multiplied by a
-                <i> velocity </i>
-                .
+                <i>velocity</i>.
+              </li>
+              <li class="fragment">
+                Work is not really a flux or a source term, more a
+                transformation term, so we'll just add it on as another form of
+                transport. Every force must have a work term!
               </li>
             </ul>
           </section>
@@ -651,12 +655,13 @@
               </li>
               <li class="fragment" data-fragment-index="1">
                 A simple example of a work balance is given by the pressure.
-                \begin{align*} \text{Work Rate}^{pressure}_{x} + \text{Work
-                Rate}^{pressure}_{x+\Delta x} = \left(p(x) v(x) - p(x+\Delta
-                x) v(x+\Delta x)\right)\Delta y \Delta z \end{align*} (Note,
-                compression adds energy but expansion removes it from the
-                system, and the sign change arises from positive $v(x)$ being a
-                compression, whereas positive $v(x+\Delta x)$ is a expansion).
+                \begin{align*} \text{Work Rate}^{pressure}_{x} +
+                \text{Work&nbsp;Rate}^{pressure}_{x+\Delta x} = \left(p(x) v(x)
+                - p(x+\Delta x) v(x+\Delta x)\right)\Delta y \Delta z
+                \end{align*} (Note, compression adds energy but expansion
+                removes it from the system, and the sign change arises from
+                positive $v(x)$ being a compression, whereas positive
+                $v(x+\Delta x)$ is a expansion).
               </li>
               <li class="fragment" data-fragment-index="2">
                 Dividing by the volume $\Delta x \Delta y \Delta z$ and taking
@@ -677,10 +682,10 @@
               <li class="fragment" data-fragment-index="1">
                 For each element of the stress tensor $\boldsymbol{\tau}$ (each
                 element represents a stress force) we have a rate of work being
-                performed. \begin{align*} \text{Work Rate}^{viscous}_{x,xy} +
-                \text{Work Rate}^{viscous}_{x+\Delta x,xy} =
+                performed. \begin{multline*} \text{Work Rate}^{viscous}_{x,xy} +
+                \text{Work Rate}^{viscous}_{x+\Delta x,xy} \\=
                 \left(\tau_{xy}(x) v_y(x)- \tau_{xy}(x+\Delta x) v_y(x+\Delta x)
-                \right) \Delta y  \Delta z \end{align*}
+                \right) \Delta y  \Delta z \end{multline*}
               </li>
               <li class="fragment" data-fragment-index="2">
                 Again, dividing by the volume $\Delta x \Delta y \Delta z$ and
@@ -705,17 +710,20 @@
                 factor out the continuity equation.
               </li>
               <li class="fragment" data-fragment-index="2">
-                We can do this again here, using the product rule \begin{align*}
-                e\frac{\partial \rho}{\partial t} + \rho\frac{\partial
-                e}{\partial t} &amp;= - e \nabla_i(\rho v_i) - \rho v_i \nabla_i
-                e - \nabla_i q_i - \nabla_i(\tau_{ij} v_j) - \nabla_i(p v_i) +
-                \sigma_{energy}\\ \rho\frac{\partial e}{\partial t} &amp;= -
-                e\cancelto{0}{\left(\frac{\partial \rho}{\partial t}
-                +\nabla_i(\rho v_i)\right)} - \rho v_i \nabla_i e - \nabla_i q_i
-                - \nabla_i(\tau_{ij} v_j) - \nabla_i(p v_i) + \sigma_{energy}\\
-                \rho\frac{\partial e}{\partial t} &amp;= - \rho v_i \nabla_i e -
-                \nabla_i q_i - \nabla_i(\tau_{ij} v_j) - \nabla_i(p v_i) +
-                \sigma_{energy} \end{align*}
+                We can do this again here, using the product rule
+                <span style="font-size: 0.8em">
+                  \begin{align*} e\frac{\partial \rho}{\partial t} +
+                  \rho\frac{\partial e}{\partial t} &amp;= - e
+                  \nabla_i(\rho v_i) - \rho v_i \nabla_i e - \nabla_i q_i -
+                  \nabla_i(\tau_{ij} v_j) - \nabla_i(p v_i) + \sigma_{energy} \\
+                  \rho\frac{\partial e}{\partial t} &amp;= -
+                  e\cancelto{0}{\left(\frac{\partial \rho}{\partial t}
+                  +\nabla_i(\rho v_i)\right)} - \rho v_i \nabla_i e -
+                  \nabla_i q_i - \nabla_i(\tau_{ij} v_j) - \nabla_i(p v_i) +
+                  \sigma_{energy} \\ \rho\frac{\partial e}{\partial t} &amp;= -
+                  \rho v_i \nabla_i e - \nabla_i q_i - \nabla_i(\tau_{ij} v_j) -
+                  \nabla_i(p v_i) + \sigma_{energy} \end{align*}
+                </span>
               </li>
               <li class="fragment" data-fragment-index="3">
                 We now have the fundamental balance equation for heat transfer!
@@ -781,6 +789,7 @@
           <section
             data-menu-title="Laplace Operator and Fourier's Law in Non-Rectangular
   Systems"
+            style="font-size: 0.8em"
           >
             <ul>
               <li>
