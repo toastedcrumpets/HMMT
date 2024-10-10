@@ -335,7 +335,7 @@
           </section>
           <section data-menu-title="Solving for the Heat Flux">
             <div style="display: flex; align-items: center">
-              <div style="flex: 1 1 calc(100% * 0.41)">
+              <div style="flex: 1 1 calc(100% * 0.31)">
                 <figure>
                   <div class="center">
                     <object
@@ -346,7 +346,7 @@
                   </div>
                 </figure>
               </div>
-              <div style="flex: 1 1 calc(100% * 0.61)">
+              <div style="flex: 1 1 calc(100% * 0.71)">
                 \begin{align*} \frac{1}{r}\frac{\partial r q_r}{\partial
                 r}=\frac{I^2}{k_e} \end{align*}
               </div>
@@ -373,71 +373,52 @@
             </ul>
           </section>
           <section data-menu-title="Temperature Profile">
-            <div style="display: flex; align-items: center">
-              <div style="flex: 1 1 calc(100% * 0.41)">
+            <ul>
+              <li>
+                Now let's use the definition of Fourier's law in 3D
                 <figure>
-                  <div class="center">
-                    <object
-                      data="img/solid_cyl_coords.svg"
-                      type="image/svg+xml"
-                      width="100%"
-                    ></object>
-                  </div>
+                  <table style="border-collapse: collapse">
+                    <tr>
+                      <td>Rectangular</td>
+                      <td>Cylindrical</td>
+                      <td>Spherical</td>
+                    </tr>
+                    <tr style="border-top: thin solid black">
+                      <td>$q_x = -k\frac{\partial T}{\partial x}$</td>
+                      <td>$q_r = -k\frac{\partial T}{\partial r}$</td>
+                      <td>$q_r = -k\frac{\partial T}{\partial r}$</td>
+                    </tr>
+                    <tr>
+                      <td>$q_y = -k\frac{\partial T}{\partial y}$</td>
+                      <td>
+                        $q_\theta = -k\frac{1}{r}\frac{\partial T}{\partial
+                        \theta}$
+                      </td>
+                      <td>
+                        $q_\theta = -k\frac{1}{r}\frac{\partial T}{\partial
+                        \theta}$
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>$q_z = -k\frac{\partial T}{\partial z}$</td>
+                      <td>$q_z = -k\frac{\partial T}{\partial z}$</td>
+                      <td>
+                        $q_\phi = -k\frac{1}{r \sin\theta}\frac{\partial
+                        T}{\partial \phi}$
+                      </td>
+                    </tr>
+                  </table>
+                  <figcaption>
+                    Fourier's Law in all coordinate systems
+                  </figcaption>
                 </figure>
-
-                <ul>
-                  <li>
-                    Now let's use the definition of Fourier's law in 3D
-                    <figure>
-                      <table style="border-collapse: collapse">
-                        <tr>
-                          <td>Rectangular</td>
-                          <td>Cylindrical</td>
-                          <td>Spherical</td>
-                        </tr>
-                        <tr style="border-top: thin solid black">
-                          <td>$q_x = -k\frac{\partial T}{\partial x}$</td>
-                          <td>$q_r = -k\frac{\partial T}{\partial r}$</td>
-                          <td>$q_r = -k\frac{\partial T}{\partial r}$</td>
-                        </tr>
-                        <tr>
-                          <td>$q_y = -k\frac{\partial T}{\partial y}$</td>
-                          <td>
-                            $q_\theta = -k\frac{1}{r}\frac{\partial T}{\partial
-                            \theta}$
-                          </td>
-                          <td>
-                            $q_\theta = -k\frac{1}{r}\frac{\partial T}{\partial
-                            \theta}$
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>$q_z = -k\frac{\partial T}{\partial z}$</td>
-                          <td>$q_z = -k\frac{\partial T}{\partial z}$</td>
-                          <td>
-                            $q_\phi = -k\frac{1}{r \sin\theta}\frac{\partial
-                            T}{\partial \phi}$
-                          </td>
-                        </tr>
-                      </table>
-                      <figcaption>
-                        Fourier's Law in all coordinate systems
-                      </figcaption>
-                    </figure>
-                  </li>
-                </ul>
-              </div>
-              <div style="flex: 1 1 calc(100% * 0.61)">
-                \begin{align*} q_r=\frac{I^2}{2 k_e}r \end{align*}
-                <ul style="margin-top: 5em">
-                  <li class="fragment" data-fragment-index="1">
-                    Selecting the correct definition, we have \begin{align*}
-                    \frac{\partial T}{\partial r} = -\frac{I^2}{2 k_e k}r
-                    \end{align*}
-                  </li>
-                </ul>
-              </div>
-            </div>
+              </li>
+              <li class="fragment" data-fragment-index="1">
+                Selecting the correct definition, we have \begin{align*}
+                \frac{\partial T}{\partial r} = -\frac{I^2}{2 k_e k}r
+                \end{align*}
+              </li>
+            </ul>
           </section>
           <section>
             <div style="display: flex; align-items: center">
