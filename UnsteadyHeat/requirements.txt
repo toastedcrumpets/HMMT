@@ -2,3 +2,5 @@ manimgl==1.7.0
 setuptools==75.2.0
 mapbox_earcut==1.0.2
 ngsolve==6.2.2405
+webgui_jupyter_widgets==0.2.37
+ipykernel==6.29.5
