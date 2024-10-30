@@ -1,3 +1,4 @@
 manimgl==1.7.0
 setuptools==75.2.0
 mapbox_earcut==1.0.2
+ngsolve==6.2.2405
