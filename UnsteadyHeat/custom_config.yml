@@ -1,8 +1,7 @@
 break_into_partial_movies: false
 camera_resolutions:
   4k: 3840x2160
-  default_resolution: high
-  high: 1920x1080
+  default_resolution: igh: 1920x1080
   low: 854x480
   medium: 1280x720
 directories:
