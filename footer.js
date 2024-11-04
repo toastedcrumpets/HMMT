@@ -36,6 +36,11 @@ loadScripts(
             icon: '<i class="fa fa-graduation-cap"></i>',
             src: "toc.html",
           },
+          {
+            title: "Exams",
+            icon: '<i class="fa fa-graduation-cap"></i>',
+            src: "toc_exams.html",
+          },
         ],
         sticky: true,
         titleSelector: "",
