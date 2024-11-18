@@ -20,12 +20,37 @@
       <h2>
        Non-Newtonian Flows
       </h2>
-      <div class="center">
-      </div>
+     </section>
+     <section>
+      <figure>
+        <iframe width="1400" height="800" src="https://www.youtube.com/embed/RIUEZ3AhrVE?si=ESmL0GfLBF7A50Mn" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <figcaption>
+          Swimming pool experiment with corn starch and water. Corn starch is a shear-thickening fluid, behaving like a solid when a large shear is applied, but a liquid when at rest.
+        </figcaption>
+      </figure>
+     </section>
+     <section>
+      <figure>
+        <iframe width="1400" height="800" src="https://www.youtube.com/embed/3zoTKXXNQIU?si=GU2opHgoG1ZB4oEW" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <figcaption>
+          This can lead to some very interesting flow behaviour, such as chaotic growth of fingers when shaken.
+        </figcaption>
+      </figure>
+     </section>
+     <section>
+      <figure>
+        <video data-autoplay src="/HMMT/videos/wheel.mp4"></video>
+        <figcaption>
+          A wheel can be used to pump a shear-thickening fluid. The shear stress
+          of turning around the wheel "freezes" it, but when the wheel stops, it
+          flows again. Clearly we cannot use the newtonian model for this fluid.
+        </figcaption>
+      </figure>
      </section>
     </section>
     <section>
      <section data-menu-title="Review">
+      <h3>Review</h3>
       <ul>
        <li>
         We have learnt how to use the balance equations in
@@ -62,6 +87,7 @@
     </section>
     <section>
      <section data-menu-title="Non-Newtonian Fluids">
+      <h3>Review</h3>
       <ul>
        <li>
         Typically,
@@ -181,19 +207,22 @@
           <i>apparent viscosity decreases as more stress is
           applied</i>.
          </li>
-         <li class="fragment" data-fragment-index="1">
+         <li class="fragment">
           Examples of these fluids include polymer melts and
         solids suspensions.
          </li>
-         <li class="fragment" data-fragment-index="2">
+         <li class="fragment">
           When the fluid is sheared, structural changes occur
         which reduce the viscosity of the fluid. For example, in
         polymer melts the polymers are “combed” and align along the
         direction of shear.
          </li>
-         <li class="fragment" data-fragment-index="3">
+         <li class="fragment">
           This is just like long knotted hair. As you comb/shear
         it, it becomes easier to comb/shear.
+         </li>
+         <li class="fragment">
+          <b>MOST</b> fluids are actually shear-thinning, even the ones we assume are Newtonian, such as gases and water!
          </li>
         </ul>
        </div>
@@ -224,13 +253,8 @@
         many shear-thickening fluids can even turn solid.
          </li>
          <li class="fragment" data-fragment-index="2">
-          Corn starch or uncooked custard powder with a small
-        amount of water is a very popular shear thickening fluid.
-          <br/>
-          See the <a href="https://youtu.be/RIUEZ3AhrVE?si=guzZOik3EMazyjSO">swimming pool experiment</a>
-          or <a href="https://youtu.be/3zoTKXXNQIU">how it moves when shaken</a>,
-          <a href="/HMMT/nonnewtonian-wheel.avi">Or how you can “pump”
-          it with a wheel</a>.
+          Corn starch or uncooked custard powder with a small amount of water is
+          a very popular shear thickening fluid from the earlier videos.
          </li>
         </ul>
        </div>
@@ -337,7 +361,7 @@
      <section>
       <figure>
        <div class="center">
-        <img src="img/apparent_visc.png" style="width:70%;">
+        <img src="img/apparent_visc.png" style="width:60%;">
         </img>
        </div>
        <figcaption>
@@ -614,7 +638,10 @@
     </section>
     <section>
      <section data-menu-title="Flow Properties">
+      <h3>The universality of the stress profile</h3>
       <ul>
+        <li>Before we start trying to use these new models, lets back up and
+        reconsider what we've done so far to find out what changes.</li>
        <li>
         We have seen that for steady-state incompressible laminar
     flows the momentum equation often reduces to
@@ -727,7 +754,7 @@
      <section>
       <figure>
        <div class="center">
-        <object data="img/annular_flow.svg" type="image/svg+xml" width="80%">
+        <object data="img/annular_flow.svg" type="image/svg+xml" width="70%">
         </object>
        </div>
        <figcaption>
@@ -743,34 +770,40 @@
   the stress change sign for the annulus, but not for the pipe?
      </section>
      <section>
+      <h3>You've already solved the stress profile!</h3>
       <ul>
        <li>
         It is crucial to note, regardless of the geometry, we can
     solve for the stress profile without knowing the rheological
     behaviour of the fluid.
        </li>
-       <li class="fragment" data-fragment-index="1">
+       <li class="fragment">
         The stress profile is the solution of the Cauchy momentum
     equation, it is only when we want to derive the velocity profile
     that we actually need a Newton's law/Power law/Bingham model.
        </li>
-       <li class="fragment" data-fragment-index="2">
+       <li class="fragment">
         This invariance of the stress profile allows us, if we're
     careful, to derive the stress profile just
         <b>once</b>
         for a
     certain geometry.
        </li>
-       <li class="fragment" data-fragment-index="3">
+       <li class="fragment">
         We can then calculate the velocity profiles and flow rates
     of the flows for Newtonian
         <b>and</b>
         Non-Newtonian flows straight
     from the stress profile.
        </li>
-       <li class="fragment" data-fragment-index="4">
-        We'll look at this through the following, motivating
-    example:
+       <li class="fragment">
+        <b>Everything you've done so far in fluid problems stays the same!</b>
+        All the way up to the very last integration of the stress.
+        </li>
+       <li class="fragment">
+        We'll now come up with a silly example developed around the time of the
+        gulf of Mexico disaster to see how little we need to change to solve
+        non-Newtonian flows.
        </li>
       </ul>
      </section>
@@ -814,7 +847,7 @@
       <ul>
        <li>
         Luckily, the one of the top engineers in the business
-    development unit attended EG3030 at Aberdeen.
+    development unit attended Heat, Mass, and Momentum Transfer at Aberdeen.
        </li>
        <li class="fragment" data-fragment-index="1">
         Of course they remembered that the stress profile in a
@@ -842,7 +875,7 @@
        </li>
       </ul>
      </section>
-     <section>
+     <section style="font-size: 0.9em;">
       <ul>
        <li>
         By rearranging the Power Law model to make the shear rate
@@ -876,7 +909,7 @@
        </li>
       </ul>
      </section>
-     <section>
+     <section style="font-size: 0.9em;">
       <ul>
        <li>
         Even though the expression is starting to look a little
@@ -1011,18 +1044,21 @@
         But for some reason the CEO wouldn't give the engineer his
     bonus…
        </li>
-       <li class="fragment" data-fragment-index="1">
-        Maybe it was because the Engineer forgot to check if the
-    flow was turbulent first?
+       <li class="fragment">
+        ...was it the CEO's damaged pride? Surely not, all engineers are humble, and the head of a multinational engineering company must be the most humble engineer of all...
        </li>
-       <li class="fragment" data-fragment-index="2">
+       <li class="fragment">
+        ...maybe it was because the Engineer forgot to check if the flow was turbulent first?
+       </li>
+       <li class="fragment">
         To be continued…
        </li>
       </ul>
      </section>
     </section>
     <section>
-     <section data-menu-title="Learning Objectives">
+     <section data-menu-title="Learning Objectives" style="font-size: 0.9em;">
+      <h3>Learning Objectives</h3>
       <ul>
        <li>
         We have covered non-Newtonian fluids and learnt the two
