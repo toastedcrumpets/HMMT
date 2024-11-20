@@ -1,389 +1,383 @@
 <!DOCTYPE html>
 <html lang="en">
- <head>
-  <meta charset="utf-8"/>
-  <title>
-   Heat, Mass, and Momentum Transfer
-  </title>
-  <meta content="Heat Mass and Momentum Transfer notes" name="description"/>
-  <meta content="Marcus Bannerman &lt;m.bannerman@gmail.com" name="author"/>
-  <meta content="yes" name="apple-mobile-web-app-capable"/>
-  <meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"/>
-  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui" name="viewport"/>
-  <script src="header.js"></script>
- </head>
- <body>
-  <div class="reveal">
-   <div class="slides">
-    <section>
-     <section>
-      <h2>
-       Diffusion: Part 2
-      </h2>
-      <div class="center">
+  <head>
+    <meta charset="utf-8" />
+    <title>Heat, Mass, and Momentum Transfer</title>
+    <meta content="Heat Mass and Momentum Transfer notes" name="description" />
+    <meta content="Marcus Bannerman &lt;m.bannerman@gmail.com" name="author" />
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta
+      content="black-translucent"
+      name="apple-mobile-web-app-status-bar-style"
+    />
+    <meta
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui"
+      name="viewport"
+    />
+    <script src="header.js"></script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <section>
+            <h2>Diffusion: Part 2</h2>
+            <figure>
+              <iframe
+                width="1400"
+                height="700"
+                src="https://www.youtube.com/embed/lCB1eCTcCbo?si=uoaTYnSsEl1T7sOh"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen
+              ></iframe>
+              <figcaption>
+                DNA marked with gold diffusing towards the hot spots drawn by a
+                laser.<br />
+                The Nobel prize for Chemistry was awarded to Lars Onsager, who
+                derived the "fourth law of thermodynamics", known as his
+                reciprocal relations. All effects of the same tensorial order
+                are coupled. So $\mu$/voltage/temperature/stress will all drive
+                heat/electrical-conduction/diffusion/deformation. Transport
+                phenomena goes deeper than you think.
+              </figcaption>
+            </figure>
+          </section>
+        </section>
+        <section>
+          <section data-menu-title="General Diffusion">
+            <ul>
+              <li>
+                In the previous lecture, we found that for diffusion problems
+                our molar balance equation is \begin{align*} \frac{\partial
+                C_A}{\partial t} = -\nabla\cdot \boldsymbol{N}_A + \sigma_A
+                \end{align*}
+              </li>
+              <li class="fragment" data-fragment-index="1">
+                And it was stated that for small concentrations of $A$ (
+                $x_A\ll1$ where $x_A$ is the mole fraction of $A$ ) in a binary
+                mixture, the molar flux is given by Fick's law. \begin{align*}
+                \boldsymbol{N}_A = -D_{AB} \nabla C_A \end{align*}
+              </li>
+              <li class="fragment" data-fragment-index="2">
+                But why this restriction to small concentrations?
+              </li>
+              <li class="fragment" data-fragment-index="3">
+                We should revise our definition of diffusion again…
+              </li>
+            </ul>
+          </section>
+          <section>
+            <div class="mathblock">
+              <i
+                >Diffusion is the migration of a single species through another
+                species or material,
+                <b>relative to the bulk motion of the fluid</b>.</i
+              >
+            </div>
+            <ul>
+              <li>
+                Diffusion can occur when the fluid is in motion, but its
+                measured
+                <b>relative to the bulk movement of the fluid</b>.
+              </li>
+              <li class="fragment" data-fragment-index="1">
+                But
+                <b>diffusion causes movement of the components of the fluid</b>,
+                so we need to somehow define both bulk movement and diffusion
+                carefully.
+              </li>
+              <li class="fragment" data-fragment-index="2">
+                However, when the diffusing species is negligible ($x_A\ll 1$ ),
+                its movement doesn't really matter, and if its moving through a
+                solid we can assume $\boldsymbol{v}=\boldsymbol{0}$, and use
+                \begin{align*} \boldsymbol{N}_A = -D_{AB} \nabla C_A
+                \end{align*}
+              </li>
+              <li class="fragment" data-fragment-index="3">
+                So we need to ask:
+                <ul>
+                  <li>How is the bulk motion of the fluid defined?</li>
+                  <li>What is the full definition of$N_A$?</li>
+                </ul>
+              </li>
+            </ul>
+          </section>
+          <section data-menu-title="How is the Bulk Motion Defined?">
+            <ul>
+              <li>
+                When there is diffusion, each species in a mixture will move
+                with its own velocity, $\boldsymbol{v}_A$.
+              </li>
+              <li class="fragment" data-fragment-index="1">
+                We can then define the bulk motion in two ways, we can either
+                take the mass or molar average velocity \begin{align*}
+                \boldsymbol{v}_{mass-avg.} &amp;= \frac{1}{\rho}\sum_A \rho_A 
+                \boldsymbol{v}_A &amp; \boldsymbol{v}_{molar-avg.} &amp;= \sum_A
+                x_A \boldsymbol{v}_A \end{align*}
+              </li>
+              <li class="fragment" data-fragment-index="2">
+                In the continuity, momentum and energy balances we've derived,
+                $\boldsymbol{v}=\boldsymbol{v}_{mass-avg.}$.
+              </li>
+              <li class="fragment" data-fragment-index="3">
+                But we've been working with molar fluxes for diffusion so far
+                ($N_A$ ), so we'll keep using
+                molar-fluxes/fractions/concentrations.
+              </li>
+              <li class="fragment" data-fragment-index="4">
+                But you should know that this treatment can also be done in mass
+                fluxes/fractions/concentrations and you will obtain
+                <b>identical results</b>.
+              </li>
+              <li class="fragment" data-fragment-index="5">
+                C&amp;R vol. 1 starts with molar and generalises to mass fluxes.
+              </li>
+              <li class="fragment" data-fragment-index="6">
+                Transport Phenomena starts with mass fluxes and generalises to
+                molar, but has a section on both and how they are equivalent
+                (2nd Ed., Sec. 17.7).
+              </li>
+            </ul>
+          </section>
+          <section data-menu-title="What is the Proper Definition of the Flux?">
+            <ul>
+              <li>
+                If each species moves with a velocity $\boldsymbol{v}_A$, the
+                molar flux is given by $\boldsymbol{N}_A = C_A \boldsymbol{v}_A$
+              </li>
+              <li class="fragment" data-fragment-index="1">
+                The diffusive flux is defined as the motion of the species
+                relative to the bulk velocity, which gives us this definition
+                \begin{align*}
+                \boldsymbol{J}_A=C_A \left(\boldsymbol{v}_A-\boldsymbol{v}_{molar-avg.}\right)
+                \end{align*}
+              </li>
+              <li class="fragment" data-fragment-index="2">
+                Using these two equations and the definition of
+                $\boldsymbol{v}_{molar-avg.}=\sum_A x_A \boldsymbol{v}_A$, we
+                can write \begin{align*} \boldsymbol{N}_A &amp;=
+                C_A \left(\boldsymbol{v}_A-\boldsymbol{v}_{molar-avg.}\right) +
+                C_A \boldsymbol{v}_{molar-avg.}\\ &amp;=\boldsymbol{J}_A + C_A
+                \sum_B x_B \boldsymbol{v}_B\\ &amp;=\boldsymbol{J}_A + x_A
+                \sum_B C_B \boldsymbol{v}_B\\ \boldsymbol{N}_A
+                &amp;=\boldsymbol{J}_A + x_A \sum_B \boldsymbol{N}_B
+                \end{align*}
+              </li>
+              <li class="fragment" data-fragment-index="3">
+                This is our final, general expression for the flux
+                $\boldsymbol{N}_A$, where $\boldsymbol{J}_A$ is our diffusive
+                flux.
+              </li>
+            </ul>
+          </section>
+          <section>
+            <ul>
+              <li>
+                In the special (but common) case of a binary mixture, we have
+                \begin{align*} \boldsymbol{N}_A &amp;=\boldsymbol{J}_A + x_A
+                \left(\boldsymbol{N}_A + \boldsymbol{N}_B\right) \end{align*}
+              </li>
+              <li class="fragment" data-fragment-index="1">
+                Provided you have an ideal mixture, the diffusive flux is given
+                by the molar form of Fick's law. \begin{align*}
+                \boldsymbol{J}_A=-D_{AB} \nabla C_A \end{align*}
+              </li>
+              <li class="fragment" data-fragment-index="2">
+                Which gives \begin{align*} \boldsymbol{N}_A
+                &amp;=-D_{AB} \nabla C_A + x_A \left(\boldsymbol{N}_A +
+                \boldsymbol{N}_B\right) \end{align*}
+              </li>
+              <li class="fragment" data-fragment-index="3">
+                This is the equation you can use to solve all problems in the
+                next tutorial.
+              </li>
+            </ul>
+          </section>
+        </section>
+        <section>
+          <section data-menu-title="Diffusion in Solids (Low Concentration)">
+            <div style="display: flex; align-items: center">
+              <div style="flex: 1 1 calc(100% * 0.51)">
+                <ul>
+                  <li>
+                    For example, at small concentrations we have $x_A\to0$ which
+                    gives Ficks law back as the solution for the flux,
+                    \begin{align*} \boldsymbol{N}_A &amp;=-D_{AB} \nabla C_A +
+                    \cancelto{0}{x_A} \left(\boldsymbol{N}_A +
+                    \boldsymbol{N}_B\right). \end{align*}
+                  </li>
+                  <li class="fragment" data-fragment-index="1">
+                    In solids, the maximum absorbed concentration of a gas or
+                    liquid is usually very low compared to the solid density.
+                  </li>
+                  <li class="fragment" data-fragment-index="2">
+                    Therefore, assuming the concentration of diffusing species
+                    is low ($x_A\to0$) is a good assumption when you are
+                    treating diffusion through solids.
+                  </li>
+                  <li class="fragment" data-fragment-index="3">
+                    The hydrogen diffusion tutorial question (see right) and the
+                    previous class example are both applications of this
+                    assumption.
+                  </li>
+                </ul>
+              </div>
+              <div style="flex: 1 1 calc(100% * 0.51)">
+                <figure>
+                  <div class="center">
+                    <object
+                      data="img/solids_diffusion.svg"
+                      type="image/svg+xml"
+                    ></object>
+                  </div>
+                </figure>
+              </div>
+            </div>
+          </section>
+        </section>
+        <section>
+          <section data-menu-title="Equimolar Diffusion">
+            <div style="display: flex; align-items: center">
+              <div style="flex: 1 1 calc(100% * 0.651)">
+                <ul>
+                  <li>
+                    If you have diffusion in a binary ideal gas with constant
+                    pressure (no flow) and temperature (no conduction), there
+                    must be something called
+                    <b>equimolar counterdiffusion</b>.
+                  </li>
+                  <li class="fragment" data-fragment-index="1">
+                    In this case, when one mole of $A$ diffuses in one
+                    direction, one mole of $B$ must diffuse in the opposite
+                    direction in order to maintain the constant pressure, $N_A =
+                    -N_B$.
+                  </li>
+                  <li class="fragment" data-fragment-index="2">
+                    The expression for the flux then becomes \begin{align*}
+                    \boldsymbol{N}_A &amp;=-D_{AB} \nabla C_A + x_A
+                    \left(\boldsymbol{N}_A + \boldsymbol{N}_B\right)\\
+                    &amp;=-D_{AB} \nabla C_A + x_A
+                    \left(\cancelto{0}{\boldsymbol{N}_A -
+                    \boldsymbol{N}_A}\right) \end{align*}
+                  </li>
+                  <li class="fragment" data-fragment-index="3">
+                    The tutorial has an example of equimolar counterdiffusion,
+                    when you have diffusion between two different concentrations
+                    of gas (see right). This also applies in distillation
+                    columns where you have <em>Constant Molar Overflow</em>.
+                  </li>
+                </ul>
+              </div>
+              <div style="flex: 1 1 calc(100% * 0.351)">
+                <figure>
+                  <div class="center">
+                    <object
+                      data="img/equimolar_diffusion.svg"
+                      type="image/svg+xml"
+                      width="100%"
+                    ></object>
+                  </div>
+                </figure>
+              </div>
+            </div>
+          </section>
+        </section>
+        <section>
+          <section data-menu-title="Diffusion Through a Stationary Phase">
+            <div style="display: flex; align-items: center">
+              <div style="flex: 1 1 calc(100% * 0.61)">
+                <ul>
+                  <li>
+                    Finally, we consider the case where one species is
+                    stationary ($N_B=0$).
+                  </li>
+                  <li class="fragment" data-fragment-index="1">
+                    This may occur when the other species, $A$, is being
+                    absorbed, generated or transported away but $B$ isnt.
+                  </li>
+                  <li class="fragment" data-fragment-index="2">
+                    The expression for the flux then becomes \begin{align*}
+                    \boldsymbol{N}_A &amp;=-D_{AB} \nabla C_A + x_A
+                    \left(\boldsymbol{N}_A +
+                    \cancelto{0}{\boldsymbol{N}_B}\right)\\ \boldsymbol{N}_A
+                    &amp;=-\frac{D_{AB}}{1-x_A} \nabla C_A \end{align*}
+                  </li>
+                  <li class="fragment" data-fragment-index="3">
+                    This is known as Stefan's Law, and shows that in binary
+                    diffusion,
+                    <b
+                      >when one species is stationary there is an enhancement of
+                      the diffusion of the other species</b
+                    >.
+                  </li>
+                  <li class="fragment" data-fragment-index="4">
+                    The <b>Winklemann experiment</b> (see right), used to
+                    determine values of the diffusivity is an example of this,
+                    and other examples are available in the tutorial questions.
+                  </li>
+                </ul>
+              </div>
+              <div style="flex: 1 1 calc(100% * 0.41)">
+                <figure>
+                  <div class="center">
+                    <object
+                      data="img/winkleman_experiment.svg"
+                      type="image/svg+xml"
+                      width="80%"
+                    ></object>
+                  </div>
+                </figure>
+              </div>
+            </div>
+          </section>
+        </section>
+        <section>
+          <section data-menu-title="Mass Transport Dimensionless Numbers">
+            <ul>
+              <li>
+                When we needed to compare competing momentum and energy
+                transports processes, we did this through a range of
+                dimensionless parameters: $\text{Re}$, $\text{Pr}$, $\text{Nu}$,
+                $\text{Gr}$, $\text{Ra}$.
+              </li>
+              <li class="fragment" data-fragment-index="1">
+                Introducing mass transfer allows us to define two more.
+              </li>
+              <li class="fragment" data-fragment-index="2">
+                The Schmidt number, $\text{Sc}$, is the ratio of the momentum
+                and diffusive transport processes in the system. \begin{align*}
+                \text{Sc} = \frac{\nu}{D_{AB}} = \frac{\mu}{\rho D_{AB}}
+                \end{align*}
+              </li>
+              <li class="fragment" data-fragment-index="3">
+                The Lewis number is defined as the ratio of the conductive and
+                diffusive transport processes in the system. \begin{align*}
+                \text{Le} = \frac{\alpha}{D_{AB}} = \frac{k}{\rho C_p D_{AB}}
+                \end{align*}
+              </li>
+              <li class="fragment" data-fragment-index="4">
+                These parameters are key to characterising systems such as
+                boiling or combustion, where mass, momentum and heat transfer
+                are combined and occurring simultaneously. It should be clear
+                though, that whenever we add new forms of transport (e.g.,
+                electrical/magnetic), there will be a set of additional
+                dimensionless numbers taking the ratio of their phenomenological
+                coefficients.
+              </li>
+            </ul>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h3>Example: Coal combustion</h3>
+            <p>We'll cover this example in the tutorial booklet.</p>
+          </section>
+        </section>
       </div>
-     </section>
-    </section>
-    <section>
-     <section data-menu-title="General Diffusion">
-      <ul>
-       <li>
-        In the previous lecture, we found that for diffusion
-    problems our molar balance equation is
-        \begin{align*}
-        \frac{\partial C_A}{\partial t} = -\nabla\cdot \boldsymbol{N}_A +
-      \sigma_A
-        \end{align*}
-       </li>
-       <li class="fragment" data-fragment-index="1">
-        And it was stated that for small concentrations of $A$
-        (
-        $x_A\ll1$
-        where
-        $x_A$
-        is the mole fraction of
-        $A$
-        ) in a binary
-    mixture, the molar flux is given by Fick's law.
-        \begin{align*}
-        \boldsymbol{N}_A = -D_{AB} \nabla C_A
-        \end{align*}
-       </li>
-       <li class="fragment" data-fragment-index="2">
-        But why this restriction to small concentrations?
-       </li>
-       <li class="fragment" data-fragment-index="3">
-        We should revise our definition of diffusion again…
-       </li>
-      </ul>
-     </section>
-     <section>
-      <div class="mathblock">
-       <i>Diffusion is the migration of a single species through
-      another species or material,
-        <b>relative to the bulk motion
-        of the fluid</b>.</i>
-      </div>
-      <ul>
-       <li>
-        Diffusion can occur when the fluid is in motion, but its
-    measured
-        <b>relative to the bulk movement of the fluid</b>.
-       </li>
-       <li class="fragment" data-fragment-index="1">
-        But
-        <b>diffusion causes movement of the components of
-      the fluid</b>, so we need to somehow define both bulk movement and
-    diffusion carefully.
-       </li>
-       <li class="fragment" data-fragment-index="2">
-        However, when the diffusing species is negligible ($x_A\ll
-    1$
-        ), its movement doesn't really matter, and if its moving through
-    a solid we can assume
-        $\boldsymbol{v}=\boldsymbol{0}$, and use
-        \begin{align*}
-        \boldsymbol{N}_A = -D_{AB} \nabla C_A
-        \end{align*}
-       </li>
-       <li class="fragment" data-fragment-index="3">
-        So we need to ask:
-        <ul>
-         <li>
-          How is the bulk motion of the fluid defined?
-         </li>
-         <li>
-          What is the full definition of$N_A$?
-         </li>
-        </ul>
-       </li>
-      </ul>
-     </section>
-     <section data-menu-title="How is the Bulk Motion Defined?">
-      <ul>
-       <li>
-        When there is diffusion, each species in a mixture will
-    move with its own velocity, $\boldsymbol{v}_A$.
-       </li>
-       <li class="fragment" data-fragment-index="1">
-        We can then define the bulk motion in two ways, we can
-    either take the mass or molar average velocity
-        \begin{align*}
-        \boldsymbol{v}_{mass-avg.} &amp;= \frac{1}{\rho}\sum_A \rho_A  \boldsymbol{v}_A &amp;
-      \boldsymbol{v}_{molar-avg.} &amp;= \sum_A x_A \boldsymbol{v}_A
-        \end{align*}
-       </li>
-       <li class="fragment" data-fragment-index="2">
-        In the continuity, momentum and energy balances we've
-    derived, $\boldsymbol{v}=\boldsymbol{v}_{mass-avg.}$.
-       </li>
-       <li class="fragment" data-fragment-index="3">
-        But we've been working with molar fluxes for diffusion so
-    far ($N_A$
-        ), so we'll keep using
-    molar-fluxes/fractions/concentrations.
-       </li>
-       <li class="fragment" data-fragment-index="4">
-        But you should know that this treatment can also be done
-    in mass fluxes/fractions/concentrations and you will obtain
-        <b>identical results</b>.
-       </li>
-       <li class="fragment" data-fragment-index="5">
-        C&amp;R vol. 1 starts with molar and generalises to mass
-    fluxes.
-       </li>
-       <li class="fragment" data-fragment-index="6">
-        Transport Phenomena starts with mass fluxes and
-    generalises to molar, but has a section on both and how they are
-    equivalent (2nd Ed., Sec. 17.7).
-       </li>
-      </ul>
-     </section>
-     <section data-menu-title="What is the Proper Definition of the Flux?">
-      <ul>
-       <li>
-        If each species moves with a velocity $\boldsymbol{v}_A$, the
-    molar flux is given by
-        \begin{align*}
-        \boldsymbol{N}_A = C_A \boldsymbol{v}_A
-        \end{align*}
-       </li>
-       <li class="fragment" data-fragment-index="1">
-        The diffusive flux is defined as the motion of the species
-    relative to the bulk velocity, which gives us this definition
-        \begin{align*}
-        \boldsymbol{J}_A=C_A \left(\boldsymbol{v}_A-\boldsymbol{v}_{molar-avg.}\right)
-        \end{align*}
-       </li>
-       <li class="fragment" data-fragment-index="2">
-        Using these two equations and the definition of
-    $\boldsymbol{v}_{molar-avg.}=\sum_A x_A \boldsymbol{v}_A$, we can write
-        \begin{align*}
-        \boldsymbol{N}_A &amp;= C_A \left(\boldsymbol{v}_A-\boldsymbol{v}_{molar-avg.}\right) + C_A \boldsymbol{v}_{molar-avg.}\\
-      &amp;=\boldsymbol{J}_A + C_A \sum_B x_B \boldsymbol{v}_B\\
-      &amp;=\boldsymbol{J}_A + x_A \sum_B C_B \boldsymbol{v}_B\\
-      \boldsymbol{N}_A &amp;=\boldsymbol{J}_A + x_A \sum_B \boldsymbol{N}_B
-        \end{align*}
-       </li>
-       <li class="fragment" data-fragment-index="3">
-        This is our final, general expression for the flux
-    $\boldsymbol{N}_A$, where
-        $\boldsymbol{J}_A$
-        is our diffusive flux.
-       </li>
-      </ul>
-     </section>
-     <section>
-      <ul>
-       <li>
-        In the special (but common) case of a binary mixture, we
-    have
-        \begin{align*}
-        \boldsymbol{N}_A &amp;=\boldsymbol{J}_A + x_A \left(\boldsymbol{N}_A + \boldsymbol{N}_B\right)
-        \end{align*}
-       </li>
-       <li class="fragment" data-fragment-index="1">
-        Provided you have an ideal mixture, the diffusive flux is
-    given by the molar form of Fick's law.
-        \begin{align*}
-        \boldsymbol{J}_A=-D_{AB} \nabla C_A
-        \end{align*}
-       </li>
-       <li class="fragment" data-fragment-index="2">
-        Which gives
-        \begin{align*}
-        \boldsymbol{N}_A &amp;=-D_{AB} \nabla C_A + x_A \left(\boldsymbol{N}_A + \boldsymbol{N}_B\right)
-        \end{align*}
-       </li>
-       <li class="fragment" data-fragment-index="3">
-        This is the equation you can use to solve all problems in
-    the next tutorial.
-       </li>
-      </ul>
-     </section>
-    </section>
-    <section>
-     <section data-menu-title="Diffusion in Solids (Low Concentration)">
-      <div style="display:flex;align-items:center;">
-       <div style="flex: 1 1 calc(100% * 0.51);">
-        <ul>
-         <li>
-          For example, at small concentrations we have $x_A\to0$
-          which gives Ficks law back as the solution for the flux,
-          \begin{align*}
-          \boldsymbol{N}_A &amp;=-D_{AB} \nabla C_A + \cancelto{0}{x_A} \left(\boldsymbol{N}_A + \boldsymbol{N}_B\right).
-          \end{align*}
-         </li>
-         <li class="fragment" data-fragment-index="1">
-          In solids, the maximum absorbed concentration of a gas
-        or liquid is usually very low compared to the solid density.
-         </li>
-         <li class="fragment" data-fragment-index="2">
-          Therefore, assuming the concentration of diffusing species
-        is low ($x_A\to0$) is a good assumption when you are treating
-        diffusion through solids.
-         </li>
-         <li class="fragment" data-fragment-index="3">
-          The hydrogen diffusion tutorial question (see right) and the
-          previous class example are both applications of this
-          assumption.
-         </li>
-        </ul>
-       </div>
-       <div style="flex: 1 1 calc(100% * 0.51);">
-        <figure>
-         <div class="center">
-          <object data="img/solids_diffusion.svg" type="image/svg+xml">
-          </object>
-         </div>
-        </figure>
-       </div>
-      </div>
-     </section>
-    </section>
-    <section>
-     <section data-menu-title="Equimolar Diffusion">
-      <div style="display:flex;align-items:center;">
-       <div style="flex: 1 1 calc(100% * 0.651);">
-        <ul>
-         <li>
-          If you have diffusion in a binary ideal gas with
-        constant pressure (no flow) and temperature (no conduction),
-        there must be something called
-          <b>equimolar
-          counterdiffusion</b>.
-         </li>
-         <li class="fragment" data-fragment-index="1">
-          In this case, when one mole of $A$
-          diffuses in one
-        direction, one mole of
-          $B$
-          must diffuse in the opposite
-        direction in order to maintain the constant pressure.
-          \begin{align*}
-          N_A = -N_B
-          \end{align*}
-         </li>
-         <li class="fragment" data-fragment-index="2">
-          The expression for the flux then becomes
-          \begin{align*}
-          \boldsymbol{N}_A &amp;=-D_{AB} \nabla C_A + x_A \left(\boldsymbol{N}_A + \boldsymbol{N}_B\right)\\
-          &amp;=-D_{AB} \nabla C_A + x_A \left(\cancelto{0}{\boldsymbol{N}_A - \boldsymbol{N}_A}\right)
-          \end{align*}
-         </li>
-         <li class="fragment" data-fragment-index="3">
-           The tutorial has an example of equimolar counterdiffusion,
-           when you have diffusion between two different
-           concentrations of gas (see right). This also applies in
-           distillation columns where you have <em>Constant Molar
-           Overflow</em>.
-         </li>
-        </ul>
-       </div>
-       <div style="flex: 1 1 calc(100% * 0.351);">
-        <figure>
-         <div class="center">
-          <object data="img/equimolar_diffusion.svg" type="image/svg+xml" width="100%">
-          </object>
-         </div>
-        </figure>
-       </div>
-      </div>
-     </section>
-    </section>
-    <section>
-     <section data-menu-title="Diffusion Through a Stationary Phase">
-      <div style="display:flex;align-items:center;">
-       <div style="flex: 1 1 calc(100% * 0.61);">
-        <ul>
-         <li>
-          Finally, we consider the case where one species is
-        stationary ($N_B=0$).
-         </li>
-         <li class="fragment" data-fragment-index="1">
-          This may occur when the other species, $A$, is being
-        absorbed, generated or transported away but species
-          $B$
-          is not.
-         </li>
-         <li class="fragment" data-fragment-index="2">
-          The expression for the flux then becomes
-          \begin{align*}
-          \boldsymbol{N}_A &amp;=-D_{AB} \nabla C_A + x_A \left(\boldsymbol{N}_A + \cancelto{0}{\boldsymbol{N}_B}\right)\\
-          \boldsymbol{N}_A &amp;=-\frac{D_{AB}}{1-x_A} \nabla C_A
-          \end{align*}
-         </li>
-         <li class="fragment" data-fragment-index="3">
-          This is known as Stefan's Law, and shows that in
-        binary diffusion,
-          <b>when one species is stationary there
-        is an enhancement of the diffusion of the other species</b>.
-         </li>
-         <li class="fragment" data-fragment-index="4">
-           The <b>Winklemann experiment</b> (see right), used to
-           determine values of the diffusivity is an example of this,
-           and other examples are available in the tutorial questions.
-         </li>
-        </ul>
-       </div>
-       <div style="flex: 1 1 calc(100% * 0.41);">
-        <figure>
-         <div class="center">
-          <object data="img/winkleman_experiment.svg" type="image/svg+xml" width="80%">
-          </object>
-         </div>
-        </figure>
-       </div>
-      </div>
-     </section>
-    </section>
-    <section>
-     <section data-menu-title="Mass Transport Dimensionless Numbers">
-      <ul>
-       <li>
-        When we needed to compare competing momentum and energy
-    transports processes, we did this through a range of dimensionless
-    parameters
-        \begin{align*}
-        \text{Re}\quad \text{Pr}\quad \text{Nu}\quad \text{Gr} \quad \text{Ra}
-        \end{align*}
-       </li>
-       <li class="fragment" data-fragment-index="1">
-        Introducing mass transfer allows us to define two more.
-       </li>
-       <li class="fragment" data-fragment-index="2">
-        The Schmidt number, $\text{Sc}$, is the ratio of the
-    momentum and diffusive transport processes in the system.
-        \begin{align*}
-        \text{Sc} = \frac{\nu}{D_{AB}} = \frac{\mu}{\rho D_{AB}}
-        \end{align*}
-       </li>
-       <li class="fragment" data-fragment-index="3">
-        The Lewis number is defined as the ratio of the conductive
-    and diffusive transport processes in the system.
-        \begin{align*}
-        \text{Le} = \frac{\alpha}{D_{AB}} = \frac{k}{\rho C_p D_{AB}}
-        \end{align*}
-       </li>
-       <li class="fragment" data-fragment-index="4">
-        These parameters are key to characterising systems such as
-	boiling or combustion, where mass, momentum and heat transfer
-	are combined and occurring simultaneously. It should be clear
-	though, that whenever we add new forms of transport (e.g.,
-	electrical/magnetic), there will be a set of additional
-	dimensionless numbers taking the ratio of their
-	phenomenological coefficients.
-       </li>
-      </ul>
-     </section>
-    </section>
-    <section>
-      <section>
-	<h3>Example: Coal combustion</h3>
-      </section>
-    </section>
-   </div>
-  </div>
-  <script src="footer.js"></script>
- </body>
+    </div>
+    <script src="footer.js"></script>
+  </body>
 </html>

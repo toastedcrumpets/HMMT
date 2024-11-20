@@ -1,741 +1,651 @@
 <!DOCTYPE html>
 <html lang="en">
- <head>
-  <meta charset="utf-8"/>
-  <title>
-   Heat, Mass, and Momentum Transfer
-  </title>
-  <meta content="Heat Mass and Momentum Transfer notes" name="description"/>
-  <meta content="Marcus Bannerman &lt;m.bannerman@gmail.com" name="author"/>
-  <meta content="yes" name="apple-mobile-web-app-capable"/>
-  <meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"/>
-  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui" name="viewport"/>
-  <script src="header.js"></script>
- </head>
- <body>
-  <div class="reveal">
-   <div class="slides">
-    <section>
-     <section>
-      <h2>
-       Diffusion: Part 1
-      </h2>
-      <div class="center">
+  <head>
+    <meta charset="utf-8" />
+    <title>Heat, Mass, and Momentum Transfer</title>
+    <meta content="Heat Mass and Momentum Transfer notes" name="description" />
+    <meta content="Marcus Bannerman &lt;m.bannerman@gmail.com" name="author" />
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta
+      content="black-translucent"
+      name="apple-mobile-web-app-status-bar-style"
+    />
+    <meta
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui"
+      name="viewport"
+    />
+    <script src="header.js"></script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <section>
+            <h2>Diffusion: Part 1</h2>
+            <iframe
+              width="1400"
+              height="800"
+              src="https://www.youtube.com/embed/_oLPBnhOCjM?si=wSeAjFvJRUhl6SRK"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+            ></iframe>
+          </section>
+        </section>
+        <section>
+          <section data-menu-title="What is Diffusion?">
+            <div style="display: flex; align-items: center">
+              <div style="flex: 1 1 calc(100% * 0.51)">
+                <ul>
+                  <li>
+                    Mass transfer is as ubiquitous as heat transfer in process
+                    equipment.
+                  </li>
+                  <li class="fragment" data-fragment-index="1">
+                    It is at the heart of
+                    <b>catalysed reactions</b>, <b>combustion</b>,
+                    <b>distillation</b>, <b>gas absorption/drying</b>,
+                    <b>liquid-liquid extraction</b>
+                    …
+                  </li>
+                  <li class="fragment" data-fragment-index="2">
+                    For example, the growth rate of a bubble in multicomponent
+                    <b>boiling</b>
+                    is related to the rate at which the volatile component can
+                    reach the bubble surface…
+                  </li>
+                </ul>
+              </div>
+              <div style="flex: 1 1 calc(100% * 0.51)">
+                <figure>
+                  <div class="center">
+                    <img src="img/boiling.jpg" />
+                  </div>
+                </figure>
+              </div>
+            </div>
+          </section>
+          <section data-menu-title="Single-Component Diffusion">
+            <div style="display: flex; align-items: center">
+              <div style="flex: 1 1 calc(100% * 0.51)">
+                <ul>
+                  <li>
+                    These mass transfer processes are driven by diffusion.
+                  </li>
+                  <li class="fragment" data-fragment-index="1">
+                    Diffusion is defined as the process where a single species
+                    migrates through a fluid
+                    <b>without</b>
+                    causing a bulk movement of the liquid.
+                  </li>
+                  <li class="fragment" data-fragment-index="2">
+                    What complications does this definition present?
+                  </li>
+                </ul>
+              </div>
+              <div style="flex: 1 1 calc(100% * 0.51)">
+                <figure>
+                  <div class="center">
+                    <object
+                      data="img/Diffusion.svg"
+                      type="image/svg+xml"
+                      width="100%"
+                    ></object>
+                  </div>
+                  <figcaption>
+                    Diffusion of a drop of red ink in water.
+                  </figcaption>
+                </figure>
+              </div>
+            </div>
+          </section>
+          <section>
+            <div style="display: flex; align-items: center">
+              <div style="flex: 1 1 calc(100% * 0.51)">
+                <ul>
+                  <li>Consider a container with a movable partition.</li>
+                  <li class="fragment" data-fragment-index="1">
+                    One side of the container is filled with a gas and the other
+                    is in vacuum.
+                  </li>
+                  <li class="fragment" data-fragment-index="2">
+                    When the partition is removed, what occurs?
+                  </li>
+                  <li class="fragment" data-fragment-index="3">
+                    Is this diffusion? Or is this
+                    <b>flow driven by a pressure gradient</b>
+                    (expansion)?
+                  </li>
+                  <li class="fragment" data-fragment-index="4">
+                    It turns out that diffusion in a single component fluid is
+                    not traditional diffusion…
+                  </li>
+                </ul>
+              </div>
+              <div style="flex: 1 1 calc(100% * 0.51)">
+                <figure>
+                  <div class="center">
+                    <object
+                      data="img/EvacPipe.svg"
+                      type="image/svg+xml"
+                      style="width: 50%"
+                    ></object>
+                  </div>
+                  <figcaption>
+                    Diffusion or Flow or Expansion in an evacuated pipe.
+                  </figcaption>
+                </figure>
+              </div>
+            </div>
+          </section>
+          <section data-menu-title="Two-Component Diffusion">
+            <div style="display: flex; align-items: center">
+              <div style="flex: 1 1 calc(100% * 0.51)">
+                <ul>
+                  <li>
+                    Consider the same container but with two equal-density
+                    fluids on either side of the partition.
+                  </li>
+                  <li class="fragment" data-fragment-index="1">
+                    When the partition is removed the species mix, is this
+                    diffusion?
+                  </li>
+                  <li class="fragment" data-fragment-index="2">
+                    The critical definition of diffusion is that it is the
+                    migration of a single species
+                    <b>through another species/material</b>,
+                    <i>without a bulk movement</i>
+                    of the fluid occurring.
+                  </li>
+                  <li class="fragment" data-fragment-index="3">
+                    The animation on the right shows the random nature of
+                    diffusion, and the scaled up effect to realistic numbers of
+                    particles.
+                  </li>
+                  <li class="fragment" data-fragment-index="4">
+                    At the macroscopic level, we have law's to describe the
+                    transport processes…
+                  </li>
+                </ul>
+              </div>
+              <div style="flex: 1 1 calc(100% * 0.51)">
+                <figure>
+                  <div class="center">
+                    <img
+                      src="img/DiffusionMicroMacro.gif"
+                      width="360"
+                      height="300"
+                      style="width: 100%"
+                    />
+                  </div>
+                  <figcaption>
+                    Diffusion between two initially separated fluids. Top image
+                    tracks a single molecule, then several, then the average
+                    motion of the fluid.
+                  </figcaption>
+                </figure>
+              </div>
+            </div>
+          </section>
+        </section>
+        <section>
+          <section data-menu-title="Fick's Law">
+            <ul>
+              <li>
+                You should already be familar with Fick's law, describing the
+                diffusive flux of a species. \begin{align*} N_{A,x} =
+                -D\frac{\partial C_A}{\partial x} \end{align*}
+              </li>
+              <li class="fragment" data-fragment-index="1">
+                This is for the diffusive flux, $N_{A,x}$ in mol/m ${}^2$ s, of
+                a species A.
+              </li>
+              <li class="fragment" data-fragment-index="2">
+                But is this law correct? Can we find any problems with this
+                definition of Fick's law?
+              </li>
+              <li class="fragment" data-fragment-index="3">
+                First, we need to make some statement about the diffusion
+                coefficient, it should be a measure of the diffusibility of
+                species, $A$, through another species, $B$.
+              </li>
+              <li class="fragment" data-fragment-index="4">
+                To highlight this we add subscripts to the diffusion coefficient
+                to indicate what is diffusing through what. \begin{align*}
+                N_{A,x} = -D_{AB}\frac{\partial C_A}{\partial x} \end{align*}
+              </li>
+            </ul>
+          </section>
+          <section data-menu-title="Eddy Diffusivity">
+            <ul>
+              <li>It should be noted that $D_{AB}=D_{BA}$.</li>
+              <li class="fragment" data-fragment-index="1">
+                The value of the diffusion coefficient is relatively quite small
+                (it has units of m${}^2$ /s).
+                <figure>
+                  <div class="center">
+                    <table style="border-collapse: collapse; display: table">
+                      <tr>
+                        <td>Substance ( $A$ )</td>
+                        <td>$D_{A,Air}\times10^{6}$</td>
+                        <td>Substance ( $A$ )</td>
+                        <td>$D_{A,Air}\times10^{6}$</td>
+                      </tr>
+                      <tr style="border-top: thick solid black">
+                        <td>Ammonia</td>
+                        <td>28.0</td>
+                        <td>Carbon Dioxide</td>
+                        <td>16.4</td>
+                      </tr>
+                      <tr>
+                        <td>Hydrogen</td>
+                        <td>71.0</td>
+                        <td>Oxygen</td>
+                        <td>20.6</td>
+                      </tr>
+                      <tr>
+                        <td>Water</td>
+                        <td>25.6</td>
+                        <td>Methanol</td>
+                        <td>15.9</td>
+                      </tr>
+                      <tr>
+                        <td></td>
+                      </tr>
+                    </table>
+                  </div>
+                  <figcaption>
+                    Typical values of the diffusion coefficient of a gas/vapour
+                    in air at STP, taken from C&amp;R Vol. 1, Table. 10.2.
+                  </figcaption>
+                </figure>
+              </li>
+              <li class="fragment" data-fragment-index="2">
+                When talking about large bodies of convecting/flowing fluids,
+                the measured diffusion is usually much higher than this value.
+              </li>
+              <li class="fragment" data-fragment-index="3">
+                This is because small eddies or circulating currents enhance the
+                diffusion through mixing.
+              </li>
+              <li class="fragment" data-fragment-index="4">
+                This is usually accounted for by adding an additional
+                diffusivity, called the
+                <b>eddy diffusivity</b>, to account for this effect (but we
+                often ignore this effect in simple calculations). \begin{align*}
+                N_{A,x} = -\left(D_{AB}+E_D\right)\frac{\partial C_A}{\partial
+                x} \end{align*}
+              </li>
+            </ul>
+          </section>
+          <section data-menu-title="Chemical Potential">
+            <div style="display: flex; align-items: center">
+              <div style="flex: 1 1 calc(100% * 0.51)">
+                <ul>
+                  <li>
+                    There is still one more problem with this form of Fick's
+                    law, and it's a big one.
+                  </li>
+                  <li class="fragment" data-fragment-index="1">
+                    It's to do with the diffusion being proportional to the
+                    concentration gradient. \begin{align*} N_{A,x} =
+                    -D_{AB}\frac{\partial C_A}{\partial x} \end{align*}
+                  </li>
+                  <li class="fragment" data-fragment-index="2">
+                    What problems are there with this definition?
+                  </li>
+                  <li class="fragment" data-fragment-index="3">
+                    Consider the oil and water system, why aren't they mixing or
+                    diffusing?
+                  </li>
+                  <li class="fragment" data-fragment-index="4">
+                    But there is a huge concentration gradient at the interface
+                    between the two fluids, this version of Fick's law says they
+                    must diffuse…
+                  </li>
+                </ul>
+              </div>
+              <div style="flex: 1 1 calc(100% * 0.51)">
+                <figure>
+                  <div class="center">
+                    <object
+                      data="img/OilWater1.svg"
+                      type="image/svg+xml"
+                      style="width: 60%"
+                    ></object>
+                  </div>
+                  <figcaption>Oil and Water in contact.</figcaption>
+                </figure>
+              </div>
+            </div>
+          </section>
+          <section>
+            <div style="display: flex; align-items: center">
+              <div style="flex: 1 1 calc(100% * 0.51)">
+                <ul>
+                  <li>
+                    Now consider if the oil initially contains a small amount of
+                    dissolved salt.
+                  </li>
+                  <li class="fragment" data-fragment-index="1">
+                    Over time, the salt will migrate into the water, and will
+                    remain there at a higher concentration than in the oil
+                    phase.
+                  </li>
+                  <li class="fragment" data-fragment-index="2">
+                    Such a process is called
+                    <b>liquid-liquid extraction</b>, and is used to strip
+                    components out of immiscible fluids.
+                  </li>
+                  <li class="fragment" data-fragment-index="3">
+                    Here again it appears that the concentration gradient is
+                    ignored and that Fick's law is broken…
+                  </li>
+                </ul>
+              </div>
+              <div style="flex: 1 1 calc(100% * 0.51)">
+                <figure>
+                  <div class="center">
+                    <object
+                      data="img/OilWater2.svg"
+                      type="image/svg+xml"
+                      style="width: 60%"
+                    ></object>
+                  </div>
+                  <figcaption>Oil and Water in contact.</figcaption>
+                </figure>
+              </div>
+            </div>
+          </section>
+          <section>
+            <ul>
+              <li>
+                The problem is that Fick's law should actually be expressed in
+                terms of the
+                <b>chemical potential</b>, $\mu_A$. \begin{align*} N_{A,x} =
+                -\frac{C_A D_{AB}}{R T}\frac{\partial \mu_A}{\partial x}
+                \end{align*}
+              </li>
+              <li class="fragment" data-fragment-index="1">
+                This is known as
+                <b>Maxwell-Stefan diffusion</b>.
+              </li>
+              <li class="fragment" data-fragment-index="2">
+                However, in the case that the temperature and pressure of the
+                system are uniform,
+                <b>and</b>
+                we have an ideal mixture we have \begin{align*} \frac{\partial
+                \mu_A}{\partial x} = \frac{R T}{C_A}\frac{\partial C_A}{\partial
+                x} \end{align*}
+              </li>
+              <li class="fragment" data-fragment-index="3">
+                If this is used in the Maxwell-Stefan equation above, we recover
+                Fick's law again. \begin{align*} N_{A,x} = -D_{AB}\frac{\partial
+                C_A}{\partial x} \end{align*} But only in the limit of ideal
+                mixtures, and salt-oil-water systems are far from ideal.
+              </li>
+            </ul>
+          </section>
+        </section>
+        <section>
+          <section data-menu-title="Balance Equations">
+            <ul>
+              <li>
+                If we want to deal with systems more complicated than a flat
+                plate, we need to consider the a mass balance equation for a
+                single species, $A$.
+              </li>
+              <li class="fragment" data-fragment-index="1">
+                We already have one mass balance, called the
+                <b>continuity equation</b>
+                \begin{align*} \frac{\partial \rho}{\partial t} + \nabla \cdot
+                \rho \boldsymbol{v} = 0 \end{align*} but this expression is for
+                all species, not just species $A$.
+              </li>
+            </ul>
+          </section>
+          <section>
+            <ul>
+              <li>
+                Taking the general balance equation, $ \frac{\partial
+                c_B}{\partial t} = -\nabla\cdot \boldsymbol{J}_B + \sigma_B $ we
+                can immediately generate the balance equation for a species $A$
+                \begin{align*} \frac{\partial C_A}{\partial t} = -\nabla\cdot
+                \boldsymbol{N}_A + \sigma_A \end{align*} where $C_A$ is the
+                molar concentration, $\boldsymbol{N}_A$ is the total molar flux,
+                and $\sigma_A$ is the molar generation rate of A.
+              </li>
+              <li class="fragment" data-fragment-index="1">
+                At steady state and neglecting any chemical reaction or
+                absorption we have \begin{align*} \nabla\cdot \boldsymbol{N}_A =
+                0 \end{align*}
+              </li>
+              <li class="fragment" data-fragment-index="2">
+                In the case that
+                <b>the concentration of $A$ is small</b>, we can directly use
+                Fick's law for $\boldsymbol{N}_A$. \begin{align*}
+                \boldsymbol{N}_A = -D_{AB}\nabla C_A \end{align*} (We will
+                discuss moving beyond this limit in the second part of the
+                lectures)
+              </li>
+              <li class="fragment" data-fragment-index="3">
+                Obviously this definition of $\boldsymbol{N}_A$ ignores the
+                convective flux of the fluid; however, this definition is
+                sufficient to solve Q.1 of the next Tutorial. We will consider
+                cases with larger concentrations and multiple species in the
+                following section on Advanced Diffusion.
+              </li>
+            </ul>
+          </section>
+        </section>
+        <section>
+          <section
+            data-menu-title="Example 17.1-1: Transport Phenomena 2nd Ed."
+          >
+            <ul>
+              <li>
+                We have a plate of fused silica (AKA Pyrex) which is used to
+                contain a pure Helium gas against a vacuum.
+                <div class="center">
+                  <object
+                    data="img/helium.svg"
+                    type="image/svg+xml"
+                    width="50%"
+                  ></object>
+                </div>
+              </li>
+              <li class="fragment" data-fragment-index="1">
+                We need to solve for the flux of Helium through the wall to
+                evaluate if this is an effective containment material for
+                Helium.
+              </li>
+              <li class="fragment" data-fragment-index="2">
+                Note the jump in $C_{He}$ ! There is a “no-slip” condition on
+                the chemical potential, but this is a discontinuity in the
+                concentration. You will need thermodynamics to fix this, but
+                this course will simply give you the surface concentrations.
+              </li>
+            </ul>
+          </section>
+          <section>
+            <div style="display: flex; align-items: center">
+              <div style="flex: 1 1 calc(100% * 0.51)">
+                <ul>
+                  <li>
+                    Starting with the balance equation for Helium gas, we have:
+                    \begin{align*} \frac{\partial C_{He}}{\partial t} =
+                    -\nabla\cdot \boldsymbol{N}_{He} + \cancelto{0}{\sigma_{He}}
+                    \end{align*}
+                  </li>
+                  <li class="fragment" data-fragment-index="1">
+                    Assuming we're at steady state, and that we only expect a
+                    flux in one dimension, this reduces to: \begin{align*}
+                    \nabla_x N_{He,x} &amp;= \frac{\partial N_{He,x}}{\partial
+                    x} = 0\\ N_{He,x} &amp;= C \end{align*}
+                  </li>
+                  <li class="fragment" data-fragment-index="2">
+                    The flux of Helium through the wall is constant! (this
+                    should all be very familiar from heat transfer).
+                  </li>
+                </ul>
+              </div>
+              <div style="flex: 1 1 calc(100% * 0.451)">
+                <div class="center">
+                  <object
+                    data="img/helium.svg"
+                    type="image/svg+xml"
+                    width="100%"
+                  ></object>
+                </div>
+              </div>
+            </div>
+          </section>
+          <section>
+            <div style="display: flex; align-items: center">
+              <div style="flex: 1 1 calc(100% * 0.51)">
+                <ul>
+                  <li>
+                    But what is the absolute flux of hydrogen? As there is
+                    probably very little Helium in the solid phase, we directly
+                    use Fick's law: \begin{align*} \boldsymbol{N}_{He} &amp;=
+                    -D_{He,FS}\nabla C_{He}\\ N_{He,x} &amp;=
+                    -D_{He,FS}\frac{\partial C_{He}}{\partial x} \end{align*}
+                  </li>
+                  <li class="fragment" data-fragment-index="1">
+                    As the flux is constant, we know that the gradient of the
+                    concentration is constant. This means we can work out its
+                    value from the boundary values: \begin{align*}
+                    \frac{\partial C_{He}}{\partial x} = \frac{C_{He}(x_1) -
+                    C_{He}(x_2)}{x_1 - x_2} \end{align*}
+                  </li>
+                  <li class="fragment" data-fragment-index="2">
+                    This should look “like” a linear temperature profile to you…
+                  </li>
+                </ul>
+              </div>
+              <div style="flex: 1 1 calc(100% * 0.451)">
+                <div class="center">
+                  <object
+                    data="img/helium.svg"
+                    type="image/svg+xml"
+                    width="100%"
+                  ></object>
+                </div>
+              </div>
+            </div>
+          </section>
+          <section>
+            <div style="display: flex; align-items: center">
+              <div style="flex: 1 1 calc(100% * 0.51)">
+                <ul>
+                  <li>
+                    If we have a fused sillica plate of thickness $10^{-5}$ m,
+                    and the concentration in the plate drops from 0.1325 mol/m
+                    ${}^3$ on the inside to approximately zero (due to the
+                    vacuum) on the external, we have: \begin{align*}
+                    \frac{\partial C_{He}}{\partial x} = \frac{0.1325}{10^{-5}}
+                    = 13250 \text{mol/m${}^4$} \end{align*}
+                  </li>
+                  <li class="fragment" data-fragment-index="1">
+                    The diffusion constant of Helium through fused sillica is
+                    $D_{He,FS}=2\times10^{-12}$ m ${}^2$ /s, thus the flux is
+                    \begin{align*} N_{He,x} &amp;= -D_{He,FS}\frac{\partial
+                    C_{He}}{\partial x}\\ &amp;=2\times10^{-12} \times 13250 \\
+                    &amp;=2.65\times10^{-8} \text{mol/m${}^2$ s} \end{align*}
+                  </li>
+                </ul>
+              </div>
+              <div style="flex: 1 1 calc(100% * 0.451)">
+                <div class="center">
+                  <object
+                    data="img/helium.svg"
+                    type="image/svg+xml"
+                    width="100%"
+                  ></object>
+                </div>
+              </div>
+            </div>
+          </section>
+          <section>
+            <div style="display: flex; align-items: center">
+              <div style="flex: 1 1 calc(100% * 0.51)">
+                <ul>
+                  <li>
+                    A diffusion of $2.65\times10^{-8}$ mol/m ${}^2$ s of Helium
+                    (or $1.06\times10^{-7}$ g/m ${}^2$ s), although it sounds
+                    low, is actually quite high!
+                  </li>
+                  <li class="fragment" data-fragment-index="1">
+                    Pyrex is relatively permeable to Helium, compared to other
+                    gases.
+                  </li>
+                  <li class="fragment" data-fragment-index="2">
+                    Obviously, this sort of diffusion has relatively limited
+                    application (as diffusion through solids is not as great as
+                    diffusion through gases or liquids) but we could possibly
+                    separate gases if they diffuse at different rates.
+                  </li>
+                  <li class="fragment" data-fragment-index="3">
+                    To study other systems which might be more interesting, we
+                    need to generalise our definition of the flux…
+                  </li>
+                </ul>
+              </div>
+              <div style="flex: 1 1 calc(100% * 0.451)">
+                <div class="center">
+                  <object
+                    data="img/helium.svg"
+                    type="image/svg+xml"
+                    width="100%"
+                  ></object>
+                </div>
+              </div>
+            </div>
+          </section>
+        </section>
+        <section>
+          <section data-menu-title="Learning Objectives">
+            <h3>Learning Objectives</h3>
+            <ul>
+              <li>
+                We have rediscovered
+                <b>Fick's law</b>, and defined the
+                <b>diffusion coefficient</b>
+                $D_{AB}$ and the
+                <b>eddy diffusivity</b>
+                $E_D$.
+              </li>
+              <li class="fragment" data-fragment-index="1">
+                Diffusion is only well defined in systems with two components
+                (species $A$ must diffuse through species $B$ and vice-versa).
+              </li>
+              <li class="fragment" data-fragment-index="2">
+                We have seen the Maxwell-Stefan equation, and know that
+                diffusion is actually in response to a
+                <b>gradient in the chemical potential</b>.
+              </li>
+              <li class="fragment" data-fragment-index="3">
+                This imposes the constraint that to use Fick's law, we must
+                assume the temperature and pressure are constant and that we
+                have an ideal mixture.
+              </li>
+              <li class="fragment" data-fragment-index="4">
+                We have set up the balance equation for a single species.
+                \begin{align*} \frac{\partial C_A}{\partial t} = -\nabla\cdot
+                \boldsymbol{N}_A + \sigma_A \end{align*}
+              </li>
+              <li class="fragment" data-fragment-index="5">
+                We have been told that, in the limit of small concentrations of
+                $A$, we have \begin{align*} \boldsymbol{N}_{A} &amp;=
+                -D_{AB} \nabla C_{A}\\ \end{align*}
+              </li>
+            </ul>
+          </section>
+        </section>
       </div>
-     </section>
-    </section>
-    <section>
-     <section data-menu-title="What is Diffusion?">
-      <div style="display:flex;align-items:center;">
-       <div style="flex: 1 1 calc(100% * 0.51);">
-        <ul>
-         <li>
-          Mass transfer is as ubiquitous as heat transfer in
-        process equipment.
-         </li>
-         <li class="fragment" data-fragment-index="1">
-          It is at the heart of
-          <b>catalysed reactions</b>,
-          <b>combustion</b>,
-          <b>distillation</b>,
-          <b>gas
-          absorption/drying</b>,
-          <b>liquid-liquid extraction</b>
-          …
-         </li>
-         <li class="fragment" data-fragment-index="2">
-          For example, the growth rate of a bubble in
-        multicomponent
-          <b>boiling</b>
-          is related to the rate at which
-        the volatile component can reach the bubble surface…
-         </li>
-        </ul>
-       </div>
-       <div style="flex: 1 1 calc(100% * 0.51);">
-        <figure>
-         <div class="center">
-          <img src="img/boiling.jpg"/>
-         </div>
-        </figure>
-       </div>
-      </div>
-     </section>
-     <section data-menu-title="Single-Component Diffusion">
-      <div style="display:flex;align-items:center;">
-       <div style="flex: 1 1 calc(100% * 0.51);">
-        <ul>
-         <li>
-          These mass transfer processes are driven by diffusion.
-         </li>
-         <li class="fragment" data-fragment-index="1">
-          Diffusion is defined as the process where a single
-        species migrates through a fluid
-          <b>without</b>
-          causing a bulk
-        movement of the liquid.
-         </li>
-         <li class="fragment" data-fragment-index="2">
-          What complications does this definition present?
-         </li>
-        </ul>
-       </div>
-       <div style="flex: 1 1 calc(100% * 0.51);">
-        <figure>
-         <div class="center">
-          <object data="img/Diffusion.svg" type="image/svg+xml" width="100%">
-          </object>
-         </div>
-         <figcaption>
-          Diffusion of a drop of red ink in water.
-         </figcaption>
-        </figure>
-       </div>
-      </div>
-     </section>
-     <section>
-      <div style="display:flex;align-items:center;">
-       <div style="flex: 1 1 calc(100% * 0.51);">
-        <ul>
-         <li>
-          Consider a container with a movable partition.
-         </li>
-         <li class="fragment" data-fragment-index="1">
-          One side of the container is filled with a gas and the
-        other is in vacuum.
-         </li>
-         <li class="fragment" data-fragment-index="2">
-          When the partition is removed, what occurs?
-         </li>
-         <li class="fragment" data-fragment-index="3">
-          Is this diffusion? Or is this
-          <b>flow driven by a
-          pressure gradient</b>
-          (expansion)?
-         </li>
-         <li class="fragment" data-fragment-index="4">
-          It turns out that diffusion in a single component
-        fluid is not traditional diffusion…
-         </li>
-        </ul>
-       </div>
-       <div style="flex: 1 1 calc(100% * 0.51);">
-        <figure>
-         <div class="center">
-          <object data="img/EvacPipe.svg" type="image/svg+xml" style="width:50%;">
-          </object>
-         </div>
-         <figcaption>
-          Diffusion or Flow or Expansion in an evacuated pipe.
-         </figcaption>
-        </figure>
-       </div>
-      </div>
-     </section>
-     <section data-menu-title="Two-Component Diffusion">
-      <div style="display:flex;align-items:center;">
-       <div style="flex: 1 1 calc(100% * 0.51);">
-        <ul>
-         <li>
-          Consider the same container but with two equal-density
-        fluids on either side of the partition.
-         </li>
-         <li class="fragment" data-fragment-index="1">
-          When the partition is removed the species mix, is this
-        diffusion?
-         </li>
-         <li class="fragment" data-fragment-index="2">
-          The critical definition of diffusion is that it is the
-        migration of a single species
-          <b>through another
-          species/material</b>,
-          <i>without a bulk movement</i>
-          of the
-        fluid occurring.
-         </li>
-         <li class="fragment" data-fragment-index="3">
-          The animation on the right shows the random nature of
-        diffusion, and the scaled up effect to realistic numbers of
-        particles.
-         </li>
-         <li class="fragment" data-fragment-index="4">
-          At the macroscopic level, we have law's to describe
-        the transport processes…
-         </li>
-        </ul>
-       </div>
-       <div style="flex: 1 1 calc(100% * 0.51);">
-        <figure>
-          <div class="center">
-	    <img src="img/DiffusionMicroMacro.gif" width="360" height="300" style="width:100%;">
-         </div>
-         <figcaption>
-          Diffusion between two initially separated fluids. Top
-          image tracks a single molecule, then several, then the
-          average motion of the fluid.
-         </figcaption>
-        </figure>
-       </div>
-      </div>
-     </section>
-    </section>
-    <section>
-     <section data-menu-title="Fick's Law">
-      <ul>
-       <li>
-        You should already be familar with Fick's law, describing
-    the diffusive flux of a species.
-        \begin{align*}
-        N_{A,x} = -D\frac{\partial C_A}{\partial x}
-        \end{align*}
-       </li>
-       <li class="fragment" data-fragment-index="1">
-        This is for the diffusive flux, $N_{A,x}$
-        in
-    mol/m
-        ${}^2$
-        s, of a species A.
-       </li>
-       <li class="fragment" data-fragment-index="2">
-        But is this law correct? Can we find any problems with
-    this definition of Fick's law?
-       </li>
-       <li class="fragment" data-fragment-index="3">
-        First, we need to make some statement about the diffusion
-    coefficient, it should be a measure of the diffusibility of
-    species, $A$, through another species,
-        $B$.
-       </li>
-       <li class="fragment" data-fragment-index="4">
-        To highlight this we add subscripts to the diffusion
-    coefficient to indicate what is diffusing through what.
-        \begin{align*}
-        N_{A,x} = -D_{AB}\frac{\partial C_A}{\partial x}
-        \end{align*}
-       </li>
-      </ul>
-     </section>
-     <section data-menu-title="Eddy Diffusivity">
-      <ul>
-       <li>
-        It should be noted that $D_{AB}=D_{BA}$.
-       </li>
-       <li class="fragment" data-fragment-index="1">
-        The value of the diffusion coefficient is relatively quite
-    small (it has units of m${}^2$
-        /s).
-        <figure>
-         <div class="center">
-          <table style="border-collapse:collapse;display:table;">
-           <tr>
-            <td>
-             Substance (
-             $A$
-             )
-            </td>
-            <td>
-             $D_{A,Air}\times10^{6}$
-            </td>
-            <td>
-             Substance (
-             $A$
-             )
-            </td>
-            <td>
-             $D_{A,Air}\times10^{6}$
-            </td>
-           </tr>
-           <tr style="border-top:thick solid black;">
-            <td>
-             Ammonia
-            </td>
-            <td>
-             28.0
-            </td>
-            <td>
-             Carbon Dioxide
-            </td>
-            <td>
-             16.4
-            </td>
-           </tr>
-           <tr>
-            <td>
-             Hydrogen
-            </td>
-            <td>
-             71.0
-            </td>
-            <td>
-             Oxygen
-            </td>
-            <td>
-             20.6
-            </td>
-           </tr>
-           <tr>
-            <td>
-             Water
-            </td>
-            <td>
-             25.6
-            </td>
-            <td>
-             Methanol
-            </td>
-            <td>
-             15.9
-            </td>
-           </tr>
-           <tr>
-            <td>
-            </td>
-           </tr>
-          </table>
-         </div>
-         <figcaption>
-          Typical values of the diffusion coefficient of a gas/vapour in air at STP, taken from C&amp;R Vol. 1, Table. 10.2.
-         </figcaption>
-        </figure>
-       </li>
-       <li class="fragment" data-fragment-index="2">
-        When talking about large bodies of convecting/flowing
-    fluids, the measured diffusion is usually much higher than this
-    value.
-       </li>
-       <li class="fragment" data-fragment-index="3">
-        This is because small eddies or circulating currents
-    enhance the diffusion through mixing.
-       </li>
-       <li class="fragment" data-fragment-index="4">
-        This is usually accounted for by adding an additional
-    diffusivity, called the
-        <b>eddy diffusivity</b>, to account for
-    this effect (but we often ignore this effect in simple
-    calculations).
-        \begin{align*}
-        N_{A,x} = -\left(D_{AB}+E_D\right)\frac{\partial C_A}{\partial x}
-        \end{align*}
-       </li>
-      </ul>
-     </section>
-     <section data-menu-title="Chemical Potential">
-      <div style="display:flex;align-items:center;">
-       <div style="flex: 1 1 calc(100% * 0.51);">
-        <ul>
-         <li>
-          There is still one more problem with this form of
-        Fick's law, and it's a big one.
-         </li>
-         <li class="fragment" data-fragment-index="1">
-          It's to do with the diffusion being proportional to
-        the concentration gradient.
-          \begin{align*}
-          N_{A,x} = -D_{AB}\frac{\partial C_A}{\partial x}
-          \end{align*}
-         </li>
-         <li class="fragment" data-fragment-index="2">
-          What problems are there with this definition?
-         </li>
-         <li class="fragment" data-fragment-index="3">
-          Consider the oil and water system, why aren't they
-        mixing or diffusing?
-         </li>
-         <li class="fragment" data-fragment-index="4">
-          But there is a huge concentration gradient at the
-        interface between the two fluids, this version of Fick's law
-        says they must diffuse…
-         </li>
-        </ul>
-       </div>
-       <div style="flex: 1 1 calc(100% * 0.51);">
-        <figure>
-         <div class="center">
-          <object data="img/OilWater1.svg" type="image/svg+xml" style="width:60%;">
-          </object>
-         </div>
-         <figcaption>
-          Oil and Water in contact.
-         </figcaption>
-        </figure>
-       </div>
-      </div>
-     </section>
-     <section>
-      <div style="display:flex;align-items:center;">
-       <div style="flex: 1 1 calc(100% * 0.51);">
-        <ul>
-         <li>
-          Now consider if the oil initially contains a small
-        amount of dissolved salt.
-         </li>
-         <li class="fragment" data-fragment-index="1">
-          Over time, the salt will migrate into the water, and
-        will remain there at a higher concentration than in the oil
-        phase.
-         </li>
-         <li class="fragment" data-fragment-index="2">
-          Such a process is called
-          <b>liquid-liquid
-          extraction</b>, and is used to strip components out of
-        immiscible fluids.
-         </li>
-         <li class="fragment" data-fragment-index="3">
-          Here again it appears that the concentration gradient
-        is ignored and that Fick's law is broken…
-         </li>
-        </ul>
-       </div>
-       <div style="flex: 1 1 calc(100% * 0.51);">
-        <figure>
-         <div class="center">
-          <object data="img/OilWater2.svg" type="image/svg+xml"  style="width:60%;">
-          </object>
-         </div>
-         <figcaption>
-          Oil and Water in contact.
-         </figcaption>
-        </figure>
-       </div>
-      </div>
-     </section>
-     <section>
-      <ul>
-       <li>
-        The problem is that Fick's law should actually be
-    expressed in terms of the
-        <b>chemical potential</b>,
-        $\mu_A$.
-        \begin{align*}
-        N_{A,x} = -\frac{C_A D_{AB}}{R T}\frac{\partial \mu_A}{\partial x}
-        \end{align*}
-       </li>
-       <li class="fragment" data-fragment-index="1">
-        This is known as
-        <b>Maxwell-Stefan diffusion</b>.
-       </li>
-       <li class="fragment" data-fragment-index="2">
-        However, in the case that the temperature and pressure of
-    the system are uniform,
-        <b>and</b>
-        we have an ideal mixture we have
-        \begin{align*}
-        \frac{\partial \mu_A}{\partial x} =
-      \frac{R T}{C_A}\frac{\partial C_A}{\partial x}
-        \end{align*}
-       </li>
-       <li class="fragment" data-fragment-index="3">
-        If this is used in the Maxwell-Stefan equation above, we
-    recover Fick's law again.
-        \begin{align*}
-        N_{A,x} = -D_{AB}\frac{\partial C_A}{\partial x}
-        \end{align*}
-        But only in the limit of ideal mixtures, and salt-oil-water
-    systems are far from ideal.
-       </li>
-      </ul>
-     </section>
-    </section>
-    <section>
-     <section data-menu-title="Balance Equations">
-      <ul>
-       <li>
-        If we want to deal with systems more complicated than a
-    flat plate, we need to consider the a mass balance equation for a
-    single species, $A$.
-       </li>
-       <li class="fragment" data-fragment-index="1">
-        We already have one mass balance, called the
-        <b>continuity equation</b>
-        \begin{align*}
-        \frac{\partial \rho}{\partial t} + \nabla \cdot \rho \boldsymbol{v} = 0
-        \end{align*}
-        but this expression is for all species, not just species
-        $A$.
-       </li>
-      </ul>
-     </section>
-     <section>
-      <ul>
-       <li>
-        Taking the general balance equation,
-        \begin{align*}
-        \frac{\partial c_B}{\partial t} = -\nabla\cdot \boldsymbol{J}_B +
-      \sigma_B
-        \end{align*}
-        we can immediately generate the balance equation for a species
-        $A$
-        \begin{align*}
-        \frac{\partial C_A}{\partial t} = -\nabla\cdot \boldsymbol{N}_A +
-      \sigma_A
-        \end{align*}
-        where
-        $C_A$
-        is the molar concentration,
-        $\boldsymbol{N}_A$
-        is the total
-    molar flux, and
-        $\sigma_A$
-        is the molar generation rate of A.
-       </li>
-       <li class="fragment" data-fragment-index="1">
-        At steady state and neglecting any chemical reaction or
-    absorption we have
-        \begin{align*}
-        \nabla\cdot \boldsymbol{N}_A = 0
-        \end{align*}
-       </li>
-       <li class="fragment" data-fragment-index="2">
-        In the case that
-        <b>the concentration of
-         $A$
-         is small</b>,
-    we can directly use Fick's law for
-        $\boldsymbol{N}_A$.
-        \begin{align*}
-        \boldsymbol{N}_A = -D_{AB}\nabla C_A
-        \end{align*}
-        (We will discuss moving beyond this limit in the second part of
-    the lectures)
-       </li>
-       <li class="fragment" data-fragment-index="3">
-        Obviously this definition of $\boldsymbol{N}_A$
-        ignores the
-    convective flux of the fluid; however, this definition is
-    sufficient to solve Q.1 of the next Tutorial. We will consider
-    cases with larger concentrations and multiple species in the
-    following section on Advanced Diffusion.
-       </li>
-      </ul>
-     </section>
-    </section>
-    <section>
-     <section data-menu-title="Example 17.1-1: Transport Phenomena 2nd Ed.">
-      <ul>
-       <li>
-        We have a plate of fused silica (AKA Pyrex) which is used
-    to contain a pure Helium gas against a vacuum.
-        <div class="center">
-         <object data="img/helium.svg" type="image/svg+xml" width="50%">
-         </object>
-        </div>
-       </li>
-       <li class="fragment" data-fragment-index="1">
-        We need to solve for the flux of Helium through the wall
-    to evaluate if this is an effective containment material for
-    Helium.
-       </li>
-       <li class="fragment" data-fragment-index="2">
-        Note the jump in $C_{He}$
-        ! There is a “no-slip”
-    condition on the chemical potential, but this is a discontinuity
-    in the concentration. You will need thermodynamics to fix this,
-    but this course will simply give you the surface concentrations.
-       </li>
-      </ul>
-     </section>
-     <section>
-      <div style="display:flex;align-items:center;">
-       <div style="flex: 1 1 calc(100% * 0.51);">
-        <ul>
-         <li>
-          Starting with the balance equation for Helium gas, we
-        have:
-          \begin{align*}
-          \frac{\partial C_{He}}{\partial t} = -\nabla\cdot
-          \boldsymbol{N}_{He} + \cancelto{0}{\sigma_{He}}
-          \end{align*}
-         </li>
-         <li class="fragment" data-fragment-index="1">
-          Assuming we're at steady state, and that we only
-        expect a flux in one dimension, this reduces to:
-          \begin{align*}
-          \nabla_x N_{He,x} &amp;= \frac{\partial N_{He,x}}{\partial x} = 0\\
-          N_{He,x} &amp;= C
-          \end{align*}
-         </li>
-         <li class="fragment" data-fragment-index="2">
-          The flux of Helium through the wall is constant!
-        (this should all be very familiar from heat transfer).
-         </li>
-        </ul>
-       </div>
-       <div style="flex: 1 1 calc(100% * 0.451);">
-        <div class="center">
-         <object data="img/helium.svg" type="image/svg+xml" width="100%">
-         </object>
-        </div>
-       </div>
-      </div>
-     </section>
-     <section>
-      <div style="display:flex;align-items:center;">
-       <div style="flex: 1 1 calc(100% * 0.51);">
-        <ul>
-         <li>
-          But what is the absolute flux of hydrogen? As there is
-        probably very little Helium in the solid phase, we directly
-        use Fick's law:
-          \begin{align*}
-          \boldsymbol{N}_{He} &amp;= -D_{He,FS}\nabla C_{He}\\
-          N_{He,x} &amp;= -D_{He,FS}\frac{\partial C_{He}}{\partial x}
-          \end{align*}
-         </li>
-         <li class="fragment" data-fragment-index="1">
-          As the flux is constant, we know that the gradient of
-        the concentration is constant. This means we can work out its
-        value from the boundary values:
-          \begin{align*}
-          \frac{\partial C_{He}}{\partial x} = \frac{C_{He}(x_1) - C_{He}(x_2)}{x_1 - x_2}
-          \end{align*}
-         </li>
-         <li class="fragment" data-fragment-index="2">
-          This should look “like” a linear temperature profile
-        to you…
-         </li>
-        </ul>
-       </div>
-       <div style="flex: 1 1 calc(100% * 0.451);">
-        <div class="center">
-         <object data="img/helium.svg" type="image/svg+xml" width="100%">
-         </object>
-        </div>
-       </div>
-      </div>
-     </section>
-     <section>
-      <div style="display:flex;align-items:center;">
-       <div style="flex: 1 1 calc(100% * 0.51);">
-        <ul>
-         <li>
-          If we have a fused sillica plate of thickness
-        $10^{-5}$
-          m, and the concentration in the plate drops from
-        0.1325 mol/m
-          ${}^3$
-          on the inside to approximately zero (due to
-        the vacuum) on the external, we have:
-          \begin{align*}
-          \frac{\partial C_{He}}{\partial x} = \frac{0.1325}{10^{-5}}
-          = 13250 \text{mol/m${}^4$}
-          \end{align*}
-         </li>
-         <li class="fragment" data-fragment-index="1">
-          The diffusion constant of Helium through fused sillica
-        is $D_{He,FS}=2\times10^{-12}$
-          m
-          ${}^2$
-          /s, thus the flux is
-          \begin{align*}
-          N_{He,x} &amp;= -D_{He,FS}\frac{\partial C_{He}}{\partial x}\\
-          &amp;=2\times10^{-12} \times 13250 \\
-          &amp;=2.65\times10^{-8} \text{mol/m${}^2$ s}
-          \end{align*}
-         </li>
-        </ul>
-       </div>
-       <div style="flex: 1 1 calc(100% * 0.451);">
-        <div class="center">
-         <object data="img/helium.svg" type="image/svg+xml" width="100%">
-         </object>
-        </div>
-       </div>
-      </div>
-     </section>
-     <section>
-      <div style="display:flex;align-items:center;">
-       <div style="flex: 1 1 calc(100% * 0.51);">
-        <ul>
-         <li>
-          A diffusion of $2.65\times10^{-8}$
-          mol/m
-          ${}^2$
-          s of
-        Helium (or
-          $1.06\times10^{-7}$
-          g/m
-          ${}^2$
-          s), although it
-        sounds low, is actually quite high!
-         </li>
-         <li class="fragment" data-fragment-index="1">
-          Pyrex is relatively permeable to Helium, compared to
-        other gases.
-         </li>
-         <li class="fragment" data-fragment-index="2">
-          Obviously, this sort of diffusion has relatively
-        limited application (as diffusion through solids is not as
-        great as diffusion through gases or liquids) but we could
-        possibly separate gases if they diffuse at different rates.
-         </li>
-         <li class="fragment" data-fragment-index="3">
-          To study other systems which might be more
-        interesting, we need to generalise our definition of the
-        flux…
-         </li>
-        </ul>
-       </div>
-       <div style="flex: 1 1 calc(100% * 0.451);">
-        <div class="center">
-         <object data="img/helium.svg" type="image/svg+xml" width="100%">
-         </object>
-        </div>
-       </div>
-      </div>
-     </section>
-    </section>
-    <section>
-      <section data-menu-title="Learning Objectives">
-	<h3>Learning Objectives</h3>
-      <ul>
-       <li>
-        We have rediscovered
-        <b>Fick's law</b>, and defined the
-        <b>diffusion coefficient</b>
-        $D_{AB}$
-        and the
-        <b>eddy
-      diffusivity</b>
-        $E_D$.
-       </li>
-       <li class="fragment" data-fragment-index="1">
-        Diffusion is only well defined in systems with two
-    components (species $A$
-        must diffuse through species
-        $B$
-        and
-    vice-versa).
-       </li>
-       <li class="fragment" data-fragment-index="2">
-        We have seen the Maxwell-Stefan equation, and know that
-    diffusion is actually in response to a
-        <b>gradient in the
-      chemical potential</b>.
-       </li>
-       <li class="fragment" data-fragment-index="3">
-        This imposes the constraint that to use Fick's law, we
-    must assume the temperature and pressure are constant and that we
-    have an ideal mixture.
-       </li>
-       <li class="fragment" data-fragment-index="4">
-        We have set up the balance equation for a single species.
-        \begin{align*}
-        \frac{\partial C_A}{\partial t} = -\nabla\cdot \boldsymbol{N}_A +
-      \sigma_A
-        \end{align*}
-       </li>
-       <li class="fragment" data-fragment-index="5">
-        We have been told that, in the limit of small concentrations
-    of $A$, we have
-        \begin{align*}
-        \boldsymbol{N}_{A} &amp;= -D_{AB} \nabla C_{A}\\
-        \end{align*}
-       </li>
-      </ul>
-     </section>
-    </section>
-   </div>
-  </div>
-  <script src="footer.js"></script>
- </body>
+    </div>
+    <script src="footer.js"></script>
+  </body>
 </html>

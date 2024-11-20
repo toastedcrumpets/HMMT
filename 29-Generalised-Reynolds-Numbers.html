@@ -22,16 +22,42 @@
         <section>
           <section>
             <h2>Generalised Reynolds Numbers</h2>
-            <iframe
-              width="1400"
-              height="800"
-              src="https://www.youtube.com/embed/_dbnH-BBSNo?si=4QBzrsn-m5gmK3UM"
-              title="YouTube video player"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              referrerpolicy="strict-origin-when-cross-origin"
-              allowfullscreen
-            ></iframe>
+            <figure>
+              <iframe
+                width="1400"
+                height="800"
+                src="https://www.youtube.com/embed/_dbnH-BBSNo?si=4QBzrsn-m5gmK3UM"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen
+              ></iframe>
+              <figcaption>
+                Laminar flows do not actually mix, they "fold" and can be
+                "unfolded". We rely on diffusion in the end to mix laminar
+                flows.
+              </figcaption>
+            </figure>
+          </section>
+          <section>
+            <figure>
+              <iframe
+                width="1400"
+                height="800"
+                src="https://www.youtube.com/embed/URJqOoj0vS8?si=BFX2g4Pj_CkfKJHN"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen
+              ></iframe>
+              <figcaption>
+                Mixing is easier if you can create turbulence, which spans all
+                scales of a fluid. But mixing in non-newtonian fluids like this
+                viscoplastic is very hard, even with turbulence!
+              </figcaption>
+            </figure>
           </section>
         </section>
         <section>
@@ -684,7 +710,8 @@
               </li>
               <li class="fragment">
                 For pipes it reduces to the same expression as before. Did we
-                generalise it right though?
+                generalise it right though? The Biot number had at least two
+                definitions and they can't both be right?
               </li>
             </ul>
           </section>
@@ -706,14 +733,25 @@
                 v\right\rangle A_{flow}}{\mu P_{wet}} \end{align*}
                 <ul>
                   <li>
-                    This shows the Reynolds number is a ratio of the total
-                    inertial forces (momentum) over the total boundary stresses.
+                    This generalisation shows the Reynolds number is a ratio of
+                    the total inertial forces (momentum) over the total boundary
+                    stresses.
+                  </li>
+                  <li class="fragment">
+                    Oh, and a factor 4, but only to keep the old definition the
+                    same for pipes.
+                  </li>
+                  <li class="fragment">
+                    What would be better, is a definition that not only is the
+                    same for pipes but also has the same laminar-turbulent
+                    transition!
                   </li>
                 </ul>
               </div>
             </div>
           </section>
           <section>
+            <h3>What about general rheology?</h3>
             <ul>
               <li>
                 For Non-Newtonian flows, we need a redefinition of the Reynolds
